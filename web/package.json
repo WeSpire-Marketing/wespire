@@ -5,7 +5,7 @@
   "author": "Sanity <hello@sanity.io>",
   "scripts": {
     "dev": "next",
-    "build": "next build",
+    "build": "cd ../studio && npm run build && cd ../web && next build",
     "format": "prettier --write \"**/*.js\" \"!.next/**\" \"!node_modules/**\" \"!out/**\"",
     "lint": "eslint .",
     "start": "next start"
