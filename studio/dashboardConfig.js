@@ -18,15 +18,9 @@ export default {
                 'NOTE: Because these sites are static builds, they need to be re-deployed to see the changes when documents are published.',
               sites: [
                 {
-                  buildHookId: '635c47f31f24424f2bf2751c',
-                  title: 'Sanity Studio',
-                  name: 'test-studio-bvd4hh8g',
-                  apiId: 'd4a45da1-dbcc-40f8-bd06-2bfabcc25570'
-                },
-                {
                   buildHookId: '635c47f3fbb8074a66f5006a',
-                  title: 'Landing pages Website',
-                  name: 'test-web-seo3695q',
+                  title: 'Wespire pages',
+                  name: 'wespire-pages-builder',
                   apiId: 'dd94c1ac-87f6-47ab-8703-6ce883efd294'
                 }
               ]
@@ -36,10 +30,14 @@ export default {
         data: [
           {
             title: 'GitHub repo',
-            value: 'https://github.com/sokolenkov/test',
+            value: 'https://github.com/sokolenkov/wespire-pages-builder',
             category: 'Code'
           },
-          { title: 'Frontend', value: 'https://test-web-seo3695q.netlify.app', category: 'apps' }
+          {
+            title: 'Frontend',
+            value: 'https://wespire-pages-builder.netlify.app/',
+            category: 'apps'
+          }
         ]
       }
     },
