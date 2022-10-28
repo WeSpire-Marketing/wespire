@@ -1,7 +1,8 @@
 {
   "root": true,
   "project": {
-    "name": "test"
+    "name": "test",
+    "basePath": "/studio"
   },
   "api": {
     "projectId": "umko2xz8",
@@ -19,9 +20,7 @@
   ],
   "env": {
     "development": {
-      "plugins": [
-        "@sanity/vision"
-      ]
+      "plugins": ["@sanity/vision"]
     }
   },
   "parts": [
