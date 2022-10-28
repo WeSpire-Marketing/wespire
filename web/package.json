@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "sanity-nextjs-landing-pages-web",
+  "name": "wespire-pages-builder-web",
   "version": "1.0.12",
   "author": "Sanity <hello@sanity.io>",
   "scripts": {

@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "sanity-nextjs-landing-pages",
+  "name": "wespire-pages-builder",
   "version": "1.0.12",
   "scripts": {
     "build": "lerna run build --parallel",
