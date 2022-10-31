@@ -42,18 +42,17 @@ export default function BlogCard({publishedAt, categories, imageData, excerpt, t
           </div>
 
           <div className="blog__info mb-6 flex items-center justify-between lg:mb-8">
-            {categories.map(({title, color}, idx) => {
-              return (
-                <span
-                  className="tags-s inline-flex w-min rounded-[50px] border bg-white px-[12px] py-[8px]
-                  lg:w-fit"
-                  style={{color: color, border: `1px solid ${color}`}}
-                  key={title + idx}
-                >
-                  {title}
-                </span>
-              )
-            })}
+            {/* If there a few categories - show only first */}
+            {categories.slice(0, 1).map(({title, color}, idx) => (
+              <span
+                className="tags-s inline-flex w-min rounded-[50px] border bg-white px-[12px] py-[8px]
+                lg:w-fit"
+                style={{color: color, border: `1px solid ${color}`}}
+                key={title + idx}
+              >
+                {title}
+              </span>
+            ))}
 
             <p className="date text-[14px] leading-160 text-[#9E9E9E] lg:text-base">
               {formatTimestamp(publishedAt)}
