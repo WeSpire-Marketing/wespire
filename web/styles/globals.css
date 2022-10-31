@@ -1,0 +1,90 @@
+@import './fonts.css';
+@import 'swiper/css';
+@import './typography.css';
+@import './components.css';
+
+@tailwind base;
+@tailwind utilities;
+
+:root {
+  --container-max-w: 1288px;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito';
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  display: inline-block;
+
+  color: inherit;
+  text-decoration: none;
+}
+
+.select__input {
+  color: transparent !important;
+}
+
+/* Rewrite the default behavior of browsers when autocomplete*/
+input:-webkit-autofill,
+select:-webkit-autofill,
+textarea:-webkit-autofill {
+  -webkit-text-fill-color: #121212;
+  box-shadow: 0 0 0 2px rgba(23, 113, 220, 0), inset 0 0 0 50px white;
+  -webkit-box-shadow: 0 0 0 2px rgba(23, 113, 220, 0), inset 0 0 0 50px white;
+}
+
+input:-webkit-autofill:hover,
+select:-webkit-autofill:hover,
+textarea:-webkit-autofill:hover {
+  border: 1px solid #1771dc;
+  -webkit-text-fill-color: #121212;
+}
+
+input:-webkit-autofill:focus,
+select:-webkit-autofill:focus,
+textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: #121212;
+  border: 1px solid #1771dc;
+  box-shadow: 0 0 0 2px rgba(23, 113, 220, 0.4), inset 0 0 0 50px white;
+  -webkit-box-shadow: 0 0 0 2px rgba(23, 113, 220, 0.4), inset 0 0 0 50px white;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.form-input.form-input--error:-webkit-autofill:focus {
+  -webkit-text-fill-color: #121212;
+  border: 1px solid #e74444;
+  box-shadow: 0 0 0 2px rgba(231, 68, 68, 0.4), inset 0 0 0 50px white;
+  -webkit-box-shadow: 0 0 0 2px rgba(231, 68, 68, 0.4), inset 0 0 0 50px white;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input.form-input--error:-webkit-autofill:focus {
+  -webkit-text-fill-color: #121212;
+  border: 1px solid #e74444;
+  box-shadow: 0 0 0 2px rgba(231, 68, 68, 0.4), inset 0 0 0 50px white;
+  -webkit-box-shadow: 0 0 0 2px rgba(231, 68, 68, 0.4), inset 0 0 0 50px white;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* .form-input--blackOutline:-webkit-autofill,
+.form-input--blackOutline:-webkit-autofill:hover,
+.form-input--blackOutline:-webkit-autofill:focus {
+  -webkit-text-fill-color: #121212;
+  border: 1px solid #121212;
+  box-shadow: 0 0 0 2px rgba(18, 18, 18, 0.4), inset 0 0 0 50px white;
+  -webkit-box-shadow: 0 0 0 2px rgba(18, 18, 18, 0.4), inset 0 0 0 50px white;
+  transition: background-color 5000s ease-in-out 0s;
+} */

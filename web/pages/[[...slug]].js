@@ -1,27 +1,40 @@
-import imageUrlBuilder from '@sanity/image-url'
 import groq from 'groq'
+import React from 'react'
 import {NextSeo} from 'next-seo'
 import PropTypes from 'prop-types'
-import React from 'react'
+import imageUrlBuilder from '@sanity/image-url'
 
 import client from '../client'
-import Layout from '../components/Layout'
+import Layout from '../components/layouts/MainLayout'
 import RenderSections from '../components/RenderSections'
 import {getSlugVariations, slugParamToPath} from '../utils/urls'
 
 const pageFragment = groq`
 ...,
-content[] {
+"config": *[_id == "global-config"][0] {
   ...,
-  cta {
+},
+content {
+  ...,
+  sections[] {
     ...,
-    route->
-  },
-  ctas[] {
-    ...,
-    route->
+    _type == 'cardsSection' => {
+      ...,
+      "blogs": blogs[] -> {
+        imageData,
+        "categories": categories[] -> {
+          title,
+          color,
+        },
+        title,
+        publishedAt,
+        excerpt,
+        slug,
+      }
+    },
   }
-}`
+}
+`
 
 /**
  * Fetches data for our pages.
@@ -124,7 +137,7 @@ const LandingPage = (props) => {
         }}
         noindex={disallowRobots}
       />
-      {content && <RenderSections sections={content} />}
+      {content?.sections && <RenderSections sections={content?.sections} />}
     </Layout>
   )
 }

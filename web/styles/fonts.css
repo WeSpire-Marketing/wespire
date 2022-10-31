@@ -1,0 +1,66 @@
+@font-face {
+  font-family: 'Nunito';
+  src: url('../assets/fonts/nunito/NunitoRegular.eot');
+  src: url('../assets/fonts/nunito/NunitoRegular.eot')
+      format('embedded-opentype'),
+    url('../assets/fonts/nunito/NunitoRegular.woff2') format('woff2'),
+    url('../assets/fonts/nunito/NunitoRegular.woff') format('woff'),
+    url('../assets/fonts/nunito/NunitoRegular.ttf') format('truetype'),
+    url('../assets/fonts/nunito/NunitoRegular.svg#NunitoRegular') format('svg');
+  font-display: swap;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('../assets/fonts/nunito/NunitoMedium.eot');
+  src: url('../assets/fonts/nunito/NunitoMedium.eot')
+      format('embedded-opentype'),
+    url('../assets/fonts/nunito/NunitoMedium.woff2') format('woff2'),
+    url('../assets/fonts/nunito/NunitoMedium.woff') format('woff'),
+    url('../assets/fonts/nunito/NunitoMedium.ttf') format('truetype'),
+    url('../assets/fonts/nunito/NunitoMedium.svg#NunitoMedium') format('svg');
+  font-display: swap;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../assets/fonts/poppins/PoppinsRegular.eot');
+  src: url('../assets/fonts/poppins/PoppinsRegular.eot')
+      format('embedded-opentype'),
+    url('../assets/fonts/poppins/PoppinsRegular.woff2') format('woff2'),
+    url('../assets/fonts/poppins/PoppinsRegular.woff') format('woff'),
+    url('../assets/fonts/poppins/PoppinsRegular.ttf') format('truetype'),
+    url('../assets/fonts/poppins/PoppinsRegular.svg#PoppinsRegular')
+      format('svg');
+  font-display: swap;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../assets/fonts/poppins/PoppinsMedium.eot');
+  src: url('../assets/fonts/poppins/PoppinsMedium.eot')
+      format('embedded-opentype'),
+    url('../assets/fonts/poppins/PoppinsMedium.woff2') format('woff2'),
+    url('../assets/fonts/poppins/PoppinsMedium.woff') format('woff'),
+    url('../assets/fonts/poppins/PoppinsMedium.ttf') format('truetype'),
+    url('../assets/fonts/poppins/PoppinsMedium.svg#PoppinsMedium') format('svg');
+  font-display: swap;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../assets/fonts/poppins/PoppinsSemiBold.eot');
+  src: url('../assets/fonts/poppins/PoppinsSemiBold.eot')
+      format('embedded-opentype'),
+    url('../assets/fonts/poppins/PoppinsSemiBold.woff2') format('woff2'),
+    url('../assets/fonts/poppins/PoppinsSemiBold.woff') format('woff'),
+    url('../assets/fonts/poppins/PoppinsSemiBold.ttf') format('truetype'),
+    url('../assets/fonts/poppins/PoppinsSemiBold.svg#PoppinsSemiBold')
+      format('svg');
+  font-display: swap;
+  font-weight: 600;
+}
