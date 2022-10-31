@@ -8,6 +8,7 @@ import client from '../client'
 import Layout from '../components/layouts/MainLayout'
 import RenderSections from '../components/RenderSections'
 import {getSlugVariations, slugParamToPath} from '../utils/urls'
+import {linkTags, metaTags} from '../utils/seo'
 
 const pageFragment = groq`
 ...,
@@ -129,6 +130,8 @@ const LandingPage = (props) => {
     <Layout config={config}>
       <NextSeo
         title={title}
+        additionalLinkTags={linkTags}
+        additionalMetaTags={metaTags}
         titleTemplate={`%s | ${config.title}`}
         description={description}
         canonical={config.url && `${config.url}/${slug}`}
