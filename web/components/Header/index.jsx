@@ -13,45 +13,16 @@ export default function Header({nav, link}) {
   const [activeIndex, setActiveIndex] = useState(null)
 
   const color = useMemo(() => {
-    switch (router.pathname) {
-      case '/why-wespire':
-        return '#fff'
-      case '/blog/[slug]':
-        return '#fff'
-      default:
-        return '#1771DC'
-    }
+    if (router.pathname === '/blog/[slug]' || router.asPath === '/blog/[slug]') return '#fff'
+    if (router.pathname === '/our-expertise' || router.asPath === '/our-expertise') return '#fff'
+    return '#1771DC'
   }, [router.pathname])
 
   const theme = useMemo(() => {
-    switch (router.pathname) {
-      case '/why-wespire':
-        return 'cta-btn'
-      case '/blog/[slug]':
-        return 'cta-btn'
-      default:
-        return 'primary-btn'
-    }
+    if (router.pathname === '/blog/[slug]' || router.asPath === '/blog/[slug]') return 'cta-btn'
+    if (router.pathname === '/our-expertise' || router.asPath === '/our-expertise') return 'cta-btn'
+    return 'primary-btn'
   }, [router.pathname])
-
-  const DesktopLogo = useMemo(() => {
-    const StaticLogo = () => (
-      <Link href="/" passHref>
-        <a className="logo__link flex translate-y-[-6px]">
-          <Logo color={isMenuOpen ? '#1771DC' : color} />
-        </a>
-      </Link>
-    )
-
-    switch (router.pathname) {
-      case '/why-wespire':
-        return StaticLogo
-      case '/blog/[slug]':
-        return StaticLogo
-      default:
-        return StaticLogo
-    }
-  }, [color, isMenuOpen, router.pathname])
 
   const closeMenu = (e) => {
     setMenuOpen(false)
@@ -68,7 +39,11 @@ export default function Header({nav, link}) {
       <div className="inner relative">
         <div className="mx-auto w-[100%] max-w-[1354px] px-8">
           <div className="relative z-20 flex max-h-[65px] w-[100%] items-center justify-between">
-            <DesktopLogo />
+            <Link href="/" passHref>
+              <a className="logo__link flex translate-y-[-6px]">
+                <Logo color={isMenuOpen ? '#1771DC' : color} />
+              </a>
+            </Link>
 
             <nav className="nav z-20">
               <ul className="nav__list flex items-center">

@@ -39,35 +39,23 @@ export default function NavItem({
   }
 
   const linkColor = useMemo(() => {
-    switch (router.pathname) {
-      case '/why-wespire':
-        return 'text-white'
-      case '/blog/[slug]':
-        return 'text-white'
-      default:
-        return 'text-black'
-    }
-  }, [router.pathname])
+    if (router.pathname === '/blog/[slug]' || router.asPath === '/blog/[slug]') return 'text-white'
+    if (router.pathname === '/our-expertise' || router.asPath === '/our-expertise')
+      return 'text-white'
+    return 'text-black'
+  }, [router.asPath])
 
   const chevronColor = useMemo(() => {
-    switch (router.pathname) {
-      case '/why-wespire':
-        return '#fff'
-      case '/blog/[slug]':
-        return '#fff'
-      default:
-        return '#121212'
-    }
-  }, [router.pathname])
+    if (router.pathname === '/blog/[slug]' || router.asPath === '/blog/[slug]') return '#fff'
+    if (router.pathname === '/our-expertise' || router.asPath === '/our-expertise') return '#fff'
+    return '#121212'
+  }, [router.asPath])
 
   const underlineColor = useMemo(() => {
-    switch (router.pathname) {
-      case '/blog/[slug]':
-        return '#fff'
-      default:
-        return '#ea7f49'
-    }
-  }, [router.pathname])
+    if (router.pathname === '/blog/[slug]' || router.asPath === '/blog/[slug]') return '#fff'
+    if (router.pathname === '/our-expertise' || router.asPath === '/our-expertise') return '#fff'
+    return '#ea7f49'
+  }, [router.asPath])
 
   return (
     <li

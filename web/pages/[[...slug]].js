@@ -33,6 +33,23 @@ content {
         slug,
       }
     },
+    _type == 'blogTemplate' => {
+      ...,
+      "blogs": blogs[] -> {
+        imageData,
+        "categories": categories[] -> {
+          title,
+          color,
+        },
+        title,
+        publishedAt,
+        excerpt,
+        slug,
+      },
+      "categories": *[_type == "category"] {
+        ...,
+      }
+    },
   }
 }
 `
@@ -77,7 +94,7 @@ export const getServerSideProps = async ({params}) => {
       .then((res) => (res?.page ? {...res.page, slug} : undefined))
   }
 
-  if (!data?._type === 'page') {
+  if (!data?._type === 'page' || !data) {
     return {
       notFound: true,
     }

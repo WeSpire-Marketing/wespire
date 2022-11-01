@@ -7,7 +7,7 @@ export default {
       name: 'title',
       type: 'string',
       title: 'Section text',
-      validation: (Rule) => Rule.required(),
+      validation: Rule => Rule.required()
     },
     {
       name: 'link',
@@ -18,26 +18,26 @@ export default {
           name: 'text',
           type: 'string',
           title: 'Link text',
-          validation: (Rule) => Rule.required(),
+          validation: Rule => Rule.required()
         },
         {
           name: 'url',
           type: 'string',
           title: 'Link url',
-          validation: (Rule) => Rule.required(),
+          validation: Rule => Rule.required()
         },
         {
           name: 'internal',
           type: 'boolean',
-          title: 'External/internal link',
+          title: 'Internal link',
           description: 'By default all links are external and opens in new tab',
-          validation: (Rule) => Rule.required(),
-        },
+          validation: Rule => Rule.required()
+        }
       ],
       initialValue: {
-        internal: false,
+        internal: false
       },
-      validation: (Rule) => Rule.required(),
-    },
-  ],
+      validation: Rule => Rule.required()
+    }
+  ]
 }

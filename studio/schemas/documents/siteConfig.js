@@ -1,8 +1,10 @@
 import bcp47 from 'bcp47'
+import { ControlsIcon } from '@sanity/icons'
 
 export default {
   name: 'site-config',
   type: 'document',
+  icon: ControlsIcon,
   title: 'Site configuration',
   // https://www.sanity.io/docs/experimental/ui-affordances-for-actions
   __experimental_actions: [/* "create", "delete", */ 'update', 'publish'],

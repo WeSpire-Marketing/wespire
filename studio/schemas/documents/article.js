@@ -1,7 +1,10 @@
+import { BookIcon } from '@sanity/icons'
+
 export default {
   name: 'article',
   type: 'document',
   title: 'Articles',
+  icon: BookIcon,
   fields: [
     {
       name: 'pageMeta',
@@ -185,6 +188,11 @@ export default {
         }
       ],
       validation: Rule => Rule.required().max(3)
+    },
+    {
+      name: 'ctaSection',
+      type: 'ctaSection',
+      validation: Rule => Rule.required()
     }
   ]
 }

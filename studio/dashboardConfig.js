@@ -15,7 +15,7 @@ export default {
             name: 'netlify',
             options: {
               description:
-                'NOTE: Because these sites are static builds, they need to be re-deployed to see the changes when documents are published.',
+                'NOTE: Now you can see the changes on the pages immediately, but also these pages can be static. In this case pages need to be re-deployed to see the changes when documents are published.',
               sites: [
                 {
                   buildHookId: '635c47f3fbb8074a66f5006a',
@@ -30,7 +30,7 @@ export default {
         data: [
           {
             title: 'GitHub repo',
-            value: 'https://github.com/sokolenkov/wespire-pages-builder',
+            value: 'https://github.com/Halo-lab/wespire-pages-builder',
             category: 'Code'
           },
           {
