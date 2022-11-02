@@ -46,6 +46,12 @@ export async function getServerSideProps({params}) {
     {slug}
   )
 
+  if (!data) {
+    return {
+      notFound: true,
+    }
+  }
+
   return {
     props: {
       data,

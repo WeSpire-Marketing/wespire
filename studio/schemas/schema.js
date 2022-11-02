@@ -9,6 +9,7 @@ import page from './documents/page'
 import route from './documents/route'
 import author from './documents/author'
 import article from './documents/article'
+import stories from './documents/stories'
 import category from './documents/category'
 import siteConfig from './documents/siteConfig'
 
@@ -44,6 +45,7 @@ import sectionsBuilder from './objects/sectionsBuilder'
 // sections
 import hero from './sections/hero'
 import heroVideo from './sections/heroVideo'
+import heroQuote from './sections/heroQuote'
 import ctaSection from './sections/ctaSection'
 import longSection from './sections/longSection'
 import cardsSection from './sections/cardsSection'
@@ -51,16 +53,27 @@ import imageSection from './sections/imageSection'
 import quoteSection from './sections/quoteSection'
 import valuesSection from './sections/valuesSection'
 import sliderSection from './sections/sliderSection'
+import sessionSection from './sections/sessionSection'
 import contentSection from './sections/contentSection'
 import heroInfoSection from './sections/heroInfoSection'
 import heroImageAndForm from './sections/heroImageAndForm'
 import capabilitiesSection from './sections/capabilitiesSection'
 import openingsPressSection from './sections/openingsPressSection'
+import customerStoriesSection from './sections/customerStoriesSection'
+import heroCTAFormSection from './sections/heroCTAFormSection'
+import hostsSection from './sections/hostsSection'
+import mostPopularSection from './sections/mostPopularSection'
+import categoriesWithBlogsSection from './sections/categoriesWithBlogsSection'
+import contactusSection from './sections/contactusSection'
 
 // templates
 import blogTemplate from './templates/blogTemplate'
 import productTemplate from './templates/productTemplate'
+import customersTemplate from './templates/customersTemplate'
+import resourcesTemplate from './templates/resourcesTemplate'
+import contactusTemplate from './templates/contactusTemplate'
 import whyWespireTemplate from './templates/whyWespireTemplate'
+import wespireLiveTemplate from './templates/wespireLiveTemplate'
 import solutionsOverviewTemplate from './templates/solutionsOverviewTemplate'
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -72,10 +85,22 @@ export default createSchema({
     // templates
     blogTemplate,
     productTemplate,
+    customersTemplate,
+    resourcesTemplate,
+    contactusTemplate,
     whyWespireTemplate,
+    wespireLiveTemplate,
     solutionsOverviewTemplate,
     // sections
     hero,
+    heroQuote,
+    hostsSection,
+    contactusSection,
+    categoriesWithBlogsSection,
+    mostPopularSection,
+    heroCTAFormSection,
+    sessionSection,
+    customerStoriesSection,
     heroVideo,
     capabilitiesSection,
     heroInfoSection,
@@ -93,6 +118,7 @@ export default createSchema({
 
     // other types
     video,
+    stories,
     textRow,
     textCol,
     article,

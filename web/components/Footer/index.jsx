@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import {useRouter} from 'next/router'
 
 import ListLink from './components/ListLink'
 import FooterLink from './components/FooterLink'
@@ -6,8 +7,14 @@ import FooterLink from './components/FooterLink'
 import {urlForImage} from '../../client'
 
 export default function Footer({logo, address, socials, menuItems, year, policy, privacy}) {
+  const router = useRouter()
+
   return (
-    <footer className="footer">
+    <footer
+      className={
+        router?.asPath === '/contact-us' ? 'footer rounded-t-[30px] lg:rounded-t-[60px]' : 'footer'
+      }
+    >
       <div className="container">
         <div className="footer__body">
           <div className="footer__left flex w-[100%] max-w-[204px] flex-col gap-8 lg:gap-10">

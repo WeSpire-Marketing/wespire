@@ -4,11 +4,12 @@ import {NextSeo} from 'next-seo'
 import PropTypes from 'prop-types'
 import imageUrlBuilder from '@sanity/image-url'
 
-import client from '../client'
 import Layout from '../components/layouts/MainLayout'
 import RenderSections from '../components/RenderSections'
-import {getSlugVariations, slugParamToPath} from '../utils/urls'
+
+import client from '../client'
 import {linkTags, metaTags} from '../utils/seo'
+import {getSlugVariations, slugParamToPath} from '../utils/urls'
 
 const pageFragment = groq`
 ...,
@@ -19,6 +20,57 @@ content {
   ...,
   sections[] {
     ...,
+    _type == 'wespireLiveTemplate' => {
+      ...,
+      "sections": sections{
+        ...,
+        "sessionSection": sessionSection{
+          ...,
+          "cards": cards[] -> {
+            imageData,
+            "categories": categories[] -> {
+              title,
+              color,
+            },
+            title,
+            publishedAt,
+            excerpt,
+            slug,
+          }
+        },
+        "mostPopularSection": mostPopularSection{
+          ...,
+          "blogs": blogs[] -> {
+            imageData,
+            "categories": categories[] -> {
+              title,
+              color,
+            },
+            title,
+            publishedAt,
+            excerpt,
+            slug,
+          }
+        },
+        "categoriesWithBlogsSection": categoriesWithBlogsSection{
+          ...,
+          "categories": *[_type == 'category']{
+            title,
+          },
+          "blogs": blogs[] -> {
+            imageData,
+            "categories": categories[] -> {
+              title,
+              color,
+            },
+            title,
+            publishedAt,
+            excerpt,
+            slug,
+          }
+        }
+      }
+    },
     _type == 'cardsSection' => {
       ...,
       "blogs": blogs[] -> {
@@ -50,7 +102,50 @@ content {
         ...,
       }
     },
-  }
+    _type == 'customersTemplate' => {
+      ...,
+      "sections": sections {
+        ...,
+        "customerStoriesSection": customerStoriesSection{
+          ...,
+          "stories": stories[]->{
+            storyCard,
+          }
+        }
+      }
+    },
+    _type == 'resourcesTemplate' => {
+      ...,
+      "blogs": blogs[] -> {
+        imageData,
+        "categories": categories[] -> {
+          title,
+          color
+        },
+        title,
+        publishedAt,
+        excerpt,
+        slug,
+      },
+      "categories": *[_type == 'category']{
+        title,
+      },
+      "sessionSection": sessionSection{
+        ...,
+        "cards": cards[] -> {
+          title,
+          publishedAt,
+          excerpt,
+          slug,
+          imageData,
+          "categories": categories[] -> {
+            title,
+            color
+          },
+        }
+      },
+    },
+  },
 }
 `
 
