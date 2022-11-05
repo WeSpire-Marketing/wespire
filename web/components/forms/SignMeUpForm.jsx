@@ -26,7 +26,7 @@ export default function SignMeUpForm({
   } = useForm({mode: 'onSubmit'})
   const {validateEmail} = useValidators()
   const [message, setMessage] = useState(buttonText)
-  const pageUri = `${process.env.NEXT_PUBLIC_DOMAIN ?? 'https://wespire.com'}${router.pathname}`
+  const pageUri = `${process.env.NEXT_PUBLIC_DOMAIN ?? 'https://wespire.com'}${router.asPath}`
   const pageNameRef = useRef(pageUri)
 
   useEffect(() => {

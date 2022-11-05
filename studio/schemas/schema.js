@@ -73,12 +73,15 @@ import tabsSection from './sections/tabsSection'
 import awardsSection from './sections/awardsSection'
 import heroFormVideo from './sections/heroFormVideo'
 import ourCustomersSection from './sections/ourCustomersSection'
+import heroCTASection from './sections/heroCTASection'
 
 // templates
 import blogTemplate from './templates/blogTemplate'
+import homeTemplate from './templates/homeTemplate'
 import landingTemplate from './templates/landingTemplate'
 import productTemplate from './templates/productTemplate'
 import careersTemplate from './templates/careersTemplate'
+import personaTemplate from './templates/personaTemplate'
 import newsRoomTemplate from './templates/newsRoomTemplate'
 import customersTemplate from './templates/customersTemplate'
 import resourcesTemplate from './templates/resourcesTemplate'
@@ -99,6 +102,8 @@ export default createSchema({
   types: schemaTypes.concat([
     // templates
     blogTemplate,
+    homeTemplate,
+    personaTemplate,
     productTemplate,
     customersTemplate,
     resourcesTemplate,
@@ -117,6 +122,7 @@ export default createSchema({
     hero,
     heroForm,
     heroQuote,
+    heroCTASection,
     heroFormVideo,
     hostsSection,
     tabsSection,

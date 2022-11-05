@@ -146,7 +146,6 @@ export const normalizeDemoFormData = ({
     ],
     context: {
       hutk,
-      ipAddress: ip,
       pageUri: 'www.wespire.com/book-demo',
       pageName: 'Book Demo',
     },
@@ -154,16 +153,20 @@ export const normalizeDemoFormData = ({
       consent: {
         // Include this object when GDPR options are enabled
         consentToProcess: true,
-        text: 'I agree to allow Example Company to store and process my personal data.',
+        text: 'I agree to allow Wespire to store and process my personal data.',
         communications: [
           {
             value: true,
             subscriptionTypeId: 999,
-            text: 'I agree to receive marketing communications from Example Company.',
+            text: 'I agree to receive marketing communications from Wespire.',
           },
         ],
       },
     },
+  }
+
+  if (ip) {
+    preparedData.context.ipAddress = ip
   }
 
   return preparedData
@@ -183,22 +186,25 @@ export const normalizeSignMeUpFormData = ({email, pageUri, pageName, ip}) => {
       hutk,
       pageUri,
       pageName,
-      ipAddress: ip,
     },
     legalConsentOptions: {
       consent: {
         // Include this object when GDPR options are enabled
         consentToProcess: true,
-        text: 'I agree to allow Example Company to store and process my personal data.',
+        text: 'I agree to allow Wespire to store and process my personal data.',
         communications: [
           {
             value: true,
             subscriptionTypeId: 999,
-            text: 'I agree to receive marketing communications from Example Company.',
+            text: 'I agree to receive marketing communications from Wespire.',
           },
         ],
       },
     },
+  }
+
+  if (ip) {
+    preparedData.context.ipAddress = ip
   }
 
   return preparedData
@@ -250,7 +256,6 @@ export const normalizeContactFormData = ({
     ],
     context: {
       hutk,
-      ipAddress: ip,
       pageUri: 'www.wespire.com/book-demo',
       pageName: 'Book Demo',
     },
@@ -258,16 +263,20 @@ export const normalizeContactFormData = ({
       consent: {
         // Include this object when GDPR options are enabled
         consentToProcess: true,
-        text: 'I agree to allow Example Company to store and process my personal data.',
+        text: 'I agree to allow Wespire to store and process my personal data.',
         communications: [
           {
             value: true,
             subscriptionTypeId: 999,
-            text: 'I agree to receive marketing communications from Example Company.',
+            text: 'I agree to receive marketing communications from Wespire.',
           },
         ],
       },
     },
+  }
+
+  if (ip) {
+    preparedData.context.ipAddress = ip
   }
 
   return preparedData

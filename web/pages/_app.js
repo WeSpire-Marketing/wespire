@@ -1,5 +1,7 @@
 import React from 'react'
 import BaseApp from 'next/app'
+import Script from 'next/script'
+import {AnimatePresence} from 'framer-motion'
 import client from '../client'
 import '../styles/globals.css'
 import '../styles/shared.module.css'
@@ -44,7 +46,22 @@ class App extends BaseApp {
 
   render() {
     const {Component, pageProps} = this.props
-    return <Component {...pageProps} />
+    return (
+      <>
+        {/* <!-- Start of HubSpot Embed Code --> */}
+        <Script
+          type="text/javascript"
+          id="hs-script-loader"
+          async
+          defer
+          src="//js.hs-scripts.com/8353230.js"
+        />
+        {/* <!-- End of HubSpot Embed Code --> */}
+        <AnimatePresence mode="wait">
+          <Component {...pageProps} />
+        </AnimatePresence>
+      </>
+    )
   }
 }
 

@@ -20,6 +20,26 @@ content {
   ...,
   sections[] {
     ...,
+    _type == 'homeTemplate' => {
+      ...,
+      "sections": sections{
+        ...,
+        "cardsSection": cardsSection{
+          ...,
+          "blogs": blogs[] -> {
+            imageData,
+            "categories": categories[] -> {
+              title,
+              color,
+            },
+            title,
+            publishedAt,
+            excerpt,
+            slug,
+          }
+        },
+      },
+    },
     _type == 'wespireLiveTemplate' => {
       ...,
       "sections": sections{
