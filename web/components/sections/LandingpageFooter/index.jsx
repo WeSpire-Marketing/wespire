@@ -11,7 +11,6 @@ export default function LandingpageFooter({brand, socials}) {
         <ul className="socials flex items-center gap-[30px]">
           {socials?.length > 0 &&
             socials.map(({_key, icon}) => {
-              console.log(icon)
               return (
                 <li className="inline-flex items-center" key={_key}>
                   <a
@@ -26,6 +25,7 @@ export default function LandingpageFooter({brand, socials}) {
                       height={28}
                       alt={icon.alt}
                       layout="responsive"
+                      objectFit="contain"
                     />
                   </a>
                 </li>
