@@ -11,15 +11,22 @@ export default function LandingpageFooter({brand, socials}) {
         <ul className="socials flex items-center gap-[30px]">
           {socials?.length > 0 &&
             socials.map(({_key, icon}) => {
+              console.log(icon)
               return (
-                <li key={_key}>
+                <li className="inline-flex items-center" key={_key}>
                   <a
-                    className="relative inline-flex h-[28px] w-[28px]"
+                    className="inline-block w-[28px] h-[28px]"
                     href={icon.link}
                     target="_blank"
                     rel="noreferrer noopener"
                   >
-                    <Image src={urlForImage(icon).url()} alt={icon.alt} layout="fill" />
+                    <Image
+                      src={urlForImage(icon).url()}
+                      width={28}
+                      height={28}
+                      alt={icon.alt}
+                      layout="responsive"
+                    />
                   </a>
                 </li>
               )
