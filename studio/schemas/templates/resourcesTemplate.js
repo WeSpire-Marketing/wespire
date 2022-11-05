@@ -1,7 +1,7 @@
 export default {
   name: 'resourcesTemplate',
   title: 'Resources template',
-  type: 'document',
+  type: 'object',
   fields: [
     // {
     //   name: 'pageMeta',

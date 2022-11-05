@@ -6,11 +6,35 @@ import MobileMenu from '../MobileMenu'
 
 import variants from '../../utils/transitions'
 
-export default function MainLayout({children, config: {mainNavigation, footerNavigation}}) {
+export default function MainLayout({
+  children,
+  hideDesktopNav = false,
+  hideMobileNav = false,
+  config: {mainNavigation, footerNavigation},
+  template,
+}) {
+  let color
+  let btnType
+
+  if (template === 'whyWespireTemplate') {
+    color = '#fff'
+    btnType = 'cta-btn'
+  }
+  if (template === 'articleTemplate') {
+    color = '#fff'
+    btnType = 'cta-btn'
+  }
+  if (template === 'landingTemplate') {
+    color = '#fff'
+  }
+  if (template === 'landingVideoTemplate') {
+    color = '#fff'
+  }
+
   return (
     <div className="main-layout relative">
-      <Header {...mainNavigation} />
-      <MobileMenu {...mainNavigation} />
+      {!hideDesktopNav && <Header {...mainNavigation} logoColor={color} btnType={btnType} />}
+      {!hideMobileNav && <MobileMenu {...mainNavigation} navColor={color} />}
       <motion.main
         className="main"
         variants={variants}
@@ -20,7 +44,7 @@ export default function MainLayout({children, config: {mainNavigation, footerNav
       >
         {children}
       </motion.main>
-      <Footer {...footerNavigation} />
+      {!hideDesktopNav && <Footer {...footerNavigation} />}
     </div>
   )
 }

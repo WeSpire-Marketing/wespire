@@ -65,15 +65,30 @@ import hostsSection from './sections/hostsSection'
 import mostPopularSection from './sections/mostPopularSection'
 import categoriesWithBlogsSection from './sections/categoriesWithBlogsSection'
 import contactusSection from './sections/contactusSection'
+import leadershipSection from './sections/leadershipSection'
+import articlesPressSection from './sections/articlesPressSection'
+import heroForm from './sections/heroForm'
+import measureSection from './sections/measureSection'
+import tabsSection from './sections/tabsSection'
+import awardsSection from './sections/awardsSection'
+import heroFormVideo from './sections/heroFormVideo'
+import ourCustomersSection from './sections/ourCustomersSection'
 
 // templates
 import blogTemplate from './templates/blogTemplate'
+import landingTemplate from './templates/landingTemplate'
 import productTemplate from './templates/productTemplate'
+import careersTemplate from './templates/careersTemplate'
+import newsRoomTemplate from './templates/newsRoomTemplate'
 import customersTemplate from './templates/customersTemplate'
 import resourcesTemplate from './templates/resourcesTemplate'
 import contactusTemplate from './templates/contactusTemplate'
 import whyWespireTemplate from './templates/whyWespireTemplate'
+import leadershipTemplate from './templates/leadershipTemplate'
 import wespireLiveTemplate from './templates/wespireLiveTemplate'
+import requestDemoTemplate from './templates/requestDemoTemplate'
+import landingVideoTemplate from './templates/landingVideoTemplate'
+import privacyPolicyTemplate from './templates/privacyPolicyTemplate'
 import solutionsOverviewTemplate from './templates/solutionsOverviewTemplate'
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -89,13 +104,28 @@ export default createSchema({
     resourcesTemplate,
     contactusTemplate,
     whyWespireTemplate,
+    newsRoomTemplate,
+    landingVideoTemplate,
     wespireLiveTemplate,
+    privacyPolicyTemplate,
     solutionsOverviewTemplate,
+    requestDemoTemplate,
+    careersTemplate,
+    landingTemplate,
+    leadershipTemplate,
     // sections
     hero,
+    heroForm,
     heroQuote,
+    heroFormVideo,
     hostsSection,
+    tabsSection,
+    awardsSection,
+    measureSection,
+    ourCustomersSection,
+    articlesPressSection,
     contactusSection,
+    leadershipSection,
     categoriesWithBlogsSection,
     mostPopularSection,
     heroCTAFormSection,

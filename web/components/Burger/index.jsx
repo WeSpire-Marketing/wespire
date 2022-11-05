@@ -1,9 +1,9 @@
-import { useMemo } from 'react'
-import { motion } from 'framer-motion'
-import { useRouter } from 'next/router'
+import {useMemo} from 'react'
+import {motion} from 'framer-motion'
+import {useRouter} from 'next/router'
 
-export default function Burger({ isMenuOpen, toggleMenu }) {
-  const router = useRouter()
+export default function Burger({isMenuOpen, toggleMenu, color = '#121212'}) {
+  // const router = useRouter()
 
   const variants = useMemo(
     () => ({
@@ -18,30 +18,27 @@ export default function Burger({ isMenuOpen, toggleMenu }) {
     []
   )
 
-  const color = useMemo(() => {
-    switch (router.pathname) {
-      case '/landing':
-        return isMenuOpen ? '#121212' : '#fff'
-      case '/landing-video':
-        return isMenuOpen ? '#121212' : '#fff'
-      case '/blog/[slug]':
-        return isMenuOpen ? '#121212' : '#fff'
-      case '/why-wespire':
-        return isMenuOpen ? '#121212' : '#fff'
-      default:
-        // black
-        return '#121212'
-    }
-  }, [isMenuOpen, router.pathname])
+  // const color = useMemo(() => {
+  //   // always return blue color when menu is open
+  //   if (isMenuOpen) return '#121212'
+
+  //   switch (router.pathname) {
+  //     case '/blog/[slug]':
+  //       return isMenuOpen ? '#121212' : '#fff'
+  //     default:
+  //       // black
+  //       return '#121212'
+  //   }
+  // }, [isMenuOpen, router.pathname])
 
   return (
     <button className="flex flex-col gap-[6px]" onClick={toggleMenu}>
       <motion.span
         className="h-[3px] w-[38px] rounded-[2px]"
-        initial={{ opacity: 0 }}
+        initial={{opacity: 0}}
         animate={{
           opacity: 1,
-          backgroundColor: color,
+          backgroundColor: isMenuOpen ? '#121212' : color,
           y: isMenuOpen ? '9px' : '0px',
           rotate: isMenuOpen ? '45deg' : '0deg',
           transition: isMenuOpen ? variants.open : variants.closed,
@@ -49,10 +46,10 @@ export default function Burger({ isMenuOpen, toggleMenu }) {
       />
       <motion.span
         className="h-[3px] w-[38px] rounded-[2px]"
-        initial={{ opacity: 0 }}
+        initial={{opacity: 0}}
         animate={{
           opacity: 1,
-          backgroundColor: color,
+          backgroundColor: isMenuOpen ? '#121212' : color,
           y: isMenuOpen ? '0px' : '0px',
           rotate: isMenuOpen ? '-45deg' : '0deg',
           transition: isMenuOpen ? variants.open : variants.closed,
@@ -60,10 +57,10 @@ export default function Burger({ isMenuOpen, toggleMenu }) {
       />
       <motion.span
         className="h-[3px] w-[38px] rounded-[2px]"
-        initial={{ opacity: 0 }}
+        initial={{opacity: 0}}
         animate={{
           opacity: 1,
-          backgroundColor: color,
+          backgroundColor: isMenuOpen ? '#121212' : color,
           y: isMenuOpen ? '-9px' : '0px',
           rotate: isMenuOpen ? '-45deg' : '0deg',
           transition: isMenuOpen ? variants.open : variants.closed,

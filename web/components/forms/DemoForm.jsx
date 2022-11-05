@@ -1,21 +1,21 @@
-import { useForm } from 'react-hook-form'
-import { useEffect, useRef, useState } from 'react'
+import {useForm} from 'react-hook-form'
+import {useEffect, useRef, useState} from 'react'
 
-import InputGroup from 'components/InputGroup'
-import SelectGroup from 'components/SelectGroup'
+import InputGroup from '../InputGroup'
+import SelectGroup from '../SelectGroup'
 
-import useValidators from 'utils/hooks/useValidators'
-import { normalizeDemoFormData } from 'utils'
+import {normalizeDemoFormData} from '../../utils'
+import useValidators from '../../utils/hooks/useValidators'
 
 const selectOptions = [
-  { label: '1-499', value: '1-499' },
-  { label: '500-999', value: '500-999' },
-  { label: '1,000-4,999', value: '1,000-4,999' },
-  { label: '5,000-9,999', value: '5,000-9,999' },
-  { label: '10,000+', value: '10,000+' },
+  {label: '1-499', value: '1-499'},
+  {label: '500-999', value: '500-999'},
+  {label: '1,000-4,999', value: '1,000-4,999'},
+  {label: '5,000-9,999', value: '5,000-9,999'},
+  {label: '10,000+', value: '10,000+'},
 ]
 
-export default function DemoForm({ className = '', formId = '' }) {
+export default function DemoForm({className = '', formId = ''}) {
   const DEFAULT_MESSAGE = 'Book a demo'
   const ipRef = useRef('')
   const {
@@ -24,8 +24,8 @@ export default function DemoForm({ className = '', formId = '' }) {
     register,
     setValue,
     handleSubmit,
-    formState: { errors },
-  } = useForm({ mode: 'onSubmit', reValidateMode: 'onChange' })
+    formState: {errors},
+  } = useForm({mode: 'onSubmit', reValidateMode: 'onChange'})
   const {
     validateEmail,
     validatePhone,
@@ -85,7 +85,7 @@ export default function DemoForm({ className = '', formId = '' }) {
             Accept: 'application/json',
           },
           method: 'POST',
-          body: JSON.stringify(normalizeDemoFormData({ ...data, ip: ipRef.current })),
+          body: JSON.stringify(normalizeDemoFormData({...data, ip: ipRef.current})),
         }
       )
 

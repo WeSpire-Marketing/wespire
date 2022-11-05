@@ -44,7 +44,7 @@ const slideHorizontalAnimation = {
   },
 }
 
-export default function MobileMenu({nav, link}) {
+export default function MobileMenu({nav, link, navColor}) {
   const [isMenuOpen, setMenuOpen] = useState(false)
   const [isLeftMenu, toggleMenu] = useCycle(true, false)
   const [currentIndex, setCurrentIndex] = useState(null)
@@ -77,11 +77,19 @@ export default function MobileMenu({nav, link}) {
             >
               <Link href="/" passHref>
                 <a>
-                  <LogoStatic className="h-[40px] w-[125px]" isMenuOpen={isMenuOpen} />
+                  <LogoStatic
+                    className="h-[40px] w-[125px]"
+                    isMenuOpen={isMenuOpen}
+                    color={navColor}
+                  />
                 </a>
               </Link>
 
-              <Burger toggleMenu={() => setMenuOpen((prev) => !prev)} isMenuOpen={isMenuOpen} />
+              <Burger
+                toggleMenu={() => setMenuOpen((prev) => !prev)}
+                isMenuOpen={isMenuOpen}
+                color={navColor}
+              />
             </div>
 
             <ul className="my-[80px] flex flex-col gap-[40px]">

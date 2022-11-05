@@ -15,7 +15,7 @@ export default {
             name: 'netlify',
             options: {
               description:
-                'NOTE: Now you can see the changes on the pages immediately, but also these pages can be static. In this case pages need to be re-deployed to see the changes when documents are published.',
+                'NOTE: Now you can see the live changes on the site pages. In perspective these pages can be static. In this case pages need to be re-deployed to see the changes when documents are published.',
               sites: [
                 {
                   buildHookId: '635c47f3fbb8074a66f5006a',

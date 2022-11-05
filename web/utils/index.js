@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import {motion} from 'framer-motion'
 
 export const injectIconToSpanStr = (str, Icon) => {
   if (str.includes('<span>') && str.includes('</span>')) {
@@ -11,10 +11,7 @@ export const injectIconToSpanStr = (str, Icon) => {
 
     return arr.map((part, idx) =>
       idx === 1 ? (
-        <span
-          style={{ display: 'inline-block', position: 'relative', zIndex: '2' }}
-          key={part + idx}
-        >
+        <span style={{display: 'inline-block', position: 'relative', zIndex: '2'}} key={part + idx}>
           {part} <Icon />
         </span>
       ) : (
@@ -33,7 +30,7 @@ export const injectStarsToStr = (str, Icon) => {
 
   return arr.map((str, idx) => {
     return str.includes('$') ? (
-      <span style={{ display: 'inline-block', position: 'relative' }} key={idx}>
+      <span style={{display: 'inline-block', position: 'relative'}} key={idx}>
         {str.slice(1, -1)} <Icon />
       </span>
     ) : (
@@ -46,13 +43,13 @@ export const animateString = (str) => {
   const arr = str.split(' ')
   return arr.map((r, id) => (
     <motion.span
-      initial={{ width: 0, opacity: 0 }}
-      whileInView={{ width: 'auto', opacity: 1 }}
+      initial={{width: 0, opacity: 0}}
+      whileInView={{width: 'auto', opacity: 1}}
       transition={{
         duration: 1,
         delay: id * 0.01,
       }}
-      viewport={{ once: true }}
+      viewport={{once: true}}
       key={id}
     >
       {r}{' '}
@@ -172,7 +169,7 @@ export const normalizeDemoFormData = ({
   return preparedData
 }
 
-export const normalizeSignMeUpFormData = ({ email, pageUri, pageName, ip }) => {
+export const normalizeSignMeUpFormData = ({email, pageUri, pageName, ip}) => {
   const hutk = document.cookie.replace(/(?:(?:^|.*;\s*)hubspotutk\s*\=\s*([^;]*).*$)|^.*$/, '$1')
   const preparedData = {
     fields: [

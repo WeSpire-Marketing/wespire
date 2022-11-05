@@ -97,7 +97,7 @@ export default function Index({
   return (
     <div className="articlepage bg-gallery">
       <PageMeta meta={pageMeta} />
-      <MainLayout config={{mainNavigation, footerNavigation}}>
+      <MainLayout config={{mainNavigation, footerNavigation}} template="articleTemplate">
         <article className="article bg-smart">
           <div className="container px-0">
             <div className="inner pt-[160px] pb-[72px] lg:pt-[150px] lg:pb-[120px]">

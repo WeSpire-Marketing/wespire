@@ -102,6 +102,26 @@ content {
         ...,
       }
     },
+    _type == 'newsRoomTemplate' => {
+      ...,
+      "sections": sections {
+        ...,
+        "articlesPressSection": articlesPressSection{
+          ...,
+          "blogs": blogs[] -> {
+            imageData,
+            "categories": categories[] -> {
+              title,
+              color,
+            },
+            title,
+            publishedAt,
+            excerpt,
+            slug,
+          },
+        }
+      }
+    },
     _type == 'customersTemplate' => {
       ...,
       "sections": sections {
@@ -239,13 +259,18 @@ const LandingPage = (props) => {
     : []
 
   return (
-    <Layout config={config}>
+    <Layout
+      config={config}
+      hideDesktopNav={content?.sections[0]?.hideDesktopNav}
+      hideMobileNav={content?.sections[0]?.hideMobileNav}
+      template={content?.sections?.[0]?._type}
+    >
       <NextSeo
         title={title}
+        description={description}
         additionalLinkTags={linkTags}
         additionalMetaTags={metaTags}
         titleTemplate={`%s | ${config.title}`}
-        description={description}
         canonical={config.url && `${config.url}/${slug}`}
         openGraph={{
           images: openGraphImages,

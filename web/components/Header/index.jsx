@@ -1,28 +1,14 @@
 import Link from 'next/link'
-import {useRouter} from 'next/router'
-import {useMemo, useState} from 'react'
+import {useState} from 'react'
 
 import Menu from '../Menu'
 import Logo from '../icons/Logo'
 import NavItem from './components/NavItem'
 
-export default function Header({nav, link}) {
-  const router = useRouter()
+export default function Header({nav, link, logoColor = '#1771DC', btnType = 'primary-btn'}) {
   const [menu, setMenu] = useState(null)
   const [isMenuOpen, setMenuOpen] = useState(false)
   const [activeIndex, setActiveIndex] = useState(null)
-
-  const color = useMemo(() => {
-    if (router.pathname === '/blog/[slug]' || router.asPath === '/blog/[slug]') return '#fff'
-    if (router.pathname === '/our-expertise' || router.asPath === '/our-expertise') return '#fff'
-    return '#1771DC'
-  }, [router.pathname])
-
-  const theme = useMemo(() => {
-    if (router.pathname === '/blog/[slug]' || router.asPath === '/blog/[slug]') return 'cta-btn'
-    if (router.pathname === '/our-expertise' || router.asPath === '/our-expertise') return 'cta-btn'
-    return 'primary-btn'
-  }, [router.pathname])
 
   const closeMenu = (e) => {
     setMenuOpen(false)
@@ -41,7 +27,7 @@ export default function Header({nav, link}) {
           <div className="relative z-20 flex max-h-[65px] w-[100%] items-center justify-between">
             <Link href="/" passHref>
               <a className="logo__link flex translate-y-[-6px]">
-                <Logo color={isMenuOpen ? '#1771DC' : color} />
+                <Logo color={isMenuOpen ? '#1771DC' : logoColor} />
               </a>
             </Link>
 
@@ -75,11 +61,11 @@ export default function Header({nav, link}) {
 
             {link?.internal ? (
               <Link href={link.url} passHref>
-                <a className={`${isMenuOpen ? 'primary-btn' : theme} z-20`}>{link.text}</a>
+                <a className={`${isMenuOpen ? 'primary-btn' : btnType} z-20`}>{link.text}</a>
               </Link>
             ) : (
               <a
-                className={`${isMenuOpen ? 'primary-btn' : theme} z-20`}
+                className={`${isMenuOpen ? 'primary-btn' : btnType} z-20`}
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
