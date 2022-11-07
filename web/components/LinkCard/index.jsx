@@ -48,12 +48,12 @@ const Card = ({icon, title, text, cardColor}) => {
 export default function LinkCard({link, ...props}) {
   return link.internal ? (
     <Link href={link.url} scroll={false} passHref>
-      <a>
+      <a className="flex">
         <Card {...props} />
       </a>
     </Link>
   ) : (
-    <a href={link.url} target="_blank" rel="noopener noreferrer">
+    <a className="flex" href={link.url} target="_blank" rel="noopener noreferrer">
       <Card {...props} />
     </a>
   )

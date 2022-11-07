@@ -26,10 +26,7 @@ export default function Video({video}) {
   }
 
   return (
-    <div
-      className="relative h-[240px] cursor-pointer overflow-hidden rounded-[16px]
-      lg:h-[400px]"
-    >
+    <div className="relative cursor-pointer overflow-hidden rounded-[16px] aspect-[16/10]">
       {isVisible ? (
         <iframe
           className="absolute top-[50%] z-20 aspect-video w-full translate-y-[-50%] rounded-[16px]"

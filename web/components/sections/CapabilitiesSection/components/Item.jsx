@@ -19,8 +19,9 @@ export default function Item({icon, title, text}) {
       <h3 className="capabilities__list-item__title heading-4 mb-[16px] text-center">{title}</h3>
 
       <p
-        className="capabilities__list-item__text body-s mx-auto w-[100%] max-w-[320px] text-center
-        text-secondary"
+        className="capabilities__list-item__text body-s mx-auto w-full max-w-[320px] text-center
+        text-secondary
+        sm:text-base"
       >
         {text}
       </p>

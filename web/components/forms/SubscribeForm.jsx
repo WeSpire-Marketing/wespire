@@ -143,8 +143,8 @@ export default function SubscribeForm({className = '', formId, title, subtitle, 
         </p>
 
         <div
-          className="relative mx-auto flex max-w-[525px] flex-col gap-2
-          lg:flex-row"
+          className="relative mx-auto flex flex-col gap-2 max-w-[350px]
+          lg:flex-row lg:max-w-[525px]"
         >
           <input
             className={

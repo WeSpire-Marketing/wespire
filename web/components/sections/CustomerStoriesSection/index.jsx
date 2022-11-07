@@ -38,7 +38,8 @@ export default function CustomerStoriesSection({title, stories: items = []}) {
           {paginatedItems?.length > 0 ? (
             <div
               className="mb-10 grid grid-cols-1 gap-4
-              lg:mb-[72px] lg:grid-cols-2 lg:gap-8"
+              sm:grid-cols-2
+              lg:mb-[72px] lg:gap-8"
             >
               {paginatedItems[currentPage].map(({storyCard}, idx) => {
                 return <CustomerCard key={storyCard.slug + idx} {...storyCard} />

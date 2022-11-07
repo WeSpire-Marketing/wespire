@@ -78,6 +78,7 @@ export default function ResourcesTemplate({
 
               <div
                 className="resoursecards mx-auto grid w-full max-w-[1100px] grid-cols-1 gap-4 px-2
+                sm:grid-cols-2
                 lg:grid-cols-2 lg:gap-6 lg:px-4"
               >
                 {cards?.length > 0 &&
@@ -108,6 +109,7 @@ export default function ResourcesTemplate({
             {paginatedBlogs?.length > 0 ? (
               <ul
                 className="blog__list mb-[40px] grid grid-cols-1 gap-4 px-4
+                sm:grid-cols-2
                 lg:mb-[72px] lg:grid-cols-3 lg:gap-6 lg:px-0"
               >
                 {paginatedBlogs[currentPage].map((blogData, idx) => {

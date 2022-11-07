@@ -65,7 +65,9 @@ export default function BlogCardHoriz({
         <div className="blogcardhoriz__text">
           <h3 className="blogcardhoriz__title heading-3 mb-4">{title}</h3>
 
-          <p className="blogcardhoriz__excerpt body-m lg:mb-[80px]">{excerpt}</p>
+          <p className="blogcardhoriz__excerpt body-m line-clamp-2 lg:line-clamp-3 lg:mb-[80px]">
+            {excerpt}
+          </p>
         </div>
 
         <div className="blogcardhoriz__pub body-s hidden text-grey1 lg:block">
