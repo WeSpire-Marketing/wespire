@@ -23,7 +23,7 @@ export default function MostPopularSection({title, subtitle, blogs}) {
           <p className="body-m mb-6 lg:mb-[40px] lg:max-w-[335px]">{subtitle}</p>
 
           {blogs?.length > 0 && (
-            <ul className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+            <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {blogs.map(({slug, ...props}, idx) => {
                 return (
                   <li className="flex" key={slug.current + idx}>

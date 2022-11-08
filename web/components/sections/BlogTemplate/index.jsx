@@ -100,7 +100,9 @@ const BlogTemplate = ({categories, title, subtitle, formId, form1, form2, blogs}
           {paginatedBlogs?.length > 0 ? (
             <ul
               className="blog__list mb-[40px] grid grid-cols-1 gap-4 px-4
-              lg:mb-[72px] lg:grid-cols-3 lg:gap-6 lg:px-0"
+              min-[580px]:grid-cols-2
+              lg:grid-cols-3
+              lg:mb-[72px] lg:gap-6 lg:px-0"
             >
               {paginatedBlogs[currentPage].map((blogData, idx) => {
                 return (

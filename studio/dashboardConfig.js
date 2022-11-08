@@ -30,7 +30,7 @@ export default {
         data: [
           {
             title: 'GitHub repo',
-            value: 'https://github.com/Halo-lab/wespire-pages-builder',
+            value: 'https://github.com/Halo-lab/',
             category: 'Code'
           },
           {

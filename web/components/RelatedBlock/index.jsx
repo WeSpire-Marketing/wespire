@@ -18,15 +18,12 @@ export default function RelatedBlock({items = []}) {
         ))}
       </h2>
 
-      <ul className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-        {items?.length > 0 &&
-          items.map((blogData, idx) => {
-            return (
-              <li className="flex" key={blogData.slug.current + idx}>
-                <BlogCard {...blogData} />
-              </li>
-            )
-          })}
+      <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {(items ?? []).map((blogData, idx) => (
+          <li className="flex" key={blogData.slug.current + idx}>
+            <BlogCard {...blogData} />
+          </li>
+        ))}
       </ul>
     </div>
   )

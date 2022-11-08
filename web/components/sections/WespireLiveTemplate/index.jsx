@@ -19,9 +19,9 @@ export default function Index({sections}) {
       />
 
       {sections.formSection.form.isForm && (
-        <section>
+        <section className="container">
           <GetForm
-            className="mx-2 mb-[100px] lg:mb-[140px]"
+            className="mx-auto mb-[100px] lg:mb-[140px]"
             {...sections.formSection.form.form[0]}
           />
         </section>

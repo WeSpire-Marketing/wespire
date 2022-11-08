@@ -18,22 +18,25 @@ export default function ContactusSection({image, title, cols, formId}) {
     <div className="contact-us-page bg-pampas [&_.footer]:rounded-t-[30px] [&_.footer]:lg:rounded-t-[60px]">
       <section className="bg-pampas pt-[160px] pb-[100px] lg:pt-[185px] lg:pb-[140px]">
         <div className="container px-2 lg:px-4">
-          <div className="inner flex flex-col justify-between gap-[100px] lg:flex-row">
-            <div className="inner__left w-full lg:w-[51%]">
-              <div className="inner__left-image mb-[40px] overflow-hidden rounded-[16px]">
-                <Img value={image} />
+          <div className="inner flex flex-col justify-between gap-[56px] md:flex-row md:gap-8 lg:gap-[100px]">
+            <div className="inner__left w-full sm:flex sm:flex-row sm:gap-6 md:flex-col lg:w-[51%]">
+              <div
+                className="inner__left-image mb-[40px] overflow-hidden rounded-[16px]
+                sm:mb-0 sm:w-[50%]
+                md:w-full
+                lg:mb-[40px]"
+              >
+                <Img className="w-full" value={image} />
               </div>
 
               {cols?.length > 0 && (
                 <ul className="flex flex-col gap-6 px-2 lg:flex-row lg:gap-[72px] lg:px-0">
-                  {cols.map((col, idx) => {
-                    return (
-                      <li className="flex-1" key={col.title + idx}>
-                        <p className="subtitle-m mb-2 lg:mb-4">{col.title}</p>
-                        <p className="body-m text-secondary">{col.text}</p>
-                      </li>
-                    )
-                  })}
+                  {cols.map((col, idx) => (
+                    <li className="flex-1" key={col.title + idx}>
+                      <p className="subtitle-m mb-2 lg:mb-4">{col.title}</p>
+                      <p className="body-m text-secondary">{col.text}</p>
+                    </li>
+                  ))}
                 </ul>
               )}
             </div>

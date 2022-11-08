@@ -1,25 +1,27 @@
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import {motion} from 'framer-motion'
 
-export default function CTAForm({ className = '', title, suptitle, link, tag, text, date }) {
+export default function CTAForm({className = '', title, suptitle, link, tag, text, date}) {
   return (
     <div
       className={`${className} mx-2 rounded-[16px] shadow-[0px_12px_40px_rgba(169,169,169,0.15)]
-      lg:mx-0 lg:shadow-none`}
+      sm:max-w-[634px] sm:mx-auto
+      md:max-w-[752px]
+      lg:max-w-none lg:mx-0 lg:shadow-none`}
     >
       <motion.div
         className={`rounded-b-0 relative flex flex-col items-start justify-between
         rounded-t-[16px] rounded-b-[0px] bg-smart bg-[url('../assets/images/blogPanelBg.png')]
         bg-contain bg-[right_-105px_bottom] bg-no-repeat py-[64px] px-6 lg:flex-row
         lg:items-center lg:rounded-t-[16px] lg:rounded-b-[16px] lg:bg-[calc(50%-60px)_center] lg:p-[24px] lg:pl-[42px]`}
-        whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: 50 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true }}
+        whileInView={{opacity: 1, y: 0}}
+        initial={{opacity: 0, y: 50}}
+        transition={{duration: 1}}
+        viewport={{once: true}}
       >
-        <div className="left w-full max-w-[180px] lg:max-w-[320px]">
+        <div className="left w-full max-w-[180px] sm:max-w-[380px] lg:max-w-[320px]">
           <span
-            className="mb-4 inline-block font-poppins text-lg font-medium uppercase 
+            className="mb-4 inline-block font-poppins text-lg font-medium uppercase
             leading-[100%] tracking-[-0.01em] text-white opacity-80"
           >
             {suptitle}
@@ -57,9 +59,9 @@ export default function CTAForm({ className = '', title, suptitle, link, tag, te
       </motion.div>
 
       <div
-        className="flex h-fit flex-col justify-between 
+        className="flex h-fit flex-col justify-between
         rounded-t-[0] rounded-b-[16px] bg-white py-8 px-6
-        lg:static lg:hidden lg:h-full lg:min-w-0 lg:max-w-[392px] lg:rounded-t-[16px] 
+        lg:static lg:hidden lg:h-full lg:min-w-0 lg:max-w-[392px] lg:rounded-t-[16px]
         lg:rounded-b-[16px] lg:p-[40px]"
       >
         <p className="subtitle-m mb-[40px] text-secondary lg:mb-[75px]">{text}</p>

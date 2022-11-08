@@ -43,18 +43,15 @@ export default function BlogCardHoriz({
       >
         <div className="mb-6 flex items-center justify-between lg:mb-[40px]">
           <ul className="blogcardhoriz__tags">
-            {categories?.length > 0 &&
-              categories.map(({title, color}, idx) => {
-                return (
-                  <li
-                    key={idx}
-                    className="tag w-min lg:w-fit"
-                    style={{color, border: `1px solid ${color}`}}
-                  >
-                    {title}
-                  </li>
-                )
-              })}
+            {(categories ?? []).slice(0, 1).map(({title, color}, idx) => (
+              <li
+                key={idx}
+                className="tag w-min lg:w-fit"
+                style={{color, border: `1px solid ${color}`}}
+              >
+                {title}
+              </li>
+            ))}
           </ul>
 
           <div className="blogcardhoriz__pub body-s text-grey1 lg:hidden">

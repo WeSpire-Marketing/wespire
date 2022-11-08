@@ -20,7 +20,7 @@ export default function HostsSection({title, cards}) {
         </h2>
 
         {cards?.length > 0 && (
-          <ul className="hosts-cards grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-6">
+          <ul className="hosts-cards grid grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-6">
             {cards.map(({_key, ...props}) => (
               <HostCard key={_key} {...props} />
             ))}

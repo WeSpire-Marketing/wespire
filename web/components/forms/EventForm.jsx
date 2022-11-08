@@ -17,22 +17,21 @@ export default function EventForm({
 }) {
   return (
     <motion.div
-      className={`${className} flex max-w-[1224px] flex-col
-      items-center justify-between rounded-t-[16px] rounded-b-[20px] bg-smart shadow-[0px_12px_40px_rgba(169,169,169,0.15)]
-      lg:mx-auto lg:flex-row lg:p-6 lg:pl-[40px] lg:shadow-none`}
+      className={`${className} flex items-center justify-between flex-col
+      bg-smart shadow-[0px_12px_40px_rgba(169,169,169,0.15)]
+      rounded-t-[16px] rounded-b-[20px] max-w-[634px]
+      md:max-w-[752px]
+      lg:max-w-none lg:mx-auto lg:flex-row lg:p-6 lg:pl-[40px] lg:shadow-none`}
       initial={{opacity: 0, y: 50}}
       whileInView={{opacity: 1, y: 0}}
       viewport={{once: true}}
       transition={{duration: 1}}
     >
       <div
-        className="left flex w-full justify-between gap-[40px] py-[64px] px-6
+        className="left flex basis-[70%] w-full justify-between gap-[40px] py-[64px] px-6
         lg:mr-[33px] lg:p-0"
       >
-        <div
-          className="flex flex-col items-start justify-center
-          lg:max-w-[370px]"
-        >
+        <div className="max-w-[320px] flex flex-col items-start justify-center">
           <div className="relative w-fit">
             <span
               className="mb-4 inline-block font-poppins text-lg font-medium uppercase
@@ -74,7 +73,7 @@ export default function EventForm({
       </div>
 
       <div
-        className="right flex h-full flex-col justify-between rounded-b-[16px] bg-white py-8 px-6
+        className="right flex basis-[33%] h-full flex-col justify-between rounded-b-[16px] bg-white py-8 px-6
         lg:max-w-[392px] lg:rounded-t-[16px] lg:p-[40px]"
       >
         <span
@@ -107,7 +106,7 @@ function SpeakerItem({image, name, job}) {
         />
       </div>
 
-      <div className="hidden text-white lg:block">
+      <div className="hidden text-white sm:block">
         <h3 className="mb-1 font-poppins text-base font-semibold leading-[150%]">{name}</h3>
         <p className="text-base font-normal leading-[140%] text-gallery">{job}</p>
       </div>

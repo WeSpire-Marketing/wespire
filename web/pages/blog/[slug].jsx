@@ -99,25 +99,25 @@ export default function Index({
       <PageMeta meta={pageMeta} />
       <MainLayout config={{mainNavigation, footerNavigation}} template="articleTemplate">
         <article className="article bg-smart">
-          <div className="container px-0">
+          <div className="container px-0 lg:px-8">
             <div className="inner pt-[160px] pb-[72px] lg:pt-[150px] lg:pb-[120px]">
               <div
-                className="article__header flex flex-col items-center justify-between
+                className="article__header flex flex-col items-center justify-between overflow-hidden
                 lg:flex-row"
               >
-                <div className="article__left max-w-[525px] lg:w-[50%]">
-                  <div
-                    className="article__tags mb-6 inline-flex items-center gap-4 px-4
-                    lg:mb-4 lg:px-0"
-                  >
-                    {categories?.length > 0 &&
-                      categories.map((cat, idx) => {
-                        return (
-                          <span className="tag" key={idx}>
-                            {cat.title}
-                          </span>
-                        )
-                      })}
+                <div className="article__left w-full sm:max-w-[640px] md:max-w-[768px] lg:w-[50%]">
+                  <div className="overflow-hidden">
+                    <div
+                      className="article__tags pb-3 mb-3 inline-flex items-center gap-4 px-4
+                    overflow-x-auto
+                    lg:overflow-x-visible lg:mb-4 lg:px-0"
+                    >
+                      {(categories ?? []).slice(0, 3).map((cat, idx) => (
+                        <span className="tag shrink-0" key={idx}>
+                          {cat.title}
+                        </span>
+                      ))}
+                    </div>
                   </div>
 
                   <h1
@@ -185,7 +185,7 @@ export default function Index({
             className="article__content rounded-t-[30px] bg-gallery pt-[48px] pb-[100px]
             lg:rounded-t-[60px] lg:pt-[100px] lg:pb-[140px]"
           >
-            <div className="container px-2 lg:px-0">
+            <div className="container px-2 sm:px-4 md:px-6 lg:px-8">
               <div
                 className="inner mb-[40px] flex grid-cols-[2fr_1fr] flex-col-reverse gap-[80px]
                 lg:mb-[64px] lg:grid lg:gap-4"
