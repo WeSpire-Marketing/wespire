@@ -49,9 +49,8 @@ export default function HeroCTAFormSection({title, text, formId, image}) {
               />
             </div>
           </div>
-
           <Img
-            className="herocta__right w-full max-w-[580px]"
+            className="herocta__right w-full max-w-[420px] sm:max-w-[520px] lg:max-w-[580px]"
             value={{...image.image, alt: image.alt}}
           />
         </div>

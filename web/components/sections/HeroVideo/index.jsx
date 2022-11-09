@@ -42,7 +42,11 @@ export default function HeroVideo({title = '', subtitle, formId, video}) {
             </div>
           </div>
 
-          <div className="herocta__right w-full max-w-[580px]">
+          <div
+            className="herocta__right w-full mx-auto max-w-[420px]
+            md:max-w-[535px]
+            lg:max-w-[580px] lg:ml-auto"
+          >
             <Video video={video} />
           </div>
         </div>

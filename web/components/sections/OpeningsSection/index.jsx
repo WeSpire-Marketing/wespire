@@ -22,13 +22,12 @@ export default function OpeningsSection({title, openings}) {
             </h2>
 
             <ul
-              className="openings-section__cards grid grid-cols-1 gap-[1.5rem]
-              lg:grid-cols-2"
+              className="openings-section__cards grid grid-cols-1 gap-6
+              sm:grid-cols-2"
             >
-              {openings?.length > 0 &&
-                openings.map(({_key, ...props}) => {
-                  return <JobCard key={_key} {...props} />
-                })}
+              {(openings ?? []).map(({_key, ...props}) => (
+                <JobCard key={_key} {...props} />
+              ))}
             </ul>
           </div>
         </div>

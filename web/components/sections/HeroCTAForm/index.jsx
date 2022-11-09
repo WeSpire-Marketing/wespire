@@ -46,7 +46,9 @@ export default function HeroCTAForm({className = '', title, text, formId, image,
           </div>
 
           <Img
-            className="herocta__right w-full max-w-[580px]"
+            className="herocta__right w-full mx-auto max-w-[420px]
+            md:max-w-[535px]
+            lg:max-w-[580px] lg:ml-auto"
             value={{...image.image, alt: image.alt}}
           />
         </div>

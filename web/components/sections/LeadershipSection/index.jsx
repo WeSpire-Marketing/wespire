@@ -26,13 +26,13 @@ export default function LeadershipSection({title, subtitle, cards}) {
           </div>
 
           <ul
-            className="leader-section__cards grid grid-cols-1 gap-8 gap-y-[48px]
+            className="leader-section__cards grid grid-cols-1 gap-8 gap-y-[48px] max-w-[386px] mx-auto
+            md:grid-cols-2 md:max-w-none
             lg:grid-cols-3 lg:gap-y-[64px]"
           >
-            {cards?.length > 0 &&
-              cards.map(({_key, ...props}) => {
-                return <LeaderCard key={_key} {...props} />
-              })}
+            {(cards ?? []).map(({_key, ...props}) => (
+              <LeaderCard key={_key} {...props} />
+            ))}
           </ul>
         </div>
       </div>

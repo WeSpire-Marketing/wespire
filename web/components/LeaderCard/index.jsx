@@ -35,7 +35,7 @@ export default function LeaderCard({bgColor, image, name, job, title, text, soci
   return (
     <li>
       <motion.div
-        className="relative mx-auto mb-4 flex aspect-[3/3.6]
+        className="relative mx-auto mb-4 flex aspect-[3/3.55]
         w-full cursor-pointer items-center justify-center overflow-hidden rounded-[16px]
         lg:mb-6"
         variants={cardVariants}
@@ -69,7 +69,7 @@ export default function LeaderCard({bgColor, image, name, job, title, text, soci
 function BackCardContent({title, text, socials}) {
   return (
     <motion.div
-      className="px-6 lg:px-[40px]"
+      className="h-full px-6 flex flex-col justify-center lg:justify-end lg:px-[40px]"
       initial={{opacity: 0}}
       animate={{opacity: 1}}
       transition={{duration: 0.5, delay: 0.2}}
@@ -78,20 +78,18 @@ function BackCardContent({title, text, socials}) {
 
       <p className="body-m mb-8 text-secondary lg:mb-[48px]">{text}</p>
 
-      <ul className="socials mb-[48px] flex gap-4 lg:mb-[56px]">
-        {socials?.length > 0 &&
-          socials.map(({_key, icon, url}) => {
-            return (
-              <li className="socials-item" key={_key}>
-                <a
-                  className="socials-item__link h-[46px] w-[46px] lg:h-[56px] lg:w-[56px]"
-                  href={url}
-                >
-                  <Img className="socials-item__img" value={icon} />
-                </a>
-              </li>
-            )
-          })}
+      <ul className="socials flex gap-4 lg:mb-[50px]">
+        {(socials ?? []).map(({_key, icon, url}) => (
+          <li className="socials-item" key={_key}>
+            <a
+              className="socials-item__link h-[46px] w-[46px]
+              lg:h-[46px] lg:w-[46px]"
+              href={url}
+            >
+              <Img className="socials-item__img lg:max-w-[50px]" value={icon} />
+            </a>
+          </li>
+        ))}
       </ul>
     </motion.div>
   )

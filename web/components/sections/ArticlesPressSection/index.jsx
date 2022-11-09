@@ -45,6 +45,7 @@ export default function ArticlesPressSection({title, blogs, title2, news}) {
             {paginatedBlogs?.length > 0 ? (
               <ul
                 className="blog__list mb-[40px] grid grid-cols-1 gap-4
+                sm:grid-cols-2
                 lg:mb-[72px] lg:grid-cols-3 lg:gap-6"
               >
                 {paginatedBlogs[currentPage].map((blogData, idx) => {
@@ -86,11 +87,12 @@ export default function ArticlesPressSection({title, blogs, title2, news}) {
 
             <ul
               className="articlespressection__cards grid grid-cols-1 gap-4
-              lg:grid-cols-2 lg:gap-6"
+              md:grid-cols-2
+              lg:gap-6"
             >
-              {news.map(({_key, ...props}) => {
-                return <NewsCard key={_key} {...props} />
-              })}
+              {(news ?? []).map(({_key, ...props}) => (
+                <NewsCard key={_key} {...props} />
+              ))}
             </ul>
           </div>
         </div>

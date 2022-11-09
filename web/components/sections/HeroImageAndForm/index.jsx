@@ -52,7 +52,9 @@ export default function HeroImageAndForm({className = '', title, text, formId, i
           </div>
 
           <Img
-            className="herocta__right w-full max-w-[580px]"
+            className="herocta__right w-full mx-auto max-w-[420px]
+            md:max-w-[520px]
+            lg:max-w-[580px] lg:ml-auto"
             value={{...image.image, alt: image.alt}}
           />
         </div>

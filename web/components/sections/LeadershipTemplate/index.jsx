@@ -6,7 +6,7 @@ export default function LeadershipTemplate({sections}) {
   useCustomScrollBehavior()
 
   return (
-    <div className="leadershippage bg-gallery pt-[170px] lg:pt-[185px]">
+    <div className="leadershippage overflow-hidden bg-gallery pt-[170px] lg:pt-[185px]">
       {sections?.leadershipSection?.items?.length > 0 &&
         sections.leadershipSection.items.map(({_key, ...props}) => {
           return <LeadershipSection key={_key} {...props} />

@@ -74,7 +74,8 @@ export default function RequestDemoTemplate({link, title, subtitle, image, formI
       >
         <div className="container">
           <div
-            className="body-inner flex flex-col items-start gap-[48px] lg:flex-row
+            className="body-inner flex flex-col items-start gap-[48px]
+            sm:flex-row
             lg:gap-[98px]"
           >
             <div className="body-left w-full">
