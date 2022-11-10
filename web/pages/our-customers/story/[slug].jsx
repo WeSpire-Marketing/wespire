@@ -51,9 +51,11 @@ export default function Index({
           <div className="container px-2 lg:px-8">
             <div className="inner pt-[175px] pb-[100px] lg:pb-[140px]">
               <motion.h1
-                className="title heading-2 relative mx-auto
-                mb-[56px] w-full max-w-[775px] text-center text-[#000]
-                lg:mb-[100px]"
+                className="title heading-2 relative mx-auto max-w-[385px]
+                mb-[56px] w-full text-center text-[#000]
+                sm:max-w-[446px]
+                md:max-w-[635px]
+                lg:max-w-[775px] lg:mb-[100px]"
                 initial={{opacity: 0, y: 50}}
                 whileInView={{opacity: 1, y: 0}}
                 transition={{duration: 1}}
@@ -62,6 +64,7 @@ export default function Index({
                 {storyContent.title}
                 <Icon
                   className="absolute bottom-[-35px] right-[-3px] h-auto max-w-[50px]
+                  md:max-w-[60px] md:right-[-30px]
                   lg:bottom-[-130px] lg:right-[-155px] lg:max-w-none"
                 />
               </motion.h1>

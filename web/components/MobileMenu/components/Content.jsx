@@ -2,7 +2,7 @@ import RenderColItemByType from '../../Menu/components/RenderColItemByType'
 
 export default function Content({currentColumns}) {
   return (
-    <ul className="pt-[32px]">
+    <ul className="grid grid-cols-1 pt-[32px] gap-x-8 sm:grid-cols-2">
       {currentColumns?.col1?.length > 0 && (
         <li
           className="mb-[40px] flex flex-col gap-8 border-b-[1px] border-[rgba(202,205,212,0.8)]

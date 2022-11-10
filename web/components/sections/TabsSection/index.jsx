@@ -14,6 +14,7 @@ export default function TabsSection({title, tabs}) {
           <div className="tabsection__inner">
             <h2
               className="tabsection__title heading-2 mx-auto mb-[42px] max-w-[310px] text-center
+              md:max-w-[448px]
               lg:mb-[80px] lg:max-w-[660px]"
             >
               {injectIconToSpanStr(title, () => (

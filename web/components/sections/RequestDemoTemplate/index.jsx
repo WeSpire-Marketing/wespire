@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import {useEffect} from 'react'
 import {motion} from 'framer-motion'
 
 import Img from '../../Img'
@@ -13,6 +14,13 @@ import useCustomScrollBehavior from '../../../utils/hooks/useCustomScrollBehavio
 
 export default function RequestDemoTemplate({link, title, subtitle, image, formId}) {
   useCustomScrollBehavior()
+
+  useEffect(() => {
+    if (document) {
+      document.body.style.height = '100vh'
+      document.body.style.backgroundColor = '#f9fbff'
+    }
+  }, [])
 
   return (
     <div className="demopage bg-gallery">

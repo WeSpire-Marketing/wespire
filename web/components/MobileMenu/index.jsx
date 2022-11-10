@@ -56,7 +56,8 @@ export default function MobileMenu({nav, link, navColor}) {
 
   return (
     <motion.div
-      className="mobile-menu absolute top-0 left-0 right-0 z-30 mx-auto max-w-[936px] overflow-hidden px-4
+      className="mobile-menu absolute top-0 left-0 right-0 z-30 mx-auto
+      max-w-[1024px] overflow-hidden px-4
       lg:hidden"
       animate={isMenuOpen ? 'open' : 'closed'}
       variants={variants}
@@ -72,8 +73,8 @@ export default function MobileMenu({nav, link, navColor}) {
           {/* 1-st Level */}
           <div className="mobile-menu__left w-full shrink-0">
             <div
-              className="mobile-menu-header flex h-[120px] items-center
-              justify-between border-b-[1px] border-[rgba(202,205,212,0.8)] py-[40px]"
+              className="mobile-menu-header flex h-[120px] items-center py-[40px]
+              justify-between border-b-[1px] border-[rgba(202,205,212,0.8)]"
             >
               <Link href="/" passHref>
                 <a>

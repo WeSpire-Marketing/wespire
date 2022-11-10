@@ -31,8 +31,8 @@ export default function TabsWithNav({tabs}) {
       <nav className="mb-[48px] overflow-hidden lg:mb-[100px]">
         <div className="overflow-x-auto">
           <ul
-            className="tabsection-tabs relative mx-4 flex w-fit translate-y-[-2px]
-            items-center justify-around overflow-hidden
+            className="tabsection-tabs relative mx-4 flex min-w-full w-fit
+            items-center justify-around overflow-hidden translate-y-[-2px]
             after:absolute after:bottom-[3px] after:z-[-1] after:block
             after:h-[1px] after:w-full after:bg-[#96ABC9] after:content-['']
             lg:mx-0 lg:w-full lg:after:bottom-[unset] lg:after:top-[3px]"
@@ -57,14 +57,18 @@ export default function TabsWithNav({tabs}) {
                 animate={controls}
                 variants={variants}
               >
-                <div className="tab-content__left w-full px-8 lg:w-1/2 lg:px-0">
-                  <h3 className="tab-content__left__title heading-3 mb-4 max-w-[380px] lg:mb-6">
+                <div
+                  className="tab-content__left w-full max-w-[580px] px-8
+                  sm:px-0 sm:max-w-[480px]
+                  lg:w-1/2 lg:px-0"
+                >
+                  <h3 className="tab-content__left__title heading-3 mb-4 lg:max-w-[380px] lg:mb-6">
                     {title}
                   </h3>
 
                   <p
-                    className="tab-content__left__text body-m mb-6 max-w-[380px] text-secondary
-                    lg:mb-[40px]"
+                    className="tab-content__left__text body-m mb-6 text-secondary
+                    lg:mb-[40px] lg:max-w-[380px]"
                   >
                     {text}
                   </p>
@@ -85,7 +89,10 @@ export default function TabsWithNav({tabs}) {
                   )}
                 </div>
 
-                <div className="tab-content__right mb-8 w-full lg:mb-0 lg:w-1/2">
+                <div
+                  className="tab-content__right mb-8 w-full max-w-[580px]
+                  lg:mb-0 lg:w-1/2"
+                >
                   <Img value={image} />
                 </div>
               </motion.div>

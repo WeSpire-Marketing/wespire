@@ -18,7 +18,11 @@ export default function HeroCTASection({title, text, link, image}) {
           lg:flex-row lg:gap-[64px]"
         >
           <div className="herocta__left">
-            <div className="herocta__left-wrap max-w-[464px] px-2 text-center lg:px-0 lg:text-left">
+            <div
+              className="herocta__left-wrap max-w-[464px] px-2 text-center
+              md:max-w-[580px]
+              lg:px-0 lg:text-left"
+            >
               <h1 className="herocta__title heading-1 lg:heading-2 mb-4">
                 {injectIconToSpanStr(title, Icon)}
               </h1>
@@ -43,7 +47,7 @@ export default function HeroCTASection({title, text, link, image}) {
           </div>
 
           <motion.div
-            className="herocta__right w-full lg:w-1/2"
+            className="herocta__right w-full max-w-[580px] lg:w-1/2"
             viewport={{once: true}}
             initial={{opacity: 0, y: -100}}
             whileInView={{opacity: 1, y: 0}}

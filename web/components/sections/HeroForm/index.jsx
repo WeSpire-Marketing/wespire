@@ -43,9 +43,14 @@ export default function HeroForm({link, title, subtitle, formId, image, sponsors
       <div className="container mb-8 px-2 lg:mb-[95px] lg:px-8">
         <div
           className="hero-form__body flex flex-col items-center justify-between gap-[46px]
-          lg:flex-row lg:gap-0"
+          lg:flex-row lg:gap-8"
         >
-          <div className="hero-form__body-left w-full max-w-[515px] lg:w-1/2">
+          <div
+            className="hero-form__body-left w-full max-w-[456px]
+            sm:max-w-[540px]
+            md:max-w-[600px]
+            lg:w-1/2"
+          >
             <h1
               className="hero-form__body__title heading-1 mb-4 text-center text-white
               lg:mb-6 lg:text-left"
@@ -81,7 +86,14 @@ export default function HeroForm({link, title, subtitle, formId, image, sponsors
             viewport={{once: true}}
             transition={{duration: 1, delay: 0.5}}
           >
-            <Img className="hero-form__body-right" priority="true" value={image} />
+            <Img
+              className="hero-form__body-right max-w-[456px] mx-auto
+              sm:max-w-[540px]
+              md:max-w-[580px]
+              lg:ml-auto"
+              priority="true"
+              value={image}
+            />
           </motion.div>
         </div>
       </div>

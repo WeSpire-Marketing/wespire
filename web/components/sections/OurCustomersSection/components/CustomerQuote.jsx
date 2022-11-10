@@ -7,7 +7,7 @@ export default function CustomerQuote({className = '', image, name, job, text}) 
     <figure
       className={`flex flex-col items-start gap-8 rounded-[16px] bg-neverPreachy
       p-6 pb-[40px]
-      lg:flex-row lg:gap-[80px] lg:rounded-[60px] lg:py-[56px] lg:px-[69px] ${className}`}
+      md:flex-row lg:gap-[80px] lg:rounded-[60px] lg:py-[56px] lg:px-[69px] ${className}`}
     >
       <motion.div
         className="relative w-full max-w-[338px] shrink-0"

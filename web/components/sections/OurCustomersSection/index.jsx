@@ -25,7 +25,9 @@ export default function OurCustomersSection({title, quote, cards}) {
           <CustomerQuote className="mb-[64px] lg:mb-[80px]" {...quote} />
 
           <div className="ourcusection-cards flex flex-col gap-6 lg:flex-row">
-            {cards?.length > 0 && cards.map((card) => <CustomerCard key={card._key} {...card} />)}
+            {(cards ?? []).map((card) => (
+              <CustomerCard key={card._key} {...card} />
+            ))}
           </div>
         </div>
       </div>
