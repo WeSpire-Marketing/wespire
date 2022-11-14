@@ -1,4 +1,4 @@
-import Icon from '../../icons/AnimatedIcon'
+import Icon from '../../icons/AnimatedWespireLiveIcon'
 
 import CtaSection from '../CTASection'
 import HeroCTAForm from '../HeroCTAForm'
@@ -15,7 +15,9 @@ export default function Index({sections}) {
       <HeroCTAForm
         className="bg-transparent pt-[170px] pb-[100px] lg:pt-[160px] lg:pb-[180px]"
         {...sections.heroCTAFormSection}
-        Icon={Icon}
+        Icon={() => (
+          <Icon className="w-[calc(100%+20px)] absolute left-[-5px] right-0 bottom-[-10px]" />
+        )}
       />
 
       {sections.formSection.form.isForm && (

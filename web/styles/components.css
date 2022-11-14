@@ -28,10 +28,10 @@
   }
 
   .footer__copyright {
-    @apply flex w-full grid-cols-2 flex-wrap gap-x-[95px] gap-y-4 border-t-[1px] border-grey2/80 py-4 opacity-80
+    @apply flex w-full gap-x-[95px] gap-y-4 border-t-[1px] border-grey2/80 py-4 opacity-80
     md:!gap-x-[120px]
-    lg:grid lg:!grid-cols-[minmax(100px,324px)_minmax(100px,154px)_minmax(100px,156px)] lg:items-center lg:py-6
-    screen4:grid screen4:grid-cols-[minmax(100px,156px)_minmax(100px,156px)_minmax(100px,156px)] screen4:gap-x-[70px];
+    lg:grid lg:!grid-cols-[minmax(100px,324px)_minmax(100px,1fr)] lg:items-center lg:py-6
+    screen4:grid screen4:grid-cols-[minmax(100px,156px)_minmax(100px,1fr)] screen4:gap-x-[70px];
   }
 
   .footer__copyright__link {

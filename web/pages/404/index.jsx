@@ -38,20 +38,6 @@ export default function Index(props) {
         justify-center overflow-hidden bg-pampas"
       >
         <motion.div
-          className="mobile-image absolute max-w-[210px] lg:hidden"
-          initial={{y: -285, x: -15}}
-          animate={{y: [-285, -280, -285]}}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            type: 'linear',
-            ease: 'easeInOut',
-          }}
-        >
-          <Image src={imgPath2} alt="404" />
-        </motion.div>
-
-        <motion.div
           className="absolute right-[50%] hidden max-w-[210px] translate-y-[-285px]
           translate-x-[calc(50%-15px)] lg:block lg:max-w-none lg:translate-x-[-425px] lg:translate-y-[-250px]"
           initial={{y: -285, x: -425}}
@@ -111,6 +97,20 @@ export default function Index(props) {
         </motion.div>
 
         <div className="inner mx-auto w-full max-w-[345px] text-center">
+          <motion.div
+            className="mobile-image max-w-[210px] lg:hidden"
+            initial={{y: -40, x: 50}}
+            animate={{y: [-40, -35, -40]}}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              type: 'linear',
+              ease: 'easeInOut',
+            }}
+          >
+            <Image src={imgPath2} alt="404" />
+          </motion.div>
+
           <div className="mx-auto mb-[40px] max-w-[210px] lg:mb-[65px] lg:max-w-full">
             <Image src={imgPath} alt="404" />
           </div>

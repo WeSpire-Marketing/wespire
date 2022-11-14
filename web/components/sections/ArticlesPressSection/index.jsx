@@ -19,7 +19,9 @@ export default function ArticlesPressSection({title, blogs, title2, news}) {
     if (scrollToRef.current && window) {
       const scrollDistance = scrollToRef.current.offsetTop
       const offset = 30
-      window.scrollTo(0, scrollDistance - offset)
+      setTimeout(function () {
+        window.scrollTo(0, scrollDistance - offset)
+      }, 100)
     }
     callback()
   }

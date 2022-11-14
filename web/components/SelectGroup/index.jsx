@@ -109,7 +109,6 @@ export default function SelectGroup({
               value={options.find((o) => o.value === value)}
               onChange={(option) => onChange(option.value)}
               isError={error?.length > 0}
-              openMenuOnFocus
             />
           )
         }}
