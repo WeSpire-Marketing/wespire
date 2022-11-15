@@ -5,7 +5,14 @@ import Menu from '../Menu'
 import Logo from '../icons/Logo'
 import NavItem from './components/NavItem'
 
-export default function Header({nav, link, logo, logoColor = '#1771DC', btnType = 'primary-btn'}) {
+export default function Header({
+  nav,
+  link,
+  template,
+  logo,
+  logoColor = '#1771DC',
+  btnType = 'primary-btn',
+}) {
   const [menu, setMenu] = useState(null)
   const [isMenuOpen, setMenuOpen] = useState(false)
   const [activeIndex, setActiveIndex] = useState(null)
@@ -51,6 +58,7 @@ export default function Header({nav, link, logo, logoColor = '#1771DC', btnType 
                             : idx === activeIndex
                         }
                         isMenuOpen={isMenuOpen}
+                        template={template}
                       >
                         {text}
                       </NavItem>

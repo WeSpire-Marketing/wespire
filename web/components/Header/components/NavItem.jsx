@@ -10,6 +10,7 @@ export default function NavItem({
   url,
   internal,
   isActive,
+  template,
   isMenuOpen,
   link = false,
   children = 'Text',
@@ -39,23 +40,22 @@ export default function NavItem({
   }
 
   const linkColor = useMemo(() => {
-    if (router.pathname === '/blog/[slug]' || router.asPath === '/blog/[slug]') return 'text-white'
-    if (router.pathname === '/our-expertise' || router.asPath === '/our-expertise')
-      return 'text-white'
+    if (template === 'whyWespireTemplate') return 'text-white'
+    if (template === 'articleTemplate') return 'text-white'
     return 'text-black'
-  }, [router.asPath])
+  }, [])
 
   const chevronColor = useMemo(() => {
-    if (router.pathname === '/blog/[slug]' || router.asPath === '/blog/[slug]') return '#fff'
-    if (router.pathname === '/our-expertise' || router.asPath === '/our-expertise') return '#fff'
+    if (template === 'whyWespireTemplate') return '#fff'
+    if (template === 'articleTemplate') return '#fff'
     return '#121212'
-  }, [router.asPath])
+  }, [])
 
   const underlineColor = useMemo(() => {
-    if (router.pathname === '/blog/[slug]' || router.asPath === '/blog/[slug]') return '#fff'
-    if (router.pathname === '/our-expertise' || router.asPath === '/our-expertise') return '#fff'
+    if (template === 'whyWespireTemplate') return '#fff'
+    if (template === 'articleTemplate') return '#fff'
     return '#ea7f49'
-  }, [router.asPath])
+  }, [])
 
   return (
     <li

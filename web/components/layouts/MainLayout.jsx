@@ -34,7 +34,13 @@ export default function MainLayout({
   return (
     <div className="main-layout relative">
       {!hideDesktopNav && (
-        <Header {...mainNavigation} logoColor={color} btnType={btnType} logo={logo} />
+        <Header
+          {...mainNavigation}
+          logoColor={color}
+          template={template}
+          btnType={btnType}
+          logo={logo}
+        />
       )}
       {!hideMobileNav && <MobileMenu {...mainNavigation} navColor={color} />}
       <motion.main
