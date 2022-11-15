@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import {useMemo} from 'react'
 import {debounce} from 'debounce'
-import {useRouter} from 'next/router'
 
 import Underline from './Underline'
 import ChevronIcon from '../../icons/ChevronIcon'
@@ -17,7 +16,6 @@ export default function NavItem({
   onMouseEnter: openMenu,
   onMouseLeave: closeMenu,
 }) {
-  const router = useRouter()
   /** delay for opening and closing menu must be the same to prevent
    * "flashing" of menu when user accidentally swipes the mouse
    * over menu items
@@ -43,19 +41,19 @@ export default function NavItem({
     if (template === 'whyWespireTemplate') return 'text-white'
     if (template === 'articleTemplate') return 'text-white'
     return 'text-black'
-  }, [])
+  }, [template])
 
   const chevronColor = useMemo(() => {
     if (template === 'whyWespireTemplate') return '#fff'
     if (template === 'articleTemplate') return '#fff'
     return '#121212'
-  }, [])
+  }, [template])
 
   const underlineColor = useMemo(() => {
     if (template === 'whyWespireTemplate') return '#fff'
     if (template === 'articleTemplate') return '#fff'
     return '#ea7f49'
-  }, [])
+  }, [template])
 
   return (
     <li
