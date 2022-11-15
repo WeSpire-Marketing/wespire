@@ -103,9 +103,9 @@ export default function Index({
             <div className="inner pt-[160px] pb-[72px] lg:pt-[150px] lg:pb-[120px]">
               <div
                 className="article__header flex flex-col items-center justify-between overflow-hidden
-                lg:flex-row"
+                lg:overflow-visible lg:flex-row lg:gap-12"
               >
-                <div className="article__left w-full sm:max-w-[640px] md:max-w-[768px] lg:w-[50%]">
+                <div className="article__left w-full sm:max-w-[640px] md:max-w-[768px] lg:max-w-[540px]">
                   <div className="overflow-hidden">
                     <div
                       className="article__tags pb-3 mb-3 inline-flex items-center gap-4 px-4
@@ -138,14 +138,15 @@ export default function Index({
 
                   <div className="article__author inline-flex items-center gap-4 px-4 lg:px-0">
                     <div
-                      className="article__author-image relative h-[56px] w-[56px] shrink-0
+                      className="article__author-image relative h-[56px] w-[56px] shrink-0 rounded-full
+                      overflow-hidden
                       lg:h-[64px] lg:w-[64px]"
                     >
                       <Image
-                        src={urlForImage(author.avatar).url()}
+                        src={urlForImage(author.avatar).width(64).height(64).url()}
                         alt={author.avatar.alt}
-                        layout="fill"
                         objectFit="cover"
+                        layout="fill"
                       />
                     </div>
 
@@ -165,7 +166,7 @@ export default function Index({
                 </div>
 
                 <motion.div
-                  className="article__right hidden w-full overflow-hidden rounded-[16px]
+                  className="article__right hidden w-full max-w-[580px] overflow-hidden rounded-[16px]
                   lg:block lg:w-[50%]"
                   initial={{opacity: 0, y: -50}}
                   whileInView={{opacity: 1, y: 0}}

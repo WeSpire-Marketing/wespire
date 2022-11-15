@@ -30,8 +30,8 @@ export default function TextRow({col1, col2, col3}) {
     >
       <div className="contection__row-col">
         <h3
-          className="contection__row__title heading-4 mb-4
-          lg:mb-6"
+          className="contection__row__title heading-4 mb-4 [&>span>svg]:hidden
+          lg:mb-6 lg:[&>span>svg]:block"
         >
           {detectAndInjectIconInStr(col1.title, col1.starsColor)}
         </h3>
@@ -41,8 +41,8 @@ export default function TextRow({col1, col2, col3}) {
 
       <div className="contection__row-col">
         <h3
-          className="contection__row__title heading-4 mb-4
-          lg:mb-6"
+          className="contection__row__title heading-4 mb-4 [&>span>svg]:hidden
+          lg:mb-6 lg:[&>span>svg]:block"
         >
           {detectAndInjectIconInStr(col2.title, col2.starsColor)}
         </h3>
@@ -54,8 +54,8 @@ export default function TextRow({col1, col2, col3}) {
 
       <div className="contection__row-col">
         <h3
-          className="contection__row__title heading-4 mb-4
-          lg:mb-6"
+          className="contection__row__title heading-4 mb-4 [&>span>svg]:hidden
+          lg:mb-6 lg:[&>span>svg]:block"
         >
           {detectAndInjectIconInStr(col3.title, col3.starsColor)}
         </h3>

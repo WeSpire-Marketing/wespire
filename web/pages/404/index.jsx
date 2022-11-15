@@ -33,74 +33,14 @@ export default function Index(props) {
         <meta name="msapplication-config" content="/assets/favicon/browserconfig.xml" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
-      <main
-        className="felx-col relative flex h-screen w-full items-center
-        justify-center overflow-hidden bg-pampas"
-      >
-        <motion.div
-          className="absolute right-[50%] hidden max-w-[210px] translate-y-[-285px]
-          translate-x-[calc(50%-15px)] lg:block lg:max-w-none lg:translate-x-[-425px] lg:translate-y-[-250px]"
-          initial={{y: -285, x: -425}}
-          animate={{y: [-285, -280, -285]}}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            type: 'linear',
-            ease: 'easeInOut',
-          }}
-        >
-          <Image src={imgPath2} alt="404" />
-        </motion.div>
-
-        <motion.div
-          className="absolute hidden translate-x-[425px] translate-y-[-250px] lg:block"
-          initial={{y: -250, x: 425}}
-          animate={{y: [-250, -255, -250]}}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            type: 'linear',
-            ease: 'easeInOut',
-            delay: 0.5,
-          }}
-        >
-          <Image src={imgPath3} alt="404" />
-        </motion.div>
-
-        <motion.div
-          className="absolute hidden translate-x-[-550px] translate-y-[180px] lg:block"
-          initial={{y: 180, x: -550}}
-          animate={{y: [180, 175, 180]}}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            type: 'linear',
-            ease: 'easeInOut',
-          }}
-        >
-          <Image src={imgPath4} alt="404" />
-        </motion.div>
-
-        <motion.div
-          className="absolute hidden translate-x-[550px] translate-y-[180px] lg:block"
-          initial={{y: 180, x: 550}}
-          animate={{y: [180, 185, 180]}}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            type: 'linear',
-            ease: 'easeInOut',
-            delay: 0.3,
-          }}
-        >
-          <Image src={imgPath5} alt="404" />
-        </motion.div>
-
-        <div className="inner mx-auto w-full max-w-[345px] text-center">
+      <main className="h-screen w-full bg-pampas px-4">
+        <div className="relative w-full max-w-[1294px] h-full mx-auto flex flex-col justify-center">
           <motion.div
-            className="mobile-image max-w-[210px] lg:hidden"
-            initial={{y: -40, x: 50}}
-            animate={{y: [-40, -35, -40]}}
+            className="w-fit absolute top-[calc(50%-400px)] left-[100px] max-w-[210px] hidden
+            min-[1280px]:block
+            lg:max-w-none"
+            initial={{y: 0, x: 0}}
+            animate={{y: [-5, 0, -5]}}
             transition={{
               duration: 3,
               repeat: Infinity,
@@ -111,24 +51,84 @@ export default function Index(props) {
             <Image src={imgPath2} alt="404" />
           </motion.div>
 
-          <div className="mx-auto mb-[40px] max-w-[210px] lg:mb-[65px] lg:max-w-full">
-            <Image src={imgPath} alt="404" />
-          </div>
+          <motion.div
+            className="hidden absolute top-[calc(50%-375px)] right-[120px] min-[1280px]:block"
+            initial={{y: 0, x: 0}}
+            animate={{y: [0, -5, 0]}}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              type: 'linear',
+              ease: 'easeInOut',
+              delay: 0.5,
+            }}
+          >
+            <Image src={imgPath3} alt="404" />
+          </motion.div>
 
-          <h1 className="heading-2 mb-4">Page not found</h1>
+          <motion.div
+            className="hidden absolute top-[50%] left-0 min-[1280px]:block"
+            initial={{y: 0, x: 0}}
+            animate={{y: [0, 5, 0]}}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              type: 'linear',
+              ease: 'easeInOut',
+            }}
+          >
+            <Image src={imgPath4} alt="404" />
+          </motion.div>
 
-          <p className="body-m mx-auto mb-8 max-w-[285px] text-[#2E2E2E] lg:mb-[40px] lg:max-w-full">
-            Sorry, the page you are looking for doesn’t exist or has been moved.
-          </p>
+          <motion.div
+            className="hidden absolute right-0 top-[calc(50%+30px)] min-[1280px]:block"
+            initial={{y: 0, x: 0}}
+            animate={{y: [0, 5, 0]}}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              type: 'linear',
+              ease: 'easeInOut',
+              delay: 0.3,
+            }}
+          >
+            <Image src={imgPath5} alt="404" />
+          </motion.div>
 
-          <div className="mx-auto flex w-fit items-center gap-4">
-            <button className="stroke-btn" onClick={() => router.back()}>
-              Go back
-            </button>
+          <div className="inner mx-auto w-full max-w-[345px] text-center">
+            <motion.div
+              className="mobile-image max-w-[210px] min-[1280px]:hidden"
+              initial={{y: -40, x: 50}}
+              animate={{y: [-40, -35, -40]}}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                type: 'linear',
+                ease: 'easeInOut',
+              }}
+            >
+              <Image src={imgPath2} alt="404" />
+            </motion.div>
 
-            <Link href="/" passHref>
-              <a className="primary-btn">Take me home</a>
-            </Link>
+            <div className="mx-auto mb-[40px] max-w-[210px] lg:mb-[65px] lg:max-w-full">
+              <Image src={imgPath} alt="404" />
+            </div>
+
+            <h1 className="heading-2 mb-4">Page not found</h1>
+
+            <p className="body-m mx-auto mb-8 max-w-[285px] text-[#2E2E2E] lg:mb-[40px] lg:max-w-full">
+              Sorry, the page you are looking for doesn’t exist or has been moved.
+            </p>
+
+            <div className="mx-auto flex w-fit items-center gap-4">
+              <button className="stroke-btn" onClick={() => router.back()}>
+                Go back
+              </button>
+
+              <Link href="/" passHref>
+                <a className="primary-btn">Take me home</a>
+              </Link>
+            </div>
           </div>
         </div>
       </main>
