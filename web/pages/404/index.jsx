@@ -36,7 +36,7 @@ export default function Index(props) {
       <main className="h-screen w-full bg-pampas px-4">
         <div className="relative w-full max-w-[1294px] h-full mx-auto flex flex-col justify-center">
           <motion.div
-            className="w-fit absolute top-[calc(50%-400px)] left-[100px] max-w-[210px] hidden
+            className="w-fit absolute top-[calc(50%-370px)] left-[100px] max-w-[210px] hidden
             min-[1280px]:block
             lg:max-w-none"
             initial={{y: 0, x: 0}}
@@ -52,7 +52,7 @@ export default function Index(props) {
           </motion.div>
 
           <motion.div
-            className="hidden absolute top-[calc(50%-375px)] right-[120px] min-[1280px]:block"
+            className="hidden absolute top-[calc(50%-340px)] right-[120px] min-[1280px]:block"
             initial={{y: 0, x: 0}}
             animate={{y: [0, -5, 0]}}
             transition={{
