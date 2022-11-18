@@ -17,7 +17,9 @@ export default function CustomerStoriesSection({title, stories: items = []}) {
     if (scrollToRef.current && window) {
       const scrollDistance = scrollToRef.current.offsetTop
       const offset = 30
-      window.scrollTo(0, scrollDistance - offset)
+      setTimeout(() => {
+        window.scrollTo(0, scrollDistance - offset)
+      }, 100)
     }
     callback()
   }

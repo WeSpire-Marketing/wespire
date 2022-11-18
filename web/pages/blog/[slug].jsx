@@ -108,9 +108,9 @@ export default function Index({
                 <div className="article__left w-full sm:max-w-[640px] md:max-w-[768px] lg:max-w-[540px]">
                   <div className="overflow-hidden">
                     <div
-                      className="article__tags pb-3 mb-3 inline-flex items-center gap-4 px-4
-                    overflow-x-auto
-                    lg:overflow-x-visible lg:mb-4 lg:px-0"
+                      className="article__tags w-full pb-3 mb-3 inline-flex items-center gap-4 px-4
+                      overflow-x-auto
+                      lg:overflow-x-visible lg:mb-4 lg:px-0"
                     >
                       {(categories ?? []).slice(0, 3).map((cat, idx) => (
                         <span className="tag shrink-0" key={idx}>

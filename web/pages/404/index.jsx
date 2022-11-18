@@ -33,8 +33,11 @@ export default function Index(props) {
         <meta name="msapplication-config" content="/assets/favicon/browserconfig.xml" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
-      <main className="h-screen w-full bg-pampas px-4">
-        <div className="relative w-full max-w-[1294px] h-full mx-auto flex flex-col justify-center">
+      <main className="w-full px-4 overflow-hidden bg-pampas">
+        <div
+          className="relative w-full max-w-[1294px] h-screen min-h-[878px] mx-auto
+          flex flex-col justify-center"
+        >
           <motion.div
             className="w-fit absolute top-[calc(50%-370px)] left-[100px] max-w-[210px] hidden
             min-[1280px]:block

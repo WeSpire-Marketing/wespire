@@ -11,9 +11,9 @@ const myPortableTextComponents = {
       </h1>
     ),
     h2: ({children}) => (
-      <h1 className="px-2 lg:mb-6 lg:px-0">
+      <h2 className="px-2 lg:mb-6 lg:px-0">
         <span className="heading-2 text-black">{children}</span>
-      </h1>
+      </h2>
     ),
     h3: ({children}) => (
       <h3 className="px-2 lg:mb-6 lg:px-0">
