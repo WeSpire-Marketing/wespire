@@ -90,7 +90,7 @@ export default function HeroForm({link, title, subtitle, formId, image, sponsors
               className="hero-form__body-right max-w-[456px] mx-auto
               sm:max-w-[540px]
               md:max-w-[580px]
-              lg:ml-auto"
+              lg:ml-auto lg:mr-0"
               priority="true"
               value={image}
             />
