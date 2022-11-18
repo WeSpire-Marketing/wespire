@@ -263,9 +263,9 @@ const LandingPage = (props) => {
         },
         {
           // Facebook recommended size
-          url: builder.image(openGraphImage).width(1600).height(900).url(),
-          width: 1600,
-          height: 900,
+          url: builder.image(openGraphImage).width(1200).height(630).url(),
+          width: 1200,
+          height: 630,
           alt: title,
         },
         {
