@@ -54,7 +54,6 @@ export default function SignMeUpForm({
     const getClientIp = async () => {
       try {
         const res = await fetch('https://api.ipify.org/?format=json', {
-          mode: 'no-cors',
           signal,
         })
         const data = await res.json()
