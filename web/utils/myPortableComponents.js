@@ -42,6 +42,17 @@ const myPortableTextComponents = {
       </div>
     ),
   },
+  marks: {
+    link: ({children, value}) => {
+      const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined
+      const target = value?.blank ? '_blank' : undefined
+      return (
+        <a href={value.href} rel={rel} target={target}>
+          {children}
+        </a>
+      )
+    },
+  },
 }
 
 export default myPortableTextComponents

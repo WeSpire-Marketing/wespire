@@ -78,6 +78,8 @@ export default {
                   name: 'url',
                   type: 'string',
                   title: 'Link URL',
+                  description:
+                    'Internal link can be like: "/valid-internal-link"; external: "https://wespire.com"',
                   validation: Rule => Rule.required()
                 },
                 {

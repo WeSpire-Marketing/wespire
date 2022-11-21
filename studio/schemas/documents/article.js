@@ -105,7 +105,31 @@ export default {
       type: 'array',
       of: [
         {
-          type: 'block'
+          type: 'block',
+          marks: {
+            annotations: [
+              {
+                name: 'link',
+                type: 'object',
+                title: 'URL',
+                fields: [
+                  {
+                    title: 'URL',
+                    name: 'href',
+                    type: 'url'
+                  },
+                  {
+                    title: 'Open in new tab',
+                    name: 'blank',
+                    type: 'boolean'
+                  }
+                ],
+                initialValue: {
+                  blank: false
+                }
+              }
+            ]
+          }
         },
         {
           type: 'image',

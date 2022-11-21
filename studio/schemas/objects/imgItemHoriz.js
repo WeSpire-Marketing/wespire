@@ -13,10 +13,10 @@ export default {
           name: 'alt',
           type: 'string',
           title: 'Image description (alt)',
-          validation: (Rule) => Rule.required(),
-        },
+          validation: Rule => Rule.required()
+        }
       ],
-      validation: (Rule) => Rule.required(),
+      validation: Rule => Rule.required()
     },
     {
       name: 'title',
@@ -27,33 +27,34 @@ export default {
           name: 'text',
           type: 'string',
           title: 'Title text',
-          validation: (Rule) => Rule.required(),
+          validation: Rule => Rule.required()
         },
         {
           name: 'url',
           type: 'string',
           title: 'URL',
-          validation: (Rule) => Rule.required(),
+          description:
+            'Internal link can be like: "/valid-internal-link"; external: "https://wespire.com"',
+          validation: Rule => Rule.required()
         },
         {
           name: 'internal',
           type: 'boolean',
           title: 'External/internal link',
-          description:
-            'By default, the link is external and will be opened in a new tab',
-          validation: (Rule) => Rule.required(),
-        },
+          description: 'By default, the link is external and will be opened in a new tab',
+          validation: Rule => Rule.required()
+        }
       ],
-      validation: (Rule) => Rule.required(),
+      validation: Rule => Rule.required(),
       initialValue: {
-        internal: false,
-      },
+        internal: false
+      }
     },
     {
       name: 'text',
       type: 'text',
       title: 'Short text',
-      validation: (Rule) => Rule.required(),
-    },
-  ],
+      validation: Rule => Rule.required()
+    }
+  ]
 }

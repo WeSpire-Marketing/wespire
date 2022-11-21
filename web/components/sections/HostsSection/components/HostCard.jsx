@@ -1,4 +1,6 @@
-import Img from '../../../Img'
+import Image from 'next/image'
+// import Img from '../../../Img'
+import {urlForImage} from '../../../../client'
 import CardLink from './CardLink'
 
 const HostCard = ({
@@ -15,16 +17,26 @@ const HostCard = ({
   link,
 }) => {
   return (
-    <li className="hosts-card w-full rounded-[16px] p-6 lg:p-8" style={{backgroundColor: color}}>
+    <li
+      className="hosts-card flex flex-col w-full rounded-[16px] p-6 lg:p-8"
+      style={{backgroundColor: color}}
+    >
       <div className="hosts-card__top mb-8 flex items-center gap-4 lg:gap-6">
         <div
-          className="hosts-card__image w-full max-w-[42%] overflow-hidden
-          rounded-[16px]"
+          className="hosts-card__image w-full h-full aspect-square max-w-[225px] overflow-hidden
+          rounded-[16px] relative"
         >
-          <Img value={image} />
+          {/* <Img className="aspect-square" value={image} /> */}
+          <Image
+            className="w-full h-full"
+            src={urlForImage(image).url()}
+            objectFit="cover"
+            alt={image.alt}
+            layout="fill"
+          />
         </div>
 
-        <div className="w-full translate-y-[-15%] lg:translate-y-0">
+        <div className="w-full">
           <h3 className="heading-4 mb-1 text-white">{name}</h3>
           <p className="body-m text-[16px] text-white lg:mb-[40px] lg:text-[18px]">{job}</p>
 
@@ -55,7 +67,7 @@ const HostCard = ({
       </div>
 
       <div
-        className="hosts-card__bottom flex w-full items-center justify-between gap-8 rounded-[16px]
+        className="hosts-card__bottom flex w-full h-full items-start justify-between gap-8 rounded-[16px]
         bg-white p-4 lg:gap-[80px] lg:py-6 lg:px-8"
       >
         <div>
@@ -69,7 +81,9 @@ const HostCard = ({
           <p className="subtitle-m text-[16px] lg:text-[18px]">{field6}</p>
         </div>
 
-        <CardLink {...link} color={color} />
+        <div className="h-full flex items-center">
+          <CardLink {...link} color={color} />
+        </div>
       </div>
     </li>
   )

@@ -129,10 +129,15 @@ export default function Index({
 
                   <p className="body-m mb-[40px] px-4 text-white lg:hidden">{excerpt}</p>
 
-                  <div className="px-2">
-                    <Img
-                      className="mb-[40px] h-full w-full overflow-hidden rounded-[16px] lg:hidden"
-                      value={{...imageData.image, alt: imageData.alt}}
+                  <div className="mb-[40px] px-2 max-w-[600px] mr-auto lg:hidden">
+                    <Image
+                      className="overflow-hidden rounded-[16px]"
+                      width={600}
+                      height={406}
+                      src={urlForImage(imageData.image).width(600).height(406).url()}
+                      alt={imageData.alt}
+                      layout="responsive"
+                      objectFit="cover"
                     />
                   </div>
 
@@ -166,16 +171,22 @@ export default function Index({
                 </div>
 
                 <motion.div
-                  className="article__right hidden w-full max-w-[580px] overflow-hidden rounded-[16px]
+                  className="article__right hidden w-full h-full max-w-[600px] overflow-hidden rounded-[16px]
+                  relative aspect-[16/10.8]
                   lg:block lg:w-[50%]"
-                  initial={{opacity: 0, y: -50}}
-                  whileInView={{opacity: 1, y: 0}}
-                  viewport={{once: true}}
                   transition={{duration: 1, delay: 0.5}}
+                  whileInView={{opacity: 1, y: 0}}
+                  initial={{opacity: 0, y: -50}}
+                  viewport={{once: true}}
                 >
-                  <Img
-                    className="h-full w-full "
-                    value={{...imageData.image, alt: imageData.alt}}
+                  <Image
+                    className="w-full h-full"
+                    width={600}
+                    height={406}
+                    src={urlForImage(imageData.image).width(600).height(406).url()}
+                    alt={imageData.alt}
+                    layout="responsive"
+                    objectFit="cover"
                   />
                 </motion.div>
               </div>

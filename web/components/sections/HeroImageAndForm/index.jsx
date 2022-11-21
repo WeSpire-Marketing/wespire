@@ -3,6 +3,8 @@ import Icon from '../../icons/AnimatedMarksEnd'
 import SignMeUpForm from '../../forms/SignMeUpForm'
 
 import {injectIconToSpanStr} from '../../../utils'
+import Image from 'next/image'
+import {urlForImage} from '../../../client'
 
 export default function HeroImageAndForm({className = '', title, text, formId, image}) {
   return (
@@ -51,12 +53,20 @@ export default function HeroImageAndForm({className = '', title, text, formId, i
             </div>
           </div>
 
-          <Img
-            className="herocta__right w-full mx-auto max-w-[420px]
-            md:max-w-[520px]
-            lg:max-w-[580px] lg:ml-auto"
-            value={{...image.image, alt: image.alt}}
-          />
+          <div
+            className="w-full mx-auto max-w-[420px]
+              md:max-w-[520px]
+              lg:max-w-[580px] lg:ml-auto"
+          >
+            <Image
+              className="w-full aspect-[16/10.8] rounded-[16px] overflow-hidden"
+              src={urlForImage(image.image).width(600).height(406).url()}
+              layout="responsive"
+              alt={image.alt}
+              height={406}
+              width={600}
+            />
+          </div>
         </div>
       </div>
     </section>

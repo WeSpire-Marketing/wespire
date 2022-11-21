@@ -12,7 +12,7 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang={this.props.lang || 'en'}>
+      <Html lang={this.props?.lang[0] ?? 'en'}>
         <Head />
         <body>
           <Main />
