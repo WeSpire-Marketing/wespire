@@ -20,6 +20,10 @@ content {
   ...,
   sections[] {
     ...,
+    _type == 'privacyPolicyTemplate' => {
+      ...,
+      "headings": content[length(style) == 2 && string::startsWith(style, "h")]
+    },
     _type == 'homeTemplate' => {
       ...,
       "sections": sections{

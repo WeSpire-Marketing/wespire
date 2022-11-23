@@ -1,15 +1,10 @@
-import React from 'react'
-import useScrollSpy from 'react-use-scrollspy'
+import slugify from 'slugify'
+import React, {useState} from 'react'
 
-export default function Aside({ title = 'Table of contents:', items = [] }) {
-  const activeItem = useScrollSpy({
-    sectionElementRefs: items.map((item) => {
-      const ref = React.createRef()
-      ref.current = item
-      return ref
-    }), // Array of References to DOM elements
-    offsetPx: -80,
-  })
+export default function Aside({title = 'Table of contents:', items = []}) {
+  const [activeItemTextId, setActiveItemTextId] = useState(
+    slugify(items[0]?.children[0]?.text) ?? ''
+  )
 
   return (
     <aside className="sidebar">
@@ -19,19 +14,23 @@ export default function Aside({ title = 'Table of contents:', items = [] }) {
         </p>
 
         <ul className="flex flex-col gap-6">
-          {items.length &&
-            items.map((item, idx) => {
+          {items?.length > 0 &&
+            items.map((item) => {
+              const customTitle = item?.markDefs[0]?.title
+              const defaultTitle = item?.children[0]?.text
+              const slug = slugify(defaultTitle)
               return (
-                <li key={item.id}>
+                <li key={item._key}>
                   <a
                     className={`
                     ${
-                      activeItem === idx ? `text-smart` : `text-[#9E9E9E]`
+                      activeItemTextId === slugify(defaultTitle) ? `text-smart` : `text-[#9E9E9E]`
                     } block font-poppins text-[16px] font-medium
                     leading-[100%] tracking-[-0.01em]`}
-                    href={`#${item.id}`}
+                    href={'#' + slug}
+                    onClick={() => setActiveItemTextId(slug)}
                   >
-                    {item?.innerText ?? 'Item'}
+                    {customTitle ?? (defaultTitle || 'The title is not specified')}
                   </a>
                 </li>
               )

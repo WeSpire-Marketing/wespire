@@ -5,23 +5,23 @@ import Content from '../../Content'
 
 import useCustomScrollBehavior from '../../../utils/hooks/useCustomScrollBehavior'
 
-export default function PrivacyPolicyTemplate(props) {
+export default function PrivacyPolicyTemplate({headings, ...props}) {
   useCustomScrollBehavior()
 
-  const contentRef = useRef(null)
-  const [navItems, setNavItems] = useState([])
+  // const contentRef = useRef(null)
+  // const [navItems, setNavItems] = useState([])
 
-  // set array of all H2/H3 nodes from the privacy content
-  useEffect(() => {
-    if (contentRef.current) {
-      const nodeList = contentRef.current.childNodes
-      const titleNodes = Array.from(nodeList).filter(
-        (node) => node.nodeName === 'H3' || node.nodeName === 'H2'
-      )
-      titleNodes.forEach((titleNode, idx) => titleNode.setAttribute('id', `title-${idx + 1}`))
-      setNavItems(titleNodes)
-    }
-  }, [])
+  // // set array of all H2/H3 nodes from the privacy content
+  // useEffect(() => {
+  //   if (contentRef.current) {
+  //     const nodeList = contentRef.current.childNodes
+  //     const titleNodes = Array.from(nodeList).filter(
+  //       (node) => node.nodeName === 'H3' || node.nodeName === 'H2'
+  //     )
+  //     titleNodes.forEach((titleNode, idx) => titleNode.setAttribute('id', `title-${idx + 1}`))
+  //     setNavItems(titleNodes)
+  //   }
+  // }, [])
 
   return (
     <div className="privacypage bg-gallery">
@@ -31,11 +31,11 @@ export default function PrivacyPolicyTemplate(props) {
             className="inner flex grid-cols-[1fr_280px] flex-col-reverse gap-[80px]
             lg:grid lg:gap-[128px]"
           >
-            <div className="content prose min-w-[100%]" ref={contentRef}>
+            <div className="content prose min-w-[100%]">
               <Content {...props} />
             </div>
 
-            <Aside items={navItems} />
+            <Aside items={headings} />
           </div>
         </div>
       </div>
