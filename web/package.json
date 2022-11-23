@@ -29,7 +29,7 @@
     "react-hook-form": "^7.36.0",
     "react-inlinesvg": "^2.3.0",
     "react-select": "^5.4.0",
-    "react-use-scrollspy": "^3.0.2",
+    "slugify": "^1.6.5",
     "swiper": "^8.3.2"
   },
   "devDependencies": {

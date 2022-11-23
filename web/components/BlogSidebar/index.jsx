@@ -1,20 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Link from 'next/link'
-import useScrollSpy from 'react-use-scrollspy'
+import slugify from 'slugify'
 
 import TwitterIcon from '../icons/TwitterIcon'
 import LinkedInIcon from '../icons/LinkedInIcon'
 import FacebookIcon from '../icons/FacebookIcon'
 
 export default function BlogSidebar({items = [], slug}) {
-  const activeItem = useScrollSpy({
-    sectionElementRefs: items.map((item) => {
-      const ref = React.createRef()
-      ref.current = item
-      return ref
-    }), // Array of References to DOM elements
-    offsetPx: -80,
-  })
+  const [activeItemTextId, setActiveItemTextId] = useState(
+    slugify(items[0]?.children[0]?.text) ?? ''
+  )
 
   const shareFacebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
     `${process.env.NEXT_PUBLIC_DOMAIN}/blog/${slug}`
@@ -36,28 +31,39 @@ export default function BlogSidebar({items = [], slug}) {
           In this post:
         </p>
 
+        {/* <ul
+          className="border-[rgba(rgb(202_205_212_0.8))] mb-8 flex flex-col gap-6
+          border-b-[1px] pb-8 lg:mb-[40px] lg:pb-[40px]"
+        > */}
         <ul
           className="border-[rgba(rgb(202_205_212_0.8))] mb-8 flex flex-col gap-6
           border-b-[1px] pb-8 lg:mb-[40px] lg:pb-[40px]"
+          // onUpdate={(currentNode) => currentNode?.id && setActiveItemTextId(currentNode.id)}
+          // scrollTargetIds={items && items.map((item) => slugify(item?.children[0]?.text))}
         >
           {items?.length > 0 &&
             items.map((item, idx) => {
+              const customTitle = item?.markDefs[0]?.title
+              const defaultTitle = item?.children[0]?.text
+              const slug = slugify(defaultTitle)
               return (
-                <li key={item.id}>
+                <li key={item._key}>
                   <a
                     className={`
                     ${
-                      activeItem === idx ? `text-smart` : `text-[#9E9E9E]`
+                      activeItemTextId === slug ? `text-smart` : `text-[#9E9E9E]`
                     } block font-poppins text-[18px] font-medium
                     leading-[100%] tracking-[-0.01em]`}
-                    href={`#${item.id}`}
+                    href={'#' + slug}
+                    onClick={() => setActiveItemTextId(slug)}
                   >
-                    {item?.innerText ?? 'Item'}
+                    {customTitle ?? (defaultTitle || 'The title is not specified')}
                   </a>
                 </li>
               )
             })}
         </ul>
+        {/* </ul> */}
 
         <p className="mb-[20px] font-poppins text-[18px] font-semibold leading-[150%] text-black">
           Share

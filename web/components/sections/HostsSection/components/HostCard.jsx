@@ -1,7 +1,7 @@
 import Image from 'next/image'
 // import Img from '../../../Img'
-import {urlForImage} from '../../../../client'
 import CardLink from './CardLink'
+import {urlForImage} from '../../../../client'
 
 const HostCard = ({
   image,

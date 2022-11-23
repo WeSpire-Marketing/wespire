@@ -1,7 +1,6 @@
 import groq from 'groq'
 import Image from 'next/image'
 import {motion} from 'framer-motion'
-import {useEffect, useRef, useState} from 'react'
 import {PortableText} from '@portabletext/react'
 
 import Img from '../../components/Img'
@@ -42,6 +41,7 @@ export async function getServerSideProps({params}) {
       "categories": categories[]->{ title },
       "mainNavigation": *[_id == "global-config"][0].mainNavigation,
       "footerNavigation": *[_id == "global-config"][0].footerNavigation,
+      "headings": content[length(style) == 2 && string::startsWith(style, "h")]
     }`,
     {slug}
   )
@@ -76,23 +76,10 @@ export default function Index({
     ctaSection,
     slug,
     excerpt,
+    headings,
   },
 }) {
   useCustomScrollBehavior()
-  const contentRef = useRef(null)
-  const [navItems, setNavItems] = useState([])
-
-  // set array of all H2/H3 nodes from article content
-  useEffect(() => {
-    if (contentRef.current) {
-      const nodeList = contentRef.current.childNodes
-      const titleNodes = Array.from(nodeList).filter(
-        (node) => node.nodeName === 'H3' || node.nodeName === 'H2'
-      )
-      titleNodes.forEach((titleNode, idx) => titleNode.setAttribute('id', `title-${idx + 1}`))
-      setNavItems(titleNodes)
-    }
-  }, [content])
 
   return (
     <div className="articlepage bg-gallery">
@@ -132,12 +119,12 @@ export default function Index({
                   <div className="mb-[40px] px-2 max-w-[600px] mr-auto lg:hidden">
                     <Image
                       className="overflow-hidden rounded-[16px]"
-                      width={600}
-                      height={406}
                       src={urlForImage(imageData.image).width(600).height(406).url()}
                       alt={imageData.alt}
                       layout="responsive"
                       objectFit="cover"
+                      height={406}
+                      width={600}
                     />
                   </div>
 
@@ -181,12 +168,12 @@ export default function Index({
                 >
                   <Image
                     className="w-full h-full"
-                    width={600}
-                    height={406}
                     src={urlForImage(imageData.image).width(600).height(406).url()}
                     alt={imageData.alt}
                     layout="responsive"
                     objectFit="cover"
+                    height={406}
+                    width={600}
                   />
                 </motion.div>
               </div>
@@ -202,11 +189,15 @@ export default function Index({
                 className="inner mb-[40px] flex grid-cols-[2fr_1fr] flex-col-reverse gap-[80px]
                 lg:mb-[64px] lg:grid lg:gap-4"
               >
-                <div className="content prose min-w-[100%]" ref={contentRef}>
-                  <PortableText value={content} components={myPortableTextComponents} />
+                <div className="content prose min-w-[100%]">
+                  <PortableText
+                    value={content}
+                    onMissingComponent={false}
+                    components={myPortableTextComponents}
+                  />
                 </div>
 
-                <BlogSidebar items={navItems} slug={slug.current} />
+                <BlogSidebar items={headings} slug={slug.current} />
               </div>
 
               <BackToBlog className="mb-[80px] lg:mb-[140px]" />

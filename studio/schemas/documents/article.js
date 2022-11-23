@@ -1,4 +1,5 @@
 import { BookIcon } from '@sanity/icons'
+import { FcBookmark, TableOfContent } from '../helpers/blockContentComponents'
 
 export default {
   name: 'article',
@@ -126,6 +127,23 @@ export default {
                 ],
                 initialValue: {
                   blank: false
+                }
+              },
+              {
+                name: 'tableOfContent',
+                type: 'object',
+                title: 'Table of Content',
+                fields: [
+                  {
+                    name: 'title',
+                    type: 'string',
+                    title: 'Custom title',
+                    description: 'optional'
+                  }
+                ],
+                blockEditor: {
+                  render: TableOfContent,
+                  icon: FcBookmark
                 }
               }
             ]

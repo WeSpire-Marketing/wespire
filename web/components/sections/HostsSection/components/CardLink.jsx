@@ -35,7 +35,7 @@ const CardLink = ({internal = false, url, color}) => {
       rel="noreferrer noopener"
     >
       <svg
-        className="w-[16px] translate-x-[1px] lg:w-[20px]"
+        className="w-[16px] translate-x-[3px] lg:w-[20px]"
         width="19"
         height="24"
         viewBox="0 0 19 24"
