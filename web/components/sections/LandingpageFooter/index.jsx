@@ -15,9 +15,9 @@ export default function LandingpageFooter({brand, socials}) {
                 <li className="inline-flex items-center" key={_key}>
                   <a
                     className="inline-block w-[28px] h-[28px]"
+                    rel="noreferrer noopener"
                     href={icon.link}
                     target="_blank"
-                    rel="noreferrer noopener"
                   >
                     <Image
                       src={urlForImage(icon).url()}

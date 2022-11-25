@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import {useState} from 'react'
+import {useRouter} from 'next/router'
+import {useEffect, useState} from 'react'
 import {motion, useCycle} from 'framer-motion'
 
 import Burger from '../Burger'
@@ -45,9 +46,20 @@ const slideHorizontalAnimation = {
 }
 
 export default function MobileMenu({nav, link, navColor}) {
+  const {asPath} = useRouter()
   const [isMenuOpen, setMenuOpen] = useState(false)
   const [isLeftMenu, toggleMenu] = useCycle(true, false)
   const [currentIndex, setCurrentIndex] = useState(null)
+
+  // close menu if route was changed
+  useEffect(() => {
+    if (isLeftMenu && isMenuOpen) {
+      setMenuOpen(false)
+    } else if (!isLeftMenu && isMenuOpen) {
+      toggleMenu()
+      setMenuOpen(false)
+    }
+  }, [asPath])
 
   const handleClick = (index) => {
     setCurrentIndex(index)

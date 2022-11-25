@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import {useState} from 'react'
+import {useRouter} from 'next/router'
+import {useEffect, useState} from 'react'
 
 import Menu from '../Menu'
 import Logo from '../icons/Logo'
@@ -8,14 +9,19 @@ import NavItem from './components/NavItem'
 export default function Header({
   nav,
   link,
-  template,
   logo,
+  template,
   logoColor = '#1771DC',
   btnType = 'primary-btn',
 }) {
+  const {asPath} = useRouter()
   const [menu, setMenu] = useState(null)
   const [isMenuOpen, setMenuOpen] = useState(false)
   const [activeIndex, setActiveIndex] = useState(null)
+
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [asPath])
 
   const closeMenu = (e) => {
     setMenuOpen(false)

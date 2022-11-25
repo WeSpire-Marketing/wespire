@@ -12,8 +12,8 @@ export default function HeroFormVideo({link, title, subtitle, formId, video, spo
   return (
     <section className="hero-form-video bg-thriving pt-[170px] pb-[70px] lg:pt-6 lg:pb-[100px]">
       <div
-        className="hero-form__head mx-auto mb-[90px] hidden max-h-[65px]
-        w-full max-w-[1288px] items-center justify-between lg:flex"
+        className="hero-form__head px-8 mx-auto mb-[90px] hidden max-h-[65px]
+        w-full max-w-[calc(1288px+2rem)] items-center justify-between lg:flex"
       >
         <div className="hero-form__head-logo cursor-pointer">
           <Link href="/" passHref>

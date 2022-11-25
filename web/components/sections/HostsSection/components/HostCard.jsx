@@ -18,10 +18,10 @@ const HostCard = ({
 }) => {
   return (
     <li
-      className="hosts-card flex flex-col w-full rounded-[16px] p-6 lg:p-8"
+      className="hosts-card flex flex-col gap-8 w-full justify-between rounded-[16px] p-6 lg:p-8"
       style={{backgroundColor: color}}
     >
-      <div className="hosts-card__top mb-8 flex items-center gap-4 lg:gap-6">
+      <div className="hosts-card__top flex items-center gap-4 lg:gap-6">
         <div
           className="hosts-card__image w-full h-full aspect-square max-w-[225px] overflow-hidden
           rounded-[16px] relative"
@@ -67,7 +67,7 @@ const HostCard = ({
       </div>
 
       <div
-        className="hosts-card__bottom flex w-full h-full items-start justify-between gap-8 rounded-[16px]
+        className="hosts-card__bottom flex w-full h-fit items-start justify-between gap-8 rounded-[16px]
         bg-white p-4 lg:gap-[80px] lg:py-6 lg:px-8"
       >
         <div>

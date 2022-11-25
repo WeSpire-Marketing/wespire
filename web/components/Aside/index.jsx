@@ -1,10 +1,27 @@
 import slugify from 'slugify'
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
+import useScrollSpy from 'react-use-scrollspy'
 
 export default function Aside({title = 'Table of contents:', items = []}) {
-  const [activeItemTextId, setActiveItemTextId] = useState(
-    slugify(items[0]?.children[0]?.text) ?? ''
-  )
+  const [elementRefs, setElementRefs] = useState([])
+  const activeSection = useScrollSpy({
+    sectionElementRefs: elementRefs, // Array of References to titles DOM elements
+    offsetPx: -80,
+  })
+
+  useEffect(() => {
+    let refs = []
+    if (typeof document !== 'undefined') {
+      refs = items.map((item) => {
+        const itemId = slugify(item?.children[0]?.text ?? '')
+        const itemNode = typeof document !== 'undefined' ? document.getElementById(itemId) : null
+        const ref = React.createRef()
+        ref.current = itemNode
+        return ref
+      })
+      setElementRefs(refs)
+    }
+  }, [items])
 
   return (
     <aside className="sidebar">
@@ -15,7 +32,7 @@ export default function Aside({title = 'Table of contents:', items = []}) {
 
         <ul className="flex flex-col gap-6">
           {items?.length > 0 &&
-            items.map((item) => {
+            items.map((item, idx) => {
               const customTitle = item?.markDefs[0]?.title
               const defaultTitle = item?.children[0]?.text
               const slug = slugify(defaultTitle)
@@ -24,11 +41,10 @@ export default function Aside({title = 'Table of contents:', items = []}) {
                   <a
                     className={`
                     ${
-                      activeItemTextId === slugify(defaultTitle) ? `text-smart` : `text-[#9E9E9E]`
+                      activeSection === idx ? `text-smart` : `text-[#9E9E9E]`
                     } block font-poppins text-[16px] font-medium
                     leading-[100%] tracking-[-0.01em]`}
                     href={'#' + slug}
-                    onClick={() => setActiveItemTextId(slug)}
                   >
                     {customTitle ?? (defaultTitle || 'The title is not specified')}
                   </a>

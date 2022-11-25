@@ -69,7 +69,7 @@ export default function LeaderCard({bgColor, image, name, job, title, text, soci
 function BackCardContent({title, text, socials}) {
   return (
     <motion.div
-      className="h-full px-6 flex flex-col justify-center lg:justify-end lg:px-[40px]"
+      className="h-full px-6 flex flex-col justify-center lg:justify-center lg:px-[40px]"
       initial={{opacity: 0}}
       animate={{opacity: 1}}
       transition={{duration: 0.5, delay: 0.2}}
@@ -78,7 +78,7 @@ function BackCardContent({title, text, socials}) {
 
       <p className="body-m mb-8 text-secondary lg:mb-[48px]">{text}</p>
 
-      <ul className="socials flex gap-4 lg:mb-[50px]">
+      <ul className="socials flex gap-4">
         {(socials ?? []).map(({_key, icon, url}) => (
           <li className="socials-item" key={_key}>
             <a

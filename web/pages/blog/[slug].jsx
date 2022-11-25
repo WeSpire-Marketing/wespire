@@ -2,6 +2,7 @@ import groq from 'groq'
 import Image from 'next/image'
 import {motion} from 'framer-motion'
 import {PortableText} from '@portabletext/react'
+import {useNextSanityImage} from 'next-sanity-image'
 
 import Img from '../../components/Img'
 import PageMeta from '../../components/PageMeta'
@@ -18,6 +19,8 @@ import myPortableTextComponents from '../../utils/myPortableComponents'
 import useCustomScrollBehavior from '../../utils/hooks/useCustomScrollBehavior'
 
 import client, {urlForImage} from '../../client'
+
+import localDataURL from '../../assets/images/blur-placeholder.jpg'
 
 export async function getServerSideProps({params}) {
   const slug = slugParamToPath(params?.slug)
@@ -80,6 +83,7 @@ export default function Index({
   },
 }) {
   useCustomScrollBehavior()
+  const imageProps = useNextSanityImage(client, imageData.image)
 
   return (
     <div className="articlepage bg-gallery">
@@ -122,9 +126,11 @@ export default function Index({
                       src={urlForImage(imageData.image).width(600).height(406).url()}
                       alt={imageData.alt}
                       layout="responsive"
+                      placeholder="blur"
                       objectFit="cover"
                       height={406}
                       width={600}
+                      blurDataURL={imageProps?.blurDataURL ?? localDataURL.blurDataURL}
                     />
                   </div>
 
@@ -171,9 +177,11 @@ export default function Index({
                     src={urlForImage(imageData.image).width(600).height(406).url()}
                     alt={imageData.alt}
                     layout="responsive"
+                    placeholder="blur"
                     objectFit="cover"
                     height={406}
                     width={600}
+                    blurDataURL={imageProps?.blurDataURL ?? localDataURL.blurDataURL}
                   />
                 </motion.div>
               </div>

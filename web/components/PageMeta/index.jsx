@@ -9,7 +9,7 @@ export default function PageMeta({
     <Head>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="/assets/favicon/favicon.ico" />
 
       <meta property="og:url" content={url} />
       <meta property="og:type" content={type} />

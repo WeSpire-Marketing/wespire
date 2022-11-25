@@ -1,12 +1,18 @@
+import Image from 'next/image'
+import {useNextSanityImage} from 'next-sanity-image'
+
 import Img from '../../Img'
 import Icon from '../../icons/AnimatedMarksEnd'
 import SignMeUpForm from '../../forms/SignMeUpForm'
 
+import client, {urlForImage} from '../../../client'
 import {injectIconToSpanStr} from '../../../utils'
-import Image from 'next/image'
-import {urlForImage} from '../../../client'
+
+import localDataURL from '../../../assets/images/blur-placeholder.jpg'
 
 export default function HeroImageAndForm({className = '', title, text, formId, image}) {
+  const imageProps = useNextSanityImage(client, image)
+
   return (
     <section
       className={
@@ -65,6 +71,8 @@ export default function HeroImageAndForm({className = '', title, text, formId, i
               alt={image.alt}
               height={406}
               width={600}
+              placeholder="blur"
+              blurDataURL={imageProps?.blurDataURL ?? localDataURL.blurDataURL}
             />
           </div>
         </div>
