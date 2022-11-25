@@ -260,7 +260,15 @@ const LandingPage = (props) => {
   const openGraphImages = openGraphImage
     ? [
         {
+          url: builder.image(openGraphImage).width(1920).height(1080).url(),
+          type: 'image/jpeg',
+          width: 1920,
+          height: 1080,
+          alt: title,
+        },
+        {
           url: builder.image(openGraphImage).width(1600).height(900).url(),
+          type: 'image/jpeg',
           width: 1600,
           height: 900,
           alt: title,
@@ -268,15 +276,17 @@ const LandingPage = (props) => {
         {
           // Facebook recommended size
           url: builder.image(openGraphImage).width(1200).height(630).url(),
+          type: 'image/jpeg',
           width: 1200,
           height: 630,
           alt: title,
         },
+        // Linkedin recommended size
         {
-          // 16:9
-          url: builder.image(openGraphImage).width(1600).height(900).url(),
-          width: 1600,
-          height: 900,
+          url: builder.image(openGraphImage).width(1200).height(644).url(),
+          type: 'image/jpeg',
+          width: 1200,
+          height: 644,
           alt: title,
         },
       ]
@@ -297,6 +307,9 @@ const LandingPage = (props) => {
         titleTemplate={`%s | ${config.title}`}
         canonical={config.url && `${config.url}/${slug}`}
         openGraph={{
+          url: process.env.NEXT_PUBLIC_DOMAIN ?? 'https://wespire.com/',
+          title: title,
+          description: description,
           images: openGraphImages,
         }}
         noindex={disallowRobots}
