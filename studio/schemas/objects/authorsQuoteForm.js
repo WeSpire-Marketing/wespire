@@ -17,8 +17,9 @@ export default {
               name: 'quote',
               type: 'text',
               title: 'Quote',
-              description: `text of very long quotes will be hidden with "..."`,
-              validation: (Rule) => Rule.required(),
+              description:
+                'Note: quotes longer than 6 lines will automatically be truncated with "..."',
+              validation: Rule => Rule.required()
             },
             {
               name: 'image',
@@ -29,29 +30,29 @@ export default {
                   name: 'alt',
                   type: 'string',
                   title: 'Image description',
-                  validation: (Rule) => Rule.required(),
-                },
+                  validation: Rule => Rule.required()
+                }
               ],
-              validation: (Rule) => Rule.required(),
+              validation: Rule => Rule.required()
             },
             {
               name: 'name',
               type: 'string',
               title: 'Author name',
-              validation: (Rule) => Rule.required(),
+              validation: Rule => Rule.required()
             },
             {
               name: 'job',
               type: 'string',
               title: 'Author position',
-              validation: (Rule) => Rule.required(),
-            },
+              validation: Rule => Rule.required()
+            }
           ],
-          validation: (Rule) => Rule.required(),
-        },
+          validation: Rule => Rule.required()
+        }
       ],
-      validation: (Rule) => Rule.required().max(4),
-    },
+      validation: Rule => Rule.required().max(4)
+    }
   ],
-  validation: (Rule) => Rule.required(),
+  validation: Rule => Rule.required()
 }

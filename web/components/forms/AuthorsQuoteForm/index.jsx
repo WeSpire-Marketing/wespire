@@ -36,10 +36,10 @@ export default function AuthorsQuoteForm({authors}) {
     >
       <blockquote>
         <motion.p
-          className="heading-4 mx-auto mb-[40px] h-[279px] max-w-[685px] overflow-hidden
-          sm:h-[209px]
-          md:h-[245px]
-          lg:mb-[48px] lg:h-[182px] lg:line-clamp-5"
+          className="heading-4 mx-auto mb-[40px] h-[190px] max-w-[685px] overflow-hidden
+          line-clamp-6
+          sm:h-[185px]
+          lg:mb-[48px] lg:h-[220px]"
           initial={{opacity: 0}}
           animate={controls}
           transition={{duration: 0.3, ease: 'easeIn'}}
