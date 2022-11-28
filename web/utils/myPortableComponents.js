@@ -8,7 +8,7 @@ import Video from '../components/Video'
 
 const myPortableTextComponents = {
   block: {
-    h1: ({children, value}) => {
+    h1: ({children, value = ''}) => {
       const slug = slugify(toPlainText(value))
       return (
         <h1 className="px-2 lg:mb-6 lg:px-0" id={slug}>
@@ -16,7 +16,7 @@ const myPortableTextComponents = {
         </h1>
       )
     },
-    h2: ({children, value}) => {
+    h2: ({children, value = ''}) => {
       const slug = slugify(toPlainText(value))
       return (
         <h2 className="px-2 lg:mb-6 lg:px-0" id={slug}>
@@ -24,7 +24,7 @@ const myPortableTextComponents = {
         </h2>
       )
     },
-    h3: ({children, value}) => {
+    h3: ({children, value = ''}) => {
       const slug = slugify(toPlainText(value))
       return (
         <h3 className="px-2 lg:mb-6 lg:px-0" id={slug}>
@@ -32,7 +32,7 @@ const myPortableTextComponents = {
         </h3>
       )
     },
-    h4: ({children, value}) => {
+    h4: ({children, value = ''}) => {
       const slug = slugify(toPlainText(value))
       return (
         <h4 className="px-2 lg:mb-6 lg:px-0" id={slug}>
@@ -40,7 +40,7 @@ const myPortableTextComponents = {
         </h4>
       )
     },
-    h5: ({children, value}) => {
+    h5: ({children, value = ''}) => {
       const slug = slugify(toPlainText(value))
       return (
         <h4 className="px-2 lg:mb-6 lg:px-0" id={slug}>
@@ -48,7 +48,7 @@ const myPortableTextComponents = {
         </h4>
       )
     },
-    h6: ({children, value}) => {
+    h6: ({children, value = ''}) => {
       const slug = slugify(toPlainText(value))
       return (
         <h4 className="px-2 lg:mb-6 lg:px-0" id={slug}>
