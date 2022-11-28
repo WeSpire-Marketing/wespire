@@ -1,7 +1,7 @@
 import groq from 'groq'
 import Image from 'next/image'
-import {useState} from 'react'
 import {motion} from 'framer-motion'
+import {useEffect, useState} from 'react'
 import {PortableText} from '@portabletext/react'
 import {useNextSanityImage} from 'next-sanity-image'
 
