@@ -16,7 +16,11 @@ export default function Content({title, text, date, content}) {
 
       <p className="px-2 lg:px-0">{text}</p>
 
-      <PortableText value={content} components={myPortableTextComponents} />
+      <PortableText
+        value={content}
+        components={myPortableTextComponents}
+        onMissingComponent={false}
+      />
     </>
   )
 }

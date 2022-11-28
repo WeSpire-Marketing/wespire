@@ -1,10 +1,10 @@
 import groq from 'groq'
 import Image from 'next/image'
+import {useState} from 'react'
 import {motion} from 'framer-motion'
 import {PortableText} from '@portabletext/react'
 import {useNextSanityImage} from 'next-sanity-image'
 
-import Img from '../../components/Img'
 import PageMeta from '../../components/PageMeta'
 import BackToBlog from '../../components/BackToBlog'
 import BlogSidebar from '../../components/BlogSidebar'
@@ -83,7 +83,10 @@ export default function Index({
   },
 }) {
   useCustomScrollBehavior()
+  const [formattedDate, setFormattedDate] = useState(null)
   const imageProps = useNextSanityImage(client, imageData.image)
+
+  useEffect(() => setFormattedDate(formatTimestamp(publishedAt)), [])
 
   return (
     <div className="articlepage bg-gallery">
@@ -157,7 +160,7 @@ export default function Index({
                       </p>
 
                       <p className="article__author-info__published font-normal leading-160 text-[#F9FBFF]">
-                        Published {formatTimestamp(publishedAt)} ⸱ {readingTime} min read
+                        Published {formattedDate} ⸱ {readingTime} min read
                       </p>
                     </div>
                   </div>

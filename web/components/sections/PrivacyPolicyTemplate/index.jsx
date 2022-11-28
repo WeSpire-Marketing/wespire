@@ -1,5 +1,3 @@
-import {useEffect, useRef, useState} from 'react'
-
 import Aside from '../../Aside'
 import Content from '../../Content'
 
@@ -7,21 +5,6 @@ import useCustomScrollBehavior from '../../../utils/hooks/useCustomScrollBehavio
 
 export default function PrivacyPolicyTemplate({headings, ...props}) {
   useCustomScrollBehavior()
-
-  // const contentRef = useRef(null)
-  // const [navItems, setNavItems] = useState([])
-
-  // // set array of all H2/H3 nodes from the privacy content
-  // useEffect(() => {
-  //   if (contentRef.current) {
-  //     const nodeList = contentRef.current.childNodes
-  //     const titleNodes = Array.from(nodeList).filter(
-  //       (node) => node.nodeName === 'H3' || node.nodeName === 'H2'
-  //     )
-  //     titleNodes.forEach((titleNode, idx) => titleNode.setAttribute('id', `title-${idx + 1}`))
-  //     setNavItems(titleNodes)
-  //   }
-  // }, [])
 
   return (
     <div className="privacypage bg-gallery">

@@ -1,3 +1,6 @@
+import { BookIcon } from '@sanity/icons'
+import { FcBookmark, TableOfContent } from '../helpers/blockContentComponents'
+
 export default {
   name: 'privacyPolicyTemplate',
   title: 'Privacy policy template',
@@ -33,7 +36,48 @@ export default {
       type: 'array',
       of: [
         {
-          type: 'block'
+          type: 'block',
+          marks: {
+            annotations: [
+              {
+                name: 'link',
+                type: 'object',
+                title: 'URL',
+                fields: [
+                  {
+                    title: 'URL',
+                    name: 'href',
+                    type: 'url'
+                  },
+                  {
+                    title: 'Open in new tab',
+                    name: 'blank',
+                    type: 'boolean'
+                  }
+                ],
+                initialValue: {
+                  blank: false
+                }
+              },
+              {
+                name: 'tableOfContent',
+                type: 'object',
+                title: 'Table of Content',
+                fields: [
+                  {
+                    name: 'title',
+                    type: 'string',
+                    title: 'Custom title',
+                    description: 'optional'
+                  }
+                ],
+                blockEditor: {
+                  render: TableOfContent,
+                  icon: FcBookmark
+                }
+              }
+            ]
+          }
         },
         {
           name: 'table',

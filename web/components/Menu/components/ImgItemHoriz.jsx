@@ -6,8 +6,8 @@ export default function ImgItemHoriz({image, title, text}) {
   return (
     <div className="menu-item flex flex-col items-start gap-6 lg:gap-4">
       <div
-        className="menu-item__icon relative h-[106px] w-[100%] shrink-0
-        overflow-hidden rounded-[16px]"
+        className="menu-item__icon relative h-[82px] w-[100%] shrink-0
+        overflow-hidden rounded-[16px] min-[1120px]:h-[106px]"
       >
         <Img value={image} />
       </div>

@@ -19,8 +19,7 @@ export default function BlogSidebar({items = [], slug}) {
     if (typeof document !== 'undefined') {
       refs = items.map((item) => {
         const itemId = slugify(item?.children[0]?.text ?? '')
-        const itemNode =
-          typeof document !== 'undefined' ? document.querySelector(`#${itemId}`) : null
+        const itemNode = document.querySelector(`#${itemId}`)
         const ref = React.createRef()
         ref.current = itemNode
         return ref

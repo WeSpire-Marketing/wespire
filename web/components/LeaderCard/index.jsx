@@ -4,7 +4,9 @@ import {motion, useAnimationControls} from 'framer-motion'
 
 import Img from '../Img'
 
+import {urlForImage} from '../../client'
 import myPortableTextComponents from '../../utils/myPortableComponents'
+import Image from 'next/image'
 
 const cardVariants = {
   selected: {
@@ -35,19 +37,19 @@ export default function LeaderCard({bgColor, image, name, job, title, text, soci
   return (
     <li>
       <motion.div
-        className="relative mx-auto mb-4 flex aspect-[3/3.55]
-        w-full cursor-pointer items-center justify-center overflow-hidden rounded-[16px]
+        className="leader-card relative mx-auto flex w-full cursor-pointer
+        items-center justify-center overflow-hidden rounded-[16px] aspect-[3/3.35]
         lg:mb-6"
-        variants={cardVariants}
         animate={selectedCard ? 'selected' : 'notSelected'}
-        onClick={handleClick}
         style={{backgroundColor: bgColor}}
+        variants={cardVariants}
+        onClick={handleClick}
       >
         <motion.div
           className="rotate-content-onflip flex h-full w-full items-end"
+          transition={{duration: 0.35}}
           initial={{opacity: 0}}
           animate={controls}
-          transition={{duration: 0.35}}
         >
           {selectedCard ? (
             <BackCardContent title={title} text={text} socials={items} />
@@ -57,10 +59,12 @@ export default function LeaderCard({bgColor, image, name, job, title, text, soci
         </motion.div>
       </motion.div>
 
-      <h3 className="heading-4 mb-1 text-center lg:mb-2">{name}</h3>
+      <div>
+        <h3 className="heading-4 mb-1 text-center lg:mb-2">{name}</h3>
 
-      <div className="prose text-center [&_p]:mb-0">
-        <PortableText value={job} components={myPortableTextComponents} />
+        <div className="prose text-center [&_p]:mb-0">
+          <PortableText value={job} components={myPortableTextComponents} />
+        </div>
       </div>
     </li>
   )
@@ -69,7 +73,8 @@ export default function LeaderCard({bgColor, image, name, job, title, text, soci
 function BackCardContent({title, text, socials}) {
   return (
     <motion.div
-      className="h-full px-6 flex flex-col justify-center lg:justify-center lg:px-[40px]"
+      className="h-full px-6 flex flex-col justify-center min-[1100px]:px-[40px]
+      lg:justify-center lg:px-[30px]"
       initial={{opacity: 0}}
       animate={{opacity: 1}}
       transition={{duration: 0.5, delay: 0.2}}
@@ -103,7 +108,14 @@ function FrontCardContent({image}) {
       animate={{opacity: 1}}
       transition={{duration: 1}}
     >
-      <Img value={image} />
+      <Image
+        src={urlForImage(image).width(387).height(458).url()}
+        layout="responsive"
+        objectFit="cover"
+        alt={image.alt}
+        height={458}
+        width={387}
+      />
     </motion.div>
   )
 }

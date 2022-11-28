@@ -37,6 +37,20 @@ a {
   color: transparent !important;
 }
 
+@supports not (aspect-ratio: 3 / 3.35) {
+  .leader-card::before {
+    content: '';
+    float: left;
+    padding-top: 118.5%;
+  }
+
+  .leader-card::after {
+    display: block;
+    content: '';
+    clear: both;
+  }
+}
+
 /* Rewrite the default behavior of browsers when autocomplete*/
 input:-webkit-autofill,
 select:-webkit-autofill,
