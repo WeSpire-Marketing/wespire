@@ -23,9 +23,9 @@ export default function Footer({logo, address, socials, menuItems, year, policy,
                 // width={162}
                 // height={60}
                 src={urlForImage(logo).url()}
-                alt="logo"
                 objectFit="contain"
                 layout="fill"
+                alt="Wespire"
               />
             </div>
 
@@ -49,8 +49,8 @@ export default function Footer({logo, address, socials, menuItems, year, policy,
                   <div className="footer__socials__icon relative h-[20px] w-[20px] lg:h-[25px] lg:w-[25px]">
                     <Image
                       src={urlForImage(image).url()}
-                      alt="social icon"
                       objectFit="contain"
+                      alt="social icon"
                       layout="fill"
                     />
                   </div>
