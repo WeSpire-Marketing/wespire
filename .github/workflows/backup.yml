@@ -12,7 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Export dataset
-        run: npm i && cd studio && sanity dataset export production backups/backup.tar.gz
+        uses: sanity-io/github-action-sanity@v0.4
+        env:
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
+        with:
+          args: studio dataset export production backups/backup.tar.gz
       - name: Upload backup.tar.gz
         uses: actions/upload-artifact@v3
         with:
