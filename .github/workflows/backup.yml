@@ -11,10 +11,6 @@ jobs:
     name: Backup dataset
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'
       - name: Export dataset
         uses: sanity-io/github-action-sanity@v0.3
         env:
@@ -22,7 +18,7 @@ jobs:
         with:
           args: studio dataset export production backups/backup.tar.gz
       - name: Upload backup.tar.gz
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: backup-tarball
           path: studio/backups/backup.tar.gz
