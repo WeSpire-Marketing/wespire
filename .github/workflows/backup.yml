@@ -1,0 +1,22 @@
+name: Sanity backup
+on:
+  schedule:
+    # Runs at 10:00 on every 5th day-of-month.
+    - cron: "0 10 */5 * *"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npx @sanity/cli dataset export production backup.tar.gz
+        working-directory: studio
+      - uses: actions/upload-artifact@v2
+        with:
+          name: production
+          path: studio/backup.tar.gz
+          retention-days: 5
+    env:
+      SANITY_STUDIO_API_PROJECT_ID: ${{ secrets.SANITY_STUDIO_API_PROJECT_ID }}
+      SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
+ 
+    
