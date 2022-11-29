@@ -34,7 +34,7 @@ export default function BlogSidebar({items = [], slug}) {
   const shareTwitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
     `${process.env.NEXT_PUBLIC_DOMAIN}/blog/${slug}`
   )}`
-  const shareLinkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+  const shareLinkedInUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
     `${process.env.NEXT_PUBLIC_DOMAIN}/blog/${slug}`
   )}`
 
