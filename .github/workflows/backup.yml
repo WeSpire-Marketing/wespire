@@ -11,6 +11,10 @@ jobs:
     name: Backup dataset
     steps:
       - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
       - name: Export dataset
         uses: sanity-io/github-action-sanity@v0.3
         env:
@@ -21,7 +25,6 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: backup-tarball
-          node-version: '16.0'
           path: studio/backups/backup.tar.gz
           if-no-files-found: error
 
