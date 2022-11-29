@@ -12,11 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Export dataset
-        uses: sanity-io/github-action-sanity@v0.2-alpha
+        uses: sanity-io/github-action-sanity@v0.3
         env:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
         with:
-          args: sanity dataset export production backups/backup.tar.gz
+          args: . dataset export production backups/backup.tar.gz
       - name: Upload backup.tar.gz
         uses: actions/upload-artifact@v2
         with:
