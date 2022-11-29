@@ -17,11 +17,13 @@ jobs:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
         with:
           args: studio dataset export production backups/backup.tar.gz
+      - run: mkdir -p path/to/artifact
+      - run: echo hello > path/to/artifact/world.txt
       - name: Upload backup.tar.gz
         uses: actions/upload-artifact@v3
         with:
           name: backup-tarball
-          path: studio/backups/backup.tar.gz
+          path: path/to/artifact/world.txt
           if-no-files-found: error
 
  
