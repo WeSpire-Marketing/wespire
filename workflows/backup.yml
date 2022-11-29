@@ -1,6 +1,7 @@
 name: Sanity backup
 on:
   schedule:
+    # Runs at 10:00 on every 5th day-of-month.
     - cron: "0 10 */5 * *"
 jobs:
 build:
@@ -16,4 +17,4 @@ build:
   working-directory: studio
   env:
     SANITY_STUDIO_API_PROJECT_ID: ${{ secrets.SANITY_STUDIO_API_PROJECT_ID }}
-    SANITY_AUTH_TOKEN: ${{ secrets.SANITY_BACKUP_TOKEN }}
+    SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
