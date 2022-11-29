@@ -21,7 +21,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: backup-tarball
-          node_version:'16.0'
+          node-version: '16.0'
           path: studio/backups/backup.tar.gz
           if-no-files-found: error
 
