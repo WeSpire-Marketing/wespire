@@ -47,7 +47,7 @@ export default {
                   {
                     title: 'URL',
                     name: 'href',
-                    type: 'url'
+                    type: 'string'
                   },
                   {
                     title: 'Open in new tab',
