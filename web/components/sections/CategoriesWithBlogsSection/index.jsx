@@ -58,7 +58,11 @@ export default function CategoriesWithBlogsSection({categories = [], blogs = []}
         </div>
 
         {paginatedBlogs?.length > 0 ? (
-          <ul className="blog__list grid grid-cols-1 gap-4 px-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6 lg:px-0">
+          <ul
+            className="blog__list grid grid-cols-1 gap-4 px-4 mb-[72px]
+            sm:grid-cols-2
+            lg:grid-cols-3 lg:gap-6 lg:px-0"
+          >
             {paginatedBlogs[currentPage].map((blogData, idx) => (
               <li className="flex" key={blogData.slug.current + idx}>
                 <BlogCard {...blogData} />
