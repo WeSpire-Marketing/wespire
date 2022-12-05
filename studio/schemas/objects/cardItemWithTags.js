@@ -44,7 +44,7 @@ export default {
           validation: Rule => Rule.required()
         }
       ],
-      validation: Rule => Rule.required().max(3)
+      validation: Rule => Rule.required().max(1)
     },
     {
       name: 'title',
