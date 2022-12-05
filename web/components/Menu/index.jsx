@@ -26,12 +26,12 @@ export default function Menu({isActive, items, onClose: handleClose}) {
         initial={{opacity: '0'}}
       >
         <div
-          className="menu-row flex border-t-[1px] border-[rgba(202,205,212,0.8)] px-[32px]
+          className="menu-row grid grid-cols-3 border-t-[1px] border-[rgba(202,205,212,0.8)] px-[32px]
           pt-[40px] pb-[40px]"
         >
           {items?.col1?.length > 0 && (
             <div
-              className="menu-col flex w-fit max-w-[384px] flex-col gap-6 border-r-[1px]
+              className="menu-col flex flex-col gap-6 border-r-[1px]
               border-[rgba(202,205,212,0.8)] py-[16px] pr-[48px] lg:pr-8 min-[1200px]:pr-[48px]"
             >
               {items.col1.map(({_key, _type, ...props}) => {
@@ -42,7 +42,7 @@ export default function Menu({isActive, items, onClose: handleClose}) {
 
           {items?.col2?.length > 0 && (
             <div
-              className="menu-col flex w-fit flex-1 flex-col gap-6 py-[16px]
+              className="menu-col flex flex-1 flex-col gap-6 py-[16px]
               px-[48px] lg:px-8 min-[1200px]:px-[48px]"
             >
               {items.col2.map(({_key, _type, ...props}) => {
@@ -53,7 +53,7 @@ export default function Menu({isActive, items, onClose: handleClose}) {
 
           {items?.col3?.length > 0 && (
             <div
-              className="menu-col flex w-fit flex-1 flex-col gap-6 border-l-[1px]
+              className="menu-col flex flex-1 flex-col gap-6 border-l-[1px]
               border-[rgba(202,205,212,0.8)] py-[16px] pl-[48px] lg:pl-8 min-[1200px]:pl-[48px]"
             >
               {items.col3.map(({_key, _type, ...props}) => {

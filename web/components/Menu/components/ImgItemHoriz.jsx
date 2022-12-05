@@ -1,15 +1,28 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
-import Img from '../../Img'
+import { urlForImage } from '../../../client'
+import useSanityBlurDataUrl from '../../../utils/hooks/useSanityBlurDataUrl'
+
 
 export default function ImgItemHoriz({image, title, text}) {
+  const blurDataUrl = useSanityBlurDataUrl(image)
   return (
     <div className="menu-item flex flex-col items-start gap-6 lg:gap-4">
       <div
-        className="menu-item__icon relative h-[82px] w-[100%] shrink-0
-        overflow-hidden rounded-[16px] min-[1120px]:h-[106px]"
+        className="menu-item__icon relative aspect-[5/1.7] w-full max-w-[306px]
+        overflow-hidden rounded-[16px]"
       >
-        <Img value={image} />
+        <Image
+          src={urlForImage(image).width(306).height(106).url()}
+          blurDataURL={blurDataUrl}
+          layout="responsive"
+          placeholder="blur"
+          objectFit="cover"
+          alt={image.alt}
+          height={106}
+          width={306}
+        />
       </div>
 
       <div className="menu-item__text">

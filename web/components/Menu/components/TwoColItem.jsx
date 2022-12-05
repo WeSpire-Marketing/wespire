@@ -1,15 +1,28 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
-import Img from '../../Img'
+import {urlForImage} from '../../../client'
+import useSanityBlurDataUrl from '../../../utils/hooks/useSanityBlurDataUrl'
 
 export default function TwoColItem({image, title, text}) {
+  const blurDataUrl = useSanityBlurDataUrl(image)
+
   return (
     <div className="menu-item flex items-start gap-4 lg:items-center">
       <div
-        className="menu-item__icon relative h-[109px] w-[40%] shrink-0
+        className="menu-item__icon relative h-[110px] w-full max-w-[145px] shrink-0
         overflow-hidden rounded-[16px]"
       >
-        <Img value={image} />
+        <Image
+          src={urlForImage(image).width(145).height(110).url()}
+          blurDataURL={blurDataUrl}
+          layout="responsive"
+          placeholder="blur"
+          objectFit="cover"
+          alt={image.alt}
+          height={110}
+          width={145}
+        />
       </div>
 
       <div className="menu-item__text">

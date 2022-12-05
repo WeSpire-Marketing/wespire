@@ -1,15 +1,27 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
-import Img from '../../Img'
+import { urlForImage } from '../../../client'
+import useSanityBlurDataUrl from '../../../utils/hooks/useSanityBlurDataUrl'
 
 export default function CardItem({image, text, title}) {
+  const blurDataUrl = useSanityBlurDataUrl(image)
   return (
     <div className="menu-item flex flex-col items-center gap-[24px]">
       <div
-        className="menu-item__icon relative h-[176px] w-[100%] shrink-0
-        overflow-hidden rounded-[16px]"
+        className="menu-item__icon relative aspect-[16/8.5] w-full max-w-[326px] shrink-0
+        overflow-hidden rounded-[16px] mr-auto"
       >
-        <Img value={image} />
+        <Image
+          src={urlForImage(image).width(326).height(176).url()}
+          blurDataURL={blurDataUrl}
+          layout="responsive"
+          placeholder="blur"
+          objectFit="cover"
+          alt={image.alt}
+          height={176}
+          width={326}
+        />
       </div>
 
       <div className="menu-item__text">
