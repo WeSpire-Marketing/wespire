@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
-import { urlForImage } from '../../../client'
+import {urlForImage} from '../../../client'
 import useSanityBlurDataUrl from '../../../utils/hooks/useSanityBlurDataUrl'
 
 export default function ImgItem({image, title, text}) {
@@ -13,12 +13,14 @@ export default function ImgItem({image, title, text}) {
         overflow-hidden rounded-[16px]"
       >
         <Image
-          src={urlForImage(image).width(64).height(64).quality(100).fit('crop').url()}
+          src={urlForImage(image).width(64).height(64).quality(100).url()}
           blurDataURL={blurDataUrl}
           objectFit="contain"
           placeholder="blur"
           alt={image.alt}
-          layout="fill"
+          layout="fixed"
+          height={64}
+          width={64}
         />
       </div>
 

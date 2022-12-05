@@ -8,7 +8,7 @@ import useSanityBlurDataUrl from '../../../utils/hooks/useSanityBlurDataUrl'
 export default function ImgItemHoriz({image, title, text}) {
   const blurDataUrl = useSanityBlurDataUrl(image)
   return (
-    <div className="menu-item flex flex-col items-start gap-6 lg:gap-4">
+    <div className="menu-item max-w-[306px] flex flex-col items-start gap-6 lg:gap-4">
       <div
         className="menu-item__icon relative aspect-[5/1.7] w-full max-w-[306px]
         overflow-hidden rounded-[16px]"

@@ -7,20 +7,20 @@ import useSanityBlurDataUrl from '../../../utils/hooks/useSanityBlurDataUrl'
 export default function CardItemWithTags({image, text, title, tags}) {
   const blurDataUrl = useSanityBlurDataUrl(image)
   return (
-    <div className="menu-item max-w-[326px]">
+    <div className="menu-item max-w-[376px]">
       <div
-        className="menu-item__icon relative mb-2 aspect-[4/2] w-full max-w-[376px]
+        className="menu-item__icon relative mb-2 aspect-[4/1.75] w-full max-w-[376px]
         shrink-0 overflow-hidden rounded-[16px]"
       >
         <Image
-          src={urlForImage(image).width(326).height(106).quality(100).url()}
+          src={urlForImage(image).width(376).height(176).quality(100).url()}
           blurDataURL={blurDataUrl}
           layout="responsive"
           placeholder="blur"
           objectFit="cover"
           alt={image.alt}
           height={176}
-          width={326}
+          width={376}
         />
       </div>
 
