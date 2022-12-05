@@ -13,7 +13,7 @@ export default function CardItem({image, text, title}) {
         overflow-hidden rounded-[16px] mr-auto"
       >
         <Image
-          src={urlForImage(image).width(326).height(176).url()}
+          src={urlForImage(image).width(326).height(176).quality(100).url()}
           blurDataURL={blurDataUrl}
           layout="responsive"
           placeholder="blur"

@@ -14,7 +14,7 @@ export default function ImgItemHoriz({image, title, text}) {
         overflow-hidden rounded-[16px]"
       >
         <Image
-          src={urlForImage(image).width(306).height(106).url()}
+          src={urlForImage(image).width(306).height(106).quality(100).url()}
           blurDataURL={blurDataUrl}
           layout="responsive"
           placeholder="blur"

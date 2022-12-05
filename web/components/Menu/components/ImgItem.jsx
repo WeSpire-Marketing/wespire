@@ -13,7 +13,7 @@ export default function ImgItem({image, title, text}) {
         overflow-hidden rounded-[16px]"
       >
         <Image
-          src={urlForImage(image).width(64).height(64).url()}
+          src={urlForImage(image).width(64).height(64).quality(100).fit('crop').url()}
           blurDataURL={blurDataUrl}
           objectFit="contain"
           placeholder="blur"

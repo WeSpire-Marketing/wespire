@@ -14,7 +14,7 @@ export default function TwoColItem({image, title, text}) {
         overflow-hidden rounded-[16px]"
       >
         <Image
-          src={urlForImage(image).width(145).height(110).url()}
+          src={urlForImage(image).width(145).height(110).quality(100).url()}
           blurDataURL={blurDataUrl}
           layout="responsive"
           placeholder="blur"
