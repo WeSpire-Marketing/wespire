@@ -81,6 +81,9 @@ content {
           "categories": *[_type == 'category']{
             title,
           },
+          "defaultCategory": defaultCategory -> {
+            title,
+          },
           "blogs": blogs[] -> {
             imageData,
             "categories": categories[] -> {
@@ -124,6 +127,9 @@ content {
       },
       "categories": *[_type == "category"] {
         ...,
+      },
+      "defaultCategory": defaultCategory -> {
+        title,
       }
     },
     _type == 'newsRoomTemplate' => {
@@ -172,6 +178,9 @@ content {
         slug,
       },
       "categories": *[_type == 'category']{
+        title,
+      },
+      "defaultCategory": defaultCategory -> {
         title,
       },
       "sessionSection": sessionSection{

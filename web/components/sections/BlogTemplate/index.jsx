@@ -14,12 +14,12 @@ import {filterBlogsByQuery} from '../../../utils'
 import usePaginate from '../../../utils/hooks/usePaginate'
 import useCustomScrollBehavior from '../../../utils/hooks/useCustomScrollBehavior'
 
-const BlogTemplate = ({categories, title, subtitle, formId, form1, form2, blogs}) => {
+const BlogTemplate = ({categories, title, subtitle, formId, form1, form2, blogs, defaultCategory }) => {
   useCustomScrollBehavior()
 
   const scrollToRef = useRef(null)
   const [currentPage, setCurrentPage] = useState(0)
-  const [searchingQuery, setSearchingQuery] = useState('')
+  const [searchingQuery, setSearchingQuery] = useState(defaultCategory?.title ?? '')
   const [isSearchPanelVisible, setSearchPanelVisible] = useState(false)
   const filteredBlogs = filterBlogsByQuery(blogs, searchingQuery)
   const paginatedBlogs = usePaginate(filteredBlogs, 9)

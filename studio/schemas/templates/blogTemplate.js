@@ -56,6 +56,13 @@ export default {
       validation: Rule => Rule.required()
     },
     {
+      name: 'defaultCategory',
+      title: 'Default category',
+      type: 'reference',
+      to: [{ type: 'category', validation: Rule => Rule.required().length(1) }],
+      validation: Rule => Rule.required()
+    },
+    {
       name: 'blogs',
       title: 'List of blogs',
       type: 'array',

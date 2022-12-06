@@ -8,10 +8,10 @@ import CategoriesList from '../../CategoriesList'
 import {filterBlogsByQuery} from '../../../utils'
 import usePaginate from '../../../utils/hooks/usePaginate'
 
-export default function CategoriesWithBlogsSection({categories = [], blogs = []}) {
+export default function CategoriesWithBlogsSection({categories = [], defaultCategory, blogs = []}) {
   const scrollToRef = useRef(null)
   const [currentPage, setCurrentPage] = useState(0)
-  const [searchingQuery, setSearchingQuery] = useState('')
+  const [searchingQuery, setSearchingQuery] = useState(defaultCategory?.title ?? '')
   const [isSearchPanelVisible, setSearchPanelVisible] = useState(false)
   const filteredBlogs = filterBlogsByQuery(blogs, searchingQuery)
   const paginatedBlogs = usePaginate(filteredBlogs, 6)
