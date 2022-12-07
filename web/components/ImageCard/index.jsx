@@ -1,8 +1,9 @@
 import {useRef} from 'react'
+import Image from 'next/image'
 import {motion, useScroll, useTransform} from 'framer-motion'
 
-import Img from '../Img'
 import CardBase from '../CardBase'
+import {urlForImage} from '../../client'
 
 export default function ImageCard({color = '#FFCC7B', className = '', image, ...props}) {
   const ref = useRef(null)
@@ -20,7 +21,14 @@ export default function ImageCard({color = '#FFCC7B', className = '', image, ...
         {...props}
       >
         <motion.div className="relative aspect-[4/2.5] w-full" style={{y}}>
-          <Img className="h-full w-full" value={{...image.image, alt: image.imageAlt}} />
+          <Image
+            src={urlForImage(image.image).url()}
+            layout="responsive"
+            alt={image.alt}
+            quality={100}
+            height={375}
+            width={600}
+          />
         </motion.div>
       </CardBase>
     </div>

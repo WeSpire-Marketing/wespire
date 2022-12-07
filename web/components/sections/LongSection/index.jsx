@@ -50,8 +50,8 @@ export default function LongSection({title = '', rows}) {
                       className="longsection__heading heading-3 mb-4"
                       initial={{opacity: 0, x: idx % 2 == 0 ? 100 : -100}}
                       whileInView={{opacity: 1, x: 0}}
-                      viewport={{once: true}}
                       transition={{duration: 1}}
+                      viewport={{once: true}}
                     >
                       {title}
                     </motion.h3>

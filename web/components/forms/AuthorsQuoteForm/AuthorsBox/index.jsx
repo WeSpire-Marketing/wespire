@@ -1,5 +1,8 @@
+import Image from 'next/image'
+
 import Img from '../../../Img'
 import AnimatedCircle from '../../../icons/AnimatedCircle'
+import placeholderImage from '../../../../assets/images/avatar-placeholder.svg'
 
 export default function AuthorsBox({authors, onAuthorClick, isAuthorSingle, activeAuthorIndex}) {
   return (
@@ -19,7 +22,11 @@ export default function AuthorsBox({authors, onAuthorClick, isAuthorSingle, acti
               onClick={() => onAuthorClick(idx)}
               key={idx}
             >
-              <Img value={author.image} />
+              {author?.image?.asset ? (
+                <Img value={author.image} />
+              ) : (
+                <Image src={placeholderImage} alt="Image of the quote author" />
+              )}
               <AnimatedCircle
                 className="absolute top-[-7px] left-[-7px] h-[79px] w-[79px]
                 lg:top-[-9px] lg:left-[-9px] lg:h-[90px] lg:w-[90px]"

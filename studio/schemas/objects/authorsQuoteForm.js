@@ -51,7 +51,7 @@ export default {
           validation: Rule => Rule.required()
         }
       ],
-      validation: Rule => Rule.required().max(4)
+      validation: Rule => Rule.required().max(3)
     }
   ],
   validation: Rule => Rule.required()

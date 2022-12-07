@@ -66,13 +66,14 @@ export default function HeroImageAndForm({className = '', title, text, formId, i
           >
             <Image
               className="w-full aspect-[16/10.8] rounded-[16px] overflow-hidden"
-              src={urlForImage(image.image).width(600).height(406).url()}
-              layout="responsive"
-              alt={image.alt}
-              height={406}
-              width={600}
-              placeholder="blur"
               blurDataURL={imageProps?.blurDataURL ?? localDataURL.blurDataURL}
+              src={urlForImage(image.image).width(600).height(406).fit('max').url()}
+              layout="responsive"
+              placeholder="blur"
+              alt={image.alt}
+              quality={100}
+              height={406}
+              width={580}
             />
           </div>
         </div>
