@@ -22,7 +22,7 @@ export default function ImageCard({color = '#FFCC7B', className = '', image, ...
       >
         <motion.div className="relative aspect-[4/2.5] w-full" style={{y}}>
           <Image
-            src={urlForImage(image.image).url()}
+            src={urlForImage(image.image).fit('max').url()}
             layout="responsive"
             alt={image.alt}
             quality={100}

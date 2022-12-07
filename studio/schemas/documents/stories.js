@@ -21,6 +21,7 @@ export default {
           name: 'image',
           type: 'image',
           title: 'Story card image',
+          description: 'To display this image correctly use a square image of at least 224x244 pixels',
           fields: [
             {
               name: 'alt',
