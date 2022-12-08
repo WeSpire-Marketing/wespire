@@ -126,14 +126,15 @@ export default function Index({
                   <div className="mb-[40px] px-2 max-w-[600px] mr-auto lg:hidden">
                     <Image
                       className="overflow-hidden rounded-[16px]"
+                      blurDataURL={imageProps?.blurDataURL ?? localDataURL.blurDataURL}
                       src={urlForImage(imageData.image).width(600).height(406).url()}
                       alt={imageData.alt}
                       layout="responsive"
                       placeholder="blur"
                       objectFit="cover"
+                      quality={100}
                       height={406}
                       width={600}
-                      blurDataURL={imageProps?.blurDataURL ?? localDataURL.blurDataURL}
                     />
                   </div>
 

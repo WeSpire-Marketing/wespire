@@ -7,6 +7,7 @@ export default {
       name: 'imageData',
       type: 'object',
       title: 'Image',
+      description: 'Recommended image size 600x375',
       fields: [
         {
           name: 'image',

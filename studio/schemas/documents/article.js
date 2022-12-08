@@ -76,16 +76,19 @@ export default {
       name: 'categories',
       type: 'array',
       title: 'Categories',
+      validation: Rule =>
+        Rule.custom(data => {
+          return data.length > 0 ? true : 'Must have at least one category'
+        }),
       of: [
         {
           name: 'category',
-          title: 'Choose a category',
           type: 'reference',
+          title: 'Choose a category',
           to: { type: 'category' },
           validation: Rule => Rule.required()
         }
-      ],
-      validation: Rule => Rule.required()
+      ]
     },
     {
       name: 'author',
