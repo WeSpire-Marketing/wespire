@@ -18,8 +18,7 @@ export default function BlogCard({publishedAt, categories, imageData, excerpt, t
       <motion.a className="flex">
         <CardBase
           className="blog border-[rgba(202_205_212_0.8)] flex flex-1 cursor-pointer flex-col
-          rounded-2xl border bg-white
-          px-6 pb-[40px] pt-6 duration-300 ease-in-out lg:pb-[56px]"
+          rounded-2xl border bg-white px-6 pb-[40px] pt-6 duration-300 ease-in-out lg:pb-[56px]"
           style={{
             transform: isHovered ? 'translateY(-8px)' : 'translateY(0px)',
           }}
@@ -32,12 +31,13 @@ export default function BlogCard({publishedAt, categories, imageData, excerpt, t
           >
             <Image
               className="blog__image__img absolute top-0 left-0 right-0 bottom-0"
-              src={urlForImage(imageData.image).url()}
-              alt={imageData.alt}
-              layout="fill"
-              objectFit="cover"
-              placeholder="blur"
+              src={urlForImage(imageData.image).width(342).height(242).fit('max').url()}
               blurDataURL={blurDataUrl}
+              alt={imageData.alt}
+              placeholder="blur"
+              objectFit="cover"
+              layout="fill"
+              quality={100}
             />
           </div>
 

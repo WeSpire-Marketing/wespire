@@ -14,7 +14,16 @@ import {filterBlogsByQuery} from '../../../utils'
 import usePaginate from '../../../utils/hooks/usePaginate'
 import useCustomScrollBehavior from '../../../utils/hooks/useCustomScrollBehavior'
 
-const BlogTemplate = ({categories, title, subtitle, formId, form1, form2, blogs, defaultCategory }) => {
+const BlogTemplate = ({
+  categories,
+  title,
+  subtitle,
+  formId,
+  form1,
+  form2,
+  blogs,
+  defaultCategory,
+}) => {
   useCustomScrollBehavior()
 
   const scrollToRef = useRef(null)
@@ -45,7 +54,7 @@ const BlogTemplate = ({categories, title, subtitle, formId, form1, form2, blogs,
   }
 
   return (
-    <section className="overflow-hidden pt-[170px] pb-[100px] lg:pt-[184px] lg:pb-[128px] bg-gallery">
+    <section className="overflow-hidden pt-[170px] pb-[100px] bg-gallery lg:pt-[184px] lg:pb-[128px]">
       <div className="container px-0 lg:px-8">
         <div className="inner">
           <div className="hero__text mb-[100px] px-4 text-center lg:mb-[140px]">
@@ -120,15 +129,17 @@ const BlogTemplate = ({categories, title, subtitle, formId, form1, form2, blogs,
             </div>
           )}
 
-          {paginatedBlogs?.length > 1 && (
-            <Pagination
-              currentPage={currentPage}
-              totalPages={paginatedBlogs.length}
-              onClick={(page) => callSetPageAndScroll(() => setCurrentPage(page))}
-              onPrevClick={() => callSetPageAndScroll(() => setCurrentPage((prev) => prev - 1))}
-              onNextClick={() => callSetPageAndScroll(() => setCurrentPage((prev) => prev + 1))}
-            />
-          )}
+          <div className="overflow-x-auto">
+            <div className="flex justify-center px-4 py-2 shrink-0 min-w-fit">
+              <Pagination
+                currentPage={currentPage}
+                totalPages={paginatedBlogs?.length ?? 0}
+                setCurrentPage={(pageIndex) =>
+                  callSetPageAndScroll(() => setCurrentPage(pageIndex))
+                }
+              />
+            </div>
+          </div>
 
           {form2.isForm && <GetForm className="mt-[100px] lg:mt-[152px]" {...form2.form[0]} />}
         </div>

@@ -179,13 +179,14 @@ export default function Index({
                   <Image
                     className="w-full h-full"
                     src={urlForImage(imageData.image).width(600).height(406).url()}
+                    blurDataURL={imageProps?.blurDataURL ?? localDataURL.blurDataURL}
                     alt={imageData.alt}
                     layout="responsive"
                     placeholder="blur"
                     objectFit="cover"
+                    quality={100}
                     height={406}
                     width={600}
-                    blurDataURL={imageProps?.blurDataURL ?? localDataURL.blurDataURL}
                   />
                 </motion.div>
               </div>

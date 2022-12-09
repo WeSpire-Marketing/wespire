@@ -64,15 +64,17 @@ export default function ArticlesPressSection({title, blogs, title2, news}) {
               </div>
             )}
 
-            {paginatedBlogs?.length > 1 && (
-              <Pagination
-                currentPage={currentPage}
-                totalPages={paginatedBlogs.length}
-                onClick={(page) => callSetPageAndScroll(() => setCurrentPage(page))}
-                onPrevClick={() => callSetPageAndScroll(() => setCurrentPage((prev) => prev - 1))}
-                onNextClick={() => callSetPageAndScroll(() => setCurrentPage((prev) => prev + 1))}
-              />
-            )}
+            <div className="overflow-x-auto">
+              <div className="flex justify-center px-4 py-2 shrink-0 min-w-fit">
+                <Pagination
+                  currentPage={currentPage}
+                  totalPages={paginatedBlogs?.length ?? 0}
+                  setCurrentPage={(pageIndex) =>
+                    callSetPageAndScroll(() => setCurrentPage(pageIndex))
+                  }
+                />
+              </div>
+            </div>
 
             <h2
               className="articlespressection__title  heading-2 mt-[100px] mb-6

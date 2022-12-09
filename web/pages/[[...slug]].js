@@ -237,7 +237,7 @@ export const getServerSideProps = async ({params}) => {
             ${pageFragment}
           }
         }`,
-        {possibleSlugs: getSlugVariations(slug)}
+        {possibleSlugs: [slug, ...getSlugVariations(slug)]}
       )
       .then((res) => (res?.page ? {...res.page, slug} : undefined))
   }

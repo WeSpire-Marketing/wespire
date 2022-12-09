@@ -1,51 +1,47 @@
+import {NextButton, PageButton, Pagination, PrevButton} from 'react-headless-pagination'
+
 import ChevronIcon from '../icons/ChevronIcon'
 
-export default function Pagination({
-  totalPages,
-  currentPage,
-  onClick: handleClick,
-  onPrevClick: handlePrevClick,
-  onNextClick: handleNextClick,
-}) {
+export default function PaginationComponent({totalPages, currentPage, setCurrentPage}) {
   return (
-    <div className="flex items-center justify-center gap-[10px]">
-      <span
-        className={`
-          ${currentPage <= 0 ? 'pointer-events-none opacity-0' : 'opacity-1'}
-          flex h-[32px] w-[32px] cursor-pointer justify-center
-        `}
-        onClick={handlePrevClick}
+    <>
+      <Pagination
+        className={
+          (totalPages <= 1 ? 'hidden' : 'flex') +
+          ' items-center gap-6 w-fit h-8 text-lg select-none'
+        }
+        truncableClassName="w-10 px-0.5 text-center"
+        truncableText="..."
+        setCurrentPage={setCurrentPage}
+        middlePagesSiblingCount={1}
+        currentPage={currentPage}
+        totalPages={totalPages}
+        edgePageCount={1}
       >
-        <ChevronIcon className="w-[17px] rotate-90" color="#383838" />
-      </span>
-
-      {Array.from(Array(totalPages).keys()).map((pageNumber, idx) => {
-        return (
-          <span
-            className={`
-              ${
-                currentPage === pageNumber
-                  ? `bg-helpful text-white`
-                  : `bg-transparent text-secondary`
-              } inline-flex h-[32px] w-[32px] cursor-pointer
-              items-center justify-center rounded-full font-poppins text-[18px]
-              font-medium`}
-            key={idx}
-            onClick={() => handleClick(pageNumber)}
-          >
-            {pageNumber + 1}
-          </span>
-        )
-      })}
-
-      <span
-        className={`${
-          currentPage >= totalPages - 1 ? 'pointer-events-none opacity-0' : 'opacity-1'
-        } flex h-[32px] w-[32px] cursor-pointer justify-center`}
-        onClick={handleNextClick}
-      >
-        <ChevronIcon className="w-[17px] rotate-[-90deg]" color="#383838" />
-      </span>
-    </div>
+        <PrevButton
+          className={
+            (currentPage === 0 ? 'invisible' : 'visible') +
+            ' w-8 h-8 flex justify-end items-center text-secondary cursor-pointer'
+          }
+        >
+          <ChevronIcon className="w-[17px] rotate-90" color="#383838" />
+        </PrevButton>
+        <div className="flex items-center justify-center flex-grow gap-4">
+          <PageButton
+            className="flex items-center justify-center rounded-full cursor-pointer"
+            activeClassName="h-8 w-8 bg-helpful text-white font-semibold"
+            inactiveClassName="w-4 h-8 text-secondary"
+          />
+        </div>
+        <NextButton
+          className={
+            (currentPage === totalPages - 1 ? 'invisible' : 'visible') +
+            ' flex w-8 h-8 justify-start items-center text-secondary cursor-pointer'
+          }
+        >
+          <ChevronIcon className="w-[17px] rotate-[-90deg]" color="#383838" />
+        </NextButton>
+      </Pagination>
+    </>
   )
 }

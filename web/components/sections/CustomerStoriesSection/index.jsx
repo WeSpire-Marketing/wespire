@@ -53,15 +53,17 @@ export default function CustomerStoriesSection({title, stories: items = []}) {
             </div>
           )}
 
-          {paginatedItems?.length > 1 && (
-            <Pagination
-              totalPages={paginatedItems.length}
-              currentPage={currentPage}
-              onClick={(page) => callSetPageAndScroll(() => setCurrentPage(page))}
-              onPrevClick={() => callSetPageAndScroll(() => setCurrentPage((prev) => prev - 1))}
-              onNextClick={() => callSetPageAndScroll(() => setCurrentPage((prev) => prev + 1))}
-            />
-          )}
+          <div className="overflow-x-auto">
+            <div className="flex justify-center px-4 py-2 shrink-0 min-w-fit">
+              <Pagination
+                currentPage={currentPage}
+                totalPages={paginatedItems?.length ?? 0}
+                setCurrentPage={(pageIndex) =>
+                  callSetPageAndScroll(() => setCurrentPage(pageIndex))
+                }
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>
