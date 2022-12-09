@@ -19,12 +19,14 @@ export default {
         // spaces regex
         const regEx1 = /\s+/g
         // special chars regex
-        const regEx2 = /[&\/\\#,+()$~%.'":*?<>{}]/g
+        const regEx2 = /[&\#,+()$~%.'":*?<>{}]/g
         return Rule.custom(slug => {
           if (!slug?.current) {
             return 'Required'
           } else if (slug.current.match(regEx1)) {
             return 'No spaces in slug'
+          } else if (slug.current.startsWith('/') || slug.current.endsWith('/')) {
+            return 'Remove "/" from beginning and from the end';
           } else if (slug.current.match(regEx2)) {
             return 'No special characters in slug'
           } else if (slug.current.toLowerCase() !== slug.current) {
