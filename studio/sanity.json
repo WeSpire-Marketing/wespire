@@ -13,6 +13,7 @@
     "@sanity/default-layout",
     "@sanity/default-login",
     "@sanity/dashboard",
+    "media",
     "@sanity/desk-tool",
     "dashboard-widget-structure-menu",
     "dashboard-widget-document-list",
@@ -22,9 +23,7 @@
   ],
   "env": {
     "development": {
-      "plugins": [
-        "@sanity/vision"
-      ]
+      "plugins": ["@sanity/vision"]
     }
   },
   "parts": [

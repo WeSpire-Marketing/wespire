@@ -1,5 +1,6 @@
 import JobCard from './components/JobCard'
 import NewsCard from './components/NewsCard'
+import NoJobCard from './components/NoJobCard'
 
 import Icon1 from '../../icons/AnimatedUnderline'
 import Icon2 from '../../icons/AnimatedTwoMarks'
@@ -25,9 +26,13 @@ export default function OpeningsPressSection({title = '', title2 = '', openings,
             md:grid-cols-2
             lg:mb-[140px] lg:grid-cols-2 lg:gap-6"
           >
-            {openings.map(({_key, ...props}) => {
-              return <JobCard key={_key} {...props} />
-            })}
+            {openings && openings?.length > 0 ? (
+              openings.map(({_key, ...props}) => {
+                return <JobCard key={_key} {...props} />
+              })
+            ) : (
+              <NoJobCard />
+            )}
           </ul>
 
           <h2 className="opressection__title heading-2 mb-4 lg:mb-[46px]">

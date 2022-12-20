@@ -112,7 +112,6 @@ export default {
                   validation: Rule => Rule.required()
                 }
               ],
-              validation: Rule => Rule.required()
             }
           ],
           valitaion: Rule => Rule.required()

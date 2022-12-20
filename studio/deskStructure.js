@@ -14,5 +14,8 @@ export default () =>
         .title('Site Settings'),
       S.documentTypeListItem('page').title('Pages'),
       S.documentTypeListItem('route').title('Routes'),
-      ...S.documentTypeListItems().filter(hiddenDocTypes)
+      ...S.documentTypeListItems()
+        .filter(hiddenDocTypes)
+        // remove from dashboard document Media Tags
+        .filter(listItem => listItem.getId() !== 'media.tag')
     ])
