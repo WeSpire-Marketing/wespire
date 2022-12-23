@@ -1,18 +1,14 @@
-import {useRef, useState} from 'react'
+import {useRouter} from 'next/router'
+import {useRef, useState, useEffect, useCallback} from 'react'
 
-// import PageMeta from '../../PageMeta'
 import BlogCard from '../../BlogCard'
 import Pagination from '../../Pagination'
 import SearchPanel from '../../SearchPanel'
 import Icon from '../../icons/AnimatedHighlight'
-// import MainLayout from '../../layouts/MainLayout'
 import CategoriesList from '../../CategoriesList'
 import SignMeUpForm from '../../forms/SignMeUpForm'
 
 import {GetForm} from '../../../utils/forms'
-import {filterBlogsByQuery} from '../../../utils'
-import usePaginate from '../../../utils/hooks/usePaginate'
-import useCustomScrollBehavior from '../../../utils/hooks/useCustomScrollBehavior'
 
 const BlogTemplate = ({
   categories,
@@ -22,16 +18,76 @@ const BlogTemplate = ({
   form1,
   form2,
   blogs,
+  totalBlogs,
   defaultCategory,
 }) => {
-  useCustomScrollBehavior()
-
+  const router = useRouter()
   const scrollToRef = useRef(null)
-  const [currentPage, setCurrentPage] = useState(0)
-  const [searchingQuery, setSearchingQuery] = useState(defaultCategory?.title ?? '')
+  const getInitialQuery = useCallback(
+    () => {
+      if (!router.query.query || typeof router.query.query !== 'string') {
+        return ''
+      }
+      return router.query.query
+    },
+    [router.query.query],
+  )
+  const [searchingQuery, setSearchingQuery] = useState(getInitialQuery())
+  const getInitialPage = useCallback(() => {
+    if (
+      !router.query.page ||
+      (!isNaN(router.query.page) && router.query.page > Math.ceil(totalBlogs / 9))
+    ) {
+      return 1
+    }
+    return router.query.page
+  }, [router.query.page, totalBlogs])
+  const [currentPage, setCurrentPage] = useState(getInitialPage())
   const [isSearchPanelVisible, setSearchPanelVisible] = useState(false)
-  const filteredBlogs = filterBlogsByQuery(blogs, searchingQuery)
-  const paginatedBlogs = usePaginate(filteredBlogs, 9)
+  const getInitialFilters = useCallback(() => {
+    const filters = router.query.filters
+    if (!filters) {
+      // if no filters in browser URL field - set default filter
+      return [defaultCategory.slug]
+    }
+    if (Array.isArray(filters) && filters.length > 1) {
+      // if there are few filters in browser URL field selected - return unique cats
+      return [...new Set([defaultCategory.slug, ...router.query.filters])]
+    }
+    // if there is 1 category filter in browser URL excluding default cat
+    return [...new Set([defaultCategory.slug, router.query.filters])]
+  }, [router.query.filters, defaultCategory])
+  const [filterCategories, setFilterCategories] = useState(getInitialFilters())
+
+
+  useEffect(() => {
+    /** In this effect we update ?filters, ?page and ?query params in browser URL field
+     *  when user change categories, searching query or current page number. If page number and filter
+     *  dont exist we rewrite query params with default category and page number eq to 1.
+     */
+    if (!router.query.filters) {
+      router.replace(
+        {
+          query: {...router.query, page: 1, filters: defaultCategory.slug, query: searchingQuery},
+        },
+        undefined,
+        {scroll: false}
+      )
+    } else {
+      router.replace(
+        {
+          query: {
+            ...router.query,
+            page: currentPage,
+            filters: filterCategories,
+            query: searchingQuery,
+          },
+        },
+        undefined,
+        {scroll: false}
+      )
+    }
+  }, [filterCategories, currentPage, searchingQuery])
 
   const callSetPageAndScroll = (callback) => {
     // scroll to the categories after user interact with pagination
@@ -40,17 +96,37 @@ const BlogTemplate = ({
       const offset = 30
       setTimeout(() => {
         window.scrollTo(0, scrollDistance - offset)
-      }, 100)
+      }, 200)
     }
     callback()
   }
 
   const handleQueryChange = (e) => {
-    if (e?.target) setSearchingQuery(e.target.value)
+    if (e?.target) {
+      setSearchingQuery(e.target.value)
+    }
+    if (currentPage !== 1) setCurrentPage(1)
   }
 
-  const handleCategoryClick = (category) => {
-    setSearchingQuery(category)
+  const handleCategoryClick = (categorySlug) => {
+    setFilterCategories((prev) => {
+      /** if category slug already exist in filtering array - remove it,
+       *  else add it to the filtering array
+       **/
+      return prev.includes(categorySlug)
+        ? prev.filter((prevSlug) => prevSlug !== categorySlug)
+        : [...prev, categorySlug]
+    })
+    if (currentPage !== 1) setCurrentPage(1)
+  }
+
+  const handleSeeAllClick = () => {
+    setFilterCategories([defaultCategory.slug])
+    if (currentPage !== 1) setCurrentPage(1)
+  }
+
+  const handleSetCurrentPage = (pageIndex) => {
+    callSetPageAndScroll(() => setCurrentPage(pageIndex + 1))
   }
 
   return (
@@ -93,11 +169,13 @@ const BlogTemplate = ({
           <div className="relative mb-6 lg:mb-[56px]" ref={scrollToRef}>
             <div className="flex overflow-x-auto px-4 lg:px-0">
               <CategoriesList
-                query={searchingQuery}
                 categories={categories}
+                defaultSlug={defaultCategory.slug}
+                filterCategories={filterCategories}
                 isSearchVisible={isSearchPanelVisible}
                 toggleSearch={() => setSearchPanelVisible(!isSearchPanelVisible)}
                 onCategoryClick={handleCategoryClick}
+                onSeeAllClick={handleSeeAllClick}
               />
             </div>
             <SearchPanel
@@ -108,14 +186,14 @@ const BlogTemplate = ({
             />
           </div>
 
-          {paginatedBlogs?.length > 0 ? (
+          {blogs?.length > 0 ? (
             <ul
               className="blog__list mb-[40px] grid grid-cols-1 gap-4 px-4
               min-[580px]:grid-cols-2
               lg:grid-cols-3
               lg:mb-[72px] lg:gap-6 lg:px-0"
             >
-              {paginatedBlogs[currentPage].map((blogData, idx) => {
+              {blogs.map((blogData, idx) => {
                 return (
                   <li className="flex" key={blogData.slug.current + idx}>
                     <BlogCard {...blogData} />
@@ -132,11 +210,9 @@ const BlogTemplate = ({
           <div className="overflow-x-auto">
             <div className="flex justify-center px-4 py-2 shrink-0 min-w-fit">
               <Pagination
-                currentPage={currentPage}
-                totalPages={paginatedBlogs?.length ?? 0}
-                setCurrentPage={(pageIndex) =>
-                  callSetPageAndScroll(() => setCurrentPage(pageIndex))
-                }
+                currentPage={currentPage - 1}
+                setCurrentPage={handleSetCurrentPage}
+                totalPages={Math.ceil(totalBlogs / 9)}
               />
             </div>
           </div>

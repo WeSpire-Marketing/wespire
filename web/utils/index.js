@@ -68,6 +68,8 @@ export const formatTimestamp = (timestamp) => {
 }
 
 export const filterBlogsByQuery = (blogs, query) => {
+  console.log(query);
+  return blogs
   if (blogs?.length > 0 && query) {
     query = query.toLowerCase()
     const filtered = blogs.filter((blog) => {

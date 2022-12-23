@@ -78,23 +78,27 @@ content {
         },
         "categoriesWithBlogsSection": categoriesWithBlogsSection{
           ...,
-          "categories": *[_type == 'category']{
+          "categories": categories[] -> {
             title,
+            "slug": slug.current
           },
           "defaultCategory": defaultCategory -> {
             title,
+            "slug": slug.current
           },
-          "blogs": blogs[] -> {
+          "blogs": *[_type == "article" && ((count((categories[]->slug.current)[@ in $filters]) > 0) || (categories[]->slug.current match $filters))] | order(publishedAt desc) [length($query) == 0 || title match $query] [($page-1)*$perPage...($page-1)*$perPage+$perPage] {
             imageData,
             "categories": categories[] -> {
               title,
               color,
+              "slug": slug.current
             },
             title,
             publishedAt,
             excerpt,
             slug,
-          }
+          },
+          "totalBlogs": count(*[_type == "article" && ((count((categories[]->slug.current)[@ in $filters]) > 0) || (categories[]->slug.current match $filters))] | order(publishedAt desc) [length($query) == 0 || title match $query]),
         }
       }
     },
@@ -114,23 +118,27 @@ content {
     },
     _type == 'blogTemplate' => {
       ...,
-      "blogs": blogs[] -> {
+      "blogs": *[_type == "article" && ((count((categories[]->slug.current)[@ in $filters]) > 0) || (categories[]->slug.current match $filters))] | order(publishedAt desc) [length($query) == 0 || title match $query] [($page-1)*$perPage...($page-1)*$perPage+$perPage] {
         imageData,
         "categories": categories[] -> {
           title,
           color,
+          "slug": slug.current
         },
         title,
         publishedAt,
         excerpt,
         slug,
       },
-      "categories": *[_type == "category"] {
-        ...,
+      "totalBlogs": count(*[_type == "article" && ((count((categories[]->slug.current)[@ in $filters]) > 0) || (categories[]->slug.current match $filters))] | order(publishedAt desc) [length($query) == 0 || title match $query]),
+      "categories": categories[] -> {
+        title,
+        "slug": slug.current
       },
       "defaultCategory": defaultCategory -> {
         title,
-      }
+        "slug": slug.current,
+      },
     },
     _type == 'newsRoomTemplate' => {
       ...,
@@ -166,22 +174,26 @@ content {
     },
     _type == 'resourcesTemplate' => {
       ...,
-      "blogs": blogs[] -> {
+      "blogs": *[_type == "article" && ((count((categories[]->slug.current)[@ in $filters]) > 0) || (categories[]->slug.current match $filters))] | order(publishedAt desc) [length($query) == 0 || title match $query] [($page-1)*$perPage...($page-1)*$perPage+$perPage] {
         imageData,
         "categories": categories[] -> {
           title,
-          color
+          color,
+          "slug": slug.current
         },
         title,
         publishedAt,
         excerpt,
         slug,
       },
-      "categories": *[_type == 'category']{
+      "totalBlogs": count(*[_type == "article" && ((count((categories[]->slug.current)[@ in $filters]) > 0) || (categories[]->slug.current match $filters))] | order(publishedAt desc) [length($query) == 0 || title match $query]),
+      "categories": categories[] -> {
         title,
+        "slug": slug.current
       },
       "defaultCategory": defaultCategory -> {
         title,
+        "slug": slug.current
       },
       "sessionSection": sessionSection{
         ...,
@@ -209,8 +221,12 @@ content {
  * for every page requested - /, /about, /contact, etc..
  * From the received params.slug, we're able to query Sanity for the route coresponding to the currently requested path.
  */
-export const getServerSideProps = async ({params}) => {
+export const getServerSideProps = async ({params, query}) => {
+  const perPage = 9
   const slug = slugParamToPath(params?.slug)
+  const page = typeof query?.page !== 'undefined' ? Number(query.page) : 1
+  const filters = typeof query?.filters !== 'undefined' ? query.filters : []
+  const searchingQuery = typeof query?.query !== 'undefined' ? query.query : ''
 
   let data
 
@@ -224,9 +240,10 @@ export const getServerSideProps = async ({params}) => {
             ${pageFragment}
           }
         }
-      `
+      `, {page, filters, perPage, query: searchingQuery}
       )
       .then((res) => (res?.frontpage ? {...res.frontpage, slug} : undefined))
+    // Resource pages - fetch articles with dynamic query params
   } else {
     // Regular route
     data = await client
@@ -237,7 +254,7 @@ export const getServerSideProps = async ({params}) => {
             ${pageFragment}
           }
         }`,
-        {possibleSlugs: [slug, ...getSlugVariations(slug)]}
+        {possibleSlugs: [slug, ...getSlugVariations(slug)], page, filters, perPage, query: searchingQuery}
       )
       .then((res) => (res?.page ? {...res.page, slug} : undefined))
   }

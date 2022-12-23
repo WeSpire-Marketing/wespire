@@ -11,19 +11,21 @@ export default {
       validation: Rule => Rule.required()
     },
     {
-      name: 'blogs',
-      title: 'List of blogs',
+      name: 'categories',
+      title: 'Filter of categories',
+      description:
+        'A list of additional categories that will filter articles from the default category',
       type: 'array',
       of: [
         {
-          name: 'blog',
-          title: 'Choose item to show',
+          name: 'category',
           type: 'reference',
-          to: { type: 'article' },
-          validation: (Rule) => Rule.required(),
-        },
+          title: 'Filter category',
+          to: { type: 'category' },
+          validation: Rule => Rule.required()
+        }
       ],
-      validation: (Rule) => Rule.required().max(27),
+      validation: Rule => Rule.required()
     },
   ],
 }

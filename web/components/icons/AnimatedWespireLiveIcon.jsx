@@ -32,7 +32,7 @@ export default function AnimatedWespireLiveIcon({className = ''}) {
         initial={{opacity: 0, pathLength: 0}}
         animate={controls}
         viewport={{once: true}}
-        transition={{duration: 1.5, yo: 'spring', delay: 0.25}}
+        transition={{duration: 1.5, yo: 'spring', delay: 1}}
       />
     </svg>
   )

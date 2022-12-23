@@ -3,10 +3,12 @@ import SearchIcon from '../icons/SearchIcon'
 import CategoryItem from './components/CategoryItem'
 
 export default function CategoriesList({
-  query,
+  defaultSlug,
   categories = [],
+  filterCategories,
   toggleSearch,
   isSearchVisible,
+  onSeeAllClick: handleSeeAllClick,
   onCategoryClick: handleCategoryItemClick,
 }) {
   return (
@@ -16,8 +18,8 @@ export default function CategoriesList({
     >
       <CategoryItem
         className="p-4 lg:py-[14px] lg:px-[36px]"
-        selected={query === ''}
-        onClick={() => handleCategoryItemClick('')}
+        selected={(filterCategories.length === 1 && filterCategories.includes(defaultSlug)) || (!defaultSlug && (filterCategories.length === 0))}
+        onClick={handleSeeAllClick}
       >
         See all
       </CategoryItem>
@@ -27,9 +29,9 @@ export default function CategoriesList({
           return (
             <CategoryItem
               className="p-4 lg:py-[14px] lg:px-[36px]"
+              selected={filterCategories.includes(category.slug)}
+              onClick={() => handleCategoryItemClick(category.slug)}
               key={idx}
-              onClick={() => handleCategoryItemClick(category.title)}
-              selected={query.toLowerCase() === category.title.toLowerCase()}
             >
               {category.title}
             </CategoryItem>
