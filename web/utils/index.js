@@ -67,29 +67,6 @@ export const formatTimestamp = (timestamp) => {
   return d.toLocaleDateString('en-US', options)
 }
 
-export const filterBlogsByQuery = (blogs, query) => {
-  console.log(query);
-  return blogs
-  if (blogs?.length > 0 && query) {
-    query = query.toLowerCase()
-    const filtered = blogs.filter((blog) => {
-      if (
-        // search matches in title
-        blog.title.toLowerCase().includes(query) ||
-        // search matches in description
-        blog.excerpt.toLowerCase().includes(query) ||
-        // search matches in categories
-        blog.categories.filter((cat) => cat.title.toLowerCase().includes(query)).length
-      ) {
-        return blog
-      }
-    })
-    return filtered
-  }
-
-  return blogs
-}
-
 export const normalizeDemoFormData = ({
   firstname,
   lastname,

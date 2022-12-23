@@ -1,77 +1,70 @@
-import { useRouter } from 'next/router'
-import {useCallback, useEffect, useRef, useState} from 'react'
+import {useRouter} from 'next/router'
+import {useEffect, useRef, useState} from 'react'
 
 import BlogCard from '../../BlogCard'
 import Pagination from '../../Pagination'
 import SearchPanel from '../../SearchPanel'
 import CategoriesList from '../../CategoriesList'
 
-export default function CategoriesWithBlogsSection({categories = [], defaultCategory, blogs = [], totalBlogs}) {
+export default function CategoriesWithBlogsSection({
+  categories = [],
+  blogs = [],
+  totalBlogs,
+  defaultCategory,
+}) {
   const router = useRouter()
   const scrollToRef = useRef(null)
-  const getInitialQuery = useCallback(
-    () => {
-      if (!router.query.query || typeof router.query.query !== 'string') {
-        return ''
-      }
-      return router.query.query
-    },
-    [router.query.query],
-  )
-  const [searchingQuery, setSearchingQuery] = useState(getInitialQuery())
-  const getInitialPage = useCallback(() => {
-    if (
-      !router.query.page ||
-      (!isNaN(router.query.page) && router.query.page > Math.ceil(totalBlogs / 9))
-    ) {
+  const getQueryParamFromURLField = () => {
+    const query = decodeURIComponent(router.query.query)
+
+    if (query === 'undefined') {
+      return ''
+    }
+
+    return query
+  }
+  const getPageParamFromURLField = () => {
+    const totalPages = Math.ceil(totalBlogs / 9)
+    const page = Number(decodeURIComponent(router.query.page))
+
+    if (!page || isNaN(page) || page > totalPages) {
       return 1
     }
-    return router.query.page
-  }, [router.query.page, totalBlogs])
-  const [currentPage, setCurrentPage] = useState(getInitialPage())
-  const [isSearchPanelVisible, setSearchPanelVisible] = useState(false)
-  const getInitialFilters = useCallback(() => {
-    const filters = router.query.filters
-    if (!filters) {
-      // if no filters in browser URL field - set default filter
+
+    return page
+  }
+  const getFiltersParamFromURLField = () => {
+    const filters = decodeURIComponent(router.query.filters)
+
+    if (!filters || filters === 'undefined') {
+      // if no filters in browser URL field - set default cat as filter
       return [defaultCategory.slug]
     }
-    if (Array.isArray(filters) && filters.length > 1) {
-      // if there are few filters in browser URL field selected - return unique cats
-      return [...new Set([defaultCategory.slug, ...router.query.filters])]
-    }
-    // if there is 1 category filter in browser URL excluding default cat
-    return [...new Set([defaultCategory.slug, router.query.filters])]
-  }, [router.query.filters, defaultCategory])
-  const [filterCategories, setFilterCategories] = useState(getInitialFilters())
+
+    return decodeURIComponent(router.query.filters).split(',')
+  }
+  const [isSearchPanelVisible, setSearchPanelVisible] = useState(false)
+  const [currentPage, setCurrentPage] = useState(getPageParamFromURLField())
+  const [searchingQuery, setSearchingQuery] = useState(getQueryParamFromURLField())
+  const [filterCategories, setFilterCategories] = useState(getFiltersParamFromURLField())
 
   useEffect(() => {
     /** In this effect we update ?filters, ?page and ?query params in browser URL field
      *  when user change categories, searching query or current page number. If page number and filter
      *  dont exist we rewrite query params with default category and page number eq to 1.
      */
-    if (!router.query.filters) {
-      router.replace(
-        {
-          query: {...router.query, page: 1, filters: defaultCategory.slug, query: searchingQuery},
+    router.replace(
+      {
+        query: {
+          ...router.query,
+          page: encodeURIComponent(currentPage),
+          filters: encodeURIComponent(filterCategories),
+          query: encodeURIComponent(searchingQuery),
         },
-        undefined,
-        {scroll: false}
-      )
-    } else {
-      router.replace(
-        {
-          query: {
-            ...router.query,
-            page: currentPage,
-            filters: filterCategories,
-            query: searchingQuery,
-          },
-        },
-        undefined,
-        {scroll: false}
-      )
-    }
+      },
+      undefined,
+      {scroll: false}
+    )
   }, [filterCategories, currentPage, searchingQuery])
 
   const callSetPageAndScroll = (callback) => {

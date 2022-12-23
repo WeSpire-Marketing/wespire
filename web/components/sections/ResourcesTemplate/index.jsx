@@ -25,56 +25,53 @@ export default function ResourcesTemplate({
 }) {
   const router = useRouter()
   const scrollToRef = useRef(null)
-  const getInitialQuery = useCallback(() => {
-    if (!router.query.query || typeof router.query.query !== 'string') {
+  const getQueryParamFromURLField = () => {
+    const query = decodeURIComponent(router.query.query)
+
+    if (query === 'undefined') {
       return ''
     }
-    return router.query.query
-  }, [router.query.query])
-  const [searchingQuery, setSearchingQuery] = useState(getInitialQuery())
-  const getInitialPage = useCallback(() => {
-    if (
-      !router.query.page ||
-      (!isNaN(router.query.page) && router.query.page > Math.ceil(totalBlogs / 9))
-    ) {
+
+    return query
+  }
+  const getPageParamFromURLField = () => {
+    const totalPages = Math.ceil(totalBlogs / 9)
+    const page = Number(decodeURIComponent(router.query.page))
+
+    if (!page || isNaN(page) || page > totalPages) {
       return 1
     }
-    return router.query.page
-  }, [router.query.page, totalBlogs])
-  const [currentPage, setCurrentPage] = useState(getInitialPage())
-  const [isSearchPanelVisible, setSearchPanelVisible] = useState(false)
-  const getInitialFilters = useCallback(() => {
-    const filters = router.query.filters
-    if (!filters && !defaultCategory?.slug) {
-      return []
-    }
-    if (!filters && defaultCategory?.slug) {
+
+    return page
+  }
+  const getFiltersParamFromURLField = () => {
+    const filters = decodeURIComponent(router.query.filters)
+
+    if (!filters || filters === 'undefined') {
+      // if no filters in browser URL field - set default cat as filter
+      if (!defaultCategory?.slug) return []
       return [defaultCategory.slug]
     }
-    if (Array.isArray(filters) && filters.length > 0 && !defaultCategory?.slug) {
-      return [...filters]
-    }
-    if (Array.isArray(filters) && filters.length > 0 && defaultCategory?.slug) {
-      return [...new Set([defaultCategory.slug, ...filters])]
-    }
-    if (typeof filters === 'string' && !defaultCategory?.slug) {
-      return [filters]
-    }
-    return [...new Set([defaultCategory.slug, filters])]
-  }, [router.query.filters, defaultCategory])
-  const [filterCategories, setFilterCategories] = useState(getInitialFilters())
+
+    return decodeURIComponent(router.query.filters).split(',')
+  }
+  const [isSearchPanelVisible, setSearchPanelVisible] = useState(false)
+  const [currentPage, setCurrentPage] = useState(getPageParamFromURLField())
+  const [searchingQuery, setSearchingQuery] = useState(getQueryParamFromURLField())
+  const [filterCategories, setFilterCategories] = useState(getFiltersParamFromURLField())
 
   useEffect(() => {
     /** In this effect we update ?filters, ?page and ?query params in browser URL field
-     *  when user change categories, searching query or current page number.
+     *  when user change categories, searching query or current page number. If page number and filter
+     *  dont exist we rewrite query params with default category and page number eq to 1.
      */
     router.replace(
       {
         query: {
           ...router.query,
-          page: currentPage,
-          filters: filterCategories,
-          query: searchingQuery,
+          page: encodeURIComponent(currentPage),
+          filters: encodeURIComponent(filterCategories),
+          query: encodeURIComponent(searchingQuery),
         },
       },
       undefined,

@@ -224,9 +224,15 @@ content {
 export const getServerSideProps = async ({params, query}) => {
   const perPage = 9
   const slug = slugParamToPath(params?.slug)
-  const page = typeof query?.page !== 'undefined' ? Number(query.page) : 1
-  const filters = typeof query?.filters !== 'undefined' ? query.filters : []
-  const searchingQuery = typeof query?.query !== 'undefined' ? query.query : ''
+  const page =
+    decodeURIComponent(query.page) !== 'undefined' ? Number(decodeURIComponent(query.page)) : 1
+  const filters =
+    decodeURIComponent(query.filters) !== 'undefined' &&
+    decodeURIComponent(query.filters).length > 0
+      ? decodeURIComponent(query.filters).split(',')
+      : []
+  const searchingQuery =
+    decodeURIComponent(query.query) !== 'undefined' ? decodeURIComponent(query.query) : ''
 
   let data
 
@@ -240,7 +246,8 @@ export const getServerSideProps = async ({params, query}) => {
             ${pageFragment}
           }
         }
-      `, {page, filters, perPage, query: searchingQuery}
+      `,
+        {page, filters, perPage, query: searchingQuery}
       )
       .then((res) => (res?.frontpage ? {...res.frontpage, slug} : undefined))
     // Resource pages - fetch articles with dynamic query params
@@ -254,7 +261,13 @@ export const getServerSideProps = async ({params, query}) => {
             ${pageFragment}
           }
         }`,
-        {possibleSlugs: [slug, ...getSlugVariations(slug)], page, filters, perPage, query: searchingQuery}
+        {
+          possibleSlugs: [slug, ...getSlugVariations(slug)],
+          page,
+          filters,
+          perPage,
+          query: searchingQuery,
+        }
       )
       .then((res) => (res?.page ? {...res.page, slug} : undefined))
   }
