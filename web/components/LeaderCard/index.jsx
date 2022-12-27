@@ -1,3 +1,4 @@
+import VanillaTilt from 'vanilla-tilt'
 import {useEffect, useState} from 'react'
 import {PortableText} from '@portabletext/react'
 import {motion, useAnimationControls} from 'framer-motion'
@@ -35,7 +36,7 @@ export default function LeaderCard({bgColor, image, name, job, title, text, soci
   }, [controls, selectedCard])
 
   return (
-    <li>
+    <li data-tilt data-tilt-scale="0.95" data-tilt-startY="0">
       <motion.div
         className="leader-card relative mx-auto flex w-full cursor-pointer
         items-center justify-center overflow-hidden rounded-[16px] aspect-[3/3.35]
