@@ -87,13 +87,13 @@ export default function CategoriesWithBlogsSection({
   }
 
   const handleCategoryClick = (categorySlug) => {
-    setFilterCategories((prev) => {
-      /** if category slug already exist in filtering array - remove it,
-       *  else add it to the filtering array
-       **/
-      return prev.includes(categorySlug)
-        ? prev.filter((prevSlug) => prevSlug !== categorySlug)
-        : [...prev, categorySlug]
+    setFilterCategories(prev => {
+      // add category slug to the filter array if it is not there
+      if (prev.includes(categorySlug)) {
+        // if category slug is already in category array - remove it
+        return prev.filter(slug => slug !== categorySlug)
+      }
+      return [defaultCategory.slug, categorySlug]
     })
     if (currentPage !== 1) setCurrentPage(1)
   }

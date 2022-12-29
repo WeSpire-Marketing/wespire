@@ -86,7 +86,7 @@ content {
             title,
             "slug": slug.current
           },
-          "blogs": *[_type == "article" && ((count((categories[]->slug.current)[@ in $filters]) > 0) || (categories[]->slug.current match $filters))] | order(publishedAt desc) [length($query) == 0 || title match $query] [($page-1)*$perPage...($page-1)*$perPage+$perPage] {
+          "blogs": *[_type == "article" && (categories[]->slug.current match $filters)] | order(publishedAt desc) [length($query) == 0 || title match $query] [($page-1)*$perPage...($page-1)*$perPage+$perPage] {
             imageData,
             "categories": categories[] -> {
               title,
@@ -98,7 +98,7 @@ content {
             excerpt,
             slug,
           },
-          "totalBlogs": count(*[_type == "article" && ((count((categories[]->slug.current)[@ in $filters]) > 0) || (categories[]->slug.current match $filters))] | order(publishedAt desc) [length($query) == 0 || title match $query]),
+          "totalBlogs": count(*[_type == "article" && (categories[]->slug.current match $filters)] | order(publishedAt desc) [length($query) == 0 || title match $query]),
         }
       }
     },
@@ -118,7 +118,7 @@ content {
     },
     _type == 'blogTemplate' => {
       ...,
-      "blogs": *[_type == "article" && ((count((categories[]->slug.current)[@ in $filters]) > 0) || (categories[]->slug.current match $filters))] | order(publishedAt desc) [length($query) == 0 || title match $query] [($page-1)*$perPage...($page-1)*$perPage+$perPage] {
+      "blogs": *[_type == "article" && (categories[]->slug.current match $filters)] | order(publishedAt desc) [length($query) == 0 || title match $query] [($page-1)*$perPage...($page-1)*$perPage+$perPage] {
         imageData,
         "categories": categories[] -> {
           title,
@@ -130,7 +130,7 @@ content {
         excerpt,
         slug,
       },
-      "totalBlogs": count(*[_type == "article" && ((count((categories[]->slug.current)[@ in $filters]) > 0) || (categories[]->slug.current match $filters))] | order(publishedAt desc) [length($query) == 0 || title match $query]),
+      "totalBlogs": count(*[_type == "article" && (categories[]->slug.current match $filters)] | order(publishedAt desc) [length($query) == 0 || title match $query]),
       "categories": categories[] -> {
         title,
         "slug": slug.current

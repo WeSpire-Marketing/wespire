@@ -10,8 +10,8 @@ export default function NoJobCard() {
       </div>
 
       <span
-        className="inline-flex h-[48px] w-[48px] rotate-180 items-center justify-center
-        rounded-full bg-helpful
+        className="inline-flex h-[48px] w-[48px] items-center justify-center
+        shrink-0 rounded-full bg-helpful rotate-180
         lg:h-[56px] lg:w-[56px]"
       />
     </li>
