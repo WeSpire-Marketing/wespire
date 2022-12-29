@@ -1,13 +1,14 @@
 import VanillaTilt from 'vanilla-tilt'
-import {useEffect, useState} from 'react'
+import Image from 'next/image'
 import {PortableText} from '@portabletext/react'
+import {useEffect, useRef, useState} from 'react'
 import {motion, useAnimationControls} from 'framer-motion'
 
 import Img from '../Img'
 
 import {urlForImage} from '../../client'
+import useWindowSize from '../../utils/hooks/useWindowSize'
 import myPortableTextComponents from '../../utils/myPortableComponents'
-import Image from 'next/image'
 
 const cardVariants = {
   selected: {
@@ -23,10 +24,21 @@ const cardVariants = {
 }
 
 export default function LeaderCard({bgColor, image, name, job, title, text, socials: {items}}) {
+  const tiltRef = useRef(null)
+  const {width} = useWindowSize()
   const controls = useAnimationControls()
   const [selectedCard, setSelectedCard] = useState(false)
 
-  const handleClick = () => setSelectedCard(!selectedCard)
+  // init Tilt
+  useEffect(() => {
+    if (tiltRef?.current && width && width >= 1024) {
+      VanillaTilt.init(tiltRef.current, {
+        max: 3,
+        speed: 10,
+        gyroscope: false,
+      })
+    }
+  }, [tiltRef, width])
 
   useEffect(() => {
     controls.start({
@@ -35,8 +47,10 @@ export default function LeaderCard({bgColor, image, name, job, title, text, soci
     })
   }, [controls, selectedCard])
 
+  const handleClick = () => setSelectedCard(!selectedCard)
+
   return (
-    <li data-tilt data-tilt-scale="0.95" data-tilt-startY="0">
+    <li ref={tiltRef}>
       <motion.div
         className="leader-card relative mx-auto flex w-full cursor-pointer
         items-center justify-center overflow-hidden rounded-[16px] aspect-[3/3.35]
