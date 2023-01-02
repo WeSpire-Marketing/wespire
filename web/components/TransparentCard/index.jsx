@@ -1,6 +1,8 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
-import Img from '../Img'
+import {urlForImage} from '../../client'
+import useSanityBlurDataUrl from '../../utils/hooks/useSanityBlurDataUrl'
 
 export default function TransparentCard({
   title,
@@ -8,13 +10,23 @@ export default function TransparentCard({
   imageData: {image, alt},
   link: {internal = false, text: linkText = '', url = '/'},
 }) {
+  const blurDataUrl = useSanityBlurDataUrl(image)
+
   return (
     <div className="card mx-auto max-w-[calc(100%-2rem)] lg:mx-0 screen:max-w-none">
-      <Img
-        className="card__preview relative mb-6 max-h-[405px]
-        w-full overflow-hidden rounded-[16px]"
-        value={{...image, alt}}
-      />
+      <div className="card__preview w-full mb-6 rounded-2xl overflow-hidden">
+        <Image
+          src={urlForImage(image).width(608).height(497).url()}
+          blurDataURL={blurDataUrl}
+          layout="responsive"
+          placeholder="blur"
+          objectFit="cover"
+          quality={100}
+          height={497}
+          width={608}
+          alt={alt}
+        />
+      </div>
 
       <div className="card__content pb-[2px]">
         <h3 className="card__content__title heading-3 mb-4">{title}</h3>

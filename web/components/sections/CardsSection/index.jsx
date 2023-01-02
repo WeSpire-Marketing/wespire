@@ -48,7 +48,7 @@ const CardsSection = ({blogs, cards, panelTitle = '', panelSubtitle = '', blogsT
                 return (
                   <CardBase
                     className="rounded-[30px] bg-white px-6 pt-[48px] pb-[48px]
-                    lg:rounded-[40px] lg:px-[48px] lg:pb-[64px] lg:pt-[56px]"
+                    lg:rounded-[40px] lg:px-[48px] lg:pb-[64px] lg:pt-[56px] flex-1"
                     key={_key}
                   >
                     <div className="carection__icon mb-6 h-[70px] w-[65px] lg:mb-8">

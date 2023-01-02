@@ -106,7 +106,7 @@ function BackCardContent({title, text, socials}) {
               lg:h-[46px] lg:w-[46px]"
               href={url}
             >
-              <Img className="socials-item__img lg:max-w-[50px]" value={icon} />
+              <Img className="socials-item__img lg:max-w-[50px]" value={icon} quality={100} />
             </a>
           </li>
         ))}
