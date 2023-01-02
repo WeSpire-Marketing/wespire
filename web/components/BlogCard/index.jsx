@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import {useState} from 'react'
-import {motion} from 'framer-motion'
+import {useEffect, useState} from 'react'
 
 import CardBase from '../CardBase'
 
@@ -11,11 +10,14 @@ import useSanityBlurDataUrl from '../../utils/hooks/useSanityBlurDataUrl'
 
 export default function BlogCard({publishedAt, categories, imageData, excerpt, title, slug}) {
   const [isHovered, setHovered] = useState(false)
+  const [formattedDate, setFormattedDate] = useState(null)
   const blurDataUrl = useSanityBlurDataUrl(imageData.image)
+
+  useEffect(() => setFormattedDate(formatTimestamp(publishedAt)), [])
 
   return (
     <Link href={`/blog/${slug.current}`} scroll={false} passHref>
-      <motion.a className="flex">
+      <a className="flex">
         <CardBase
           className="blog border-[rgba(202_205_212_0.8)] flex flex-1 cursor-pointer flex-col
           rounded-2xl border bg-white px-6 pb-[40px] pt-6 duration-300 ease-in-out lg:pb-[56px]"
@@ -55,7 +57,7 @@ export default function BlogCard({publishedAt, categories, imageData, excerpt, t
             ))}
 
             <p className="date text-[14px] leading-160 text-[#9E9E9E] lg:text-base">
-              {formatTimestamp(publishedAt)}
+              {formattedDate}
             </p>
           </div>
 
@@ -65,7 +67,7 @@ export default function BlogCard({publishedAt, categories, imageData, excerpt, t
             <p className="body-m text-secondary line-clamp-2">{excerpt}</p>
           </div>
         </CardBase>
-      </motion.a>
+      </a>
     </Link>
   )
 }

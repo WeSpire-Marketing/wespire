@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import {useRouter} from 'next/router'
+import { useEffect, useState } from 'react'
 
 import {urlForImage} from '../../client'
 import {formatTimestamp} from '../../utils'
@@ -14,6 +15,9 @@ export default function BlogCardHoriz({
   slug,
 }) {
   const router = useRouter()
+  const [formattedDate, setFormattedDate] = useState(null)
+
+  useEffect(() => setFormattedDate(formatTimestamp(publishedAt)), [])
 
   return (
     <div
@@ -32,8 +36,8 @@ export default function BlogCardHoriz({
         <Image
           src={urlForImage(imageData.image).url()}
           alt={imageData.alt}
-          layout="fill"
           objectFit="cover"
+          layout="fill"
         />
       </div>
 
@@ -54,9 +58,7 @@ export default function BlogCardHoriz({
             ))}
           </ul>
 
-          <div className="blogcardhoriz__pub body-s text-grey1 lg:hidden">
-            {formatTimestamp(publishedAt)}
-          </div>
+          <div className="blogcardhoriz__pub body-s text-grey1 lg:hidden">{formattedDate}</div>
         </div>
 
         <div className="blogcardhoriz__text">
@@ -67,9 +69,7 @@ export default function BlogCardHoriz({
           </p>
         </div>
 
-        <div className="blogcardhoriz__pub body-s hidden text-grey1 lg:block">
-          {formatTimestamp(publishedAt)}
-        </div>
+        <div className="blogcardhoriz__pub body-s hidden text-grey1 lg:block">{formattedDate}</div>
       </div>
     </div>
   )

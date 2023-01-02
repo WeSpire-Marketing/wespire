@@ -105,7 +105,7 @@ const CardsSection = ({blogs, cards, panelTitle = '', panelSubtitle = '', blogsT
             ))}
           </h2>
 
-          {/* <ul
+          <ul
             className="carection__blogs grid grid-cols-1 gap-6 px-4
             sm:grid-cols-2
             lg:grid-cols-3 lg:px-0"
@@ -118,7 +118,7 @@ const CardsSection = ({blogs, cards, panelTitle = '', panelSubtitle = '', blogsT
                   </li>
                 )
               })}
-          </ul> */}
+          </ul>
         </div>
       </div>
     </section>
