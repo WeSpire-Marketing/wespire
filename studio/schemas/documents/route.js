@@ -1,5 +1,5 @@
 import { LinkIcon } from '@sanity/icons'
-import { isUniqueAcrossAllDocuments } from '../../lib/isUniqueAcrossAllDocuments'
+import { isUniqueAcrossAllRoutes } from '../../lib/isUniqueAcrossAllRoutes'
 
 export default {
   name: 'route',
@@ -13,7 +13,7 @@ export default {
       title: 'Slug',
       description: 'Unique value, like: "valid-page-slug"',
       options: {
-        isUnique: isUniqueAcrossAllDocuments
+        isUnique: isUniqueAcrossAllRoutes
       },
       validation: Rule => {
         // spaces regex
