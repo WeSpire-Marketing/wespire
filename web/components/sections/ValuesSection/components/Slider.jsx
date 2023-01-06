@@ -51,8 +51,8 @@ const Slider = ({cards}) => {
       >
         {cards.map(({_key, ...props}) => {
           return (
-            <SwiperSlide key={_key} tag="li">
-              <Card {...props} />
+            <SwiperSlide key={_key} tag="li" className='h-[unset]'>
+              <Card className='h-full' {...props} />
             </SwiperSlide>
           )
         })}

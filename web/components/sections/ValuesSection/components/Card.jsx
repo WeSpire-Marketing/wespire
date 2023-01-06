@@ -2,12 +2,12 @@ import Image from 'next/image'
 
 import {urlForImage} from '../../../../client'
 
-const Card = ({title, text, image}) => {
+const Card = ({className = '', title, text, image}) => {
   return (
     <div
-      className="valection__card flex h-fit flex-col rounded-[16px] bg-white
-      py-6 px-[10px] text-center
-      lg:px-[36px] lg:pt-[24px] lg:pb-[32px]"
+      className={className + ` valection__card flex flex-col
+      rounded-[16px] bg-white py-6 px-[10px] text-center
+      lg:px-[36px] lg:pt-[24px] lg:pb-[32px]`}
     >
       <div className="valection__card__image mb-[32px] flex justify-center">
         <Image
