@@ -48,7 +48,7 @@ export default function HeroImageAndForm({className = '', title, text, formId, i
 
               <SignMeUpForm
                 formId={formId}
-                buttonText="Get Demo"
+                buttonText="Get a Demo"
                 placeholder="Enter your business email"
                 buttonClasses="w-full primary-btn bg-smart shrink-0 py-[11px]
                 lg:w-auto"
