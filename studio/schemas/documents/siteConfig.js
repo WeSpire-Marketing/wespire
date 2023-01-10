@@ -11,6 +11,11 @@ export default {
   fieldsets: [{ name: 'footer', title: 'Footer' }],
   fields: [
     {
+      name: 'googleAnalyticsTag',
+      type: 'string',
+      title: 'Google Analytics Tag',
+    },
+    {
       name: 'title',
       type: 'string',
       title: 'Site title'
