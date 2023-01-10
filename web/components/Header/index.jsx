@@ -34,7 +34,7 @@ export default function Header({
   }
 
   return (
-    <header className="header hidden lg:block">
+    <header className="header hidden z-50 lg:block">
       <div className="inner relative">
         <div className="mx-auto w-[100%] max-w-[1354px] px-8">
           <div className="relative z-20 flex max-h-[65px] w-[100%] items-center justify-between">
