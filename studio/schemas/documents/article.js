@@ -195,6 +195,10 @@ export default {
               validation: Rule => Rule.required()
             }
           ]
+        },
+        {
+          type: 'videoId',
+          title: 'Video'
         }
       ],
       validation: Rule => Rule.required()
