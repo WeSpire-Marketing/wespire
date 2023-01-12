@@ -86,7 +86,11 @@ export default function ContactForm({formId}) {
 
   return (
     <>
-      <form className="flex flex-col gap-y-8 px-2 lg:px-0" onSubmit={handleSubmit(submitForm)}>
+      <form
+        id={formId}
+        className="contact-form flex flex-col gap-y-8 px-2 lg:px-0"
+        onSubmit={handleSubmit(submitForm)}
+      >
         <InputGroup
           type="text"
           label="First name"
@@ -151,6 +155,12 @@ export default function ContactForm({formId}) {
           {message}
         </button>
       </form>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `function q(a){return function(){ChiliPiper[a].q=(ChiliPiper[a].q||[]).concat([arguments])}}window.ChiliPiper=window.ChiliPiper||"submit scheduling showCalendar submit widget bookMeeting".split(" ").reduce(function(a,b){a[b]=q(b);return a},{});ChiliPiper.scheduling("wespire", "contact-us", {title: "Thanks! What time works best for a quick call?"})`,
+        }}
+      />
+      <script src="https://js.na.chilipiper.com/marketing.js" type="text/javascript" async />
 
       <p className="body-s mx-auto mt-8 max-w-[320px] text-center lg:max-w-[438px]">
         By submitting this form I agree to receive marketing communications from WeSpire.

@@ -19,10 +19,9 @@ export default {
           name: 'alt',
           type: 'string',
           title: 'Video preview image description (alt)',
-          validation: (Rule) => Rule.required(),
+          validation: (Rule) => Rule.required().error('Video preview image description is required'),
         },
       ],
-      validation: (Rule) => Rule.required(),
     },
   ],
 }

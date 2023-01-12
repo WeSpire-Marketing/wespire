@@ -36,7 +36,7 @@ export default function HeroVideo({title = '', subtitle, formId, video}) {
                 lg:w-auto"
                 errorClasses="absolute top-[-21px] h-fit lg:top-[unset]"
                 placeholder="Enter your business email"
-                buttonText="Get Demo"
+                buttonText="Get a Demo"
                 formId={formId}
               />
             </div>

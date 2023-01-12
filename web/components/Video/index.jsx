@@ -27,7 +27,13 @@ export default function Video({video}) {
 
   return (
     <div className="relative cursor-pointer overflow-hidden rounded-[16px] aspect-[16/10]">
-      {isVisible ? (
+      {video?.image && !isVisible ? (
+        <Img
+          className="overflow-hidden rounded-[16px]"
+          value={{...video.image, alt: video.image.alt}}
+          onClick={handleClick}
+        />
+      ) : (
         <iframe
           className="absolute top-[50%] z-20 aspect-video w-full translate-y-[-50%] rounded-[16px]"
           src={
@@ -39,12 +45,6 @@ export default function Video({video}) {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           frameBorder="0"
           allowFullScreen
-        />
-      ) : (
-        <Img
-          className="overflow-hidden rounded-[16px]"
-          value={{...video.image, alt: video.image.alt}}
-          onClick={handleClick}
         />
       )}
     </div>

@@ -78,7 +78,7 @@ const myPortableTextComponents = {
         href={downloadUrl}
         target="_blank"
         rel="noopener noreferrer"
-        style={{textDecoration: 'none'}}
+        style={{textDecoration: 'none', margin: '2rem 0'}}
       >
         {buttonText}
       </a>
