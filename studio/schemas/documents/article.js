@@ -1,4 +1,4 @@
-import { BookIcon } from '@sanity/icons'
+import { BookIcon, PlayIcon, ArchiveIcon, ImageIcon, BlockquoteIcon } from '@sanity/icons'
 import { FcBookmark, TableOfContent } from '../helpers/blockContentComponents'
 
 export default {
@@ -161,6 +161,7 @@ export default {
         },
         {
           type: 'image',
+          icon: ImageIcon,
           fields: [
             {
               name: 'alt',
@@ -175,6 +176,7 @@ export default {
           value: 'quote',
           name: 'quote',
           type: 'object',
+          icon: BlockquoteIcon,
           fields: [
             {
               name: 'quoteText',
@@ -198,7 +200,21 @@ export default {
         },
         {
           type: 'videoId',
-          title: 'Video'
+          title: 'Video',
+          icon: PlayIcon,
+        },
+        {
+          type: 'file',
+          title: 'File',
+          icon: ArchiveIcon,
+          fields: [
+            {
+              name: 'buttonText',
+              type: 'string',
+              title: 'Download button text',
+              validation: Rule => Rule.required()
+            }
+          ]
         }
       ],
       validation: Rule => Rule.required()

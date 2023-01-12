@@ -19,6 +19,16 @@ export async function getServerSideProps({params}) {
     groq`
     *[_type == 'stories' && storyCard.slug.current == $slug][0]{
       ...,
+      "storyContent": storyContent{
+        ...,
+        "content": content[]{
+          ...,
+          _type == 'file' => {
+            ...,
+            "downloadUrl": asset->url
+          },
+        },
+      },
       "mainNavigation": *[_id == "global-config"][0].mainNavigation,
       "footerNavigation": *[_id == "global-config"][0].footerNavigation,
     }`,

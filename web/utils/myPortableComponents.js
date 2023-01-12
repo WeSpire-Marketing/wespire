@@ -72,6 +72,17 @@ const myPortableTextComponents = {
         <Video video={value} />
       </div>
     ),
+    file: ({value: {buttonText, downloadUrl}}) => (
+      <a
+        className="primary-btn inline-block"
+        href={downloadUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{textDecoration: 'none'}}
+      >
+        {buttonText}
+      </a>
+    ),
   },
   marks: {
     link: ({children, value}) => {

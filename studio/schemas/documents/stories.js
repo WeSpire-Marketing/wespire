@@ -1,4 +1,4 @@
-import { CommentIcon } from '@sanity/icons'
+import { CommentIcon, PlayIcon, ArchiveIcon, BlockquoteIcon, ImageIcon } from '@sanity/icons'
 
 export default {
   name: 'stories',
@@ -110,8 +110,61 @@ export default {
               ]
             },
             {
+              type: 'image',
+              icon: ImageIcon,
+              fields: [
+                {
+                  name: 'alt',
+                  type: 'string',
+                  title: 'Alt Description',
+                  validation: Rule => Rule.required()
+                }
+              ]
+            },
+            {
+              title: 'Quote',
+              value: 'quote',
+              name: 'quote',
+              type: 'object',
+              icon: BlockquoteIcon,
+              fields: [
+                {
+                  name: 'quoteText',
+                  type: 'text',
+                  title: 'Quote Text',
+                  validation: Rule => Rule.required()
+                },
+                {
+                  name: 'quoteAuthor',
+                  type: 'string',
+                  title: 'Quote Author',
+                  validation: Rule => Rule.required()
+                },
+                {
+                  name: 'quoteAuthorJob',
+                  type: 'string',
+                  title: 'Quote Author Position',
+                  validation: Rule => Rule.required()
+                }
+              ]
+            },
+            {
               type: 'videoId',
-              title: 'Video'
+              title: 'Video',
+              icon: PlayIcon,
+            },
+            {
+              type: 'file',
+              title: 'File',
+              icon: ArchiveIcon,
+              fields: [
+                {
+                  name: 'buttonText',
+                  type: 'string',
+                  title: 'Download button text',
+                  validation: Rule => Rule.required()
+                }
+              ]
             }
           ],
           validation: Rule => Rule.required()

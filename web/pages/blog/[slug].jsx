@@ -40,6 +40,13 @@ export async function getServerSideProps({params}) {
         excerpt,
         slug,
       },
+      "content": content[]{
+        ...,
+        _type == 'file' => {
+          ...,
+          "downloadUrl": asset->url
+        },
+      },
       "readingTime": round(length(pt::text(content)) / 5 / 180 ),
       "categories": categories[]->{ title },
       "mainNavigation": *[_id == "global-config"][0].mainNavigation,
