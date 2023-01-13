@@ -5,7 +5,7 @@ import Img from '../../Img'
 import Icon from '../../icons/AnimatedIcon'
 import LogoStatic from '../../icons/LogoStatic'
 import SponsorsBlock from '../../SponsorsBlock'
-import SignMeUpForm from '../../forms/SignMeUpForm'
+import SignMeUpWithNamesForm from '../../forms/SignMeUpWithNamesForm'
 
 import {injectIconToSpanStr} from '../../../utils'
 
@@ -67,12 +67,12 @@ export default function HeroForm({link, title, subtitle, formId, image, sponsors
               {subtitle}
             </p>
 
-            <SignMeUpForm
+            <SignMeUpWithNamesForm
               formId={formId}
               buttonText="Subscribe"
               placeholder="Enter your email"
               buttonClasses="hero-form__body-form__btn w-full cta-btn bg-black lg:w-auto"
-              formClasses="max-w-[315px] flex flex-col gap-4 items-center relative mx-auto
+              formClasses="max-w-[315px] flex flex-col gap-4 items-start relative mx-auto
               lg:max-w-[475px] lg:flex-row lg:gap-2 lg:mx-0"
               errorClasses="absolute top-[-21px] h-fit lg:top-[unset]"
             />

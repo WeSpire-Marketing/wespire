@@ -49,7 +49,7 @@ export default function TabsWithNav({tabs}) {
       <div className="mx-auto max-w-[1128px]">
         {tabs.map(({_key, image, link, name, text, title}) => {
           return (
-            <TabPanel key={_key} render="idle" hidden={selectedTab !== name}>
+            <TabPanel key={_key} hidden={selectedTab !== name}>
               <motion.div
                 className="tab-content flex flex-col-reverse items-center
                 lg:flex-row"

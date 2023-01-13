@@ -13,20 +13,21 @@ export default {
       name: 'hideDesktopNav',
       type: 'boolean',
       title: 'Hide desktop navigation',
-      readOnly: true,
+      // hidden: true,
       initialValue: {
         hideDesktopNav: true
-      }
+      },
+      readOnly: true,
       // validation: Rule => Rule.required()
     },
     {
       name: 'hideMobileNav',
       type: 'boolean',
       title: 'Hide mobile navigation',
-      readOnly: true,
       initialValue: {
         hideMobileNav: false
-      }
+      },
+      readOnly: true,
       // validation: Rule => Rule.required()
     },
     {
