@@ -4,7 +4,8 @@ import Image from 'next/image'
 import {urlForImage} from '../../../client'
 import useSanityBlurDataUrl from '../../../utils/hooks/useSanityBlurDataUrl'
 
-export default function ImgItem({image, title, text}) {
+export default function ImgItem({image, title, text, ...props}) {
+  console.log(title.url)
   const blurDataUrl = useSanityBlurDataUrl(image)
   return (
     <div className="menu-item flex items-start gap-4">
@@ -27,7 +28,12 @@ export default function ImgItem({image, title, text}) {
       <div className="menu-item__text">
         {title?.internal ? (
           <Link href={title.url} passHref>
-            <a className="menu-item__text__title subtitle-m mb-2 text-[16px]">{title.text}</a>
+            <a
+              className="menu-item__text__title subtitle-m mb-2 text-[16px]"
+              aria-disabled={title.url?.trim() ? 'false' : 'true'}
+            >
+              {title.text}
+            </a>
           </Link>
         ) : (
           <a
@@ -35,6 +41,7 @@ export default function ImgItem({image, title, text}) {
             href={title.url}
             target="_blank"
             rel="noreferrer noopener"
+            aria-disabled={title.url?.trim() ? 'false' : 'true'}
           >
             {title.text}
           </a>

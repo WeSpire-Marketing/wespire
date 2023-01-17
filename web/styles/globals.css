@@ -33,6 +33,10 @@ a {
   text-decoration: none;
 }
 
+a[aria-disabled="true"] {
+  pointer-events: none;
+}
+
 .select__input {
   color: transparent !important;
 }
