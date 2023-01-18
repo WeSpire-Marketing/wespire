@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
-import { urlForImage } from '../../../client'
+import {urlForImage} from '../../../client'
 import useSanityBlurDataUrl from '../../../utils/hooks/useSanityBlurDataUrl'
 
 export default function CardItemWithTags({image, text, title, tags}) {
@@ -12,16 +12,35 @@ export default function CardItemWithTags({image, text, title, tags}) {
         className="menu-item__icon relative mb-2 aspect-[4/1.75] w-full max-w-[376px]
         shrink-0 overflow-hidden rounded-[16px]"
       >
-        <Image
-          src={urlForImage(image).width(376).height(176).quality(100).url()}
-          blurDataURL={blurDataUrl}
-          layout="responsive"
-          placeholder="blur"
-          objectFit="cover"
-          alt={image.alt}
-          height={176}
-          width={376}
-        />
+        {title?.internal ? (
+          <Link href={title.url} passHref>
+            <a className="w-full h-full">
+              <Image
+                src={urlForImage(image).width(376).height(176).quality(100).url()}
+                blurDataURL={blurDataUrl}
+                layout="responsive"
+                placeholder="blur"
+                objectFit="cover"
+                alt={image.alt}
+                height={176}
+                width={376}
+              />
+            </a>
+          </Link>
+        ) : (
+          <a href={title.url} target="_blank" rel="noreferrer noopener">
+            <Image
+              src={urlForImage(image).width(376).height(176).quality(100).url()}
+              blurDataURL={blurDataUrl}
+              layout="responsive"
+              placeholder="blur"
+              objectFit="cover"
+              alt={image.alt}
+              height={176}
+              width={376}
+            />
+          </a>
+        )}
       </div>
 
       <ul className="menu-item__tags mb-4 inline-flex items-start gap-4">

@@ -13,16 +13,35 @@ export default function TwoColItem({image, title, text}) {
         className="menu-item__icon relative h-[110px] w-full max-w-[145px] shrink-0
         overflow-hidden rounded-[16px]"
       >
-        <Image
-          src={urlForImage(image).width(145).height(110).quality(100).url()}
-          blurDataURL={blurDataUrl}
-          layout="responsive"
-          placeholder="blur"
-          objectFit="cover"
-          alt={image.alt}
-          height={110}
-          width={145}
-        />
+        {title?.internal ? (
+          <Link href={title.url} passHref>
+            <a className="w-full h-full">
+              <Image
+                src={urlForImage(image).width(145).height(110).quality(100).url()}
+                blurDataURL={blurDataUrl}
+                layout="responsive"
+                placeholder="blur"
+                objectFit="cover"
+                alt={image.alt}
+                height={110}
+                width={145}
+              />
+            </a>
+          </Link>
+        ) : (
+          <a href={title.url} target="_blank" rel="noreferrer noopener">
+            <Image
+              src={urlForImage(image).width(145).height(110).quality(100).url()}
+              blurDataURL={blurDataUrl}
+              layout="responsive"
+              placeholder="blur"
+              objectFit="cover"
+              alt={image.alt}
+              height={110}
+              width={145}
+            />
+          </a>
+        )}
       </div>
 
       <div className="menu-item__text">

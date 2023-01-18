@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Image from 'next/image'
 import {useNextSanityImage} from 'next-sanity-image'
 
@@ -10,7 +11,7 @@ import {injectIconToSpanStr} from '../../../utils'
 
 import localDataURL from '../../../assets/images/blur-placeholder.jpg'
 
-export default function HeroImageAndForm({className = '', title, text, formId, image}) {
+export default function HeroImageAndForm({className = '', title, text, link, image}) {
   const imageProps = useNextSanityImage(client, image)
 
   return (
@@ -46,16 +47,24 @@ export default function HeroImageAndForm({className = '', title, text, formId, i
                 {text}
               </p>
 
-              <SignMeUpForm
-                formId={formId}
-                buttonText="Get a Demo"
-                placeholder="Enter your business email"
-                buttonClasses="w-full primary-btn bg-smart shrink-0 py-[11px]
-                lg:w-auto"
-                formClasses="flex flex-col gap-4 items-center mx-auto max-w-[350px] lg:max-w-[475px] relative
-                lg:flex-row lg:gap-2"
-                errorClasses="absolute top-[-21px] h-fit lg:top-[unset]"
-              />
+              {link?.internal ? (
+                <Link href={link.url} passHref>
+                  <a
+                    className={`w-full primary-btn bg-smart shrink-0 text-center py-[11px] lg:w-auto`}
+                  >
+                    {link.text}
+                  </a>
+                </Link>
+              ) : (
+                <a
+                  className={`w-full primary-btn bg-smart shrink-0 text-center py-[11px] lg:w-auto`}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {link.text}
+                </a>
+              )}
             </div>
           </div>
 
