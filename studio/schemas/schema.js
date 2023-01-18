@@ -57,6 +57,7 @@ import sessionSection from './sections/sessionSection'
 import contentSection from './sections/contentSection'
 import heroInfoSection from './sections/heroInfoSection'
 import heroImageAndForm from './sections/heroImageAndForm'
+import heroVideoAndForm from './sections/heroVideoAndForm'
 import capabilitiesSection from './sections/capabilitiesSection'
 import openingsPressSection from './sections/openingsPressSection'
 import customerStoriesSection from './sections/customerStoriesSection'
@@ -80,6 +81,7 @@ import blogTemplate from './templates/blogTemplate'
 import homeTemplate from './templates/homeTemplate'
 import landingTemplate from './templates/landingTemplate'
 import productTemplate from './templates/productTemplate'
+import productVideoTemplate from './templates/productVideoTemplate'
 import careersTemplate from './templates/careersTemplate'
 import personaTemplate from './templates/personaTemplate'
 import newsRoomTemplate from './templates/newsRoomTemplate'
@@ -105,6 +107,7 @@ export default createSchema({
     homeTemplate,
     personaTemplate,
     productTemplate,
+    productVideoTemplate,
     customersTemplate,
     resourcesTemplate,
     contactusTemplate,
@@ -151,6 +154,7 @@ export default createSchema({
     contentSection,
     sectionsBuilder,
     heroImageAndForm,
+    heroVideoAndForm,
 
     // other types
     video,
