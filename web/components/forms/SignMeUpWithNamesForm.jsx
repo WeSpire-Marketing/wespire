@@ -105,16 +105,7 @@ export default function SignMeUpWithNamesForm({
 
   return (
     <form className={formClasses} onSubmit={handleSubmit(submitForm)}>
-      <div className='w-full flex flex-col gap-8'>
-        <InputGroup
-          className="w-full"
-          type="email"
-          placeholder={placeholder}
-          register={() => register('email', validateEmail)}
-          error={errors?.email?.message && errors.email.message}
-          onBlur={(e) => setValue('email', e.target.value.trim(), true)}
-          errorClasses={errorClasses}
-        />
+      <div className="w-full flex flex-col gap-4">
         <InputGroup
           className="w-full"
           type="text"
@@ -131,6 +122,15 @@ export default function SignMeUpWithNamesForm({
           register={() => register('lastname', validateLastname)}
           error={errors?.lastname?.message && errors.lastname.message}
           onBlur={(e) => setValue('lastname', e.target.value.trim(), true)}
+          errorClasses={errorClasses}
+        />
+        <InputGroup
+          className="w-full"
+          type="email"
+          placeholder={placeholder}
+          register={() => register('email', validateEmail)}
+          error={errors?.email?.message && errors.email.message}
+          onBlur={(e) => setValue('email', e.target.value.trim(), true)}
           errorClasses={errorClasses}
         />
       </div>
