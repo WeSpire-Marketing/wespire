@@ -23,7 +23,7 @@ const cardVariants = {
   },
 }
 
-export default function LeaderCard({bgColor, image, name, job, title, text, socials: {items}}) {
+export default function LeaderCard({bgColor, image, name, job, title, text, socials}) {
   const tiltRef = useRef(null)
   const {width} = useWindowSize()
   const controls = useAnimationControls()
@@ -67,7 +67,7 @@ export default function LeaderCard({bgColor, image, name, job, title, text, soci
           animate={controls}
         >
           {selectedCard ? (
-            <BackCardContent title={title} text={text} socials={items} />
+            <BackCardContent title={title} text={text} socials={socials?.items} />
           ) : (
             <FrontCardContent image={image} />
           )}
