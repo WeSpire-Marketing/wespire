@@ -44,23 +44,8 @@ export default function Video({video}) {
       {video?.image?.asset ? (
         !isVisible ? (
           <div className="overflow-hidden rounded-[16px]" onClick={handleClick}>
-            <Image
-              {...imageProps}
-              alt={video?.image?.alt}
-              position="relative"
-              layout="fill"
-              objectFit="cover"
-              quality={85}
-              priority
-            />
-          </div>
-        ) : (
-          <>
-            {!isVisible && (
-              <div
-                className="absolute z-30 w-full h-full flex justify-center items-center"
-                onClick={handleClick}
-              >
+            {video?.image?.playIcon && (
+              <div className="absolute z-30 w-full h-full flex justify-center items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="104"
@@ -105,35 +90,29 @@ export default function Video({video}) {
               </div>
             )}
 
-            {!isVisible ? (
-              <div className="overflow-hidden rounded-[16px]" onClick={handleClick}>
-                {thumbnail && (
-                  <Image
-                    src={thumbnail}
-                    alt="thumb"
-                    position="relative"
-                    layout="fill"
-                    objectFit="cover"
-                    quality={85}
-                    priority
-                  />
-                )}
-              </div>
-            ) : (
-              <iframe
-                className="absolute top-[50%] z-20 aspect-video w-full translate-y-[-50%] rounded-[16px]"
-                src={
-                  service === 'vimeo'
-                    ? `https://player.vimeo.com/video/${id}?autoplay=1&title=0&byline=0&portrait=0`
-                    : `https://www.youtube.com/embed/${id}?autoplay=1`
-                }
-                title="Embedded youtube or vimeo video"
-                allow={`accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;`}
-                frameBorder="0"
-                allowFullScreen
-              />
-            )}
-          </>
+            <Image
+              {...imageProps}
+              alt={video?.image?.alt}
+              position="relative"
+              layout="fill"
+              objectFit="cover"
+              quality={85}
+              priority
+            />
+          </div>
+        ) : (
+          <iframe
+            className="absolute top-[50%] z-20 aspect-video w-full translate-y-[-50%] rounded-[16px]"
+            src={
+              service === 'vimeo'
+                ? `https://player.vimeo.com/video/${id}?autoplay=1&title=0&byline=0&portrait=0`
+                : `https://www.youtube.com/embed/${id}?autoplay=1`
+            }
+            title="Embedded youtube or vimeo video"
+            allow={`accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;`}
+            frameBorder="0"
+            allowFullScreen
+          />
         )
       ) : (
         <>
