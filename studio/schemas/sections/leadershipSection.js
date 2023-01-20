@@ -12,33 +12,32 @@ export default {
           name: 'item',
           type: 'object',
           title: 'List with title',
-          validation: (Rule) => Rule.required(),
+          validation: Rule => Rule.required(),
           fields: [
             {
               name: 'title',
               type: 'string',
               title: 'Title',
-              description:
-                'Wrap the word in <span> to show animation. Example: <span>Easy</span>',
-              validation: (Rule) => Rule.required(),
+              description: 'Wrap the word in <span> to show animation. Example: <span>Easy</span>',
+              validation: Rule => Rule.required()
             },
             {
               name: 'subtitle',
               type: 'string',
               title: 'Short text under the title',
-              validation: (Rule) => Rule.required(),
+              validation: Rule => Rule.required()
             },
             {
               name: 'cards',
               type: 'array',
               title: 'List of personal cards',
-              validation: (Rule) => Rule.required(),
+              validation: Rule => Rule.required(),
               of: [
                 {
                   name: 'card',
                   type: 'object',
                   title: 'Personal card',
-                  validation: (Rule) => Rule.required(),
+                  validation: Rule => Rule.required(),
                   fields: [
                     {
                       name: 'image',
@@ -49,16 +48,16 @@ export default {
                           name: 'alt',
                           type: 'string',
                           title: 'Image description (alt)',
-                          validation: (Rule) => Rule.required(),
-                        },
+                          validation: Rule => Rule.required()
+                        }
                       ],
-                      validation: (Rule) => Rule.required(),
+                      validation: Rule => Rule.required()
                     },
                     {
                       name: 'name',
                       type: 'string',
                       title: 'Leader name',
-                      validation: (Rule) => Rule.required(),
+                      validation: Rule => Rule.required()
                     },
                     {
                       name: 'job',
@@ -66,28 +65,28 @@ export default {
                       title: 'Leader position',
                       of: [
                         {
-                          type: 'block',
-                        },
+                          type: 'block'
+                        }
                       ],
-                      validation: (Rule) => Rule.required(),
+                      validation: Rule => Rule.required()
                     },
                     {
                       name: 'bgColor',
                       title: 'Pick card color',
                       type: 'colorPicker',
-                      validation: (Rule) => Rule.required(),
+                      validation: Rule => Rule.required()
                     },
                     {
                       name: 'title',
                       type: 'string',
                       title: 'Title on the back side of card',
-                      validation: (Rule) => Rule.required(),
+                      validation: Rule => Rule.required()
                     },
                     {
                       name: 'text',
                       type: 'text',
                       title: 'Text on the back side of card',
-                      validation: (Rule) => Rule.required(),
+                      validation: Rule => Rule.required()
                     },
                     {
                       name: 'socials',
@@ -98,13 +97,13 @@ export default {
                           name: 'items',
                           type: 'array',
                           title: 'List of social links with icons',
-                          validation: (Rule) => Rule.required().max(4),
+                          validation: Rule => Rule.required().max(4),
                           of: [
                             {
                               name: 'social',
                               type: 'object',
                               title: 'Social link',
-                              validation: (Rule) => Rule.required(),
+                              validation: Rule => Rule.required(),
                               fields: [
                                 {
                                   name: 'icon',
@@ -115,31 +114,30 @@ export default {
                                       name: 'alt',
                                       type: 'string',
                                       title: 'Image description (alt)',
-                                      validation: (Rule) => Rule.required(),
-                                    },
-                                  ],
+                                      validation: Rule => Rule.required()
+                                    }
+                                  ]
                                 },
                                 {
                                   name: 'url',
                                   type: 'url',
                                   title: 'Social link URL',
-                                  validation: (Rule) => Rule.required(),
-                                },
-                              ],
-                            },
-                          ],
-                        },
-                      ],
-                      validation: (Rule) => Rule.required(),
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
+                                  validation: Rule => Rule.required()
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
       ],
-      validation: (Rule) => Rule.required(),
-    },
-  ],
+      validation: Rule => Rule.required()
+    }
+  ]
 }

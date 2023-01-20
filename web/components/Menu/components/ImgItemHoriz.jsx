@@ -1,9 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
-import { urlForImage } from '../../../client'
+import {urlForImage} from '../../../client'
 import useSanityBlurDataUrl from '../../../utils/hooks/useSanityBlurDataUrl'
-
 
 export default function ImgItemHoriz({image, title, text}) {
   const blurDataUrl = useSanityBlurDataUrl(image)
@@ -13,16 +12,35 @@ export default function ImgItemHoriz({image, title, text}) {
         className="menu-item__icon relative aspect-[5/1.7] w-full max-w-[306px]
         overflow-hidden rounded-[16px]"
       >
-        <Image
-          src={urlForImage(image).width(306).height(106).quality(100).url()}
-          blurDataURL={blurDataUrl}
-          layout="responsive"
-          placeholder="blur"
-          objectFit="cover"
-          alt={image.alt}
-          height={106}
-          width={306}
-        />
+        {title?.internal ? (
+          <Link href={title.url} passHref>
+            <a className="w-full h-full">
+              <Image
+                src={urlForImage(image).width(306).height(106).quality(100).url()}
+                blurDataURL={blurDataUrl}
+                layout="responsive"
+                placeholder="blur"
+                objectFit="cover"
+                alt={image.alt}
+                height={106}
+                width={306}
+              />
+            </a>
+          </Link>
+        ) : (
+          <a href={title.url} target="_blank" rel="noreferrer noopener">
+            <Image
+              src={urlForImage(image).width(306).height(106).quality(100).url()}
+              blurDataURL={blurDataUrl}
+              layout="responsive"
+              placeholder="blur"
+              objectFit="cover"
+              alt={image.alt}
+              height={106}
+              width={306}
+            />
+          </a>
+        )}
       </div>
 
       <div className="menu-item__text">

@@ -20,6 +20,7 @@ export default {
         { name: 'personaTemplate', type: 'personaTemplate' },
         { name: 'privacyPolicyTemplate', type: 'privacyPolicyTemplate' },
         { name: 'productTemplate', type: 'productTemplate' },
+        { name: 'productVideoTemplate', type: 'productVideoTemplate' },
         { name: 'resourcesTemplate', type: 'resourcesTemplate' },
         { name: 'requestDemoTemplate', type: 'requestDemoTemplate' },
         { name: 'solutionsOverviewTemplate', type: 'solutionsOverviewTemplate' },

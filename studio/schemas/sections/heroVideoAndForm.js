@@ -1,7 +1,7 @@
 export default {
-  name: 'heroImageAndForm',
+  name: 'heroVideoAndForm',
   type: 'object',
-  title: 'Hero section with image and form',
+  title: 'Hero section with video and form',
   fields: [
     {
       name: 'title',
@@ -49,23 +49,10 @@ export default {
       }
     },
     {
-      name: 'image',
-      type: 'object',
-      title: 'Section image',
-      fields: [
-        {
-          name: 'image',
-          type: 'image',
-          title: 'Image',
-          validation: Rule => Rule.required()
-        },
-        {
-          name: 'alt',
-          type: 'string',
-          title: 'Image description (alt)',
-          validation: Rule => Rule.required()
-        }
-      ],
+      name: 'video',
+      title: 'Section video',
+      description: 'Paste URL from Youtube or Vimeo',
+      type: 'videoId',
       validation: Rule => Rule.required()
     }
   ]
