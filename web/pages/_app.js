@@ -50,15 +50,6 @@ class App extends BaseApp {
 
     return (
       <>
-        {/* <!-- Start of HubSpot Embed Code --> */}
-        <Script
-          type="text/javascript"
-          id="hs-script-loader"
-          async
-          defer
-          src="//js.hs-scripts.com/8353230.js"
-        />
-        {/* <!-- End of HubSpot Embed Code --> */}
         {/* <!-- Google Tag Manager --> */}
         <Script>
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
