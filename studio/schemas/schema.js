@@ -12,6 +12,7 @@ import article from './documents/article'
 import stories from './documents/stories'
 import category from './documents/category'
 import siteConfig from './documents/siteConfig'
+import redirect from './documents/redirect'
 
 // Object types
 import cta from './objects/cta'
@@ -178,6 +179,7 @@ export default createSchema({
     route,
     simplePortableText,
     siteConfig,
+    redirect,
     // textSection,
     meta,
     ctaForm,
