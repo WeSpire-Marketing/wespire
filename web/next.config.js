@@ -1,5 +1,10 @@
+const generateRedirects = require('./generate-redirects')
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return generateRedirects()
+  },
   reactStrictMode: true,
   swcMinify: true,
   images: {
