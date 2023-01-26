@@ -99,6 +99,10 @@ export default function Index({
     if (localStorage) {
       localStorage.removeItem('hubspotData')
     }
+
+    return () => {
+      localStorage.removeItem('hubspotData')
+    }
   }, [])
 
   return (

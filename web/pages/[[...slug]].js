@@ -300,6 +300,10 @@ const LandingPage = (props) => {
     if (localStorage) {
       localStorage.removeItem('hubspotData')
     }
+
+    return () => {
+      localStorage.removeItem('hubspotData')
+    }
   }, [])
 
   const openGraphImages = openGraphImage
