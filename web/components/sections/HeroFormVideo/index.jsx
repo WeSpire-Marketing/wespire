@@ -5,8 +5,21 @@ import Icon from '../../icons/AnimatedIcon'
 import LogoStatic from '../../icons/LogoStatic'
 import SponsorsBlock from '../../SponsorsBlock'
 import SignMeUpWithNamesForm from '../../forms/SignMeUpWithNamesForm'
+import Script from 'next/script'
 
 import {injectIconToSpanStr} from '../../../utils'
+
+const injectChiliPiperScripts = () => {
+  return (
+    <>
+      <Script>
+        {`function q(a){return function(){ChiliPiper[a].q=(ChiliPiper[a].q||[]).concat([arguments])}}window.ChiliPiper=window.ChiliPiper||"submit scheduling showCalendar submit widget bookMeeting".split(" ").reduce(function(a,b){a[b]=q(b);return a},{});
+        ChiliPiper.scheduling("wespire", "adwords-for-erg-management", {title: "Thanks! What time works best for a quick call?"})`}
+      </Script>
+      <Script src="https://js.na.chilipiper.com/marketing.js" type="text/javascript" async />
+    </>
+  )
+}
 
 export default function HeroFormVideo({link, title, subtitle, formId, video, sponsors}) {
   return (
@@ -61,15 +74,10 @@ export default function HeroFormVideo({link, title, subtitle, formId, video, spo
               {subtitle}
             </p>
 
-            <SignMeUpWithNamesForm
-              formId={formId}
-              buttonText="Subscribe"
-              placeholder="Enter your email"
-              buttonClasses="hero-form__body-form__btn w-full cta-btn bg-black lg:w-auto"
-              formClasses="max-w-[315px] flex flex-col gap-4 items-start relative mx-auto
-              lg:max-w-[475px] lg:flex-row lg:gap-2 lg:mx-0"
-              errorClasses="absolute top-[-21px] h-fit lg:top-[unset]"
-            />
+            <div>
+              <SignMeUpWithNamesForm formId={formId} />
+              {injectChiliPiperScripts()}
+            </div>
           </div>
 
           <div className="hero-form__body-right w-full lg:w-1/2">
