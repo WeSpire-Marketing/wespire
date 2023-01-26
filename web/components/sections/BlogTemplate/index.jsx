@@ -141,14 +141,12 @@ const BlogTemplate = ({
               {subtitle}
             </p>
 
-            <SignMeUpForm
-              formId={formId}
-              buttonText="Sign me up"
-              buttonClasses="primary-btn w-full bg-smart shrink-0 py-[11px] lg:w-auto"
-              formClasses="flex flex-col items-center mx-auto gap-4 max-w-[355px] relative
-              lg:flex-row lg:gap-[8px] lg:max-w-[475px]"
-              errorClasses="absolute top-[-21px] h-fit lg:top-[unset]"
-            />
+            <div
+              className="flex flex-col items-center mx-auto gap-4 relative
+              lg:flex-row lg:gap-[8px] md:max-w-[475px] lg:max-w-[475px]"
+            >
+              <SignMeUpForm formId={formId} />
+            </div>
           </div>
 
           {form1.isForm && <GetForm className="mb-[100px] lg:mb-[140px]" {...form1.form[0]} />}

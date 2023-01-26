@@ -1,4 +1,4 @@
-export default function Quote({ value: { quoteAuthor, quoteAuthorJob, quoteText } }) {
+export default function Quote({value: {quoteAuthor, quoteAuthorJob, quoteText}}) {
   return (
     <figure
       className="my-[40px] rounded-[16px] bg-neverPreachy bg-quotes bg-[left_32px_top_32px] 

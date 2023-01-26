@@ -26,15 +26,16 @@ export default function AuthorsQuoteForm({authors}) {
 
   return (
     <motion.figure
-      className="rounded-[40px] bg-pampas py-[48px] px-4
-      sm:px-8
-      lg:py-[80px] lg:px-0"
+      className="rounded-[40px] bg-pampas pb-[48px] px-4 sm:px-8 lg:pb-[80px] lg:px-0 max-[600px]"
       initial={{y: 50}}
       whileInView={{y: 0}}
       viewport={{once: true}}
       transition={{duration: 1}}
     >
-      <blockquote>
+      <blockquote
+        className="pt-[112px] lg:pt-[80px]
+      bg-quotes bg-no-repeat bg-[left_0px_top_56px] min-[786px]:bg-[left_calc(50vw-390px)_top_56px] min-[1024px]:bg-[left_calc(50vw-450px)_top_64px] min-[1300px]:bg-[left_190px_top_64px]"
+      >
         <motion.p
           className="heading-4 mx-auto mb-[40px] h-[190px] max-w-[685px] overflow-hidden
           line-clamp-6
