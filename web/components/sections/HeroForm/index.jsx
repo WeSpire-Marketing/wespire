@@ -80,8 +80,10 @@ export default function HeroForm({link, title, subtitle, formId, image, sponsors
               {subtitle}
             </p>
 
-            <SignMeUpWithNamesForm formId={formId} />
-            {injectChiliPiperScripts()}
+            <div>
+              <SignMeUpWithNamesForm formId={formId} />
+              {injectChiliPiperScripts()}
+            </div>
           </div>
 
           <motion.div

@@ -66,8 +66,10 @@ export default function ContactusSection({image, title, cols, formId}) {
                 ))}
               </h1>
 
-              <ContactForm formId={formId} />
-              {injectChiliPiperScripts()}
+              <div>
+                <ContactForm formId={formId} />
+                {injectChiliPiperScripts()}
+              </div>
             </div>
           </div>
         </div>

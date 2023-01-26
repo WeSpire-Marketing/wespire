@@ -21,6 +21,7 @@ import useCustomScrollBehavior from '../../utils/hooks/useCustomScrollBehavior'
 import client, {urlForImage} from '../../client'
 
 import localDataURL from '../../assets/images/blur-placeholder.jpg'
+import HubspotForm from '../../components/forms/HubspotForm'
 
 export async function getServerSideProps({params}) {
   const slug = slugParamToPath(params?.slug)
@@ -133,7 +134,7 @@ export default function Index({
 
                   <h1
                     className="article__title heading-2 lg:heading-1 mb-4 px-4
-                    text-white lg:mb-[154px] lg:px-0 lg:text-[46px]"
+                    text-white lg:px-0 lg:text-[46px]"
                   >
                     {title}
                   </h1>
@@ -153,6 +154,11 @@ export default function Index({
                       height={406}
                       width={600}
                     />
+                  </div>
+
+                  <div className="mb-[32px] mt-[32px] lg:mb-[32px] lg:mt-[88px] px-4 lg:px-0">
+                    <HubspotForm page="article" formId="2c551e2c-55f8-4611-9fb9-fb04236d21b6" />
+                    {/* Saturday Spark's Form ID: 2c551e2c-55f8-4611-9fb9-fb04236d21b6 */}
                   </div>
 
                   <div className="article__author inline-flex items-center gap-4 px-4 lg:px-0">
