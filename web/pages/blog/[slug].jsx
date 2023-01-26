@@ -95,6 +95,12 @@ export default function Index({
 
   useEffect(() => setFormattedDate(formatTimestamp(publishedAt)), [])
 
+  useEffect(() => {
+    if (localStorage) {
+      localStorage.removeItem('hubspotData')
+    }
+  }, [])
+
   return (
     <div className="articlepage bg-gallery">
       <PageMeta meta={pageMeta} />

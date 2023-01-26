@@ -1,5 +1,5 @@
 import groq from 'groq'
-import React from 'react'
+import React, {useEffect} from 'react'
 import {NextSeo} from 'next-seo'
 import PropTypes from 'prop-types'
 import imageUrlBuilder from '@sanity/image-url'
@@ -295,6 +295,12 @@ const LandingPage = (props) => {
     config = {},
     slug,
   } = props
+
+  useEffect(() => {
+    if (localStorage) {
+      localStorage.removeItem('hubspotData')
+    }
+  }, [])
 
   const openGraphImages = openGraphImage
     ? [

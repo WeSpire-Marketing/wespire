@@ -12,6 +12,7 @@ import client from '../../../client'
 import {slugParamToPath} from '../../../utils/urls'
 import myPortableTextComponents from '../../../utils/myPortableComponents'
 import useCustomScrollBehavior from '../../../utils/hooks/useCustomScrollBehavior'
+import {useEffect} from 'react'
 
 export async function getServerSideProps({params}) {
   const slug = slugParamToPath(params?.slug)
@@ -52,6 +53,12 @@ export default function Index({
   data: {pageMeta, mainNavigation, footerNavigation, storyContent, sliderSection, ctaSection},
 }) {
   useCustomScrollBehavior()
+
+  useEffect(() => {
+    if (localStorage) {
+      localStorage.removeItem('hubspotData')
+    }
+  }, [])
 
   return (
     <div className="customerspage overflow-hidden bg-gallery">
