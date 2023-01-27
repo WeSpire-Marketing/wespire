@@ -201,7 +201,7 @@ export default {
         {
           type: 'videoId',
           title: 'Video',
-          icon: PlayIcon,
+          icon: PlayIcon
         },
         {
           type: 'file',

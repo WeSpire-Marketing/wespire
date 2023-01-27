@@ -15,6 +15,12 @@ export default {
       title: 'Section link',
       fields: [
         {
+          name: 'isScrollToForm',
+          title: 'Scroll to Section Form?',
+          type: 'boolean',
+          initialValue: () => false
+        },
+        {
           name: 'text',
           type: 'string',
           title: 'Link text',

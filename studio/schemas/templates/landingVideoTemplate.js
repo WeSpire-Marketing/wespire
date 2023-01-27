@@ -17,7 +17,7 @@ export default {
       initialValue: {
         hideDesktopNav: true
       },
-      readOnly: true,
+      readOnly: true
       // validation: Rule => Rule.required()
     },
     {
@@ -27,7 +27,7 @@ export default {
       initialValue: {
         hideMobileNav: false
       },
-      readOnly: true,
+      readOnly: true
       // validation: Rule => Rule.required()
     },
     {

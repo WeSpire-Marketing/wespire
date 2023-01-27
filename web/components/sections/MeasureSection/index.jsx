@@ -37,20 +37,21 @@ export default function MeasureSection({image, title, subtitle, link, cols}) {
 
                   <p className="measurection-right__text body-m mb-8 text-secondary">{subtitle}</p>
 
-                  {link.internal ? (
-                    <Link href={link.url} passHref>
-                      <a className="measurection-right__link primary-btn">{link.text}</a>
-                    </Link>
-                  ) : (
-                    <a
-                      className="measurection-right__link primary-btn"
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {link.text}
-                    </a>
-                  )}
+                  {link?.visibility &&
+                    (link.internal ? (
+                      <Link href={link.url} passHref>
+                        <a className="measurection-right__link primary-btn">{link.text}</a>
+                      </Link>
+                    ) : (
+                      <a
+                        className="measurection-right__link primary-btn"
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {link.text}
+                      </a>
+                    ))}
                 </div>
               </div>
             </div>

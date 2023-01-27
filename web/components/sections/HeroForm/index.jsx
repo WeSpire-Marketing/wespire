@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import {motion} from 'framer-motion'
+import Script from 'next/script'
 
 import Img from '../../Img'
 import Icon from '../../icons/AnimatedIcon'
@@ -8,6 +9,18 @@ import SponsorsBlock from '../../SponsorsBlock'
 import SignMeUpWithNamesForm from '../../forms/SignMeUpWithNamesForm'
 
 import {injectIconToSpanStr} from '../../../utils'
+
+const injectChiliPiperScripts = () => {
+  return (
+    <>
+      <Script>
+        {`function q(a){return function(){ChiliPiper[a].q=(ChiliPiper[a].q||[]).concat([arguments])}}window.ChiliPiper=window.ChiliPiper||"submit scheduling showCalendar submit widget bookMeeting".split(" ").reduce(function(a,b){a[b]=q(b);return a},{});
+        ChiliPiper.scheduling("wespire", "adwords-for-erg-management", {title: "Thanks! What time works best for a quick call?"})`}
+      </Script>
+      <Script src="https://js.na.chilipiper.com/marketing.js" type="text/javascript" async />
+    </>
+  )
+}
 
 export default function HeroForm({link, title, subtitle, formId, image, sponsors}) {
   return (
@@ -24,20 +37,21 @@ export default function HeroForm({link, title, subtitle, formId, image, sponsors
           </Link>
         </div>
 
-        {link.internal ? (
-          <Link href={link.url} passHref>
-            <a className="hero-form__head__link cta-btn">{link.text}</a>
-          </Link>
-        ) : (
-          <a
-            className="hero-form__head__link cta-btn"
-            href={link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {link.text}
-          </a>
-        )}
+        {link?.visibility &&
+          (link.internal ? (
+            <Link href={link.url} passHref>
+              <a className="hero-form__head__link cta-btn">{link.text}</a>
+            </Link>
+          ) : (
+            <a
+              className="hero-form__head__link cta-btn"
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {link.text}
+            </a>
+          ))}
       </div>
 
       <div className="container mb-8 px-2 lg:mb-[95px] lg:px-8">
@@ -67,20 +81,15 @@ export default function HeroForm({link, title, subtitle, formId, image, sponsors
               {subtitle}
             </p>
 
-            <SignMeUpWithNamesForm
-              formId={formId}
-              buttonText="Get a Demo"
-              placeholder="Enter your email"
-              buttonClasses="hero-form__body-form__btn w-full cta-btn bg-black lg:w-auto"
-              formClasses="max-w-[315px] flex flex-col gap-4 items-start relative mx-auto
-              lg:max-w-[375px] lg:gap-6 lg:mx-0"
-              errorClasses="absolute top-[-21px] h-fit lg:top-[unset]"
-            />
+            <div>
+              <SignMeUpWithNamesForm formId={formId} />
+              {injectChiliPiperScripts()}
+            </div>
           </div>
 
           <motion.div
             className="hero-form__body-right w-full
-            lg:w-1/2"
+            lg:w-1/2 self-start"
             initial={{opacity: 0, y: -100}}
             whileInView={{opacity: 1, y: 0}}
             viewport={{once: true}}

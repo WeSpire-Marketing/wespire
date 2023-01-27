@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import {motion} from 'framer-motion'
 
 // Word wrapper
 const Wrapper = (props) => {
@@ -19,15 +19,15 @@ const Wrapper = (props) => {
   )
 }
 
-export default function CtaSection({ title = '', link }) {
+export default function CtaSection({title = '', link}) {
   const item = {
     hidden: {
       y: '200%',
-      transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.85 },
+      transition: {ease: [0.455, 0.03, 0.515, 0.955], duration: 0.85},
     },
     visible: {
       y: 0,
-      transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.75 },
+      transition: {ease: [0.455, 0.03, 0.515, 0.955], duration: 0.75},
     },
   }
 
@@ -55,6 +55,13 @@ export default function CtaSection({ title = '', link }) {
     },
   }
 
+  const scrollTo = (e) => {
+    e.preventDefault()
+
+    const anchor = document.querySelector('#hubspotform')
+    anchor.scrollIntoView({behavior: 'smooth', block: 'center'})
+  }
+
   return (
     <section
       className="ctasection bg-thriving bg-ctaMobileBg bg-[length:131px_108px]
@@ -64,7 +71,7 @@ export default function CtaSection({ title = '', link }) {
       <motion.h2
         className="ctasection__title heading-2 mx-auto mb-[40px] max-w-[612px] 
         px-2 text-center text-white lg:mb-[56px]"
-        viewport={{ once: true }}
+        viewport={{once: true}}
         whileInView="visible"
         variants={container}
         initial="hidden"
@@ -82,7 +89,7 @@ export default function CtaSection({ title = '', link }) {
                     }}
                     key={index}
                   >
-                    <motion.span style={{ display: 'inline-block' }} variants={item}>
+                    <motion.span style={{display: 'inline-block'}} variants={item}>
                       {element}
                     </motion.span>
                   </span>
@@ -93,8 +100,16 @@ export default function CtaSection({ title = '', link }) {
         })}
       </motion.h2>
 
-      <div className="inline-block w-full max-w-[375px] px-4 sm:max-w-[188px] sm:px-0">
-        {link.internal ? (
+      <div className="inline-block sm:px-0">
+        {link?.isScrollToForm ? (
+          <a
+            className="ctasection__link cta-btn w-full py-[15px] px-10"
+            href={''}
+            onClick={scrollTo}
+          >
+            {link.text}
+          </a>
+        ) : link.internal ? (
           <Link href={link.url} passHref scroll={false}>
             <a className="ctasection__link cta-btn w-full py-[15px] px-10">{link.text}</a>
           </Link>

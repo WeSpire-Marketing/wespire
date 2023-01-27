@@ -73,20 +73,21 @@ export default function TabsWithNav({tabs}) {
                     {text}
                   </p>
 
-                  {link.internal ? (
-                    <Link href={link.url} passHref>
-                      <a className="tab-content__left__link primary-btn">{link.text}</a>
-                    </Link>
-                  ) : (
-                    <a
-                      className="tab-content__left__link primary-btn"
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {link.text}
-                    </a>
-                  )}
+                  {link?.visibility &&
+                    (link.internal ? (
+                      <Link href={link.url} passHref>
+                        <a className="tab-content__left__link primary-btn">{link.text}</a>
+                      </Link>
+                    ) : (
+                      <a
+                        className="tab-content__left__link primary-btn"
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {link.text}
+                      </a>
+                    ))}
                 </div>
 
                 <div

@@ -9,6 +9,12 @@ export default {
       title: 'Section link',
       fields: [
         {
+          name: 'visibility',
+          title: 'Show button?',
+          type: 'boolean',
+          initialValue: () => true
+        },
+        {
           name: 'text',
           type: 'string',
           title: 'Link text',
@@ -42,10 +48,45 @@ export default {
     },
     {
       name: 'subtitle',
-      type: 'text',
       title: 'Text under the title',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+          marks: {
+            annotations: [
+              {
+                name: 'link',
+                type: 'object',
+                title: 'URL',
+                fields: [
+                  {
+                    title: 'URL',
+                    name: 'href',
+                    type: 'url'
+                  },
+                  {
+                    title: 'Open in new tab',
+                    name: 'blank',
+                    type: 'boolean'
+                  }
+                ],
+                initialValue: {
+                  blank: false
+                }
+              }
+            ]
+          }
+        }
+      ],
       validation: Rule => Rule.required()
     },
+    // {
+    //   name: 'subtitle',
+    //   type: 'text',
+    //   title: 'Text under the title',
+    //   validation: Rule => Rule.required()
+    // },
     {
       name: 'formId',
       type: 'string',

@@ -1,5 +1,5 @@
 import groq from 'groq'
-import React from 'react'
+import React, {useEffect} from 'react'
 import {NextSeo} from 'next-seo'
 import PropTypes from 'prop-types'
 import imageUrlBuilder from '@sanity/image-url'
@@ -296,36 +296,53 @@ const LandingPage = (props) => {
     slug,
   } = props
 
+  useEffect(() => {
+    if (localStorage) {
+      localStorage.removeItem('hubspotData')
+    }
+
+    return () => {
+      localStorage.removeItem('hubspotData')
+    }
+  }, [])
+
   const openGraphImages = openGraphImage
     ? [
-        {
-          url: builder.image(openGraphImage).width(1920).height(1080).url(),
-          type: 'image/jpeg',
-          width: 1920,
-          height: 1080,
-          alt: title,
-        },
-        {
-          url: builder.image(openGraphImage).width(1600).height(900).url(),
-          type: 'image/jpeg',
-          width: 1600,
-          height: 900,
-          alt: title,
-        },
-        {
-          // Facebook recommended size
-          url: builder.image(openGraphImage).width(1200).height(630).url(),
-          type: 'image/jpeg',
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
+        // {
+        //   url: builder.image(openGraphImage).width(1920).height(1080).url(),
+        //   type: 'image/jpeg',
+        //   width: 1920,
+        //   height: 1080,
+        //   alt: title,
+        // },
+        // {
+        //   url: builder.image(openGraphImage).width(1600).height(900).url(),
+        //   type: 'image/jpeg',
+        //   width: 1600,
+        //   height: 900,
+        //   alt: title,
+        // },
+        // {
+        // Facebook recommended size
+        //   url: builder.image(openGraphImage).width(1200).height(630).url(),
+        //   type: 'image/jpeg',
+        //   width: 1200,
+        //   height: 630,
+        //   alt: title,
+        // },
         // Linkedin recommended size
+        // {
+        //   url: builder.image(openGraphImage).width(1200).height(644).url(),
+        //   type: 'image/jpeg',
+        //   width: 1200,
+        //   height: 644,
+        //   alt: title,
+        // },
         {
-          url: builder.image(openGraphImage).width(1200).height(644).url(),
+          url: builder.image(openGraphImage).width(1200).height(627).url(),
           type: 'image/jpeg',
           width: 1200,
-          height: 644,
+          height: 627,
           alt: title,
         },
       ]
