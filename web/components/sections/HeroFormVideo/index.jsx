@@ -36,20 +36,21 @@ export default function HeroFormVideo({link, title, subtitle, formId, video, spo
           </Link>
         </div>
 
-        {link.internal ? (
-          <Link href={link.url} passHref>
-            <a className="hero-form__head__link cta-btn">{link.text}</a>
-          </Link>
-        ) : (
-          <a
-            className="hero-form__head__link cta-btn"
-            href={link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {link.text}
-          </a>
-        )}
+        {link?.visibility &&
+          (link.internal ? (
+            <Link href={link.url} passHref>
+              <a className="hero-form__head__link cta-btn">{link.text}</a>
+            </Link>
+          ) : (
+            <a
+              className="hero-form__head__link cta-btn"
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {link.text}
+            </a>
+          ))}
       </div>
 
       <div className="container mb-8 px-2 lg:mb-[95px] lg:px-8">

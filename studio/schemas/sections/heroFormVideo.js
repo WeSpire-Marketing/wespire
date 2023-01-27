@@ -9,6 +9,12 @@ export default {
       title: 'Section link',
       fields: [
         {
+          name: 'visibility',
+          title: 'Show button?',
+          type: 'boolean',
+          initialValue: () => true
+        },
+        {
           name: 'text',
           type: 'string',
           title: 'Link text',
