@@ -9,6 +9,9 @@ import Script from 'next/script'
 
 import {injectIconToSpanStr} from '../../../utils'
 
+import {PortableText} from '@portabletext/react'
+import {landingPortableHyperlink} from '../../../utils/portableHyperlink'
+
 const injectChiliPiperScripts = () => {
   return (
     <>
@@ -68,12 +71,17 @@ export default function HeroFormVideo({link, title, subtitle, formId, video, spo
               ))}
             </h1>
 
-            <p
+            <div
               className="hero-form__body__subtitle  body-m mb-8 text-center text-white
               lg:mb-[40px] lg:text-left"
             >
-              {subtitle}
-            </p>
+              {/* {subtitle} */}
+              <PortableText
+                value={subtitle}
+                components={landingPortableHyperlink}
+                onMissingComponent={false}
+              />
+            </div>
 
             <div>
               <SignMeUpWithNamesForm formId={formId} />
