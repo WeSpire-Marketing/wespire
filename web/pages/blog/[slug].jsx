@@ -23,6 +23,15 @@ import client, {urlForImage} from '../../client'
 import localDataURL from '../../assets/images/blur-placeholder.jpg'
 import HubspotForm from '../../components/forms/HubspotForm'
 
+const constFormId = Object.freeze({
+  'Saturday Spark': '2c551e2c-55f8-4611-9fb9-fb04236d21b6',
+  'WeSpire Weekly': 'b54c00a6-2321-48a9-bd48-a5084fe37c35',
+  'WeSpire: Live': '16c145eb-a95a-48ab-bb9e-364f6cd4b4bc',
+  'WeSpire: Live!': '16c145eb-a95a-48ab-bb9e-364f6cd4b4bc',
+  'Research and Reports': 'd192a987-f979-47b6-9f9a-9b4199345ff4',
+  'WeSpire Insights': 'd192a987-f979-47b6-9f9a-9b4199345ff4',
+})
+
 export async function getServerSideProps({params}) {
   const slug = slugParamToPath(params?.slug)
   const data = await client.fetch(
@@ -106,6 +115,8 @@ export default function Index({
     }
   }, [])
 
+  console.log(categories[0])
+
   return (
     <div className="articlepage bg-gallery">
       <PageMeta meta={pageMeta} />
@@ -156,12 +167,17 @@ export default function Index({
                     />
                   </div>
 
-                  <div className="mb-[32px] mt-[32px] lg:mb-[32px] lg:mt-[88px] px-4 lg:px-0">
-                    <HubspotForm page="article" formId="2c551e2c-55f8-4611-9fb9-fb04236d21b6" />
-                    {/* Saturday Spark's Form ID: 2c551e2c-55f8-4611-9fb9-fb04236d21b6 */}
-                  </div>
+                  {constFormId[categories?.[0]?.title] && (
+                    <div className="mb-[32px] mt-[32px] lg:mb-[32px] lg:mt-[88px] px-4 lg:px-0">
+                      <HubspotForm page="article" formId={constFormId[categories?.[0]?.title]} />
+                    </div>
+                  )}
 
-                  <div className="article__author inline-flex items-center gap-4 px-4 lg:px-0">
+                  <div
+                    className={`article__author inline-flex items-center gap-4 px-4 lg:px-0 ${
+                      !constFormId[categories?.[0]?.title] ? 'mt-[32px] lg:mt-[88px]' : ''
+                    }`}
+                  >
                     <div
                       className="article__author-image relative h-[56px] w-[56px] shrink-0 rounded-full
                       overflow-hidden

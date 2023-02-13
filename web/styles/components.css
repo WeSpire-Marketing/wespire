@@ -129,7 +129,7 @@
   }
 
   #hubspotform form fieldset {
-    @apply max-w-none;
+    @apply max-w-none contents;
   }
 
   #hubspotform form div[class='hs_error_rollup'] {
