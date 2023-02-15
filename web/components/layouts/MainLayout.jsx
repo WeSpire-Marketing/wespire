@@ -18,11 +18,11 @@ export default function MainLayout({
 
   if (template === 'whyWespireTemplate') {
     color = '#fff'
-    btnType = 'cta-btn'
+    btnType = 'cta-btn-black'
   }
   if (template === 'articleTemplate') {
     color = '#fff'
-    btnType = 'cta-btn'
+    btnType = 'cta-btn-black'
   }
   if (template === 'landingTemplate') {
     color = '#fff'

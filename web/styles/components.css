@@ -377,7 +377,7 @@
   }
 
   /* #hubspotform[page='landing'] form div[class*='hs-submit'] input {
-    @apply mt-2 w-full cta-btn bg-black lg:w-auto cursor-pointer;
+    @apply mt-2 w-full cta-btn-black bg-black lg:w-auto cursor-pointer;
   } */
 
   #hubspotform[page='landing'] form div[class*='hs-submit'] input {
@@ -496,7 +496,7 @@
   }
 
   #hubspotform[page='article'] form div[class*='hs-submit'] input {
-    @apply w-full md:w-auto whitespace-nowrap mt-0 cta-btn bg-black cursor-pointer;
+    @apply w-full md:w-auto whitespace-nowrap mt-0 cta-btn-black bg-black cursor-pointer;
   }
 
   /* End Styles for Article pages */

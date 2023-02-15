@@ -75,11 +75,11 @@ const CardsSection = ({blogs, cards, panelTitle = '', panelSubtitle = '', blogsT
 
                     {link.internal ? (
                       <Link href={link.url} passHref>
-                        <a className="card__link cta-btn">{link.text}</a>
+                        <a className="card__link cta-btn-black">{link.text}</a>
                       </Link>
                     ) : (
                       <a
-                        className="card__link cta-btn"
+                        className="card__link cta-btn-black"
                         href={link.url}
                         target="_blank"
                         rel="noopener noreferrer"

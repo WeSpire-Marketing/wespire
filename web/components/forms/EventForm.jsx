@@ -46,11 +46,13 @@ export default function EventForm({
 
           {link.internal ? (
             <Link href={link.url} passHref>
-              <a className="cta-btn p-[12px_24px] hover:bg-white lg:p-[15px_46px]">{link.text}</a>
+              <a className="cta-btn-black p-[12px_24px] hover:bg-white lg:p-[15px_46px]">
+                {link.text}
+              </a>
             </Link>
           ) : (
             <a
-              className="cta-btn p-[12px_24px] hover:bg-white lg:p-[15px_46px]"
+              className="cta-btn-black p-[12px_24px] hover:bg-white lg:p-[15px_46px]"
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"

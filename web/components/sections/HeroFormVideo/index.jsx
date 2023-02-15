@@ -42,11 +42,11 @@ export default function HeroFormVideo({link, title, subtitle, formId, video, spo
         {link?.visibility &&
           (link.internal ? (
             <Link href={link.url} passHref>
-              <a className="hero-form__head__link cta-btn">{link.text}</a>
+              <a className="hero-form__head__link cta-btn-black">{link.text}</a>
             </Link>
           ) : (
             <a
-              className="hero-form__head__link cta-btn"
+              className="hero-form__head__link cta-btn-black"
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
