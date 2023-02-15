@@ -1,8 +1,12 @@
+import {PortableText} from '@portabletext/react'
+
 import Row from '../../../Row'
 import ImageCard from '../../../ImageCard'
+import {portableHyperlinkLight} from '../../../../utils/portableHyperlink'
 
 export default function RowWithoutLink({
   text,
+  textHyperlink,
   title,
   imageData,
   reversed = false,
@@ -27,7 +31,13 @@ export default function RowWithoutLink({
             {title}
           </h2>
 
-          <p className="contection__text body-m text-secondary lg:mb-6">{text}</p>
+          <div className="contection__text body-m text-secondary lg:mb-6">
+            <PortableText
+              value={textHyperlink}
+              components={portableHyperlinkLight}
+              onMissingComponent={false}
+            />
+          </div>
         </div>
       </div>
     </Row>

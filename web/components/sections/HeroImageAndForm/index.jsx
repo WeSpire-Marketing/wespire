@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import {useNextSanityImage} from 'next-sanity-image'
+import {PortableText} from '@portabletext/react'
 
 import Img from '../../Img'
 import Icon from '../../icons/AnimatedMarksEnd'
@@ -10,8 +11,18 @@ import client, {urlForImage} from '../../../client'
 import {injectIconToSpanStr} from '../../../utils'
 
 import localDataURL from '../../../assets/images/blur-placeholder.jpg'
+import {HubspotForm} from '../../forms'
+import {portableHyperlinkLight} from '../../../utils/portableHyperlink'
 
-export default function HeroImageAndForm({className = '', title, text, link, image}) {
+export default function HeroImageAndForm({
+  className = '',
+  title,
+  text,
+  textHyperlink,
+  link,
+  image,
+  formId = '',
+}) {
   const imageProps = useNextSanityImage(client, image)
 
   return (
@@ -39,31 +50,40 @@ export default function HeroImageAndForm({className = '', title, text, link, ima
                 ))}
               </h1>
 
-              <p
-                className="herocta__text body-m mx-auto mb-[35px] max-w-[375px] text-center text-secondary
-                sm:max-w-[410px]
-                lg:mb-[46px] lg:max-w-none lg:text-left"
+              <div
+                className={`herocta__text body-m mx-auto max-w-[375px] text-center text-secondary sm:max-w-[410px] lg:max-w-none lg:text-left
+                ${formId?.trim() ? 'mb-[16px] lg:mb-[24px]' : 'mb-[35px] lg:mb-[46px]'}`}
               >
-                {text}
-              </p>
+                <PortableText
+                  value={textHyperlink}
+                  components={portableHyperlinkLight}
+                  onMissingComponent={false}
+                />
+              </div>
 
-              {link?.internal ? (
-                <Link href={link.url} passHref>
+              {formId?.trim() && (
+                <div className="flex flex-col items-center mx-auto gap-4 relative mb-[35px] lg:flex-row lg:gap-[8px] md:max-w-[475px] lg:max-w-[475px] lg:mb-[46px]">
+                  <HubspotForm formId={formId} page="hero-and-form-page" />
+
+                  {/* {link?.internal ? (
+                  <Link href={link.url} passHref>
+                    <a
+                      className={`w-full primary-btn bg-smart shrink-0 text-center py-[11px] lg:w-auto`}
+                    >
+                      {link.text}
+                    </a>
+                  </Link>
+                ) : (
                   <a
                     className={`w-full primary-btn bg-smart shrink-0 text-center py-[11px] lg:w-auto`}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     {link.text}
                   </a>
-                </Link>
-              ) : (
-                <a
-                  className={`w-full primary-btn bg-smart shrink-0 text-center py-[11px] lg:w-auto`}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {link.text}
-                </a>
+                )} */}
+                </div>
               )}
             </div>
           </div>

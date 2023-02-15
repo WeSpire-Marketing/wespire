@@ -115,8 +115,6 @@ export default function Index({
     }
   }, [])
 
-  console.log(categories[0])
-
   return (
     <div className="articlepage bg-gallery">
       <PageMeta meta={pageMeta} />

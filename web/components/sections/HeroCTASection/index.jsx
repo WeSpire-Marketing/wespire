@@ -1,12 +1,15 @@
 import Link from 'next/link'
 import {motion} from 'framer-motion'
+import {PortableText} from '@portabletext/react'
 
 import Img from '../../Img'
 import Icon from '../../icons/AnimatedIcon'
 
 import {injectIconToSpanStr} from '../../../utils'
+import {HubspotForm} from '../../forms'
+import {portableHyperlinkLight} from '../../../utils/portableHyperlink'
 
-export default function HeroCTASection({title, text, link, image}) {
+export default function HeroCTASection({title, text, textHyperlink, link, image, formId}) {
   return (
     <section
       className="herocta overflow-hidden bg-pampas pt-[170px] pb-[100px]
@@ -27,21 +30,40 @@ export default function HeroCTASection({title, text, link, image}) {
                 {injectIconToSpanStr(title, Icon)}
               </h1>
 
-              <p className="herocta__text body-m mb-[40px] text-secondary lg:mb-[48px]">{text}</p>
+              <div
+                className={`herocta__text body-m text-secondary 
+              ${formId?.trim() ? 'mb-[16px] lg:mb-[24px]' : 'mb-[40px] lg:mb-[48px]'}`}
+              >
+                <PortableText
+                  value={textHyperlink}
+                  components={portableHyperlinkLight}
+                  onMissingComponent={false}
+                />
+              </div>
 
-              {link.internal ? (
-                <Link href={link.url} passHref>
-                  <a className="herocta__link primary-btn">{link.text}</a>
-                </Link>
-              ) : (
-                <a
-                  className="herocta__link primary-btn"
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {link.text}
-                </a>
+              {formId?.trim() && (
+                <div className="flex flex-col items-center md:items-start mx-auto lg:m-0 gap-4 relative mb-[40px] lg:flex-row lg:gap-[8px] md:max-w-[475px] lg:max-w-[475px] lg:mb-[48px]">
+                  <HubspotForm formId={formId} page="hero-and-form-page" />
+
+                  {/* {link?.internal ? (
+                  <Link href={link.url} passHref>
+                    <a
+                      className={`w-full primary-btn bg-smart shrink-0 text-center py-[11px] lg:w-auto`}
+                    >
+                      {link.text}
+                    </a>
+                  </Link>
+                ) : (
+                  <a
+                    className={`w-full primary-btn bg-smart shrink-0 text-center py-[11px] lg:w-auto`}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {link.text}
+                  </a>
+                )} */}
+                </div>
               )}
             </div>
           </div>

@@ -27,7 +27,7 @@ const swiperBreakpoints = {
   1025: {
     slidesPerView: 2.5,
     spaceBetween: 24,
-  }
+  },
 }
 
 const SliderSection = ({title = '', cards = []}) => {

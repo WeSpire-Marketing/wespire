@@ -18,13 +18,15 @@ export default function HeroVideo({title = '', subtitle, formId, video}) {
           <div className="herocta__left w-full px-2 lg:px-0">
             <div className="herocta__left-wrap max-w-[464px] mx-auto lg:mx-0">
               <h1 className="herocta__title heading-1 mb-4 text-center lg:text-left lg:heading-2">
-                {injectIconToSpanStr(title, () => <Icon className='z-[-1]' />)}
+                {injectIconToSpanStr(title, () => (
+                  <Icon className="z-[-1]" />
+                ))}
               </h1>
 
               <p
-                className="herocta__text body-m mx-auto mb-[35px] max-w-[380px] text-center text-secondary
+                className="herocta__text body-m mx-auto mb-[16px] max-w-[380px] text-center text-secondary
                 sm:max-w-[410px]
-                lg:mb-[46px] lg:max-w-none lg:text-left"
+                lg:mb-[24px] lg:max-w-none lg:text-left"
               >
                 {subtitle}
               </p>

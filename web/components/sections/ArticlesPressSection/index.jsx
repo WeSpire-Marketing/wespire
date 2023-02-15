@@ -8,11 +8,13 @@ import NewsCard from '../OpeningsPressSection/components/NewsCard'
 
 import {injectIconToSpanStr} from '../../../utils'
 import usePaginate from '../../../utils/hooks/usePaginate'
+import useWindowSize from '../../../utils/hooks/useWindowSize'
 
 export default function ArticlesPressSection({title, blogs, title2, news}) {
   const scrollToRef = useRef(null)
   const paginatedBlogs = usePaginate(blogs, 9)
   const [currentPage, setCurrentPage] = useState(0)
+  const {width} = useWindowSize()
 
   const callSetPageAndScroll = (callback) => {
     // scroll to the ref after user interact with pagination

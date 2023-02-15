@@ -1,12 +1,23 @@
 import Link from 'next/link'
+import {PortableText} from '@portabletext/react'
 
 import Icon from '../../icons/AnimatedMarksEnd'
 
 import {injectIconToSpanStr} from '../../../utils'
 
 import Video from '../../Video'
+import {HubspotForm} from '../../forms'
+import {portableHyperlinkLight} from '../../../utils/portableHyperlink'
 
-export default function HeroVideoAndForm({className = '', title, text, link, video}) {
+export default function HeroVideoAndForm({
+  className = '',
+  title,
+  text,
+  textHyperlink,
+  link,
+  video,
+  formId = '',
+}) {
   return (
     <section
       className={
@@ -32,31 +43,40 @@ export default function HeroVideoAndForm({className = '', title, text, link, vid
                 ))}
               </h1>
 
-              <p
-                className="herocta__text body-m mx-auto mb-[35px] max-w-[375px] text-center text-secondary
-                sm:max-w-[410px]
-                lg:mb-[46px] lg:max-w-none lg:text-left"
+              <div
+                className={`herocta__text body-m mx-auto max-w-[375px] text-center text-secondary sm:max-w-[410px] lg:max-w-none lg:text-left
+                ${formId?.trim() ? 'mb-[16px] lg:mb-[24px]' : 'mb-[35px] lg:mb-[46px]'}`}
               >
-                {text}
-              </p>
+                <PortableText
+                  value={textHyperlink}
+                  components={portableHyperlinkLight}
+                  onMissingComponent={false}
+                />
+              </div>
 
-              {link?.internal ? (
-                <Link href={link.url} passHref>
+              {formId?.trim() && (
+                <div className="flex flex-col items-center mx-auto gap-4 relative mb-[35px] lg:flex-row lg:gap-[8px] md:max-w-[475px] lg:max-w-[475px] lg:mb-[46px]">
+                  <HubspotForm formId={formId} page="hero-and-form-page" />
+
+                  {/* {link?.internal ? (
+                  <Link href={link.url} passHref>
+                    <a
+                      className={`w-full primary-btn bg-smart shrink-0 text-center py-[11px] lg:w-auto`}
+                    >
+                      {link.text}
+                    </a>
+                  </Link>
+                ) : (
                   <a
                     className={`w-full primary-btn bg-smart shrink-0 text-center py-[11px] lg:w-auto`}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     {link.text}
                   </a>
-                </Link>
-              ) : (
-                <a
-                  className={`w-full primary-btn bg-smart shrink-0 text-center py-[11px] lg:w-auto`}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {link.text}
-                </a>
+                )} */}
+                </div>
               )}
             </div>
           </div>
