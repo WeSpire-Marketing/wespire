@@ -27,6 +27,9 @@ export default function MainLayout({
   if (template === 'landingTemplate') {
     color = '#fff'
   }
+  if (template === 'landingTemplateSocialProof') {
+    color = '#fff'
+  }
   if (template === 'landingVideoTemplate') {
     color = '#fff'
   }

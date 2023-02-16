@@ -35,12 +35,12 @@ export default {
       title: 'Row title',
       validation: Rule => Rule.required()
     },
-    {
-      name: 'text',
-      type: 'text',
-      title: 'Text under the title',
-      validation: Rule => Rule.required()
-    },
+    // {
+    //   name: 'text',
+    //   type: 'text',
+    //   title: 'Text under the title',
+    //   validation: Rule => Rule.required()
+    // },
     {
       name: 'textHyperlink',
       title: 'Text under the title',

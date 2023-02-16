@@ -15,12 +15,12 @@ export default {
       type: 'colorPicker',
       validation: Rule => Rule.required()
     },
-    {
-      name: 'text',
-      type: 'text',
-      title: 'Column text',
-      validation: Rule => Rule.required()
-    },
+    // {
+    //   name: 'text',
+    //   type: 'text',
+    //   title: 'Column text',
+    //   validation: Rule => Rule.required()
+    // },
     {
       name: 'textHyperlink',
       title: 'Column text',

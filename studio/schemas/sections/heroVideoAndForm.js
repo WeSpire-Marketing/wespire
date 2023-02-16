@@ -10,12 +10,12 @@ export default {
       description: 'Wrap the word with <span> to show animation. Example: <span>Easy</span>',
       validation: Rule => Rule.required()
     },
-    {
-      name: 'text',
-      type: 'text',
-      title: 'Text under the title',
-      validation: Rule => Rule.required()
-    },
+    // {
+    //   name: 'text',
+    //   type: 'text',
+    //   title: 'Text under the title',
+    //   validation: Rule => Rule.required()
+    // },
     {
       name: 'textHyperlink',
       title: 'Text under the title',
