@@ -25,19 +25,19 @@ export default function HeroSection({title = '', subtitle = '', image, sponsors,
           </h1>
 
           <p
-            className={`hero__subtitle body-m mx-auto max-w-[450px] md:text-center sm:max-w-[550px] md:max-w-[625px]
+            className={`hero__subtitle body-m mx-auto max-w-[450px] px-4 md:px-0 text-center sm:max-w-[550px] md:max-w-[625px]
             ${formId?.trim() ? 'mb-[16px] lg:mb-[24px]' : 'mb-[45px] lg:mb-[56px]'}`}
           >
             {subtitle}
           </p>
+
+          {formId?.trim() && (
+            <div className="flex flex-col items-center mx-auto gap-4 px-4 md:px-0 relative mb-[45px] lg:flex-row lg:gap-[8px] md:max-w-[475px] lg:max-w-[475px] lg:mb-[56px]">
+              <HubspotForm formId={formId} page="home-page" />
+            </div>
+          )}
         </div>
       </div>
-
-      {formId?.trim() && (
-        <div className="flex flex-col items-center mx-auto gap-4 relative mb-[45px] lg:flex-row lg:gap-[8px] md:max-w-[475px] lg:max-w-[475px] lg:mb-[56px]">
-          <HubspotForm formId={formId} page="home-page" />
-        </div>
-      )}
 
       <Img
         className="hero__image relative z-20 mx-auto w-full max-w-[1288px] px-[7px] lg:static"

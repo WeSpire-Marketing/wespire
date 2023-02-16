@@ -1,11 +1,8 @@
-import Link from 'next/link'
 import Image from 'next/image'
 import {useNextSanityImage} from 'next-sanity-image'
 import {PortableText} from '@portabletext/react'
 
-import Img from '../../Img'
 import Icon from '../../icons/AnimatedMarksEnd'
-import SignMeUpForm from '../../forms/SignMeUpForm'
 
 import client, {urlForImage} from '../../../client'
 import {injectIconToSpanStr} from '../../../utils'

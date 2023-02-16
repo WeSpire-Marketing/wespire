@@ -49,6 +49,13 @@
     focus:shadow-[0_0_0_2px_rgba(0,0,0,0.5)] focus-visible:outline-none;
   }
 
+  .primary-btn-thriving {
+    @apply rounded-[8px] border-[1px] border-transparent bg-thriving py-[11px] px-[24px]
+    font-poppins text-[16px] font-semibold leading-[150%] text-[rgba(255,255,255,0.9)] outline-none
+    transition-all duration-200 ease-in-out hover:border-thriving hover:bg-transparent hover:text-thriving focus:border-black
+    focus:shadow-[0_0_0_2px_rgba(0,0,0,0.5)] focus-visible:outline-none;
+  }
+
   .stroke-btn {
     @apply rounded-[8px] border-[1px] border-smart bg-transparent py-[11px] px-[24px]
     font-poppins text-[16px] font-semibold leading-[150%] text-[rgba(23,113,220,0.9)]
@@ -223,7 +230,7 @@
   }
 
   #hubspotform form > div ul[class*='hs-error-msgs'] label {
-    @apply absolute top-auto translate-y-1 text-[14px] leading-none text-error;
+    @apply absolute text-left top-auto translate-y-1 text-[14px] leading-none text-error;
   }
 
   #hubspotform form > div {
@@ -381,7 +388,7 @@
   } */
 
   #hubspotform[page='landing'] form div[class*='hs-submit'] input {
-    @apply mt-2  w-full lg:w-auto cursor-pointer rounded-[8px] border-transparent bg-[rgba(255,221,89,1)] py-[10px] px-[24px]
+    @apply mt-2 w-full cursor-pointer rounded-[8px] border-transparent bg-[rgba(255,221,89,1)] py-[10px] px-[24px]
     font-poppins text-[21px] lg:text-[26px] font-semibold leading-[150%] text-[rgba(18,18,18,1)] transition-all
     duration-200 ease-in-out hover:bg-white
     focus:shadow-[0_0_0_2px_rgba(202,205,212,0.4)] focus:outline-none focus-visible:outline-none;
@@ -412,7 +419,11 @@
   }
 
   #hubspotform[page='resources'] form div[class*='hs-submit'] input {
-    @apply w-full md:w-auto whitespace-nowrap mt-0 primary-btn bg-smart cursor-pointer;
+    @apply w-full md:w-auto whitespace-nowrap mt-0 primary-btn-thriving bg-thriving cursor-pointer;
+  }
+
+  #hubspotform[page='resources'] form > div ul[class*='hs-error-msgs'] label {
+    @apply static md:absolute text-left top-auto translate-y-1 text-[14px] leading-none text-error;
   }
 
   /* End Styles for Resources pages */
@@ -440,7 +451,11 @@
   }
 
   #hubspotform[page='home-page'] form div[class*='hs-submit'] input {
-    @apply w-full md:w-auto whitespace-nowrap mt-0 primary-btn bg-smart cursor-pointer;
+    @apply w-full md:w-auto whitespace-nowrap mt-0 primary-btn-thriving bg-thriving cursor-pointer;
+  }
+
+  #hubspotform[page='home-page'] form > div ul[class*='hs-error-msgs'] label {
+    @apply static md:absolute text-left top-auto translate-y-1 text-[14px] leading-none text-error;
   }
 
   /* End Styles for Home page */
@@ -468,7 +483,11 @@
   }
 
   #hubspotform[page='hero-and-form-page'] form div[class*='hs-submit'] input {
-    @apply w-full md:w-auto whitespace-nowrap mt-0 primary-btn bg-smart cursor-pointer;
+    @apply w-full md:w-auto whitespace-nowrap mt-0 primary-btn-thriving bg-thriving cursor-pointer;
+  }
+
+  #hubspotform[page='hero-and-form-page'] form > div ul[class*='hs-error-msgs'] label {
+    @apply static md:absolute text-left top-auto translate-y-1 text-[14px] leading-none text-error;
   }
 
   /* End Styles for Products / Solutions pages */

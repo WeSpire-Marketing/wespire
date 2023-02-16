@@ -75,13 +75,13 @@ export default function HeroForm({link, title, subtitle, formId, image, sponsors
             </h1>
 
             <p
-              className="hero-form__body__subtitle  body-m mb-8
+              className="hero-form__body__subtitle px-4 md:px-0 body-m mb-8
               text-center text-white lg:mb-[40px] lg:text-left"
             >
               {subtitle}
             </p>
 
-            <div>
+            <div className="px-4 md:px-0">
               <SignMeUpWithNamesForm formId={formId} />
               {injectChiliPiperScripts()}
             </div>
