@@ -60,15 +60,15 @@ const Slider = ({cards}) => {
 
       <div className="mt-6 flex items-center justify-end gap-4 px-4">
         <button
-          className="white-btn rotate-180"
+          className="helpful-btn rotate-180"
           onClick={() => swiper.slidePrev(300)}
           disabled={isBeginning}
         >
-          <ArrowIcon className="max-w-[17px] lg:max-w-none" fillColor="#121212" />
+          <ArrowIcon className="max-w-[17px] lg:max-w-none" fillColor="#fff" />
         </button>
 
-        <button className="white-btn" onClick={() => swiper.slideNext(300)} disabled={isEnd}>
-          <ArrowIcon className="max-w-[17px] lg:max-w-none" fillColor="#121212" />
+        <button className="helpful-btn" onClick={() => swiper.slideNext(300)} disabled={isEnd}>
+          <ArrowIcon className="max-w-[17px] lg:max-w-none" fillColor="#fff" />
         </button>
       </div>
     </>

@@ -1,6 +1,6 @@
 export default {
-  name: 'landingTemplate',
-  title: 'Landing template',
+  name: 'landingTemplateSocialProof',
+  title: 'Social Proof Landing template',
   type: 'object',
   fields: [
     // {
@@ -31,8 +31,6 @@ export default {
       title: 'Page sections',
       fields: [
         { name: 'heroForm', title: 'Hero form section', type: 'heroForm' },
-        { name: 'measureSection', type: 'measureSection' },
-        { name: 'tabsSection', title: 'Tabs section', type: 'tabsSection' },
         {
           name: 'ourCustomersSection',
           title: 'Our customers section',
@@ -43,6 +41,8 @@ export default {
           title: 'Awards section',
           type: 'awardsSection'
         },
+        { name: 'tabsSection', title: 'Tabs section', type: 'tabsSection' },
+        { name: 'measureSection', type: 'measureSection' },
         {
           name: 'ctaSection',
           title: 'CTA section',

@@ -1,17 +1,21 @@
 import JobCard from './components/JobCard'
 import NewsCard from './components/NewsCard'
 import NoJobCard from './components/NoJobCard'
+import Slider from './components/Slider'
 
 import Icon1 from '../../icons/AnimatedUnderline'
 import Icon2 from '../../icons/AnimatedTwoMarks'
 
 import {injectIconToSpanStr} from '../../../utils'
+import useWindowSize from '../../../utils/hooks/useWindowSize'
 
 export default function OpeningsPressSection({title = '', title2 = '', openings, news}) {
+  const {width} = useWindowSize()
+
   return (
     <section className="opressection bg-gallery py-[100px] lg:py-[140px]">
-      <div className="container">
-        <div className="opressection__inner">
+      <div className="container-no-p">
+        <div className="opressection__inner px-4 lg:px-8">
           <h2 className="opressection__title heading-2 mb-6 lg:mb-[56px]">
             {injectIconToSpanStr(title, () => (
               <Icon1
@@ -44,15 +48,24 @@ export default function OpeningsPressSection({title = '', title2 = '', openings,
             ))}
           </h2>
 
-          <ul
-            className="opressection__cards grid grid-cols-1 gap-6
-            lg:grid-cols-2"
-          >
-            {news.map(({_key, ...props}) => {
-              return <NewsCard key={_key} {...props} />
-            })}
-          </ul>
+          {width > 992 && (
+            <ul
+              className="articlespressection__cards grid grid-cols-1 gap-4
+              md:grid-cols-2
+              lg:gap-6"
+            >
+              {(news ?? []).map(({_key, ...props}) => (
+                <NewsCard key={_key} {...props} />
+              ))}
+            </ul>
+          )}
         </div>
+
+        {width <= 992 && (
+          <div>
+            <Slider cards={news ?? []} />
+          </div>
+        )}
       </div>
     </section>
   )

@@ -31,7 +31,7 @@ function RenderSections(props) {
         if (!SectionComponent) {
           return <div key={section._key}>Missing section {section._type}</div>
         }
-        return <SectionComponent {...section} key={section._key} />
+        return <SectionComponent page={props?.page ?? ''} {...section} key={section._key} />
       })}
     </Fragment>
   )

@@ -7,21 +7,27 @@ export default {
       name: 'title',
       title: 'Section title',
       type: 'string',
-      description:
-        'Wrap the word with <span> to animate it. Example: <span>Highlighted</span>',
-      validation: (Rule) => Rule.required(),
+      description: 'Wrap the word with <span> to animate it. Example: <span>Highlighted</span>',
+      validation: Rule => Rule.required()
     },
     {
       name: 'subtitle',
       title: 'Text under the title',
       type: 'text',
-      validation: (Rule) => Rule.required(),
+      validation: Rule => Rule.required()
+    },
+    {
+      name: 'formId',
+      type: 'string',
+      title: 'Form ID',
+      description: 'Use only Hubspot form id',
+      validation: Rule => Rule.required()
     },
     {
       name: 'image',
       title: 'Section image',
       type: 'image',
-      validation: (Rule) => Rule.required(),
+      validation: Rule => Rule.required()
     },
     {
       name: 'sponsors',
@@ -37,18 +43,18 @@ export default {
               name: 'name',
               type: 'string',
               title: 'Sponsor name (used for alt attribute)',
-              validation: (Rule) => Rule.required(),
+              validation: Rule => Rule.required()
             },
             {
               name: 'image',
               type: 'image',
               title: 'Image',
-              validation: (Rule) => Rule.required(),
-            },
-          ],
-        },
+              validation: Rule => Rule.required()
+            }
+          ]
+        }
       ],
-      validation: (Rule) => Rule.required().min(7),
-    },
-  ],
+      validation: Rule => Rule.required().min(7)
+    }
+  ]
 }

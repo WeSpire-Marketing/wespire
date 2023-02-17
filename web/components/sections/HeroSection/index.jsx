@@ -3,8 +3,9 @@ import Icon from '../../icons/AnimatedIcon'
 import SponsorsBlock from '../../SponsorsBlock'
 
 import {injectIconToSpanStr} from '../../../utils'
+import {HubspotForm} from '../../forms'
 
-export default function HeroSection({title = '', subtitle = '', image, sponsors}) {
+export default function HeroSection({title = '', subtitle = '', image, sponsors, formId = ''}) {
   return (
     <section
       className="hero relative bg-pampas pt-[170px] pb-[105px]
@@ -24,13 +25,17 @@ export default function HeroSection({title = '', subtitle = '', image, sponsors}
           </h1>
 
           <p
-            className="hero__subtitle body-m mx-auto mb-[45px] max-w-[450px] text-center
-            sm:max-w-[550px]
-            md:max-w-[625px]
-            lg:mb-[56px]"
+            className={`hero__subtitle body-m mx-auto max-w-[450px] px-4 md:px-0 text-center sm:max-w-[550px] md:max-w-[625px]
+            ${formId?.trim() ? 'mb-[16px] lg:mb-[24px]' : 'mb-[45px] lg:mb-[56px]'}`}
           >
             {subtitle}
           </p>
+
+          {formId?.trim() && (
+            <div className="flex flex-col items-center mx-auto gap-4 px-4 md:px-0 relative mb-[45px] lg:flex-row lg:gap-[8px] md:max-w-[475px] lg:max-w-[475px] lg:mb-[56px]">
+              <HubspotForm formId={formId} page="home-page" />
+            </div>
+          )}
         </div>
       </div>
 

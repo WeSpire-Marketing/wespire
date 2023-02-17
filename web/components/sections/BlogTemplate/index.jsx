@@ -135,14 +135,14 @@ const BlogTemplate = ({
             </h1>
 
             <p
-              className="body-m mx-auto mb-8 w-full max-w-[460px] text-[#2E2E2E]
+              className="body-m mx-auto mb-8 px-4 md:px-0 w-full max-w-[460px] text-[#2E2E2E]
               lg:mb-[40px]"
             >
               {subtitle}
             </p>
 
             <div
-              className="flex flex-col items-center mx-auto gap-4 relative
+              className="flex flex-col items-center mx-auto gap-4 px-4 md:px-0 relative
               lg:flex-row lg:gap-[8px] md:max-w-[475px] lg:max-w-[475px]"
             >
               <SignMeUpForm formId={formId} />

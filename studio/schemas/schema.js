@@ -81,6 +81,7 @@ import heroCTASection from './sections/heroCTASection'
 import blogTemplate from './templates/blogTemplate'
 import homeTemplate from './templates/homeTemplate'
 import landingTemplate from './templates/landingTemplate'
+import landingTemplateSocialProof from './templates/landingTemplateSocialProof'
 import productTemplate from './templates/productTemplate'
 import productVideoTemplate from './templates/productVideoTemplate'
 import careersTemplate from './templates/careersTemplate'
@@ -121,6 +122,7 @@ export default createSchema({
     requestDemoTemplate,
     careersTemplate,
     landingTemplate,
+    landingTemplateSocialProof,
     leadershipTemplate,
     // sections
     hero,

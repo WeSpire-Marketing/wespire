@@ -1,8 +1,11 @@
+import {PortableText} from '@portabletext/react'
+
 import Row from '../../../Row'
 import Icon1 from '../../../icons/AnimatedStars1'
 import Icon2 from '../../../icons/AnimatedStars2'
 import Icon3 from '../../../icons/AnimatedStars3'
 
+import {portableHyperlinkLight} from '../../../../utils/portableHyperlink'
 import {injectStarsToStr} from '../../../../utils'
 
 const detectAndInjectIconInStr = (string, color) => {
@@ -36,7 +39,13 @@ export default function TextRow({col1, col2, col3}) {
           {detectAndInjectIconInStr(col1.title, col1.starsColor)}
         </h3>
 
-        <p className="contection__row__text body-m text-secondary">{col1.text}</p>
+        <div className="contection__row__text body-m text-secondary">
+          <PortableText
+            value={col1.textHyperlink}
+            components={portableHyperlinkLight}
+            onMissingComponent={false}
+          />
+        </div>
       </div>
 
       <div className="contection__row-col">
@@ -47,9 +56,13 @@ export default function TextRow({col1, col2, col3}) {
           {detectAndInjectIconInStr(col2.title, col2.starsColor)}
         </h3>
 
-        <p className="contection__row__text text-lg font-normal leading-160 text-secondary">
-          {col2.text}
-        </p>
+        <div className="contection__row__text text-lg font-normal leading-160 text-secondary">
+          <PortableText
+            value={col2.textHyperlink}
+            components={portableHyperlinkLight}
+            onMissingComponent={false}
+          />
+        </div>
       </div>
 
       <div className="contection__row-col">
@@ -60,9 +73,13 @@ export default function TextRow({col1, col2, col3}) {
           {detectAndInjectIconInStr(col3.title, col3.starsColor)}
         </h3>
 
-        <p className="contection__row__text text-lg font-normal leading-160 text-secondary">
-          {col3.text}
-        </p>
+        <div className="contection__row__text text-lg font-normal leading-160 text-secondary">
+          <PortableText
+            value={col3.textHyperlink}
+            components={portableHyperlinkLight}
+            onMissingComponent={false}
+          />
+        </div>
       </div>
     </Row>
   )

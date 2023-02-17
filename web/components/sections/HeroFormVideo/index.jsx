@@ -42,11 +42,11 @@ export default function HeroFormVideo({link, title, subtitle, formId, video, spo
         {link?.visibility &&
           (link.internal ? (
             <Link href={link.url} passHref>
-              <a className="hero-form__head__link cta-btn">{link.text}</a>
+              <a className="hero-form__head__link cta-btn-black">{link.text}</a>
             </Link>
           ) : (
             <a
-              className="hero-form__head__link cta-btn"
+              className="hero-form__head__link cta-btn-black"
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
@@ -72,7 +72,7 @@ export default function HeroFormVideo({link, title, subtitle, formId, video, spo
             </h1>
 
             <div
-              className="hero-form__body__subtitle  body-m mb-8 text-center text-white
+              className="hero-form__body__subtitle px-4 md:px-0 body-m mb-8 text-center text-white
               lg:mb-[40px] lg:text-left"
             >
               {/* {subtitle} */}
@@ -83,7 +83,7 @@ export default function HeroFormVideo({link, title, subtitle, formId, video, spo
               />
             </div>
 
-            <div>
+            <div className="px-4 md:px-0">
               <SignMeUpWithNamesForm formId={formId} />
               {injectChiliPiperScripts()}
             </div>

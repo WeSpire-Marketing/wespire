@@ -40,11 +40,11 @@ export default function HeroForm({link, title, subtitle, formId, image, sponsors
         {link?.visibility &&
           (link.internal ? (
             <Link href={link.url} passHref>
-              <a className="hero-form__head__link cta-btn">{link.text}</a>
+              <a className="hero-form__head__link cta-btn-black">{link.text}</a>
             </Link>
           ) : (
             <a
-              className="hero-form__head__link cta-btn"
+              className="hero-form__head__link cta-btn-black"
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
@@ -75,13 +75,13 @@ export default function HeroForm({link, title, subtitle, formId, image, sponsors
             </h1>
 
             <p
-              className="hero-form__body__subtitle  body-m mb-8
+              className="hero-form__body__subtitle px-4 md:px-0 body-m mb-8
               text-center text-white lg:mb-[40px] lg:text-left"
             >
               {subtitle}
             </p>
 
-            <div>
+            <div className="px-4 md:px-0">
               <SignMeUpWithNamesForm formId={formId} />
               {injectChiliPiperScripts()}
             </div>

@@ -5,14 +5,17 @@ import Pagination from '../../Pagination'
 import Icon from '../../icons/AnimatedStroke'
 import Icon2 from '../../icons/AnimatedTwoMarks'
 import NewsCard from '../OpeningsPressSection/components/NewsCard'
+import Slider from './components/Slider'
 
 import {injectIconToSpanStr} from '../../../utils'
 import usePaginate from '../../../utils/hooks/usePaginate'
+import useWindowSize from '../../../utils/hooks/useWindowSize'
 
 export default function ArticlesPressSection({title, blogs, title2, news}) {
   const scrollToRef = useRef(null)
   const paginatedBlogs = usePaginate(blogs, 9)
   const [currentPage, setCurrentPage] = useState(0)
+  const {width} = useWindowSize()
 
   const callSetPageAndScroll = (callback) => {
     // scroll to the ref after user interact with pagination
@@ -32,8 +35,8 @@ export default function ArticlesPressSection({title, blogs, title2, news}) {
         className="articlespressection-outer rounded-t-[30px] bg-gallery pt-[48px] pb-[100px]
         lg:rounded-t-[60px] lg:pt-[100px] lg:pb-[140px]"
       >
-        <div className="container">
-          <div className="articlespressection-inner">
+        <div className="container-no-p">
+          <div className="articlespressection-inner px-4 lg:px-8">
             <h2
               className="articlespressection__title heading-2 mb-[64px] w-full max-w-[500px]
               lg:mb-[48px]"
@@ -89,16 +92,24 @@ export default function ArticlesPressSection({title, blogs, title2, news}) {
               ))}
             </h2>
 
-            <ul
-              className="articlespressection__cards grid grid-cols-1 gap-4
+            {width > 992 && (
+              <ul
+                className="articlespressection__cards grid grid-cols-1 gap-4
               md:grid-cols-2
               lg:gap-6"
-            >
-              {(news ?? []).map(({_key, ...props}) => (
-                <NewsCard key={_key} {...props} />
-              ))}
-            </ul>
+              >
+                {(news ?? []).map(({_key, ...props}) => (
+                  <NewsCard key={_key} {...props} />
+                ))}
+              </ul>
+            )}
           </div>
+
+          {width <= 992 && (
+            <div>
+              <Slider cards={news ?? []} />
+            </div>
+          )}
         </div>
       </div>
     </section>

@@ -5,6 +5,10 @@
     @apply mx-auto w-full max-w-[1288px] px-4 lg:px-8;
   }
 
+  .container-no-p {
+    @apply mx-auto w-full max-w-[1288px];
+  }
+
   .header {
     @apply absolute top-[20px] left-0 right-0 z-10;
   }
@@ -45,6 +49,13 @@
     focus:shadow-[0_0_0_2px_rgba(0,0,0,0.5)] focus-visible:outline-none;
   }
 
+  .primary-btn-thriving {
+    @apply rounded-[8px] border-[1px] border-transparent bg-thriving py-[11px] px-[24px]
+    font-poppins text-[16px] font-semibold leading-[150%] text-[rgba(255,255,255,0.9)] outline-none
+    transition-all duration-200 ease-in-out hover:border-thriving hover:bg-transparent hover:text-thriving focus:border-black
+    focus:shadow-[0_0_0_2px_rgba(0,0,0,0.5)] focus-visible:outline-none;
+  }
+
   .stroke-btn {
     @apply rounded-[8px] border-[1px] border-smart bg-transparent py-[11px] px-[24px]
     font-poppins text-[16px] font-semibold leading-[150%] text-[rgba(23,113,220,0.9)]
@@ -52,17 +63,24 @@
     focus:border-smart focus:shadow-[0_0_0_2px_rgba(23,113,220,0.4)] focus:outline-none focus-visible:outline-none;
   }
 
-  .cta-btn {
+  .cta-btn-black {
     @apply rounded-[8px] border-[1px] border-transparent bg-black py-[11px] px-[24px]
     font-poppins text-[16px] font-semibold leading-[150%] text-[rgba(255,255,255,0.9)] transition-all
     duration-200 ease-in-out hover:border-black hover:bg-white hover:text-black focus:border-black
     focus:shadow-[0_0_0_2px_rgba(202,205,212,0.4)] focus:outline-none focus-visible:outline-none;
   }
 
+  .cta-btn {
+    @apply rounded-[8px] border-transparent bg-[rgba(255,221,89,1)] py-[10px] px-[24px]
+    font-poppins text-[21px] lg:text-[26px] font-semibold leading-[150%] text-[rgba(18,18,18,1)] transition-all
+    duration-200 ease-in-out hover:bg-white
+    focus:shadow-[0_0_0_2px_rgba(202,205,212,0.4)] focus:outline-none focus-visible:outline-none;
+  }
+
   .helpful-btn {
     @apply inline-flex h-[40px] w-[40px] items-center justify-center rounded-full border-[1px] border-transparent bg-helpful
     hover:bg-[#DF7139] focus:border-helpful focus:shadow-[0_0_0_2px_rgba(231,68,68,0.4)] focus:outline-none focus-visible:outline-none
-    disabled:bg-helpful lg:h-[56px] lg:w-[56px];
+    disabled:bg-helpful disabled:opacity-60 lg:h-[56px] lg:w-[56px];
   }
 
   .white-btn {
@@ -129,7 +147,7 @@
   }
 
   #hubspotform form fieldset {
-    @apply max-w-none;
+    @apply max-w-none contents;
   }
 
   #hubspotform form div[class='hs_error_rollup'] {
@@ -212,7 +230,7 @@
   }
 
   #hubspotform form > div ul[class*='hs-error-msgs'] label {
-    @apply absolute top-auto translate-y-1 text-[14px] leading-none text-error;
+    @apply absolute text-left top-auto translate-y-1 text-[14px] leading-none text-error;
   }
 
   #hubspotform form > div {
@@ -365,8 +383,15 @@
     focus-visible:outline-none;
   }
 
+  /* #hubspotform[page='landing'] form div[class*='hs-submit'] input {
+    @apply mt-2 w-full cta-btn-black bg-black lg:w-auto cursor-pointer;
+  } */
+
   #hubspotform[page='landing'] form div[class*='hs-submit'] input {
-    @apply mt-2 w-full cta-btn bg-black lg:w-auto cursor-pointer;
+    @apply mt-2 w-full cursor-pointer rounded-[8px] border-transparent bg-[rgba(255,221,89,1)] py-[10px] px-[24px]
+    font-poppins text-[21px] lg:text-[26px] font-semibold leading-[150%] text-[rgba(18,18,18,1)] transition-all
+    duration-200 ease-in-out hover:bg-white
+    focus:shadow-[0_0_0_2px_rgba(202,205,212,0.4)] focus:outline-none focus-visible:outline-none;
   }
 
   /* End Styles for Landing 1col form */
@@ -394,10 +419,78 @@
   }
 
   #hubspotform[page='resources'] form div[class*='hs-submit'] input {
-    @apply w-full md:w-auto whitespace-nowrap mt-0 primary-btn bg-smart cursor-pointer;
+    @apply w-full md:w-auto whitespace-nowrap mt-0 primary-btn-thriving bg-thriving cursor-pointer;
+  }
+
+  #hubspotform[page='resources'] form > div ul[class*='hs-error-msgs'] label {
+    @apply static md:absolute text-left top-auto translate-y-1 text-[14px] leading-none text-error;
   }
 
   /* End Styles for Resources pages */
+
+  /* Styles for Home page */
+
+  #hubspotform[page='home-page'] {
+    @apply w-full;
+  }
+
+  #hubspotform[page='home-page'] form {
+    @apply flex flex-col gap-y-4 md:flex-row md:gap-x-2 md:gap-y-0 items-center;
+  }
+
+  #hubspotform[page='home-page'] form > div.field {
+    @apply w-full relative md:max-w-[475px] flex-auto;
+  }
+
+  #hubspotform[page='home-page'] form > div.field > *:first-child {
+    @apply mb-0;
+  }
+
+  #hubspotform[page='home-page'] form div[class*='hs-submit'] {
+    @apply w-full md:w-auto;
+  }
+
+  #hubspotform[page='home-page'] form div[class*='hs-submit'] input {
+    @apply w-full md:w-auto whitespace-nowrap mt-0 primary-btn-thriving bg-thriving cursor-pointer;
+  }
+
+  #hubspotform[page='home-page'] form > div ul[class*='hs-error-msgs'] label {
+    @apply static md:absolute text-left top-auto translate-y-1 text-[14px] leading-none text-error;
+  }
+
+  /* End Styles for Home page */
+
+  /* Styles for Products / Solutions pages */
+
+  #hubspotform[page='hero-and-form-page'] {
+    @apply w-full;
+  }
+
+  #hubspotform[page='hero-and-form-page'] form {
+    @apply flex flex-col gap-y-4 md:flex-row md:gap-x-2 md:gap-y-0 items-center;
+  }
+
+  #hubspotform[page='hero-and-form-page'] form > div.field {
+    @apply w-full relative md:max-w-[475px] flex-auto;
+  }
+
+  #hubspotform[page='hero-and-form-page'] form > div.field > *:first-child {
+    @apply mb-0;
+  }
+
+  #hubspotform[page='hero-and-form-page'] form div[class*='hs-submit'] {
+    @apply w-full md:w-auto;
+  }
+
+  #hubspotform[page='hero-and-form-page'] form div[class*='hs-submit'] input {
+    @apply w-full md:w-auto whitespace-nowrap mt-0 primary-btn-thriving bg-thriving cursor-pointer;
+  }
+
+  #hubspotform[page='hero-and-form-page'] form > div ul[class*='hs-error-msgs'] label {
+    @apply static md:absolute text-left top-auto translate-y-1 text-[14px] leading-none text-error;
+  }
+
+  /* End Styles for Products / Solutions pages */
 
   /* Styles for Article pages */
 
@@ -422,7 +515,7 @@
   }
 
   #hubspotform[page='article'] form div[class*='hs-submit'] input {
-    @apply w-full md:w-auto whitespace-nowrap mt-0 cta-btn bg-black cursor-pointer;
+    @apply w-full md:w-auto whitespace-nowrap mt-0 cta-btn-black bg-black cursor-pointer;
   }
 
   /* End Styles for Article pages */

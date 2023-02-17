@@ -35,6 +35,15 @@ export default function HubspotForm(props) {
     return () => script.removeEventListener('load', addListener)
   }, [portalId, formId, scriptSrc])
 
+  useEffect(() => {
+    if (!loading) {
+      setTimeout(() => {
+        const gclid = document.querySelector('#hubspotform input[name=gclid]')
+        if (gclid) gclid.value = localStorage.getItem('gclid')
+      }, 3000)
+    }
+  }, [loading])
+
   return (
     <div id="hubspotform" page={`${page}`}>
       {loading ? onLoading : null}

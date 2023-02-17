@@ -1,8 +1,12 @@
 import groq from 'groq'
-import client from '../../client'
-import {slugToAbsUrl} from '../../utils/urls'
+import client from '../client'
+import {slugToAbsUrl} from '../utils/urls'
 
-export default async function handler(req, res) {
+const Sitemap = () => {
+  return null
+}
+
+export const getServerSideProps = async ({res}) => {
   const {allRoutesSlugs, baseUrl} = await client.fetch(groq`{
     // Get the slug of all routes that should be in the sitemap
     "allRoutesSlugs": *[
@@ -29,5 +33,13 @@ export default async function handler(req, res) {
       .join('\n')}
   </urlset>`
 
-  res.status(200).send(sitemap)
+  res.setHeader('Content-Type', 'text/xml')
+  res.write(sitemap)
+  res.end()
+
+  return {
+    props: {},
+  }
 }
+
+export default Sitemap

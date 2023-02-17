@@ -10,6 +10,7 @@ import RenderSections from '../components/RenderSections'
 import client from '../client'
 import {linkTags, metaTags} from '../utils/seo'
 import {getSlugVariations, slugParamToPath} from '../utils/urls'
+import {useRouter} from 'next/router'
 
 const pageFragment = groq`
 ...,
@@ -295,6 +296,14 @@ const LandingPage = (props) => {
     config = {},
     slug,
   } = props
+
+  const {query} = useRouter()
+
+  useEffect(() => {
+    if (query?.gclid) {
+      localStorage.setItem('gclid', query?.gclid)
+    }
+  }, [])
 
   useEffect(() => {
     if (localStorage) {
