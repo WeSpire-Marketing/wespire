@@ -7,7 +7,13 @@ import {injectIconToSpanStr} from '../../../utils'
 export default function OurCustomersSection({page = '', title, quote, cards}) {
   if (page === 'landingTemplateSocialProof') {
     return (
-      <section className="ourcusection bg-thriving">
+      <section
+        className="ourcusection bg-thriving"
+        style={{
+          background:
+            'linear-gradient(180deg, rgba(60,143,115,1) 0%, rgba(60,143,115,1) 81%, rgba(60,143,115,0) 92%)',
+        }}
+      >
         <div className="bg-gallery pt-[80px] pb-[100px] lg:py-[140px] rounded-t-[30px] lg:rounded-t-[60px]">
           <div className="container px-2 lg:px-8">
             <div className="ourcusection-inner">
