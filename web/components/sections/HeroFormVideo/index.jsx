@@ -12,17 +12,17 @@ import {injectIconToSpanStr} from '../../../utils'
 import {PortableText} from '@portabletext/react'
 import {landingPortableHyperlink} from '../../../utils/portableHyperlink'
 
-const injectChiliPiperScripts = () => {
-  return (
-    <>
-      <Script>
-        {`function q(a){return function(){ChiliPiper[a].q=(ChiliPiper[a].q||[]).concat([arguments])}}window.ChiliPiper=window.ChiliPiper||"submit scheduling showCalendar submit widget bookMeeting".split(" ").reduce(function(a,b){a[b]=q(b);return a},{});
-        ChiliPiper.scheduling("wespire", "adwords-for-erg-management", {title: "Thanks! What time works best for a quick call?"})`}
-      </Script>
-      <Script src="https://js.na.chilipiper.com/marketing.js" type="text/javascript" async />
-    </>
-  )
-}
+// const injectChiliPiperScripts = () => {
+//   return (
+//     <>
+//       <Script>
+//         {`function q(a){return function(){ChiliPiper[a].q=(ChiliPiper[a].q||[]).concat([arguments])}}window.ChiliPiper=window.ChiliPiper||"submit scheduling showCalendar submit widget bookMeeting".split(" ").reduce(function(a,b){a[b]=q(b);return a},{});
+//         ChiliPiper.scheduling("wespire", "adwords-for-erg-management", {title: "Thanks! What time works best for a quick call?"})`}
+//       </Script>
+//       <Script src="https://js.na.chilipiper.com/marketing.js" type="text/javascript" async />
+//     </>
+//   )
+// }
 
 export default function HeroFormVideo({link, title, subtitle, formId, video, sponsors}) {
   return (
@@ -85,7 +85,7 @@ export default function HeroFormVideo({link, title, subtitle, formId, video, spo
 
             <div className="px-4 md:px-0">
               <SignMeUpWithNamesForm formId={formId} />
-              {injectChiliPiperScripts()}
+              {/* {injectChiliPiperScripts()} */}
             </div>
           </div>
 
