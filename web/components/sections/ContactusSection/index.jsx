@@ -7,17 +7,17 @@ import Icon from '../../icons/AnimatedTwoMarksBlue'
 
 import {injectIconToSpanStr} from '../../../utils'
 
-const injectChiliPiperScripts = () => {
-  return (
-    <>
-      <Script>
-        {`function q(a){return function(){ChiliPiper[a].q=(ChiliPiper[a].q||[]).concat([arguments])}}window.ChiliPiper=window.ChiliPiper||"submit scheduling showCalendar submit widget bookMeeting".split(" ").reduce(function(a,b){a[b]=q(b);return a},{});
-        ChiliPiper.scheduling("wespire", "contact-us", {title: "Thanks! What time works best for a quick call?"})`}
-      </Script>
-      <Script src="https://js.na.chilipiper.com/marketing.js" type="text/javascript" async />
-    </>
-  )
-}
+// const injectChiliPiperScripts = () => {
+//   return (
+//     <>
+//       <Script>
+//         {`function q(a){return function(){ChiliPiper[a].q=(ChiliPiper[a].q||[]).concat([arguments])}}window.ChiliPiper=window.ChiliPiper||"submit scheduling showCalendar submit widget bookMeeting".split(" ").reduce(function(a,b){a[b]=q(b);return a},{});
+//         ChiliPiper.scheduling("wespire", "contact-us", {title: "Thanks! What time works best for a quick call?"})`}
+//       </Script>
+//       <Script src="https://js.na.chilipiper.com/marketing.js" type="text/javascript" async />
+//     </>
+//   )
+// }
 
 export default function ContactusSection({image, title, cols, formId}) {
   if (typeof window !== 'undefined') {
@@ -68,7 +68,7 @@ export default function ContactusSection({image, title, cols, formId}) {
 
               <div>
                 <ContactForm formId={formId} />
-                {injectChiliPiperScripts()}
+                {/* {injectChiliPiperScripts()} */}
               </div>
             </div>
           </div>
