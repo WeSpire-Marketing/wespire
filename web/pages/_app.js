@@ -50,6 +50,11 @@ class App extends BaseApp {
 
     return (
       <>
+        <Script
+          src="https://scripts.cddie.co/rep/wespire-lookup.min.js"
+          type="text/javascript"
+          async
+        />
         {/* <!-- Google Tag Manager --> */}
         <Script>
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -57,11 +62,6 @@ class App extends BaseApp {
           j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${tag}');`}
         </Script>
-        <Script
-          src="https://scripts.cddie.co/rep/wespire-lookup.min.js"
-          type="text/javascript"
-          async
-        />
         {/* <!-- End Google Tag Manager --> */}
         <AnimatePresence mode="wait">
           <Component {...pageProps} />
