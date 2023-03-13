@@ -70,7 +70,7 @@ export default function Footer({
             {certificate && certificate?.link?.url === 'false' ? (
               <div className={`flex row gap-4 items-center`}>
                 <div className="footer__socials__icon relative h-[94px] w-[188px]">
-                  <Image
+                  <img
                     src={urlForImage(certificate?.image).url()}
                     objectFit="contain"
                     alt="certificate icon"
@@ -89,7 +89,7 @@ export default function Footer({
               <Link href={certificate?.link?.url} passHref>
                 <a className={`flex row gap-4 items-center`}>
                   <div className="footer__socials__icon relative h-[94px] w-[188px]">
-                    <Image
+                    <img
                       src={urlForImage(certificate?.image).url()}
                       objectFit="contain"
                       alt="certificate icon"
@@ -112,7 +112,7 @@ export default function Footer({
                 rel="noopener noreferrer"
               >
                 <div className="footer__socials__icon relative h-[94px] w-[188px]">
-                  <Image
+                  <img
                     src={urlForImage(certificate?.image).url()}
                     objectFit="contain"
                     alt="certificate icon"
