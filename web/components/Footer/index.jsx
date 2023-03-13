@@ -75,6 +75,7 @@ export default function Footer({
                     objectFit="contain"
                     alt="certificate icon"
                     layout="fill"
+                    quality={100}
                   />
                 </div>
                 {/* <p
