@@ -13,7 +13,7 @@ export default {
     {
       name: 'googleAnalyticsTag',
       type: 'string',
-      title: 'Google Analytics Tag',
+      title: 'Google Analytics Tag'
     },
     {
       name: 'title',
@@ -253,6 +253,51 @@ export default {
                 }
               ],
               valiation: Rule => Rule.required()
+            }
+          ]
+        },
+        {
+          name: 'certificate',
+          type: 'object',
+          title: 'Certificate',
+          fields: [
+            {
+              name: 'image',
+              type: 'image',
+              title: 'Certificate icon',
+              validation: Rule => Rule.required()
+            },
+            {
+              name: 'link',
+              type: 'object',
+              title: 'Certificate link',
+              fields: [
+                // {
+                //   name: 'text',
+                //   type: 'string',
+                //   title: 'Link text',
+                //   validation: Rule => Rule.required()
+                // },
+                {
+                  name: 'url',
+                  type: 'string',
+                  title: 'Link URL',
+                  description:
+                    'Internal link can be like: "/valid-internal-link"; external: "https://wespire.com"; No link: "false"',
+                  validation: Rule => Rule.required()
+                },
+                {
+                  name: 'internal',
+                  type: 'boolean',
+                  title: 'Internal link',
+                  description: 'By default, the link is external and will be opened in a new tab',
+                  validation: Rule => Rule.required()
+                }
+              ],
+              validation: Rule => Rule.required(),
+              initialValue: {
+                internal: false
+              }
             }
           ]
         },

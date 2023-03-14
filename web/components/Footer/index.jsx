@@ -6,7 +6,16 @@ import FooterLink from './components/FooterLink'
 
 import {urlForImage} from '../../client'
 
-export default function Footer({logo, address, socials, menuItems, year, policy, privacy}) {
+export default function Footer({
+  logo,
+  address,
+  socials,
+  certificate,
+  menuItems,
+  year,
+  policy,
+  privacy,
+}) {
   const router = useRouter()
 
   return (
@@ -17,7 +26,7 @@ export default function Footer({logo, address, socials, menuItems, year, policy,
     >
       <div className="container">
         <div className="footer__body">
-          <div className="footer__left flex w-[100%] max-w-[204px] flex-col gap-8 lg:gap-10">
+          <div className="footer__left flex w-[100%] max-w-[204px] flex-col gap-8 lg:gap-12">
             <div className="footer__logo relative block h-[45px] w-[125px] lg:h-[60px] lg:w-[162px]">
               <Image
                 // width={162}
@@ -57,6 +66,67 @@ export default function Footer({logo, address, socials, menuItems, year, policy,
                 </a>
               ))}
             </div>
+
+            {certificate && certificate?.link?.url === 'false' ? (
+              <div className={`flex row gap-4 items-center`}>
+                <div className="footer__socials__icon relative h-[94px] w-[188px]">
+                  <img
+                    src={urlForImage(certificate?.image).url()}
+                    objectFit="contain"
+                    alt="certificate icon"
+                    layout="fill"
+                    quality={100}
+                  />
+                </div>
+                {/* <p
+                  className="footer__copyright__link flex-1 max-w-[156px]
+              w-fit text-sm font-normal leading-130 text-secondary opacity-70"
+                >
+                  {certificate?.link?.text}
+                </p> */}
+              </div>
+            ) : certificate?.link?.internal ? (
+              <Link href={certificate?.link?.url} passHref>
+                <a className={`flex row gap-4 items-center`}>
+                  <div className="footer__socials__icon relative h-[94px] w-[188px]">
+                    <img
+                      src={urlForImage(certificate?.image).url()}
+                      objectFit="contain"
+                      alt="certificate icon"
+                      layout="fill"
+                    />
+                  </div>
+                  {/* <p
+                    className="footer__copyright__link flex-1 max-w-[156px]
+              w-fit text-sm font-normal leading-130 text-secondary opacity-70"
+                  >
+                    {certificate?.link?.text}
+                  </p> */}
+                </a>
+              </Link>
+            ) : (
+              <a
+                className={`flex row gap-4 items-center`}
+                href={certificate?.link?.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="footer__socials__icon relative h-[94px] w-[188px]">
+                  <img
+                    src={urlForImage(certificate?.image).url()}
+                    objectFit="contain"
+                    alt="certificate icon"
+                    layout="fill"
+                  />
+                </div>
+                {/* <p
+                  className="footer__copyright__link flex-1 max-w-[156px]
+              w-fit text-sm font-normal leading-130 text-secondary opacity-70"
+                >
+                  {certificate?.link?.text}
+                </p> */}
+              </a>
+            )}
           </div>
 
           <div className="footer__right">
