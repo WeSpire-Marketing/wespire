@@ -43,10 +43,10 @@
   }
 
   .primary-btn {
-    @apply rounded-[8px] border-[1px] border-transparent bg-smart py-[11px] px-[24px]
+    @apply rounded-[8px] border-[1px] border-transparent py-[11px] px-[24px]
     font-poppins text-[16px] font-semibold leading-[150%] text-[rgba(255,255,255,0.9)] outline-none
-    transition-all duration-200 ease-in-out hover:border-smart hover:bg-transparent hover:text-smart focus:border-black
-    focus:shadow-[0_0_0_2px_rgba(0,0,0,0.5)] focus-visible:outline-none;
+    transition-all duration-200 ease-in-out  hover:bg-transparent focus:border-black
+    focus:shadow-[0_0_0_2px_rgba(0,0,0,0.5)] focus-visible:outline-none text-skin-ctaButtonHeader-colorText hover:text-skin-ctaButtonHeader-colorTextHover bg-skin-ctaButtonHeader-colorBG hover:bg-skin-ctaButtonHeader-colorBGHover border-skin-ctaButtonHeader-colorBorder hover:border-skin-ctaButtonHeader-colorBorderHover;
   }
 
   .primary-btn-thriving {
@@ -64,17 +64,17 @@
   }
 
   .cta-btn-black {
-    @apply rounded-[8px] border-[1px] border-transparent bg-black py-[11px] px-[24px]
-    font-poppins text-[16px] font-semibold leading-[150%] text-[rgba(255,255,255,0.9)] transition-all
-    duration-200 ease-in-out hover:border-black hover:bg-white hover:text-black focus:border-black
-    focus:shadow-[0_0_0_2px_rgba(202,205,212,0.4)] focus:outline-none focus-visible:outline-none;
+    @apply rounded-[8px] border-[1px] py-[11px] px-[24px]
+    font-poppins text-[16px] font-semibold leading-[150%] transition-all
+    duration-200 ease-in-out  focus:border-black
+    focus:shadow-[0_0_0_2px_rgba(202,205,212,0.4)] focus:outline-none focus-visible:outline-none text-skin-ctaSubmitButtonFormDark-colorText hover:text-skin-ctaSubmitButtonFormDark-colorTextHover bg-skin-ctaSubmitButtonFormDark-colorBG hover:bg-skin-ctaSubmitButtonFormDark-colorBGHover border-skin-ctaSubmitButtonFormDark-colorBorder hover:border-skin-ctaSubmitButtonFormDark-colorBorderHover;
   }
 
   .cta-btn {
-    @apply rounded-[8px] border-transparent bg-[rgba(255,221,89,1)] py-[10px] px-[24px]
-    font-poppins text-[21px] lg:text-[26px] font-semibold leading-[150%] text-[rgba(18,18,18,1)] transition-all
-    duration-200 ease-in-out hover:bg-white
-    focus:shadow-[0_0_0_2px_rgba(202,205,212,0.4)] focus:outline-none focus-visible:outline-none;
+    @apply rounded-[8px] py-[10px] px-[24px]
+    font-poppins text-[21px] lg:text-[26px] font-semibold leading-[150%] transition-all
+    duration-200 ease-in-out 
+    focus:shadow-[0_0_0_2px_rgba(202,205,212,0.4)] focus:outline-none focus-visible:outline-none text-skin-ctaSectionButton-colorText hover:text-skin-ctaSectionButton-colorTextHover bg-skin-ctaSectionButton-colorBG hover:bg-skin-ctaSectionButton-colorBGHover border-skin-ctaSectionButton-colorBorder hover:border-skin-ctaSectionButton-colorBorderHover;
   }
 
   .helpful-btn {
@@ -388,10 +388,9 @@
   } */
 
   #hubspotform[page='landing'] form div[class*='hs-submit'] input {
-    @apply mt-2 w-full cursor-pointer rounded-[8px] border-transparent bg-[rgba(255,221,89,1)] py-[10px] px-[24px]
-    font-poppins text-[21px] lg:text-[26px] font-semibold leading-[150%] text-[rgba(18,18,18,1)] transition-all
-    duration-200 ease-in-out hover:bg-white
-    focus:shadow-[0_0_0_2px_rgba(202,205,212,0.4)] focus:outline-none focus-visible:outline-none;
+    @apply mt-2 w-full cursor-pointer rounded-[8px] py-[10px] px-[24px]
+    font-poppins text-[21px] lg:text-[26px] font-semibold leading-[150%] transition-all
+    duration-200 ease-in-out focus:shadow-[0_0_0_2px_rgba(202,205,212,0.4)] focus:outline-none focus-visible:outline-none text-skin-ctaSubmitButtonFormLanding-colorText hover:text-skin-ctaSubmitButtonFormLanding-colorTextHover bg-skin-ctaSubmitButtonFormLanding-colorBG hover:bg-skin-ctaSubmitButtonFormLanding-colorBGHover border-skin-ctaSubmitButtonFormLanding-colorBorder hover:border-skin-ctaSubmitButtonFormLanding-colorBorderHover;
   }
 
   /* End Styles for Landing 1col form */
@@ -419,7 +418,7 @@
   }
 
   #hubspotform[page='resources'] form div[class*='hs-submit'] input {
-    @apply w-full md:w-auto whitespace-nowrap mt-0 primary-btn-thriving bg-thriving cursor-pointer;
+    @apply w-full md:w-auto whitespace-nowrap mt-0 primary-btn-thriving cursor-pointer text-skin-ctaSubmitButtonForm-colorText hover:text-skin-ctaSubmitButtonForm-colorTextHover bg-skin-ctaSubmitButtonForm-colorBG hover:bg-skin-ctaSubmitButtonForm-colorBGHover border-skin-ctaSubmitButtonForm-colorBorder hover:border-skin-ctaSubmitButtonForm-colorBorderHover;
   }
 
   #hubspotform[page='resources'] form > div ul[class*='hs-error-msgs'] label {
@@ -451,7 +450,7 @@
   }
 
   #hubspotform[page='home-page'] form div[class*='hs-submit'] input {
-    @apply w-full md:w-auto whitespace-nowrap mt-0 primary-btn-thriving bg-thriving cursor-pointer;
+    @apply w-full md:w-auto whitespace-nowrap mt-0 primary-btn-thriving cursor-pointer text-skin-ctaSubmitButtonForm-colorText hover:text-skin-ctaSubmitButtonForm-colorTextHover bg-skin-ctaSubmitButtonForm-colorBG hover:bg-skin-ctaSubmitButtonForm-colorBGHover border-skin-ctaSubmitButtonForm-colorBorder hover:border-skin-ctaSubmitButtonForm-colorBorderHover;
   }
 
   #hubspotform[page='home-page'] form > div ul[class*='hs-error-msgs'] label {
@@ -483,7 +482,7 @@
   }
 
   #hubspotform[page='hero-and-form-page'] form div[class*='hs-submit'] input {
-    @apply w-full md:w-auto whitespace-nowrap mt-0 primary-btn-thriving bg-thriving cursor-pointer;
+    @apply w-full md:w-auto whitespace-nowrap mt-0 primary-btn-thriving cursor-pointer text-skin-ctaSubmitButtonForm-colorText hover:text-skin-ctaSubmitButtonForm-colorTextHover bg-skin-ctaSubmitButtonForm-colorBG hover:bg-skin-ctaSubmitButtonForm-colorBGHover border-skin-ctaSubmitButtonForm-colorBorder hover:border-skin-ctaSubmitButtonForm-colorBorderHover;
   }
 
   #hubspotform[page='hero-and-form-page'] form > div ul[class*='hs-error-msgs'] label {
@@ -515,8 +514,12 @@
   }
 
   #hubspotform[page='article'] form div[class*='hs-submit'] input {
-    @apply w-full md:w-auto whitespace-nowrap mt-0 cta-btn-black bg-black cursor-pointer;
+    @apply w-full md:w-auto whitespace-nowrap mt-0 cursor-pointer text-skin-ctaSubmitButtonFormDark-colorText hover:text-skin-ctaSubmitButtonFormDark-colorTextHover bg-skin-ctaSubmitButtonFormDark-colorBG hover:bg-skin-ctaSubmitButtonFormDark-colorBGHover border-skin-ctaSubmitButtonFormDark-colorBorder hover:border-skin-ctaSubmitButtonFormDark-colorBorderHover;
   }
 
   /* End Styles for Article pages */
+
+  #hubspotform[page='request-demo'] form div[class*='hs-submit'] input {
+    @apply text-skin-ctaSubmitButtonFormRequestDemo-colorText hover:text-skin-ctaSubmitButtonFormRequestDemo-colorTextHover bg-skin-ctaSubmitButtonFormRequestDemo-colorBG hover:bg-skin-ctaSubmitButtonFormRequestDemo-colorBGHover border-skin-ctaSubmitButtonFormRequestDemo-colorBorder hover:border-skin-ctaSubmitButtonFormRequestDemo-colorBorderHover;
+  }
 }

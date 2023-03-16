@@ -17,7 +17,8 @@ export default {
       name: 'slug',
       type: 'slug',
       title: 'Category slug',
-      description: 'Unique strings across of all categories using only lowercase letters and dashes',
+      description:
+        'Unique strings across of all categories using only lowercase letters and dashes',
       options: {
         source: 'title',
         maxLength: 100, // will be ignored if slugify is set

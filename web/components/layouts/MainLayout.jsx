@@ -5,12 +5,14 @@ import Footer from '../Footer'
 import MobileMenu from '../MobileMenu'
 
 import variants from '../../utils/transitions'
+import Head from 'next/head'
+import {variablesCss} from '../../utils/colors'
 
 export default function MainLayout({
   children,
   hideDesktopNav = false,
   hideMobileNav = false,
-  config: {mainNavigation, footerNavigation, logo},
+  config: {mainNavigation, footerNavigation, logo, ctaButton},
   template,
 }) {
   let color
@@ -34,28 +36,36 @@ export default function MainLayout({
     color = '#fff'
   }
 
+  const varsCss = variablesCss(ctaButton ?? {})
+
   return (
-    <div className="main-layout relative">
-      {!hideDesktopNav && (
-        <Header
-          {...mainNavigation}
-          logoColor={color}
-          template={template}
-          btnType={btnType}
-          logo={logo}
-        />
-      )}
-      {!hideMobileNav && <MobileMenu {...mainNavigation} navColor={color} />}
-      <motion.main
-        className="main"
-        variants={variants}
-        initial="hidden"
-        animate="visible"
-        exit="exit"
-      >
-        {children}
-      </motion.main>
-      {!hideDesktopNav && <Footer {...footerNavigation} />}
-    </div>
+    <>
+      <Head>
+        <style>:root {`{${varsCss}}`}</style>
+      </Head>
+
+      <div className="main-layout relative">
+        {!hideDesktopNav && (
+          <Header
+            {...mainNavigation}
+            logoColor={color}
+            template={template}
+            btnType={btnType}
+            logo={logo}
+          />
+        )}
+        {!hideMobileNav && <MobileMenu {...mainNavigation} navColor={color} />}
+        <motion.main
+          className="main"
+          variants={variants}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+        >
+          {children}
+        </motion.main>
+        {!hideDesktopNav && <Footer {...footerNavigation} />}
+      </div>
+    </>
   )
 }

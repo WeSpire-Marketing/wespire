@@ -168,8 +168,7 @@ export default function SubscribeForm({className = '', formId, title, subtitle, 
           )}
 
           <button
-            className="cta-btn-black w-full bg-black py-[11px] hover:bg-white
-            lg:max-w-[188px]"
+            className="cta-btn-black w-full py-[11px] lg:max-w-[188px] text-skin-ctaSubmitButtonFormDark-colorText hover:text-skin-ctaSubmitButtonFormDark-colorTextHover bg-skin-ctaSubmitButtonFormDark-colorBG hover:bg-skin-ctaSubmitButtonFormDark-colorBGHover border-skin-ctaSubmitButtonFormDark-colorBorder hover:border-skin-ctaSubmitButtonFormDark-colorBorderHover"
             disabled={message !== DEFAULT_MESSAGE}
             type="submit"
           >
