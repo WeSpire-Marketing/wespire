@@ -98,6 +98,12 @@ export default {
       validation: Rule => Rule.required()
     },
     {
+      name: 'showAuthorBio',
+      type: 'boolean',
+      title: 'Show author bio?',
+      initialValue: () => false
+    },
+    {
       title: 'Published at',
       name: 'publishedAt',
       type: 'datetime',

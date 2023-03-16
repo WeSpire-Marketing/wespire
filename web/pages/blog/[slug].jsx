@@ -38,7 +38,8 @@ export async function getServerSideProps({params}) {
     groq`
     *[_type == 'article' && slug.current == $slug][0]{
       ...,
-      "author": author->{ name, avatar },
+      "author": author->{ name, avatar, jobTitle, authorBio },
+      "showAuthorBio": showAuthorBio,
       "related": related[]->{
         imageData,
         "categories": categories[] -> {
@@ -97,6 +98,7 @@ export default function Index({
     related,
     ctaSection,
     slug,
+    showAuthorBio,
     excerpt,
     headings,
   },
@@ -249,7 +251,12 @@ export default function Index({
                   />
                 </div>
 
-                <BlogSidebar items={headings} slug={slug.current} />
+                <BlogSidebar
+                  items={headings}
+                  slug={slug.current}
+                  showAuthorBio={showAuthorBio}
+                  author={author}
+                />
               </div>
 
               <BackToBlog className="mb-[80px] lg:mb-[140px]" />

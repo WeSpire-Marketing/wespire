@@ -6,8 +6,12 @@ import useScrollSpy from 'react-use-scrollspy'
 import TwitterIcon from '../icons/TwitterIcon'
 import LinkedInIcon from '../icons/LinkedInIcon'
 import FacebookIcon from '../icons/FacebookIcon'
+import Image from 'next/image'
+import {urlForImage} from '../../client'
+import {PortableText} from '@portabletext/react'
+import myPortableTextComponents from '../../utils/myPortableComponents'
 
-export default function BlogSidebar({items = [], slug}) {
+export default function BlogSidebar({items = [], slug, showAuthorBio, author}) {
   const [elementRefs, setElementRefs] = useState([])
   const activeSection = useScrollSpy({
     sectionElementRefs: elementRefs, // Array of References to titles DOM elements
@@ -40,6 +44,46 @@ export default function BlogSidebar({items = [], slug}) {
 
   return (
     <aside className="sidebar text-left">
+      {showAuthorBio && (
+        <div className="sidebar__inner px-2 lg:ml-auto lg:max-w-[288px] lg:px-0 flex flex-col gap-4">
+          <div className="article__author inline-flex items-center gap-4 px-4 lg:px-0 ">
+            <div
+              className="article__author-image relative h-[56px] w-[56px] shrink-0 rounded-full
+                      overflow-hidden
+                      lg:h-[64px] lg:w-[64px]"
+            >
+              <Image
+                src={urlForImage(author.avatar).width(64).height(64).url()}
+                alt={author.avatar.alt}
+                objectFit="cover"
+                layout="fill"
+              />
+            </div>
+
+            <div className="article__author-info">
+              <p
+                className="article__author-info__name mb-2 text-base font-normal leading-160 
+                        lg:mb-0"
+              >
+                <strong>{author.name}</strong>
+              </p>
+
+              <p className="article__author-info__published font-normal leading-160">
+                {author.jobTitle ?? 'Author'}
+              </p>
+            </div>
+          </div>
+
+          <div className="content prose min-w-[100%]">
+            <PortableText
+              value={author.authorBio}
+              onMissingComponent={false}
+              components={myPortableTextComponents}
+            />
+          </div>
+        </div>
+      )}
+
       <div className="sidebar__inner sticky top-[100px] px-2 lg:ml-auto lg:max-w-[288px] lg:px-0">
         <p
           className="mb-6 font-poppins text-[18px] font-semibold

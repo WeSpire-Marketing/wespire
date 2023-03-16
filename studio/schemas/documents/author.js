@@ -28,6 +28,46 @@ export default {
               .max(50)
         }
       ]
+    },
+    {
+      name: 'jobTitle',
+      type: 'string',
+      title: 'Job title'
+    },
+    {
+      name: 'authorBio',
+      title: 'Author Bio',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+          marks: {
+            annotations: [
+              {
+                name: 'link',
+                type: 'object',
+                title: 'URL',
+                fields: [
+                  {
+                    title: 'URL',
+                    name: 'href',
+                    type: 'url'
+                  },
+                  {
+                    title: 'Open in new tab',
+                    name: 'blank',
+                    type: 'boolean'
+                  }
+                ],
+                initialValue: {
+                  blank: false
+                }
+              }
+            ]
+          }
+        }
+      ],
+      validation: Rule => Rule.required()
     }
   ]
 }
