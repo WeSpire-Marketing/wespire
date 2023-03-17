@@ -9,7 +9,7 @@ import FacebookIcon from '../icons/FacebookIcon'
 import Image from 'next/image'
 import {urlForImage} from '../../client'
 import {PortableText} from '@portabletext/react'
-import myPortableTextComponents from '../../utils/myPortableComponents'
+import {portableHyperlinkLight} from '../../utils/portableHyperlink'
 
 export default function BlogSidebar({items = [], slug, showAuthorBio, author}) {
   const [elementRefs, setElementRefs] = useState([])
@@ -45,8 +45,8 @@ export default function BlogSidebar({items = [], slug, showAuthorBio, author}) {
   return (
     <aside className="sidebar text-left">
       {showAuthorBio && (
-        <div className="sidebar__inner px-2 lg:ml-auto lg:max-w-[288px] lg:px-0 flex flex-col gap-4">
-          <div className="article__author inline-flex items-center gap-4 px-4 lg:px-0 ">
+        <div className="sidebar__inner px-2 mb-8 lg:mb-12 lg:ml-auto lg:max-w-[288px] lg:px-0 flex flex-col gap-4">
+          <div className="article__author inline-flex items-center gap-4 px-0 ">
             <div
               className="article__author-image relative h-[56px] w-[56px] shrink-0 rounded-full
                       overflow-hidden
@@ -74,11 +74,11 @@ export default function BlogSidebar({items = [], slug, showAuthorBio, author}) {
             </div>
           </div>
 
-          <div className="content prose min-w-[100%]">
+          <div className="content min-w-[100%]">
             <PortableText
               value={author.authorBio}
               onMissingComponent={false}
-              components={myPortableTextComponents}
+              components={portableHyperlinkLight}
             />
           </div>
         </div>

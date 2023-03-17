@@ -72,6 +72,10 @@ module.exports = {
       },
       textColor: {
         skin: {
+          'h1SmallTitle-colorText': color(
+            '--color-h1SmallTitle-colorText',
+            '--opacity-h1SmallTitle-colorText'
+          ),
           'ctaButtonHeader-colorText': color(
             '--color-ctaButtonHeader-colorText',
             '--opacity-ctaButtonHeader-colorText'

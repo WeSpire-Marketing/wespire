@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import {motion} from 'framer-motion'
-import Script from 'next/script'
 
 import Img from '../../Img'
 import Icon from '../../icons/AnimatedIcon'
@@ -9,18 +8,6 @@ import SponsorsBlock from '../../SponsorsBlock'
 import SignMeUpWithNamesForm from '../../forms/SignMeUpWithNamesForm'
 
 import {injectIconToSpanStr} from '../../../utils'
-
-// const injectChiliPiperScripts = () => {
-//   return (
-//     <>
-//       <Script>
-//         {`function q(a){return function(){ChiliPiper[a].q=(ChiliPiper[a].q||[]).concat([arguments])}}window.ChiliPiper=window.ChiliPiper||"submit scheduling showCalendar submit widget bookMeeting".split(" ").reduce(function(a,b){a[b]=q(b);return a},{});
-//         ChiliPiper.scheduling("wespire", "adwords-for-erg-management", {title: "Thanks! What time works best for a quick call?"})`}
-//       </Script>
-//       <Script src="https://js.na.chilipiper.com/marketing.js" type="text/javascript" async />
-//     </>
-//   )
-// }
 
 export default function HeroForm({link, title, subtitle, formId, image, sponsors}) {
   return (
@@ -83,7 +70,6 @@ export default function HeroForm({link, title, subtitle, formId, image, sponsors
 
             <div className="px-4 md:px-0">
               <SignMeUpWithNamesForm formId={formId} />
-              {/* {injectChiliPiperScripts()} */}
             </div>
           </div>
 

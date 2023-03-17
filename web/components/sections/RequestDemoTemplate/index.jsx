@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import {useEffect} from 'react'
-import Script from 'next/script'
 import {motion} from 'framer-motion'
 
 import Img from '../../Img'
@@ -12,18 +11,6 @@ import ArrowIcon from '../../icons/ArrowIcon'
 import {injectIconToSpanStr} from '../../../utils'
 import pageTransitionVariants from '../../../utils/transitions'
 import useCustomScrollBehavior from '../../../utils/hooks/useCustomScrollBehavior'
-
-// const injectChiliPiperScripts = () => {
-//   return (
-//     <>
-//       <Script>
-//         {`function q(a){return function(){ChiliPiper[a].q=(ChiliPiper[a].q||[]).concat([arguments])}}window.ChiliPiper=window.ChiliPiper||"submit scheduling showCalendar submit widget bookMeeting".split(" ").reduce(function(a,b){a[b]=q(b);return a},{});
-//         ChiliPiper.scheduling("wespire", "intro-call-for-request-a-demo-page", {title: "Thanks! What time works best for a quick call?"})`}
-//       </Script>
-//       <Script src="https://js.na.chilipiper.com/marketing.js" type="text/javascript" async />
-//     </>
-//   )
-// }
 
 export default function RequestDemoTemplate({link, title, subtitle, image, formId}) {
   useCustomScrollBehavior()
@@ -124,7 +111,6 @@ export default function RequestDemoTemplate({link, title, subtitle, image, formI
 
             <div className="body-right w-full max-w-[568px]">
               <DemoForm formId={formId} className="mb-[32px]" />
-              {/* {injectChiliPiperScripts()} */}
 
               <p className="body-s mx-auto max-w-[438px] text-center text-secondary">
                 By submitting this form I agree to receive marketing communications from WeSpire.
