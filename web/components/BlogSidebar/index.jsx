@@ -100,7 +100,22 @@ export default function BlogSidebar({items = [], slug, showAuthorBio, author}) {
             items.map((item, idx) => {
               const customTitle = item?.markDefs[0]?.title
               const defaultTitle = item?.children[0]?.text
-              const slug = slugify(defaultTitle)
+              let slug = slugify(defaultTitle)
+
+              if (item?.children?.length > 1) {
+                if (item?.children[0]?.text !== '\n') {
+                  slug = slugify(item?.children[0]?.text + item?.children[1]?.text)
+                } else {
+                  if (item?.children?.length > 3) {
+                    slug = slugify(
+                      item?.children[1]?.text + item?.children[2]?.text + item?.children[3]?.text
+                    )
+                  } else {
+                    slug = slugify(item?.children[1]?.text + item?.children[2]?.text)
+                  }
+                }
+              }
+
               return (
                 <li key={item._key}>
                   <a
