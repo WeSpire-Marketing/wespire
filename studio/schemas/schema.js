@@ -97,6 +97,7 @@ import requestDemoTemplate from './templates/requestDemoTemplate'
 import landingVideoTemplate from './templates/landingVideoTemplate'
 import privacyPolicyTemplate from './templates/privacyPolicyTemplate'
 import solutionsOverviewTemplate from './templates/solutionsOverviewTemplate'
+import blank from './templates/blank'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -105,6 +106,7 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     // templates
+    blank,
     blogTemplate,
     homeTemplate,
     personaTemplate,
