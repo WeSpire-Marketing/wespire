@@ -357,6 +357,36 @@ const LandingPage = (props) => {
       ]
     : []
 
+  if (slug === 'demo-success') {
+    return (
+      <Layout
+        config={config}
+        hideDesktopNav={content?.sections[0]?.hideDesktopNav}
+        hideMobileNav={content?.sections[0]?.hideMobileNav}
+        template={content?.sections?.[0]?._type}
+      >
+        <NextSeo
+          title={title}
+          description={description}
+          additionalLinkTags={linkTags}
+          additionalMetaTags={metaTags}
+          titleTemplate={`%s | ${config.title}`}
+          canonical={config.url && `${config.url}/${slug}`}
+          openGraph={{
+            url: process.env.NEXT_PUBLIC_DOMAIN ?? 'https://wespire.com/',
+            title: title,
+            description: description,
+            images: openGraphImages,
+          }}
+          noindex={disallowRobots}
+        />
+        <div className="h-[600px] w-full flex justify-center items-center heading-1 text-black">
+          Demo Success
+        </div>
+      </Layout>
+    )
+  }
+
   return (
     <Layout
       config={config}

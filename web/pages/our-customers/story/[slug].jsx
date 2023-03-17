@@ -32,6 +32,7 @@ export async function getServerSideProps({params}) {
       },
       "mainNavigation": *[_id == "global-config"][0].mainNavigation,
       "footerNavigation": *[_id == "global-config"][0].footerNavigation,
+      "ctaButton": *[_id == "global-config"][0].ctaButton,
     }`,
     {slug}
   )
@@ -50,7 +51,15 @@ export async function getServerSideProps({params}) {
 }
 
 export default function Index({
-  data: {pageMeta, mainNavigation, footerNavigation, storyContent, sliderSection, ctaSection},
+  data: {
+    pageMeta,
+    mainNavigation,
+    footerNavigation,
+    ctaButton,
+    storyContent,
+    sliderSection,
+    ctaSection,
+  },
 }) {
   useCustomScrollBehavior()
 
@@ -67,7 +76,7 @@ export default function Index({
   return (
     <div className="customerspage overflow-hidden bg-gallery">
       <PageMeta meta={pageMeta} />
-      <MainLayout config={{mainNavigation, footerNavigation}}>
+      <MainLayout config={{mainNavigation, footerNavigation, ctaButton}}>
         <section>
           <div className="container px-2 lg:px-8">
             <div className="inner pt-[175px] pb-[100px] lg:pb-[140px]">

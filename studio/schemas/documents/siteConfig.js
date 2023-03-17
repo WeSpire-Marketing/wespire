@@ -58,6 +58,239 @@ export default {
       ]
     },
     {
+      title: 'Customize CTA buttons',
+      description: 'Customize CTA buttons',
+      name: 'ctaButton',
+      validation: Rule => Rule.required(),
+      type: 'object',
+      fields: [
+        {
+          name: 'ctaButtonHeader',
+          type: 'object',
+          title: 'Header CTA button',
+          description: 'Right button in header',
+          fields: [
+            {
+              name: 'colorText',
+              title: 'Text color',
+              type: 'color'
+            },
+            {
+              name: 'colorBackground',
+              title: 'Background color',
+              type: 'color'
+            },
+            {
+              name: 'colorBorder',
+              title: 'Border color',
+              type: 'color'
+            },
+            {
+              name: 'colorTextHover',
+              title: 'Hover Text color',
+              type: 'color'
+            },
+            {
+              name: 'colorBackgroundHover',
+              title: 'Hover Background color',
+              type: 'color'
+            },
+            {
+              name: 'colorBorderHover',
+              title: 'Hover Border color',
+              type: 'color'
+            }
+          ]
+        },
+        {
+          name: 'ctaSubmitButtonForm',
+          type: 'object',
+          title: 'Submit form button',
+          description: 'Submit button in Form on Hero section',
+          fields: [
+            {
+              name: 'colorText',
+              title: 'Text color',
+              type: 'color'
+            },
+            {
+              name: 'colorBackground',
+              title: 'Background color',
+              type: 'color'
+            },
+            {
+              name: 'colorBorder',
+              title: 'Border color',
+              type: 'color'
+            },
+            {
+              name: 'colorTextHover',
+              title: 'Hover Text color',
+              type: 'color'
+            },
+            {
+              name: 'colorBackgroundHover',
+              title: 'Hover Background color',
+              type: 'color'
+            },
+            {
+              name: 'colorBorderHover',
+              title: 'Hover Border color',
+              type: 'color'
+            }
+          ]
+        },
+        {
+          name: 'ctaSubmitButtonFormRequestDemo',
+          type: 'object',
+          title: 'Submit form button on Request Demo page',
+          fields: [
+            {
+              name: 'colorText',
+              title: 'Text color',
+              type: 'color'
+            },
+            {
+              name: 'colorBackground',
+              title: 'Background color',
+              type: 'color'
+            },
+            {
+              name: 'colorBorder',
+              title: 'Border color',
+              type: 'color'
+            },
+            {
+              name: 'colorTextHover',
+              title: 'Hover Text color',
+              type: 'color'
+            },
+            {
+              name: 'colorBackgroundHover',
+              title: 'Hover Background color',
+              type: 'color'
+            },
+            {
+              name: 'colorBorderHover',
+              title: 'Hover Border color',
+              type: 'color'
+            }
+          ]
+        },
+        {
+          name: 'ctaSubmitButtonFormDark',
+          type: 'object',
+          title: 'Submit form button on section where BG is blue',
+          fields: [
+            {
+              name: 'colorText',
+              title: 'Text color',
+              type: 'color'
+            },
+            {
+              name: 'colorBackground',
+              title: 'Background color',
+              type: 'color'
+            },
+            {
+              name: 'colorBorder',
+              title: 'Border color',
+              type: 'color'
+            },
+            {
+              name: 'colorTextHover',
+              title: 'Hover Text color',
+              type: 'color'
+            },
+            {
+              name: 'colorBackgroundHover',
+              title: 'Hover Background color',
+              type: 'color'
+            },
+            {
+              name: 'colorBorderHover',
+              title: 'Hover Border color',
+              type: 'color'
+            }
+          ]
+        },
+        {
+          name: 'ctaSubmitButtonFormLanding',
+          type: 'object',
+          title: 'Submit form button on Landing pages',
+          fields: [
+            {
+              name: 'colorText',
+              title: 'Text color',
+              type: 'color'
+            },
+            {
+              name: 'colorBackground',
+              title: 'Background color',
+              type: 'color'
+            },
+            {
+              name: 'colorBorder',
+              title: 'Border color',
+              type: 'color'
+            },
+            {
+              name: 'colorTextHover',
+              title: 'Hover Text color',
+              type: 'color'
+            },
+            {
+              name: 'colorBackgroundHover',
+              title: 'Hover Background color',
+              type: 'color'
+            },
+            {
+              name: 'colorBorderHover',
+              title: 'Hover Border color',
+              type: 'color'
+            }
+          ]
+        },
+        {
+          name: 'ctaSectionButton',
+          type: 'object',
+          title: 'CTA section button on Landing pages',
+          fields: [
+            {
+              name: 'colorText',
+              title: 'Text color',
+              type: 'color'
+            },
+            {
+              name: 'colorBackground',
+              title: 'Background color',
+              type: 'color'
+            },
+            {
+              name: 'colorBorder',
+              title: 'Border color',
+              type: 'color'
+            },
+            {
+              name: 'colorTextHover',
+              title: 'Hover Text color',
+              type: 'color'
+            },
+            {
+              name: 'colorBackgroundHover',
+              title: 'Hover Background color',
+              type: 'color'
+            },
+            {
+              name: 'colorBorderHover',
+              title: 'Hover Border color',
+              type: 'color'
+            }
+          ]
+        }
+      ]
+    },
+    {
       title: 'Main navigation',
       name: 'mainNavigation',
       validation: Rule => Rule.required(),

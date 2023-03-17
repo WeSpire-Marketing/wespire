@@ -4,9 +4,26 @@ export default {
   title: 'Hero section with image and form',
   fields: [
     {
+      name: 'titleSmall',
+      type: 'object',
+      title: 'Section title H1 Small',
+      fields: [
+        {
+          name: 'title',
+          type: 'string',
+          title: 'Title H1'
+        },
+        {
+          name: 'colorText',
+          title: 'Text color',
+          type: 'color'
+        }
+      ]
+    },
+    {
       name: 'title',
       type: 'string',
-      title: 'Section title',
+      title: 'Section title H2',
       description: 'Wrap the word with <span> to show animation. Example: <span>Easy</span>',
       validation: Rule => Rule.required()
     },

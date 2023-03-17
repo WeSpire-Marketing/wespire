@@ -8,6 +8,7 @@ export default {
       type: 'array',
       title: 'List of page sections',
       of: [
+        { name: 'blank', type: 'blank' },
         { name: 'blogTemplate', type: 'blogTemplate' },
         { name: 'careersTemplate', type: 'careersTemplate' },
         { name: 'contactusTemplate', type: 'contactusTemplate' },

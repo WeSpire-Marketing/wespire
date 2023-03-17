@@ -38,7 +38,8 @@ export async function getServerSideProps({params}) {
     groq`
     *[_type == 'article' && slug.current == $slug][0]{
       ...,
-      "author": author->{ name, avatar },
+      "author": author->{ name, avatar, jobTitle, authorBio },
+      "showAuthorBio": showAuthorBio,
       "related": related[]->{
         imageData,
         "categories": categories[] -> {
@@ -61,6 +62,7 @@ export async function getServerSideProps({params}) {
       "categories": categories[]->{ title },
       "mainNavigation": *[_id == "global-config"][0].mainNavigation,
       "footerNavigation": *[_id == "global-config"][0].footerNavigation,
+      "ctaButton": *[_id == "global-config"][0].ctaButton,
       "headings": content[length(style) == 2 && string::startsWith(style, "h")]
     }`,
     {slug}
@@ -84,6 +86,7 @@ export default function Index({
     pageMeta,
     mainNavigation,
     footerNavigation,
+    ctaButton,
     categories,
     imageData,
     title,
@@ -95,6 +98,7 @@ export default function Index({
     related,
     ctaSection,
     slug,
+    showAuthorBio,
     excerpt,
     headings,
   },
@@ -118,7 +122,7 @@ export default function Index({
   return (
     <div className="articlepage bg-gallery">
       <PageMeta meta={pageMeta} />
-      <MainLayout config={{mainNavigation, footerNavigation}} template="articleTemplate">
+      <MainLayout config={{mainNavigation, footerNavigation, ctaButton}} template="articleTemplate">
         <article className="article bg-smart">
           <div className="container px-0 lg:px-8">
             <div className="inner pt-[160px] pb-[72px] lg:pt-[150px] lg:pb-[120px]">
@@ -247,7 +251,12 @@ export default function Index({
                   />
                 </div>
 
-                <BlogSidebar items={headings} slug={slug.current} />
+                <BlogSidebar
+                  items={headings}
+                  slug={slug.current}
+                  showAuthorBio={showAuthorBio}
+                  author={author}
+                />
               </div>
 
               <BackToBlog className="mb-[80px] lg:mb-[140px]" />
