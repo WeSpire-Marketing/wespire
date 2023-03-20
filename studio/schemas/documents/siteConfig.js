@@ -178,6 +178,43 @@ export default {
           ]
         },
         {
+          name: 'ctaSubmitButtonFormContactUs',
+          type: 'object',
+          title: 'Submit form button on Contact Us page',
+          fields: [
+            {
+              name: 'colorText',
+              title: 'Text color',
+              type: 'color'
+            },
+            {
+              name: 'colorBackground',
+              title: 'Background color',
+              type: 'color'
+            },
+            {
+              name: 'colorBorder',
+              title: 'Border color',
+              type: 'color'
+            },
+            {
+              name: 'colorTextHover',
+              title: 'Hover Text color',
+              type: 'color'
+            },
+            {
+              name: 'colorBackgroundHover',
+              title: 'Hover Background color',
+              type: 'color'
+            },
+            {
+              name: 'colorBorderHover',
+              title: 'Hover Border color',
+              type: 'color'
+            }
+          ]
+        },
+        {
           name: 'ctaSubmitButtonFormDark',
           type: 'object',
           title: 'Submit form button on section where BG is blue',

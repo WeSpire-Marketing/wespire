@@ -522,4 +522,8 @@
   #hubspotform[page='request-demo'] form div[class*='hs-submit'] input {
     @apply text-skin-ctaSubmitButtonFormRequestDemo-colorText hover:text-skin-ctaSubmitButtonFormRequestDemo-colorTextHover bg-skin-ctaSubmitButtonFormRequestDemo-colorBG hover:bg-skin-ctaSubmitButtonFormRequestDemo-colorBGHover border-skin-ctaSubmitButtonFormRequestDemo-colorBorder hover:border-skin-ctaSubmitButtonFormRequestDemo-colorBorderHover;
   }
+
+  #hubspotform[page='contact-us'] form div[class*='hs-submit'] input {
+    @apply text-skin-ctaSubmitButtonFormContactUs-colorText hover:text-skin-ctaSubmitButtonFormContactUs-colorTextHover bg-skin-ctaSubmitButtonFormContactUs-colorBG hover:bg-skin-ctaSubmitButtonFormContactUs-colorBGHover border-skin-ctaSubmitButtonFormContactUs-colorBorder hover:border-skin-ctaSubmitButtonFormContactUs-colorBorderHover;
+  }
 }

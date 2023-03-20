@@ -100,6 +100,14 @@ module.exports = {
             '--color-ctaSubmitButtonFormRequestDemo-colorTextHover',
             '--opacity-ctaSubmitButtonFormRequestDemo-colorTextHover'
           ),
+          'ctaSubmitButtonFormContactUs-colorText': color(
+            '--color-ctaSubmitButtonFormContactUs-colorText',
+            '--opacity-ctaSubmitButtonFormContactUs-colorText'
+          ),
+          'ctaSubmitButtonFormContactUs-colorTextHover': color(
+            '--color-ctaSubmitButtonFormContactUs-colorTextHover',
+            '--opacity-ctaSubmitButtonFormContactUs-colorTextHover'
+          ),
           'ctaSubmitButtonFormDark-colorText': color(
             '--color-ctaSubmitButtonFormDark-colorText',
             '--opacity-ctaSubmitButtonFormDark-colorText'
@@ -152,6 +160,14 @@ module.exports = {
             '--color-ctaSubmitButtonFormRequestDemo-colorBGHover',
             '--opacity-ctaSubmitButtonFormRequestDemo-colorBGHover'
           ),
+          'ctaSubmitButtonFormContactUs-colorBG': color(
+            '--color-ctaSubmitButtonFormContactUs-colorBG',
+            '--opacity-ctaSubmitButtonFormContactUs-colorBG'
+          ),
+          'ctaSubmitButtonFormContactUs-colorBGHover': color(
+            '--color-ctaSubmitButtonFormContactUs-colorBGHover',
+            '--opacity-ctaSubmitButtonFormContactUs-colorBGHover'
+          ),
           'ctaSubmitButtonFormDark-colorBG': color(
             '--color-ctaSubmitButtonFormDark-colorBG',
             '--opacity-ctaSubmitButtonFormDark-colorBG'
@@ -203,6 +219,14 @@ module.exports = {
           'ctaSubmitButtonFormRequestDemo-colorBorderHover': color(
             '--color-ctaSubmitButtonFormRequestDemo-colorBorderHover',
             '--opacity-ctaSubmitButtonFormRequestDemo-colorBorderHover'
+          ),
+          'ctaSubmitButtonFormContactUs-colorBorder': color(
+            '--color-ctaSubmitButtonFormContactUs-colorBorder',
+            '--opacity-ctaSubmitButtonFormContactUs-colorBorder'
+          ),
+          'ctaSubmitButtonFormContactUs-colorBorderHover': color(
+            '--color-ctaSubmitButtonFormContactUs-colorBorderHover',
+            '--opacity-ctaSubmitButtonFormContactUs-colorBorderHover'
           ),
           'ctaSubmitButtonFormDark-colorBorder': color(
             '--color-ctaSubmitButtonFormDark-colorBorder',
