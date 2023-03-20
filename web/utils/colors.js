@@ -41,6 +41,7 @@ export const variablesCss = (data) => {
     ctaButtonHeader,
     ctaSubmitButtonForm,
     ctaSubmitButtonFormRequestDemo,
+    ctaSubmitButtonFormContactUs,
     ctaSubmitButtonFormDark,
     ctaSubmitButtonFormLanding,
     ctaSectionButton,
@@ -127,6 +128,33 @@ export const variablesCss = (data) => {
     ctaSubmitButtonFormRequestDemo?.colorBorderHover
   )
 
+  const ctaSubmitButtonFormContactUsColorTextCss = getRGBAndOpacity(
+    'ctaSubmitButtonFormContactUs-colorText',
+    ctaSubmitButtonFormContactUs?.colorText
+  )
+  const ctaSubmitButtonFormContactUsColorTextHoverCss = getRGBAndOpacity(
+    'ctaSubmitButtonFormContactUs-colorTextHover',
+    ctaSubmitButtonFormContactUs?.colorTextHover
+  )
+
+  const ctaSubmitButtonFormContactUsColorBGCss = getRGBAndOpacity(
+    'ctaSubmitButtonFormContactUs-colorBG',
+    ctaSubmitButtonFormContactUs?.colorBackground
+  )
+  const ctaSubmitButtonFormContactUsColorBGHoverCss = getRGBAndOpacity(
+    'ctaSubmitButtonFormContactUs-colorBGHover',
+    ctaSubmitButtonFormContactUs?.colorBackgroundHover
+  )
+
+  const ctaSubmitButtonFormContactUsColorBorderCss = getRGBAndOpacity(
+    'ctaSubmitButtonFormContactUs-colorBorder',
+    ctaSubmitButtonFormContactUs?.colorBorder
+  )
+  const ctaSubmitButtonFormContactUsColorBorderHoverCss = getRGBAndOpacity(
+    'ctaSubmitButtonFormContactUs-colorBorderHover',
+    ctaSubmitButtonFormContactUs?.colorBorderHover
+  )
+
   const ctaSubmitButtonFormDarkColorTextCss = getRGBAndOpacity(
     'ctaSubmitButtonFormDark-colorText',
     ctaSubmitButtonFormDark?.colorText
@@ -208,5 +236,5 @@ export const variablesCss = (data) => {
     ctaSectionButton?.colorBorderHover
   )
 
-  return `${ctaButtonHeaderColorTextCss} ${ctaButtonHeaderColorTextHoverCss} ${ctaButtonHeaderColorBGCss} ${ctaButtonHeaderColorBGHoverCss} ${ctaButtonHeaderColorBorderCss} ${ctaButtonHeaderColorBorderHoverCss} ${ctaSubmitButtonFormColorTextCss} ${ctaSubmitButtonFormColorTextHoverCss} ${ctaSubmitButtonFormColorBGCss} ${ctaSubmitButtonFormColorBGHoverCss} ${ctaSubmitButtonFormColorBorderCss} ${ctaSubmitButtonFormColorBorderHoverCss} ${ctaSubmitButtonFormRequestDemoColorTextCss} ${ctaSubmitButtonFormRequestDemoColorTextHoverCss} ${ctaSubmitButtonFormRequestDemoColorBGCss} ${ctaSubmitButtonFormRequestDemoColorBGHoverCss} ${ctaSubmitButtonFormRequestDemoColorBorderCss} ${ctaSubmitButtonFormRequestDemoColorBorderHoverCss} ${ctaSubmitButtonFormDarkColorTextCss} ${ctaSubmitButtonFormDarkColorTextHoverCss} ${ctaSubmitButtonFormDarkColorBGCss} ${ctaSubmitButtonFormDarkColorBGHoverCss} ${ctaSubmitButtonFormDarkColorBorderCss} ${ctaSubmitButtonFormDarkColorBorderHoverCss} ${ctaSubmitButtonFormLandingColorTextCss} ${ctaSubmitButtonFormLandingColorTextHoverCss} ${ctaSubmitButtonFormLandingColorBGCss} ${ctaSubmitButtonFormLandingColorBGHoverCss} ${ctaSubmitButtonFormLandingColorBorderCss} ${ctaSubmitButtonFormLandingColorBorderHoverCss} ${ctaSectionButtonColorTextCss} ${ctaSectionButtonColorTextHoverCss} ${ctaSectionButtonColorBGCss} ${ctaSectionButtonColorBGHoverCss} ${ctaSectionButtonColorBorderCss} ${ctaSectionButtonColorBorderHoverCss}`
+  return `${ctaButtonHeaderColorTextCss} ${ctaButtonHeaderColorTextHoverCss} ${ctaButtonHeaderColorBGCss} ${ctaButtonHeaderColorBGHoverCss} ${ctaButtonHeaderColorBorderCss} ${ctaButtonHeaderColorBorderHoverCss} ${ctaSubmitButtonFormColorTextCss} ${ctaSubmitButtonFormColorTextHoverCss} ${ctaSubmitButtonFormColorBGCss} ${ctaSubmitButtonFormColorBGHoverCss} ${ctaSubmitButtonFormColorBorderCss} ${ctaSubmitButtonFormColorBorderHoverCss} ${ctaSubmitButtonFormRequestDemoColorTextCss} ${ctaSubmitButtonFormRequestDemoColorTextHoverCss} ${ctaSubmitButtonFormRequestDemoColorBGCss} ${ctaSubmitButtonFormRequestDemoColorBGHoverCss} ${ctaSubmitButtonFormRequestDemoColorBorderCss} ${ctaSubmitButtonFormRequestDemoColorBorderHoverCss} ${ctaSubmitButtonFormContactUsColorTextCss} ${ctaSubmitButtonFormContactUsColorTextHoverCss} ${ctaSubmitButtonFormContactUsColorBGCss} ${ctaSubmitButtonFormContactUsColorBGHoverCss} ${ctaSubmitButtonFormContactUsColorBorderCss} ${ctaSubmitButtonFormContactUsColorBorderHoverCss} ${ctaSubmitButtonFormDarkColorTextCss} ${ctaSubmitButtonFormDarkColorTextHoverCss} ${ctaSubmitButtonFormDarkColorBGCss} ${ctaSubmitButtonFormDarkColorBGHoverCss} ${ctaSubmitButtonFormDarkColorBorderCss} ${ctaSubmitButtonFormDarkColorBorderHoverCss} ${ctaSubmitButtonFormLandingColorTextCss} ${ctaSubmitButtonFormLandingColorTextHoverCss} ${ctaSubmitButtonFormLandingColorBGCss} ${ctaSubmitButtonFormLandingColorBGHoverCss} ${ctaSubmitButtonFormLandingColorBorderCss} ${ctaSubmitButtonFormLandingColorBorderHoverCss} ${ctaSectionButtonColorTextCss} ${ctaSectionButtonColorTextHoverCss} ${ctaSectionButtonColorBGCss} ${ctaSectionButtonColorBGHoverCss} ${ctaSectionButtonColorBorderCss} ${ctaSectionButtonColorBorderHoverCss}`
 }
