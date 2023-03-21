@@ -76,6 +76,10 @@ module.exports = {
             '--color-h1SmallTitle-colorText',
             '--opacity-h1SmallTitle-colorText'
           ),
+          'h1SmallTitleLanding-colorText': color(
+            '--color-h1SmallTitleLanding-colorText',
+            '--opacity-h1SmallTitleLanding-colorText'
+          ),
           'ctaButtonHeader-colorText': color(
             '--color-ctaButtonHeader-colorText',
             '--opacity-ctaButtonHeader-colorText'

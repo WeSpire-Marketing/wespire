@@ -23,7 +23,7 @@ export default {
     {
       name: 'title',
       type: 'string',
-      title: 'Section title',
+      title: 'Section title H2. If not H1 small, this title will be H1',
       description: 'Wrap the word with <span> to show animation. Example: <span>Easy</span>',
       validation: Rule => Rule.required()
     },
