@@ -40,9 +40,26 @@ export default {
       validation: Rule => Rule.required()
     },
     {
+      name: 'titleSmall',
+      type: 'object',
+      title: 'Section title H1 Small',
+      fields: [
+        {
+          name: 'title',
+          type: 'string',
+          title: 'Title H1'
+        },
+        {
+          name: 'colorText',
+          title: 'Text color',
+          type: 'color'
+        }
+      ]
+    },
+    {
       name: 'title',
       type: 'string',
-      title: 'Section title',
+      title: 'Section title H2. If not H1 small, this title will be H1',
       description: 'Wrap the word with <span> to enable animation. Example: <span>Easy</span>',
       validation: Rule => Rule.required()
     },
