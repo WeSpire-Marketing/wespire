@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import {useNextSanityImage} from 'next-sanity-image'
 import {PortableText} from '@portabletext/react'
-
+import {FAQPageJsonLd} from 'next-seo'
 import Icon from '../../icons/AnimatedMarksEnd'
 
 import client, {urlForImage} from '../../../client'
@@ -22,15 +22,20 @@ export default function HeroImageAndForm({
   link,
   image,
   formId = '',
+  listFAQ,
 }) {
   const imageProps = useNextSanityImage(client, image)
 
   const colorTextCss = getRGBAndOpacity('h1SmallTitle-colorText', titleSmall?.colorText)
+  const mainEntity =
+    Boolean(listFAQ) &&
+    listFAQ.map((card) => ({questionName: card.question, acceptedAnswerText: card.answer}))
 
   return (
     <>
       <Head>
         <style>:root {`{${colorTextCss}}`}</style>
+        {mainEntity && <FAQPageJsonLd mainEntity={mainEntity} />}
       </Head>
 
       <section
