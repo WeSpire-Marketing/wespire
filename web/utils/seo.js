@@ -45,3 +45,25 @@ export const linkTags = [
     href: '/assets/favicon/favicon.ico',
   },
 ]
+
+export const createSeoScript = (listFAQ) => {
+  const mainEntity = listFAQ.map((card) => ({
+    '@type': 'Question',
+    name: card.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: card.answer,
+    },
+  }))
+  const faqData = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity,
+  }
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{__html: JSON.stringify(faqData)}}
+    />
+  )
+}

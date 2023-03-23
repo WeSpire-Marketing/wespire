@@ -20,6 +20,7 @@ export default function HeroVideoAndForm({
   link,
   video,
   formId = '',
+  listFAQ,
 }) {
   const colorTextCss = getRGBAndOpacity('h1SmallTitle-colorText', titleSmall?.colorText)
 
@@ -27,6 +28,7 @@ export default function HeroVideoAndForm({
     <>
       <Head>
         <style>:root {`{${colorTextCss}}`}</style>
+        {Boolean(listFAQ?.length) && createSeoScript(listFAQ)}
       </Head>
 
       <section

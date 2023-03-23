@@ -11,6 +11,7 @@ import {HubspotForm} from '../../forms'
 import {portableHyperlinkLight} from '../../../utils/portableHyperlink'
 import Head from 'next/head'
 import {getRGBAndOpacity} from '../../../utils/colors'
+import {createSeoScript} from '../../../utils/seo'
 
 export default function HeroImageAndForm({
   className = '',
@@ -26,32 +27,12 @@ export default function HeroImageAndForm({
   const imageProps = useNextSanityImage(client, image)
 
   const colorTextCss = getRGBAndOpacity('h1SmallTitle-colorText', titleSmall?.colorText)
-  const mainEntity =
-    Boolean(listFAQ) &&
-    listFAQ.map((card) => ({
-      '@type': 'Question',
-      name: card.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: card.answer,
-      },
-    }))
-  const faqData = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity,
-  }
 
   return (
     <>
       <Head>
         <style>:root {`{${colorTextCss}}`}</style>
-        {Boolean(mainEntity?.length) && (
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{__html: JSON.stringify(faqData)}}
-          />
-        )}
+        {Boolean(listFAQ?.length) && createSeoScript(listFAQ)}
       </Head>
 
       <section

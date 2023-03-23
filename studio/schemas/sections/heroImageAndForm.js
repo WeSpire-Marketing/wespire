@@ -159,7 +159,7 @@ export default {
             },
             {
               name: 'answer',
-              type: 'string',
+              type: 'text',
               title: 'Answer',
               validation: Rule => Rule.required()
             }
