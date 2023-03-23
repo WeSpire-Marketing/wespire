@@ -1,4 +1,12 @@
-import { BookIcon, PlayIcon, ArchiveIcon, ImageIcon, BlockquoteIcon } from '@sanity/icons'
+import {
+  BookIcon,
+  PlayIcon,
+  ArchiveIcon,
+  ImageIcon,
+  BlockquoteIcon,
+  OlistIcon,
+  InfoOutlineIcon
+} from '@sanity/icons'
 import { FcBookmark, TableOfContent } from '../helpers/blockContentComponents'
 
 export default {
@@ -51,6 +59,45 @@ export default {
           return true
         })
       }
+    },
+    {
+      name: 'listFAQ',
+      title: 'List of optional FAQ',
+      type: 'array',
+      icon: OlistIcon,
+      of: [
+        {
+          name: 'cardFAQ',
+          title: 'Card FAQ',
+          type: 'object',
+          icon: InfoOutlineIcon,
+          preview: {
+            select: {
+              title: 'question'
+            },
+            prepare({ title }) {
+              return {
+                title,
+                media: InfoOutlineIcon
+              }
+            }
+          },
+          fields: [
+            {
+              name: 'question',
+              type: 'string',
+              title: 'Question',
+              validation: Rule => Rule.required()
+            },
+            {
+              name: 'answer',
+              type: 'text',
+              title: 'Answer',
+              validation: Rule => Rule.required()
+            }
+          ]
+        }
+      ]
     },
     {
       name: 'imageData',

@@ -22,6 +22,7 @@ import client, {urlForImage} from '../../client'
 
 import localDataURL from '../../assets/images/blur-placeholder.jpg'
 import HubspotForm from '../../components/forms/HubspotForm'
+import {createSeoScript} from '../../utils/seo'
 
 const constFormId = Object.freeze({
   'Saturday Spark': '2c551e2c-55f8-4611-9fb9-fb04236d21b6',
@@ -101,6 +102,7 @@ export default function Index({
     showAuthorBio,
     excerpt,
     headings,
+    listFAQ,
   },
 }) {
   useCustomScrollBehavior()
@@ -122,6 +124,7 @@ export default function Index({
   return (
     <div className="articlepage bg-gallery">
       <PageMeta meta={pageMeta} />
+      {Boolean(listFAQ?.length) && createSeoScript(listFAQ)}
       <MainLayout config={{mainNavigation, footerNavigation, ctaButton}} template="articleTemplate">
         <article className="article bg-smart">
           <div className="container px-0 lg:px-8">
