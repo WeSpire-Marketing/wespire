@@ -89,7 +89,7 @@ const myPortableTextComponents = {
       const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined
       const target = value?.blank ? '_blank' : undefined
       return (
-        <a href={value.href} rel={rel} target={target}>
+        <a href={value.href} rel={rel} target={target} className="contents">
           {children}
         </a>
       )
