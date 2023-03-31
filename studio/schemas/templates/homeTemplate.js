@@ -15,6 +15,7 @@ export default {
       title: 'Page sections',
       fields: [
         { name: 'heroSection', type: 'heroSection' },
+        { name: 'upcomingEventSection', type: 'upcomingEventSection' },
         { name: 'longSection', type: 'longSection' },
         { name: 'sliderSection', type: 'sliderSection' },
         { name: 'cardsSection', type: 'cardsSection' },

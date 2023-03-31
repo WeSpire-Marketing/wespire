@@ -76,6 +76,7 @@ import awardsSection from './sections/awardsSection'
 import heroFormVideo from './sections/heroFormVideo'
 import ourCustomersSection from './sections/ourCustomersSection'
 import heroCTASection from './sections/heroCTASection'
+import upcomingEventSection from './sections/upcomingEventSection'
 
 // templates
 import blogTemplate from './templates/blogTemplate'
@@ -160,6 +161,7 @@ export default createSchema({
     sectionsBuilder,
     heroImageAndForm,
     heroVideoAndForm,
+    upcomingEventSection,
 
     // other types
     video,

@@ -3,6 +3,7 @@ import RenderSections from '../../RenderSections'
 const HomeTemplate = ({sections}) => {
   const sectionsArr = []
   sectionsArr.push(sections.heroSection)
+  sectionsArr.push(sections.upcomingEventSection)
   sectionsArr.push(sections.longSection)
   sectionsArr.push(sections.sliderSection)
   sectionsArr.push(sections.cardsSection)
