@@ -17,7 +17,7 @@ export default function UpcomingEventSection(props) {
 
   return (
     Boolean(showSection) && (
-      <section className="upcomingeventsection relative overflow-hidden bg-gallery pt-[70px] sm:pt-[70px] md:pt-[70px] pb-[25px] lg:pt-[136px]">
+      <section className="upcomingeventsection relative overflow-hidden bg-gallery pt-[70px]">
         <div
           className="container px-2
         sm:px-6
