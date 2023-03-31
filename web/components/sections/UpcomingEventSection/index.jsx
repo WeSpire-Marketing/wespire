@@ -24,7 +24,7 @@ export default function UpcomingEventSection(props) {
         lg:px-8"
         >
           <div
-            className="flex md:grid md:grid-cols-1 lg:grid-cols-2 lg:gap-6 bg-smart shadow-[0px_12px_40px_rgba(169,169,169,0.15)]
+            className="flex md:grid md:grid-cols-1 lg:grid-cols-[0.8fr_1fr] lg:gap-6 bg-smart shadow-[0px_12px_40px_rgba(169,169,169,0.15)]
       rounded-[16px] lg:shadow-none py-16 px-6 lg:py-[92px] lg:px-[79px]"
           >
             <div className="flex-1 text-white">
@@ -76,17 +76,16 @@ export default function UpcomingEventSection(props) {
                 </a>
               )}
             </div>
-            <div className="hidden md:flex items-center w-full pt-6">
-              <div className="relative w-full overflow-hidden rounded-[16px]">
+            <div className="hidden md:flex items-center w-full pt-6 md:px-6 lg:px-0">
+              <div className="relative w-full overflow-hidden rounded-[16px] mb-auto">
                 <Image
                   src={urlForImage(imageData.image).fit('max').url()}
                   blurDataURL={blurDataUrl ?? localDataURL.blurDataURL}
                   layout="responsive"
                   placeholder="blur"
                   alt={imageData.alt}
-                  quality={100}
-                  height={375}
-                  width={600}
+                  width={530}
+                  height={276}
                 />
               </div>
             </div>
