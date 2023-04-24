@@ -11,12 +11,22 @@ import {injectIconToSpanStr} from '../../../utils'
 import {getRGBAndOpacity} from '../../../utils/colors'
 import Head from 'next/head'
 
-export default function HeroForm({link, titleSmall, title, subtitle, formId, image, sponsors}) {
+export default function HeroForm({
+  link,
+  titleSmall,
+  title,
+  subtitle,
+  formId,
+  image,
+  sponsors,
+  listFAQ,
+}) {
   const colorTextCss = getRGBAndOpacity('h1SmallTitleLanding-colorText', titleSmall?.colorText)
   return (
     <>
       <Head>
         <style>:root {`{${colorTextCss}}`}</style>
+        {Boolean(listFAQ?.length) && createSeoScript(listFAQ)}
       </Head>
 
       <section className="hero-form bg-thriving pt-[170px] pb-[70px] lg:pt-6 lg:pb-[100px]">
