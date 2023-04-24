@@ -69,6 +69,7 @@ module.exports = {
         cta: "url('../assets/images/ctaBg.png')",
         ctaMobileBg: "url('../assets/images/girl.png')",
         quotes: "url('../assets/images/quotesIcon.svg')",
+        heroForm: "url('../assets/images/heroFormBg.svg')",
       },
       textColor: {
         skin: {

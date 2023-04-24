@@ -11,7 +11,16 @@ import {injectIconToSpanStr} from '../../../utils'
 import {getRGBAndOpacity} from '../../../utils/colors'
 import Head from 'next/head'
 
-export default function HeroForm({link, titleSmall, title, subtitle, formId, image, sponsors}) {
+export default function HeroForm({
+  link,
+  titleSmall,
+  title,
+  subtitle,
+  formId,
+  image,
+  sponsors,
+  type = '',
+}) {
   const colorTextCss = getRGBAndOpacity('h1SmallTitleLanding-colorText', titleSmall?.colorText)
   return (
     <>
@@ -98,8 +107,11 @@ export default function HeroForm({link, titleSmall, title, subtitle, formId, ima
             </div>
 
             <motion.div
-              className="hero-form__body-right w-full
-            lg:w-1/2 self-start"
+              className={`hero-form__body-right w-full
+            lg:w-1/2 self-start ${
+              Boolean(type?.length) &&
+              'lg:bg-heroForm lg:bg-no-repeat lg:bg-contain lg:bg-right-top'
+            }`}
               initial={{opacity: 0, y: -100}}
               whileInView={{opacity: 1, y: 0}}
               viewport={{once: true}}
