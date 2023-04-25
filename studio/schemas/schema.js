@@ -82,6 +82,7 @@ import upcomingEventSection from './sections/upcomingEventSection'
 import blogTemplate from './templates/blogTemplate'
 import homeTemplate from './templates/homeTemplate'
 import landingTemplate from './templates/landingTemplate'
+import landingTemplateCompetitor from './templates/landingTemplateCompetitor'
 import landingTemplateSocialProof from './templates/landingTemplateSocialProof'
 import productTemplate from './templates/productTemplate'
 import productVideoTemplate from './templates/productVideoTemplate'
@@ -127,6 +128,7 @@ export default createSchema({
     landingTemplate,
     landingTemplateSocialProof,
     leadershipTemplate,
+    landingTemplateCompetitor,
     // sections
     hero,
     heroForm,
