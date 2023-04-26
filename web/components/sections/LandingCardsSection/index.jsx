@@ -5,6 +5,7 @@ import {injectIconToSpanStr} from '../../../utils'
 import CardBase from '../../CardBase'
 import {urlForImage} from '../../../client'
 import Image from 'next/image'
+import Link from 'next/link'
 
 function LandingCardsSection({panelTitle, panelSubtitle, cards}) {
   return (
