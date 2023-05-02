@@ -23,6 +23,7 @@ import client, {urlForImage} from '../../client'
 import localDataURL from '../../assets/images/blur-placeholder.jpg'
 import HubspotForm from '../../components/forms/HubspotForm'
 import {createSeoScript} from '../../utils/seo'
+import GoogleFAQSection from '../../components/sections/GoogleFAQSection'
 
 const constFormId = Object.freeze({
   'Saturday Spark': '2c551e2c-55f8-4611-9fb9-fb04236d21b6',
@@ -105,6 +106,7 @@ export default function Index({
     listFAQ,
   },
 }) {
+  console.log(listFAQ)
   useCustomScrollBehavior()
   const [formattedDate, setFormattedDate] = useState(null)
   const imageProps = useNextSanityImage(client, imageData.image)
@@ -124,7 +126,7 @@ export default function Index({
   return (
     <div className="articlepage bg-gallery">
       <PageMeta meta={pageMeta} />
-      {Boolean(listFAQ?.length) && createSeoScript(listFAQ)}
+      {Boolean(listFAQ?.showFAQ) && createSeoScript(listFAQ.listFAQ)}
       <MainLayout config={{mainNavigation, footerNavigation, ctaButton}} template="articleTemplate">
         <article className="article bg-smart">
           <div className="container px-0 lg:px-8">
@@ -270,7 +272,7 @@ export default function Index({
             </div>
           </div>
         </article>
-
+        {Boolean(listFAQ?.showFAQ) && <GoogleFAQSection {...listFAQ} />}
         <CtaSection title={ctaSection.title} link={ctaSection.link} />
       </MainLayout>
     </div>

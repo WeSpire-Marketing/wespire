@@ -1,9 +1,11 @@
 import RenderSections from '../../RenderSections'
 
 const ProductTemplate = ({sections}) => {
+  console.log(sections)
   const sectionsArr = []
   sectionsArr.push(sections.heroImageAndForm)
   sectionsArr.push(sections.contentSection)
+  // sectionsArr.push(sections.googleFAQ)
   sectionsArr.push(sections.ctaSection)
   sectionsArr.map((s) => (s._key = s._type))
   return (

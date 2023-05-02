@@ -42,7 +42,7 @@ import subscribeForm from './objects/subscribeForm'
 import authorsQuoteForm from './objects/authorsQuoteForm'
 import textCol from './objects/textCol'
 import sectionsBuilder from './objects/sectionsBuilder'
-import googleFAQ from './objects/googleFAQ'
+import googleFAQSection from './objects/googleFAQ'
 
 // sections
 import hero from './sections/hero'
@@ -178,7 +178,7 @@ export default createSchema({
     cta,
     embedHTML,
     figure,
-    googleFAQ,
+    googleFAQSection,
     // hero,
     // imageSection,
     internalLink,
