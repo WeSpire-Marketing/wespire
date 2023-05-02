@@ -15,6 +15,7 @@ export default {
         { name: 'customersTemplate', type: 'customersTemplate' },
         { name: 'homeTemplate', type: 'homeTemplate' },
         { name: 'landingTemplate', type: 'landingTemplate' },
+        { name: 'landingTemplateCompetitor', type: 'landingTemplateCompetitor' },
         { name: 'landingTemplateSocialProof', type: 'landingTemplateSocialProof' },
         { name: 'landingVideoTemplate', type: 'landingVideoTemplate' },
         { name: 'leadershipTemplate', type: 'leadershipTemplate' },

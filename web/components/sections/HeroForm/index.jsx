@@ -20,6 +20,7 @@ export default function HeroForm({
   image,
   sponsors,
   listFAQ,
+  type = '',
 }) {
   const colorTextCss = getRGBAndOpacity('h1SmallTitleLanding-colorText', titleSmall?.colorText)
   return (
@@ -108,8 +109,11 @@ export default function HeroForm({
             </div>
 
             <motion.div
-              className="hero-form__body-right w-full
-            lg:w-1/2 self-start"
+              className={`hero-form__body-right w-full
+            lg:w-1/2 self-start ${
+              Boolean(type?.length) &&
+              'lg:bg-heroForm lg:bg-no-repeat lg:bg-contain lg:bg-right-top'
+            }`}
               initial={{opacity: 0, y: -100}}
               whileInView={{opacity: 1, y: 0}}
               viewport={{once: true}}
