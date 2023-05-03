@@ -42,7 +42,10 @@ const AccordionItem = ({question, answer}) => {
               },
             }}
           >
-            <AccordionIcon color={isOpen ? '#1771DC' : '#121212'} />
+            <AccordionIcon
+              className={!isOpen && 'rotate-180'}
+              color={isOpen ? '#1771DC' : '#121212'}
+            />
           </motion.div>
         </AnimatePresence>
       </div>
