@@ -10,6 +10,7 @@ import SignMeUpWithNamesForm from '../../forms/SignMeUpWithNamesForm'
 import {injectIconToSpanStr} from '../../../utils'
 import {getRGBAndOpacity} from '../../../utils/colors'
 import Head from 'next/head'
+import {createSeoScript} from '../../../utils/seo'
 
 export default function HeroForm({
   link,

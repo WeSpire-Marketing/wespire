@@ -106,7 +106,6 @@ export default function Index({
     listFAQ,
   },
 }) {
-  console.log(listFAQ)
   useCustomScrollBehavior()
   const [formattedDate, setFormattedDate] = useState(null)
   const imageProps = useNextSanityImage(client, imageData.image)

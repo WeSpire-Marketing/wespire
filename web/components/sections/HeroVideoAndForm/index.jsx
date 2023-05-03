@@ -10,6 +10,7 @@ import {HubspotForm} from '../../forms'
 import {portableHyperlinkLight} from '../../../utils/portableHyperlink'
 import Head from 'next/head'
 import {getRGBAndOpacity} from '../../../utils/colors'
+import {createSeoScript} from '../../../utils/seo'
 
 export default function HeroVideoAndForm({
   className = '',

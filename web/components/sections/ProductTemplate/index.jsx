@@ -1,11 +1,15 @@
 import RenderSections from '../../RenderSections'
 
 const ProductTemplate = ({sections}) => {
-  console.log(sections)
   const sectionsArr = []
+  if (Boolean(sections?.googleFAQSection?.showFAQ)) {
+    sections.heroImageAndForm.listFAQ = sections.googleFAQSection.listFAQ
+  }
   sectionsArr.push(sections.heroImageAndForm)
   sectionsArr.push(sections.contentSection)
-  // sectionsArr.push(sections.googleFAQ)
+  if (Boolean(sections?.googleFAQSection?.showFAQ)) {
+    sectionsArr.push(sections.googleFAQSection)
+  }
   sectionsArr.push(sections.ctaSection)
   sectionsArr.map((s) => (s._key = s._type))
   return (

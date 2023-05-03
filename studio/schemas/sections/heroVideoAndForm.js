@@ -115,45 +115,6 @@ export default {
       description: 'Paste URL from Youtube or Vimeo',
       type: 'videoId',
       validation: Rule => Rule.required()
-    },
-    {
-      name: 'listFAQ',
-      title: 'List of optional FAQ',
-      type: 'array',
-      icon: OlistIcon,
-      of: [
-        {
-          name: 'cardFAQ',
-          title: 'Card FAQ',
-          type: 'object',
-          icon: InfoOutlineIcon,
-          preview: {
-            select: {
-              title: 'question'
-            },
-            prepare({ title }) {
-              return {
-                title,
-                media: InfoOutlineIcon
-              }
-            }
-          },
-          fields: [
-            {
-              name: 'question',
-              type: 'string',
-              title: 'Question',
-              validation: Rule => Rule.required()
-            },
-            {
-              name: 'answer',
-              type: 'text',
-              title: 'Answer',
-              validation: Rule => Rule.required()
-            }
-          ]
-        }
-      ]
     }
   ]
 }

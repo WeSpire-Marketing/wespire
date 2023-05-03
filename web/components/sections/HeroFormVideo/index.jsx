@@ -12,6 +12,7 @@ import {PortableText} from '@portabletext/react'
 import {landingPortableHyperlink} from '../../../utils/portableHyperlink'
 import {getRGBAndOpacity} from '../../../utils/colors'
 import Head from 'next/head'
+import {createSeoScript} from '../../../utils/seo'
 
 export default function HeroFormVideo({
   link,
@@ -21,12 +22,14 @@ export default function HeroFormVideo({
   formId,
   video,
   sponsors,
+  listFAQ,
 }) {
   const colorTextCss = getRGBAndOpacity('h1SmallTitleLanding-colorText', titleSmall?.colorText)
   return (
     <>
       <Head>
         <style>:root {`{${colorTextCss}}`}</style>
+        {Boolean(listFAQ?.length) && createSeoScript(listFAQ)}
       </Head>
 
       <section className="hero-form-video bg-thriving pt-[170px] pb-[70px] lg:pt-6 lg:pb-[100px]">
