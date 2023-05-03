@@ -43,6 +43,7 @@ export default {
           title: 'Awards section',
           type: 'awardsSection'
         },
+        { name: 'googleFAQSection', type: 'googleFAQSection' },
         {
           name: 'ctaSection',
           title: 'CTA section',

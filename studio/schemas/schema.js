@@ -42,6 +42,7 @@ import subscribeForm from './objects/subscribeForm'
 import authorsQuoteForm from './objects/authorsQuoteForm'
 import textCol from './objects/textCol'
 import sectionsBuilder from './objects/sectionsBuilder'
+import googleFAQSection from './objects/googleFAQ'
 
 // sections
 import hero from './sections/hero'
@@ -100,7 +101,6 @@ import landingVideoTemplate from './templates/landingVideoTemplate'
 import privacyPolicyTemplate from './templates/privacyPolicyTemplate'
 import solutionsOverviewTemplate from './templates/solutionsOverviewTemplate'
 import blank from './templates/blank'
-
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   name: 'default',
@@ -178,6 +178,7 @@ export default createSchema({
     cta,
     embedHTML,
     figure,
+    googleFAQSection,
     // hero,
     // imageSection,
     internalLink,

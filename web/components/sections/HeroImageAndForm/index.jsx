@@ -25,7 +25,6 @@ export default function HeroImageAndForm({
   listFAQ,
 }) {
   const imageProps = useNextSanityImage(client, image)
-
   const colorTextCss = getRGBAndOpacity('h1SmallTitle-colorText', titleSmall?.colorText)
 
   return (

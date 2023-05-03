@@ -10,6 +10,7 @@ import SignMeUpWithNamesForm from '../../forms/SignMeUpWithNamesForm'
 import {injectIconToSpanStr} from '../../../utils'
 import {getRGBAndOpacity} from '../../../utils/colors'
 import Head from 'next/head'
+import {createSeoScript} from '../../../utils/seo'
 
 export default function HeroForm({
   link,
@@ -19,6 +20,7 @@ export default function HeroForm({
   formId,
   image,
   sponsors,
+  listFAQ,
   type = '',
 }) {
   const colorTextCss = getRGBAndOpacity('h1SmallTitleLanding-colorText', titleSmall?.colorText)
@@ -26,6 +28,7 @@ export default function HeroForm({
     <>
       <Head>
         <style>:root {`{${colorTextCss}}`}</style>
+        {Boolean(listFAQ?.length) && createSeoScript(listFAQ)}
       </Head>
 
       <section className="hero-form bg-thriving pt-[170px] pb-[70px] lg:pt-6 lg:pb-[100px]">

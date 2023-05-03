@@ -16,6 +16,7 @@ export default {
       fields: [
         { name: 'heroVideoAndForm', type: 'heroVideoAndForm' },
         { name: 'contentSection', type: 'contentSection' },
+        { name: 'googleFAQSection', type: 'googleFAQSection' },
         { name: 'ctaSection', type: 'ctaSection' }
       ]
     }
