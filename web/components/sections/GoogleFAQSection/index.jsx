@@ -1,4 +1,4 @@
-import React, {useState, memo} from 'react'
+import React, {useState} from 'react'
 import Icon from '../../icons/AnimatedMarksEnd'
 import AccordionIcon from '../../icons/AccordionArrow'
 import {injectIconToSpanStr} from '../../../utils'
@@ -26,7 +26,6 @@ const AccordionItem = ({question, answer}) => {
               rotate: isOpen ? -90 : 90,
             }}
             animate={{
-              zIndex: 1,
               rotate: 0,
               transition: {
                 type: 'tween',
@@ -35,7 +34,6 @@ const AccordionItem = ({question, answer}) => {
               },
             }}
             exit={{
-              zIndex: 0,
               rotate: isOpen ? -90 : 90,
               transition: {
                 type: 'tween',
@@ -44,10 +42,7 @@ const AccordionItem = ({question, answer}) => {
               },
             }}
           >
-            <AccordionIcon
-              className={`${!isOpen && 'rotate-180'}`}
-              color={isOpen ? '#1771DC' : '#121212'}
-            />
+            <AccordionIcon color={isOpen ? '#1771DC' : '#121212'} />
           </motion.div>
         </AnimatePresence>
       </div>
@@ -84,9 +79,10 @@ const AccordionItem = ({question, answer}) => {
               },
             }}
             key="test"
-            className="body-m text-secondary max-w-[952px] w-full pt-6 pr-6 ml:pr-0"
           >
-            {answer}
+            <div className="body-m text-secondary max-w-[952px] w-full pt-6 pr-6 ml:pr-0">
+              {answer}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -94,7 +90,6 @@ const AccordionItem = ({question, answer}) => {
   )
 }
 
-const AccordionItemMemo = memo(AccordionItem)
 export default function GoogleFAQSection({title, listFAQ}) {
   return (
     <section
@@ -118,7 +113,7 @@ export default function GoogleFAQSection({title, listFAQ}) {
         </h2>
         <div>
           {Boolean(listFAQ?.length) &&
-            listFAQ.map((faq) => <AccordionItemMemo key={faq._key} {...faq} />)}
+            listFAQ.map((faq) => <AccordionItem key={faq._key} {...faq} />)}
         </div>
       </div>
     </section>
