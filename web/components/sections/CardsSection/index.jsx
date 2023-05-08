@@ -2,14 +2,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 import CardBase from '../../CardBase'
-import BlogCard from '../../BlogCard'
-import Icon2 from '../../icons/AnimatedMarks'
 import Icon1 from '../../icons/AnimatedSparkle'
 
 import {urlForImage} from '../../../client'
 import {injectIconToSpanStr} from '../../../utils'
 
-const CardsSection = ({blogs, cards, panelTitle = '', panelSubtitle = '', blogsTitle = ''}) => {
+const CardsSection = ({cards, panelTitle = '', panelSubtitle = '', blogsTitle = ''}) => {
   return (
     <section
       className="carection overflow-hidden bg-gallery py-[100px]
@@ -20,10 +18,8 @@ const CardsSection = ({blogs, cards, panelTitle = '', panelSubtitle = '', blogsT
       <div className="container px-0 lg:px-8">
         <div className="carection__inner">
           <CardBase
-            className="mb-[120px] rounded-[30px] bg-smart px-4 py-[48px]
-            sm:mb-[128px] sm:py-[50px]
-            md:mb-[136px] md:py-[62px]
-            lg:mb-[140px] lg:rounded-[40px] lg:py-[84px] lg:px-[40px]"
+            className="rounded-[30px] bg-smart px-4 py-[48px] sm:py-[50px]
+            md:py-[62px] lg:rounded-[40px] lg:py-[84px] lg:px-[40px]"
           >
             <h2 className="carection__title heading-2 mb-2 text-center text-white lg:mb-4">
               {injectIconToSpanStr(panelTitle, () => (
@@ -92,33 +88,6 @@ const CardsSection = ({blogs, cards, panelTitle = '', panelSubtitle = '', blogsT
               })}
             </div>
           </CardBase>
-
-          <h2
-            className="carection__title heading-2 mx-auto mb-6
-            max-w-[65%] text-center text-black lg:mb-12"
-          >
-            {injectIconToSpanStr(blogsTitle, () => (
-              <Icon2
-                className="absolute left-[-30px] top-[-40px] max-w-[37px] lg:top-[-45px]
-                lg:left-[-60px] lg:max-w-none"
-              />
-            ))}
-          </h2>
-
-          <ul
-            className="carection__blogs grid grid-cols-1 gap-6 px-4
-            sm:grid-cols-2
-            lg:grid-cols-3 lg:px-0"
-          >
-            {blogs?.length > 0 &&
-              blogs.map((blogData, idx) => {
-                return (
-                  <li className="flex" key={blogData.slug.current + idx}>
-                    <BlogCard {...blogData} />
-                  </li>
-                )
-              })}
-          </ul>
         </div>
       </div>
     </section>

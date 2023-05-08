@@ -29,7 +29,7 @@ content {
       ...,
       "sections": sections{
         ...,
-        "cardsSection": cardsSection{
+        "blogCardsSection": blogCardsSection{
           ...,
           "blogs": blogs[] -> {
             imageData,
@@ -42,7 +42,147 @@ content {
             excerpt,
             slug,
           }
-        },
+        }
+      },
+    },
+        _type == 'personaTemplate' => {
+      ...,
+      "sections": sections{
+        ...,
+        "blogCardsSection": blogCardsSection{
+          ...,
+          "blogs": blogs[] -> {
+            imageData,
+            "categories": categories[] -> {
+              title,
+              color,
+            },
+            title,
+            publishedAt,
+            excerpt,
+            slug,
+          }
+        }
+      },
+    },
+      _type == 'landingTemplate' => {
+      ...,
+      "sections": sections{
+        ...,
+        "blogCardsSection": blogCardsSection{
+          ...,
+          "blogs": blogs[] -> {
+            imageData,
+            "categories": categories[] -> {
+              title,
+              color,
+            },
+            title,
+            publishedAt,
+            excerpt,
+            slug,
+          }
+        }
+      },
+    },
+      _type == 'landingTemplateCompetitor' => {
+      ...,
+      "sections": sections{
+        ...,
+        "blogCardsSection": blogCardsSection{
+          ...,
+          "blogs": blogs[] -> {
+            imageData,
+            "categories": categories[] -> {
+              title,
+              color,
+            },
+            title,
+            publishedAt,
+            excerpt,
+            slug,
+          }
+        }
+      },
+    },
+      _type == 'landingTemplateSocialProof' => {
+      ...,
+      "sections": sections{
+        ...,
+        "blogCardsSection": blogCardsSection{
+          ...,
+          "blogs": blogs[] -> {
+            imageData,
+            "categories": categories[] -> {
+              title,
+              color,
+            },
+            title,
+            publishedAt,
+            excerpt,
+            slug,
+          }
+        }
+      },
+    },
+      _type == 'landingVideoTemplate' => {
+      ...,
+      "sections": sections{
+        ...,
+        "blogCardsSection": blogCardsSection{
+          ...,
+          "blogs": blogs[] -> {
+            imageData,
+            "categories": categories[] -> {
+              title,
+              color,
+            },
+            title,
+            publishedAt,
+            excerpt,
+            slug,
+          }
+        }
+      },
+    },
+      _type == 'productTemplate' => {
+      ...,
+      "sections": sections{
+        ...,
+        "blogCardsSection": blogCardsSection{
+          ...,
+          "blogs": blogs[] -> {
+            imageData,
+            "categories": categories[] -> {
+              title,
+              color,
+            },
+            title,
+            publishedAt,
+            excerpt,
+            slug,
+          }
+        }
+      },
+    },
+      _type == 'productVideoTemplate' => {
+      ...,
+      "sections": sections{
+        ...,
+        "blogCardsSection": blogCardsSection{
+          ...,
+          "blogs": blogs[] -> {
+            imageData,
+            "categories": categories[] -> {
+              title,
+              color,
+            },
+            title,
+            publishedAt,
+            excerpt,
+            slug,
+          }
+        }
       },
     },
     _type == 'wespireLiveTemplate' => {
@@ -104,6 +244,20 @@ content {
       }
     },
     _type == 'cardsSection' => {
+      ...,
+      "blogs": blogs[] -> {
+        imageData,
+        "categories": categories[] -> {
+          title,
+          color,
+        },
+        title,
+        publishedAt,
+        excerpt,
+        slug,
+      }
+    },
+    _type == 'blogCardsSection' => {
       ...,
       "blogs": blogs[] -> {
         imageData,
@@ -296,7 +450,6 @@ const LandingPage = (props) => {
     config = {},
     slug,
   } = props
-
   const {query} = useRouter()
 
   useEffect(() => {

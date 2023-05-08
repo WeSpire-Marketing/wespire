@@ -19,6 +19,7 @@ export default {
         { name: 'longSection', type: 'longSection' },
         { name: 'sliderSection', type: 'sliderSection' },
         { name: 'cardsSection', type: 'cardsSection' },
+        { name: 'blogCardsSection', type: 'blogCardsSection' },
         { name: 'ctaSection', type: 'ctaSection' }
       ]
     }

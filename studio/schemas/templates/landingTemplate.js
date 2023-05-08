@@ -49,6 +49,7 @@ export default {
           title: 'CTA section',
           type: 'ctaSection'
         },
+        { name: 'blogCardsSection', type: 'blogCardsSection' },
         {
           name: 'footer',
           type: 'object',

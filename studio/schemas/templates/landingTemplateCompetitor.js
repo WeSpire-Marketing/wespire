@@ -128,6 +128,7 @@ export default {
           type: 'awardsSection'
         },
         { name: 'googleFAQSection', type: 'googleFAQSection' },
+        { name: 'blogCardsSection', type: 'blogCardsSection' },
         {
           name: 'ctaSection',
           title: 'CTA section',

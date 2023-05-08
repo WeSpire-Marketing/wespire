@@ -1,12 +1,4 @@
-import {
-  BookIcon,
-  PlayIcon,
-  ArchiveIcon,
-  ImageIcon,
-  BlockquoteIcon,
-  OlistIcon,
-  InfoOutlineIcon
-} from '@sanity/icons'
+import { BookIcon, PlayIcon, ArchiveIcon, ImageIcon, BlockquoteIcon } from '@sanity/icons'
 import { FcBookmark, TableOfContent } from '../helpers/blockContentComponents'
 
 export default {
@@ -14,6 +6,9 @@ export default {
   type: 'document',
   title: 'Articles',
   icon: BookIcon,
+  initialValue: {
+    showSection: false
+  },
   fields: [
     {
       name: 'pageMeta',
@@ -262,6 +257,13 @@ export default {
       validation: Rule => Rule.required()
     },
     {
+      name: 'showSection',
+      type: 'boolean',
+      title: 'Display Cards Section?',
+      description: 'By default: false',
+      validation: Rule => Rule.required()
+    },
+    {
       name: 'related',
       type: 'array',
       title: 'Related blogs',
@@ -274,7 +276,8 @@ export default {
           validation: Rule => Rule.required()
         }
       ],
-      validation: Rule => Rule.required().max(3)
+      validation: Rule => Rule.required().max(3),
+      hidden: ({ parent }) => !Boolean(parent?.showSection)
     },
     {
       name: 'ctaSection',

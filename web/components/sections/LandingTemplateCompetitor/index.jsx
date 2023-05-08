@@ -13,6 +13,12 @@ const LandingTemplateCompetitor = ({sections}) => {
   if (Boolean(sections?.googleFAQSection?.showFAQ)) {
     sectionsArr.push(sections.googleFAQSection)
   }
+  if (
+    Boolean(sections?.blogCardsSection?.blogs?.length) ||
+    Boolean(sections?.blogCardsSection?.showSection)
+  ) {
+    sectionsArr.push(sections.blogCardsSection)
+  }
   sectionsArr.push(sections.ctaSection)
   sectionsArr.push({...sections.footer, _type: 'landingpageFooter'})
   sectionsArr.map((s) => (s._key = s._type))
