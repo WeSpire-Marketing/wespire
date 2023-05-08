@@ -17,6 +17,7 @@ export default {
         { name: 'heroVideoAndForm', type: 'heroVideoAndForm' },
         { name: 'contentSection', type: 'contentSection' },
         { name: 'googleFAQSection', type: 'googleFAQSection' },
+        { name: 'blogCardsSection', type: 'blogCardsSection' },
         { name: 'ctaSection', type: 'ctaSection' }
       ]
     }

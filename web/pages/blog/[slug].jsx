@@ -42,6 +42,7 @@ export async function getServerSideProps({params}) {
       ...,
       "author": author->{ name, avatar, jobTitle, authorBio },
       "showAuthorBio": showAuthorBio,
+      "showSection": showSection,
       "related": related[]->{
         imageData,
         "categories": categories[] -> {
@@ -104,6 +105,7 @@ export default function Index({
     excerpt,
     headings,
     listFAQ,
+    showSection,
   },
 }) {
   useCustomScrollBehavior()
@@ -121,7 +123,6 @@ export default function Index({
       localStorage.removeItem('hubspotData')
     }
   }, [])
-
   return (
     <div className="articlepage bg-gallery">
       <PageMeta meta={pageMeta} />
@@ -267,7 +268,7 @@ export default function Index({
 
               {form.isForm && <GetForm className="mb-[130px]" {...form.form[0]} />}
 
-              <RelatedBlock items={related} />
+              {showSection && <RelatedBlock items={related} />}
             </div>
           </div>
         </article>

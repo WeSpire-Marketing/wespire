@@ -16,6 +16,7 @@ export default {
       fields: [
         { name: 'heroCTASection', type: 'heroCTASection' },
         { name: 'contentSection', type: 'contentSection' },
+        { name: 'blogCardsSection', type: 'blogCardsSection' },
         { name: 'ctaSection', type: 'ctaSection' }
       ]
     }

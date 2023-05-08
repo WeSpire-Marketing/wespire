@@ -4,6 +4,12 @@ const PersonaTemplate = ({sections}) => {
   const sectionsArr = []
   sectionsArr.push(sections.heroCTASection)
   sectionsArr.push(sections.contentSection)
+  if (
+    Boolean(sections?.blogCardsSection?.blogs?.length) ||
+    Boolean(sections?.blogCardsSection?.showSection)
+  ) {
+    sectionsArr.push(sections.blogCardsSection)
+  }
   sectionsArr.push(sections.ctaSection)
   sectionsArr.map((s) => (s._key = s._type))
   return (

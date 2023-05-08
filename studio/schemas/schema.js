@@ -78,6 +78,7 @@ import heroFormVideo from './sections/heroFormVideo'
 import ourCustomersSection from './sections/ourCustomersSection'
 import heroCTASection from './sections/heroCTASection'
 import upcomingEventSection from './sections/upcomingEventSection'
+import blogCardsSection from './sections/blogCardsSection'
 
 // templates
 import blogTemplate from './templates/blogTemplate'
@@ -164,6 +165,7 @@ export default createSchema({
     heroImageAndForm,
     heroVideoAndForm,
     upcomingEventSection,
+    blogCardsSection,
 
     // other types
     video,

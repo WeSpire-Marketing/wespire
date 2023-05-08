@@ -44,6 +44,7 @@ export default {
         { name: 'tabsSection', title: 'Tabs section', type: 'tabsSection' },
         { name: 'measureSection', type: 'measureSection' },
         { name: 'googleFAQSection', type: 'googleFAQSection' },
+        { name: 'blogCardsSection', type: 'blogCardsSection' },
         {
           name: 'ctaSection',
           title: 'CTA section',

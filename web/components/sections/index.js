@@ -37,6 +37,7 @@ export {default as HeroFormVideo} from './HeroFormVideo'
 export {default as HeroCTASection} from './HeroCTASection'
 export {default as UpcomingEventSection} from './UpcomingEventSection'
 export {default as GoogleFAQSection} from './GoogleFAQSection'
+export {default as BlogCardsSection} from './BlogCardsSection'
 
 export {default as BlogTemplate} from './BlogTemplate'
 export {default as ProductTemplate} from './ProductTemplate'
