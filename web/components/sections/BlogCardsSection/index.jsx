@@ -6,10 +6,10 @@ import {injectIconToSpanStr} from '../../../utils'
 const BlogCardsSection = ({blogs, blogsTitle = ''}) => {
   return (
     <section
-      className="carection overflow-hidden bg-gallery py-[100px]
-      sm:py-[115px]
-      md:py-[130px]
-      lg:py-[140px]"
+      className="carection bg-gallery pb-[100px]
+      sm:pb-[115px]
+      md:pb-[130px]
+      lg:pb-[140px]"
     >
       <div className="container px-0 lg:px-8">
         <div className="carection__inner">
