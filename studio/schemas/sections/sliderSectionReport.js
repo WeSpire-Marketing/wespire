@@ -30,8 +30,8 @@ export default {
       title: 'Card with text',
       validation: Rule =>
         Rule.required()
-          .min(1)
-          .max(3),
+          .max(3)
+          .min(1),
       of: [
         {
           name: 'text',
@@ -50,10 +50,7 @@ export default {
           type: 'object',
           title: 'Card with image',
           icon: MasterDetailIcon,
-          validation: Rule =>
-            Rule.required()
-              .min(1)
-              .max(3),
+          validation: Rule => Rule.required(),
           fields: [
             {
               name: 'listImage',
@@ -84,7 +81,10 @@ export default {
           ]
         }
       ],
-      validation: Rule => Rule.required().min(3)
+      validation: Rule =>
+        Rule.required()
+          .max(8)
+          .min(1)
     }
   ]
 }

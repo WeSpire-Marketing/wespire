@@ -109,7 +109,7 @@ export default {
           ]
         }
       ],
-      validation: Rule => Rule.required().length(2)
+      validation: Rule => Rule.required()
     }
   ]
 }

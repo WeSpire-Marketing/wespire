@@ -1,9 +1,19 @@
 import { pageGroups, ID_FIELD } from '../helpers/fields'
 import tabsSection from '../sections/tabsSection'
+import { ActivityIcon } from '@sanity/icons'
+
 export default {
   name: 'landingTemplateReport',
   title: 'Landing template report',
   type: 'object',
+  icon: ActivityIcon,
+  preview: {
+    prepare({ title = 'Landing Report template' }) {
+      return {
+        title: title
+      }
+    }
+  },
   fields: [
     {
       name: 'hideDesktopNav',
@@ -160,7 +170,7 @@ export default {
               ],
               validation: Rule =>
                 Rule.required()
-                  .min(3)
+                  .min(1)
                   .max(3)
             }
           ]
@@ -227,20 +237,20 @@ export default {
                           name: 'text',
                           type: 'string',
                           title: 'Link text',
-                          validation: Rule => Rule.required()
+                          hidden: ({ parent }) => !Boolean(parent?.visibility)
                         },
                         {
                           name: 'url',
                           type: 'string',
                           title: 'Link url',
-                          validation: Rule => Rule.required()
+                          hidden: ({ parent }) => !Boolean(parent?.visibility)
                         },
                         {
                           name: 'internal',
                           type: 'boolean',
                           title: 'External/internal link',
                           description: 'By default all links are external and opens in new tab',
-                          validation: Rule => Rule.required()
+                          hidden: ({ parent }) => !Boolean(parent?.visibility)
                         }
                       ],
                       initialValue: {
@@ -270,10 +280,10 @@ export default {
                   ]
                 }
               ],
-              validation: Rule => Rule.required()
+              validation: Rule => Rule.required().max(8)
             }
           ],
-          validation: Rule => Rule.required().max(4)
+          validation: Rule => Rule.required()
         },
         // TABS 2 SECTION 3
         {
@@ -363,7 +373,7 @@ export default {
                   ]
                 }
               ],
-              validation: Rule => Rule.required().max(4)
+              validation: Rule => Rule.required()
             }
           ],
           validation: Rule => Rule.required()
