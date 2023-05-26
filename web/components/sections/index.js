@@ -38,6 +38,7 @@ export {default as HeroCTASection} from './HeroCTASection'
 export {default as UpcomingEventSection} from './UpcomingEventSection'
 export {default as GoogleFAQSection} from './GoogleFAQSection'
 export {default as BlogCardsSection} from './BlogCardsSection'
+export {default as HeroReport} from './HeroReport'
 
 export {default as BlogTemplate} from './BlogTemplate'
 export {default as ProductTemplate} from './ProductTemplate'
@@ -59,3 +60,4 @@ export {default as LandingTemplateSocialProof} from './LandingTemplateSocialProo
 export {default as LandingVideoTemplate} from './LandingVideoTemplate'
 export {default as PersonaTemplate} from './PersonaTemplate'
 export {default as HomeTemplate} from './HomeTemplate'
+export {default as LandingTemplateReport} from './LandingTemplateReport'
