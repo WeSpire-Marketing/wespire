@@ -3,31 +3,35 @@ import React from 'react'
 import {createSeoScript} from '../../../utils/seo'
 import Link from 'next/link'
 import LogoStatic from '../../icons/LogoStatic'
-import {injectIconToSpanStr} from '../../../utils'
+import {injectIconToSpanStr, injectStarsToStr} from '../../../utils'
 import {motion} from 'framer-motion'
+import Icon from '../../icons/AnimatedHighlights'
+import Img from '../../Img'
+import IconStars from '../../icons/AnimatedStars1'
+import {MenuReport} from '../../MenuReport'
 
-import Icon from '../../icons/AnimatedIcon'
 const HeroReport = (props) => {
-  const {listFAQ, link, title, description, image} = props
-  console.log(props)
+  const {listFAQ, link, title, text, imageList, menuItems} = props
+
   return (
     <>
       <Head>{Boolean(listFAQ?.length) && createSeoScript(listFAQ)}</Head>
 
-      <section className="hero-form bg-thriving pt-[170px] pb-[70px] lg:pt-6 lg:pb-[100px]">
+      <section className="hero-form bg-white pt-[170px] pb-[70px] lg:pt-6">
         <div
-          className="hero-form__head px-8 mx-auto mb-[90px] hidden max-h-[65px]
+          className="hero-form__head px-8 mx-auto mb-[106px] hidden max-h-[65px]
         w-full max-w-[calc(1288px+2rem)] items-center justify-between lg:flex"
         >
           <div className="hero-form__head-logo cursor-pointer">
             <Link href="/" passHref>
               <a className="flex">
-                <LogoStatic color="#fff" />
+                <LogoStatic color="#1771DC" />
               </a>
             </Link>
           </div>
 
-          {link?.visibility &&
+          <MenuReport menuItems={menuItems} />
+          {Boolean(link?.text?.length) &&
             (link.internal ? (
               <Link href={link.url} passHref>
                 <a className="hero-form__head__link cta-btn-black">{link.text}</a>
@@ -44,52 +48,62 @@ const HeroReport = (props) => {
             ))}
         </div>
 
-        <div className="container mb-8 px-2 lg:mb-[95px] lg:px-8">
+        <div className="container px-2 lg:px-8 w-full">
           <div
-            className="hero-form__body flex flex-col items-center justify-between gap-[46px]
-          lg:flex-row lg:gap-8"
+            className="hero-form__body  flex flex-col items-center justify-between gap-[46px]
+          lg:flex-row lg:gap-8 w-full"
           >
-            <div
-              className="hero-form__body-left w-full max-w-[456px]
-            sm:max-w-[540px]
-            md:max-w-[600px]
-            lg:w-1/2"
-            >
-              <h1
-                className="hero-form__body__title heading-1 mb-4 text-center text-white
-              lg:mb-6 lg:text-left"
-              >
-                {injectIconToSpanStr(title, () => (
-                  <Icon color="#FFCC7B" />
-                ))}
-              </h1>
-
-              {/* <p
-                className="hero-form__body__subtitle px-4 md:px-0 body-m mb-8
-              text-center text-white lg:mb-[40px] lg:text-left"
-              >
-                {subtitle}
-              </p> */}
-            </div>
-
-            <motion.div
-              className={`hero-form__body-right w-full
-            lg:w-1/2 self-start
-            `}
-              initial={{opacity: 0, y: -100}}
-              whileInView={{opacity: 1, y: 0}}
-              viewport={{once: true}}
-              transition={{duration: 1, delay: 0.5}}
-            >
-              {/* <Img
-                className="hero-form__body-right max-w-[456px] mx-auto
+            <div className="w-full ">
+              <div className="w-full md:w-[500px] lg:w-[797px] mx-auto text-centre">
+                <h1
+                  className="hero-form__body__title heading-1 mb-4 text-center
+              lg:mb-6"
+                >
+                  {injectIconToSpanStr(title, () => (
+                    <Icon
+                      color="#DF6F30"
+                      className="absolute w-[57px] h-[56px] top-[-40px] left-[-40px] md:w-full md:h-full md:left-[-90px]"
+                    />
+                  ))}
+                </h1>
+                {Boolean(text?.length) && (
+                  <p
+                    className="hero-form__body__subtitle body-m w-full mx-auto max-w-[616px]
+              text-center [&>span>svg]:right-10"
+                  >
+                    {injectStarsToStr(`${text}$`, () => (
+                      <IconStars color="#DF6F30" />
+                    ))}
+                  </p>
+                )}
+              </div>
+              {Boolean(imageList?.length) && (
+                <div className="flex flex-col gap-4 lg:flex-row mt-[69px] lg:gap-6 lg:mt-[77px]">
+                  {imageList.map((image) => (
+                    <motion.div
+                      className={`hero-form__body-right w-full
+            lg:w-1/2 self-start ${
+              Boolean(image._type?.length) &&
+              'lg:bg-heroForm lg:bg-no-repeat lg:bg-contain lg:bg-right-top'
+            }`}
+                      initial={{opacity: 0, y: -100}}
+                      whileInView={{opacity: 1, y: 0}}
+                      viewport={{once: true}}
+                      transition={{duration: 1, delay: 0.5}}
+                    >
+                      <Img
+                        className="hero-form__body-right max-w-[456px] mx-auto
               sm:max-w-[540px]
               md:max-w-[580px]
               lg:ml-auto lg:mr-0"
-                priority="true"
-                value={image}
-              /> */}
-            </motion.div>
+                        priority="true"
+                        value={image}
+                      />
+                    </motion.div>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </section>

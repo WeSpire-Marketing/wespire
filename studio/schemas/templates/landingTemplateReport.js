@@ -30,7 +30,7 @@ export default {
       title: 'Hide mobile navigation',
       readOnly: true,
       hidden: true,
-      initialValue: () => false
+      initialValue: () => true
       // validation: Rule => Rule.required()
     },
     {
