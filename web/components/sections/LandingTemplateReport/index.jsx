@@ -2,7 +2,7 @@ import RenderSections from '../../RenderSections'
 
 const LandingTemplateReport = ({sections}) => {
   const sectionsArr = []
-  console.log(sections)
+
   if (Boolean(sections?.googleFAQSection?.showFAQ)) {
     sections.heroReport.listFAQ = sections.googleFAQSection.listFAQ
   }

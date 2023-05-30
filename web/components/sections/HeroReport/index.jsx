@@ -9,6 +9,7 @@ import Icon from '../../icons/AnimatedHighlights'
 import Img from '../../Img'
 import IconStars from '../../icons/AnimatedStars1'
 import {MenuReport} from '../../MenuReport'
+import MobileMenuReport from '../../MenuReport/components/MobileMenu'
 
 const HeroReport = (props) => {
   const {listFAQ, link, title, text, imageList, menuItems} = props
@@ -31,22 +32,27 @@ const HeroReport = (props) => {
           </div>
 
           <MenuReport menuItems={menuItems} />
-          {Boolean(link?.text?.length) &&
-            (link.internal ? (
-              <Link href={link.url} passHref>
-                <a className="hero-form__head__link cta-btn-black">{link.text}</a>
-              </Link>
-            ) : (
-              <a
-                className="hero-form__head__link cta-btn-black"
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {link.text}
-              </a>
-            ))}
+          <div className="flex flex-nowrap">
+            {Boolean(link?.text?.length) &&
+              (link.internal ? (
+                <Link href={link.url} passHref>
+                  <a className="hero-form__head__link cta-btn-black whitespace-nowrap">
+                    {link.text}
+                  </a>
+                </Link>
+              ) : (
+                <a
+                  className="hero-form__head__link cta-btn-black whitespace-nowrap"
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {link.text}
+                </a>
+              ))}
+          </div>
         </div>
+        <MobileMenuReport menuItems={menuItems} link={link} />
 
         <div className="container px-2 lg:px-8 w-full">
           <div
