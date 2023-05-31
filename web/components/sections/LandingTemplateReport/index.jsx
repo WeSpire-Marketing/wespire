@@ -10,6 +10,8 @@ const LandingTemplateReport = ({sections}) => {
   sectionsArr.push({...sections.tabsSection1.tabsSection, _type: 'tabsSection'})
   sectionsArr.push({...sections.tabsVertical, _type: 'tabsVerticalSection'})
   sectionsArr.push({...sections.tabsSection2.tabsSection, _type: 'tabsSection'})
+  sectionsArr.push({...sections.sliderReportSection1, _type: 'sliderReportSection'})
+  sectionsArr.push({...sections.tableImageSection})
   sectionsArr.push({...sections.tabsSection3.tabsSection, _type: 'tabsSection'})
   if (Boolean(sections?.googleFAQSection?.showFAQ)) {
     sectionsArr.push(sections.googleFAQSection)

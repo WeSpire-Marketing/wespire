@@ -57,6 +57,27 @@ export default {
         }
       ],
       validation: Rule => Rule.required()
+    },
+    {
+      name: 'imageTableMobile',
+      type: 'object',
+      title: 'Image table',
+      description: 'Recommended image size 600x375',
+      fields: [
+        {
+          name: 'image',
+          type: 'image',
+          title: 'Image',
+          validation: Rule => Rule.required()
+        },
+        {
+          name: 'imageAlt',
+          type: 'string',
+          title: 'Image description (alt)',
+          validation: Rule => Rule.required()
+        }
+      ],
+      validation: Rule => Rule.required()
     }
   ]
 }
