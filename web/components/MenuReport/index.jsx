@@ -56,7 +56,7 @@ export const MenuReport = ({menuItems}) => {
                 <div className="menu-col flex flex-col gap-8">
                   {[...menuItems.slice(0, 3)].map(({_key, image, heading, text, id}) => {
                     return (
-                      <div key={_key}>
+                      <div key={`${_key}-${Math.random(id)}`}>
                         <ImgItem
                           image={image}
                           title={heading}
@@ -73,7 +73,7 @@ export const MenuReport = ({menuItems}) => {
                 <div className="menu-col flex flex-col gap-8">
                   {[...menuItems.slice(3, 6)].map(({_key, image, heading, text, id}) => {
                     return (
-                      <div key={_key}>
+                      <div key={`${_key}-${id}`}>
                         <ImgItem
                           image={image}
                           title={heading}

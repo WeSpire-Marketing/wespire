@@ -2,17 +2,15 @@ import RenderSections from '../../RenderSections'
 
 const LandingTemplateReport = ({sections}) => {
   const sectionsArr = []
-
+  console.log(sections)
   if (Boolean(sections?.googleFAQSection?.showFAQ)) {
     sections.heroReport.listFAQ = sections.googleFAQSection.listFAQ
   }
   sectionsArr.push({...sections.heroReport, _type: 'heroReport'})
   sectionsArr.push({...sections.tabsSection1.tabsSection, _type: 'tabsSection'})
+  sectionsArr.push({...sections.tabsVertical, _type: 'tabsVerticalSection'})
   sectionsArr.push({...sections.tabsSection2.tabsSection, _type: 'tabsSection'})
   sectionsArr.push({...sections.tabsSection3.tabsSection, _type: 'tabsSection'})
-  // sectionsArr.push(sections.tabsSection)
-  // sectionsArr.push(sections.ourCustomersSection)
-  // sectionsArr.push(sections.awardsSection)
   if (Boolean(sections?.googleFAQSection?.showFAQ)) {
     sectionsArr.push(sections.googleFAQSection)
   }

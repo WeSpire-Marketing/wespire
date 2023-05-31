@@ -39,6 +39,7 @@ export {default as UpcomingEventSection} from './UpcomingEventSection'
 export {default as GoogleFAQSection} from './GoogleFAQSection'
 export {default as BlogCardsSection} from './BlogCardsSection'
 export {default as HeroReport} from './HeroReport'
+export {default as TabsVerticalSection} from './TabsVerticalSection'
 
 export {default as BlogTemplate} from './BlogTemplate'
 export {default as ProductTemplate} from './ProductTemplate'

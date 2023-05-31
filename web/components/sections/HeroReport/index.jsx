@@ -85,8 +85,9 @@ const HeroReport = (props) => {
               </div>
               {Boolean(imageList?.length) && (
                 <div className="flex flex-col gap-4 lg:flex-row mt-[69px] lg:gap-6 lg:mt-[77px]">
-                  {imageList.map((image) => (
+                  {imageList.map((image, idx) => (
                     <motion.div
+                      key={`${image._type}-${idx}`}
                       className={`hero-form__body-right w-full
             lg:w-1/2 self-start ${
               Boolean(image._type?.length) &&

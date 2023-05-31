@@ -87,7 +87,7 @@ export default function MobileMenuReport({menuItems, link}) {
             <div className="flex flex-col gap-8 py-8 mb-8 border-b-[1px] border-[rgba(202,205,212,0.8)]">
               {menuItems.map(({_key, image, heading, text, id}) => {
                 return (
-                  <div key={_key}>
+                  <div key={`${_key}-${id}`}>
                     <ImgItem
                       image={image}
                       title={heading}
