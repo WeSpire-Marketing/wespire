@@ -41,6 +41,16 @@ export default {
       ]
     },
     {
+      name: 'showText',
+      type: 'array',
+      title: 'Which slide need hide text section',
+      of: [
+        {
+          type: 'string'
+        }
+      ]
+    },
+    {
       name: 'cards',
       type: 'array',
       title: 'Slider cards',
@@ -51,6 +61,9 @@ export default {
           title: 'Card with image',
           icon: MasterDetailIcon,
           validation: Rule => Rule.required(),
+          initialValue: {
+            showText: false
+          },
           fields: [
             {
               name: 'listImage',

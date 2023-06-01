@@ -27,7 +27,14 @@ const swiperBreakpoints = {
   },
 }
 
-const SliderReportSection = ({title = '', cards = [], textList = [], titleCardsText = '', id}) => {
+const SliderReportSection = ({
+  title = '',
+  cards = [],
+  textList = [],
+  titleCardsText = '',
+  id,
+  showText = [],
+}) => {
   const [isEnd, setEnd] = useState(false)
   const [swiper, setSwiper] = useState(null)
   const [isBeginning, setBeginning] = useState(true)
@@ -72,13 +79,16 @@ const SliderReportSection = ({title = '', cards = [], textList = [], titleCardsT
           <div className="flex flex-col items-center mb-10 lg:mb-16">
             <p className="heading-4 mx-auto mb-4 lg:mb-10">{titleCardsText}</p>
             <div className={`grid grid-cols-1 lg:grid-cols-${textList.length} gap-4 lg:gap-10`}>
-              {textList.map((text, i) => {
-                return (
-                  <div className="slection__text  body-m text-secondary" key={i}>
-                    {text}
-                  </div>
-                )
-              })}
+              {!showText.includes(
+                String(Boolean(swiper?.activeIndex) ? swiper.activeIndex + 1 : '231312312312')
+              ) &&
+                textList.map((text, i) => {
+                  return (
+                    <div className="slection__text  body-m text-secondary" key={i}>
+                      {text}
+                    </div>
+                  )
+                })}
             </div>
           </div>
           <div className="slection__slider relative w-full">
