@@ -98,19 +98,19 @@ const SliderReportSection = ({title = '', cards = [], textList = [], titleCardsT
               >
                 {cards.map(({_key, listImage}, i) => {
                   return (
-                    <SwiperSlide key={_key}>
+                    <SwiperSlide key={`${_key}-${Math.random(i)}`}>
                       <div className="w-full max-w-[1224px] flex">
                         <div
                           className={`card__preview w-full grid grid-cols-1 ${
                             listImage.length > 1 ? 'lg:grid-cols-2' : 'lg:grid-cols-1'
                           } gap-16 overflow-hidden`}
                         >
-                          {listImage.map(({image, alt}, i) => {
+                          {listImage.map(({image, alt}) => {
                             const blurDataUrl = useSanityBlurDataUrl(image)
 
                             return (
-                              <div className="flex flex-col w-full">
-                                <div className="relative w-full shadow-[0px_12px_35px_rgba(111,111,111,0.1)] rounded-[1rem] overflow-hidden">
+                              <div className="flex flex-col w-full" key={alt}>
+                                <div className="relative w-full">
                                   <Img
                                     className="rounded-[1rem] overflow-hidden"
                                     value={image}

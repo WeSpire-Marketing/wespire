@@ -15,18 +15,8 @@ const TableImage = ({imageTable, imageData, text, title, imageTableMobile}) => {
     >
       <div className="container px-2 sm:px-4 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-16 mb-12">
-          <motion.div className="relative aspect-[4/2.5] w-full rounded-2xl overflow-hidden">
-            <Image
-              src={urlForImage(imageData.image).fit('max').url()}
-              blurDataURL={blurDataUrl}
-              layout="responsive"
-              placeholder="blur"
-              alt={imageData.alt}
-              quality={100}
-              height={375}
-              width={600}
-              objectFit="cover"
-            />
+          <motion.div className="rounded-2xl card__preview w-full  rounded-2xl overflow-hidden">
+            <Img value={imageData.image} />
           </motion.div>
           <div className="max-w-[475px]">
             <h2 className="heading-4 mb-4 lg:mb-8 max-w-[435px]">{title}</h2>

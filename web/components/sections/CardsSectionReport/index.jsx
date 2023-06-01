@@ -6,6 +6,7 @@ import Icon1 from '../../icons/AnimatedSparkle'
 
 import {urlForImage} from '../../../client'
 import {injectIconToSpanStr} from '../../../utils'
+import Img from '../../Img'
 
 const CardsSectionReport = ({panelTitle, cards1, cards2, cards3}) => {
   console.log(cards3)
@@ -67,15 +68,8 @@ const CardsSectionReport = ({panelTitle, cards1, cards2, cards3}) => {
                       key={_key}
                       className="grid  grid-cols-1 grid-rows-[60px_1fr] md:grid-rows-1 md:grid-cols-[0.2fr_1fr] gap-6"
                     >
-                      <div className="carection__icon mb-6 h-[70px] w-[65px] lg:mb-8">
-                        <Image
-                          src={urlForImage(image).width(65).height(70).fit('crop').url()}
-                          layout="responsive"
-                          objectFit="cover"
-                          height={70}
-                          width={65}
-                          alt="icon"
-                        />
+                      <div className="carection__icon mb-6 lg:mb-8">
+                        <Img value={image} />
                       </div>
                       <div>
                         <h3 className="card__title heading-3 mb-4">{title}</h3>
