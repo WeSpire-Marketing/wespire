@@ -4,14 +4,14 @@ import Icon from '../../icons/AnimatedIcon'
 import Img from '../../Img'
 import {motion, AnimatePresence} from 'framer-motion'
 
-const TabsVerticalSection = ({tabsList, title}) => {
+const TabsVerticalSection = ({tabsList, title, id}) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const handleSlide = (index) => {
     setCurrentIndex(index)
   }
 
   return (
-    <div className="pt-[48px] pb-[64px]  lg:pt-[120px] lg:pb-[140px]">
+    <section className="pt-[48px] pb-[64px]  lg:pt-[120px] lg:pb-[140px]" id={id}>
       <div className="container px-2 sm:px-6 lg:px-8">
         <AnimatePresence initial={false}>
           <div>
@@ -106,7 +106,7 @@ const TabsVerticalSection = ({tabsList, title}) => {
           </div>
         </AnimatePresence>
       </div>
-    </div>
+    </section>
   )
 }
 

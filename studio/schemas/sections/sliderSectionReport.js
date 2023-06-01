@@ -71,8 +71,7 @@ export default {
                     {
                       name: 'alt',
                       type: 'string',
-                      title: 'Image description',
-                      validation: Rule => Rule.required()
+                      title: 'Image description'
                     }
                   ]
                 }

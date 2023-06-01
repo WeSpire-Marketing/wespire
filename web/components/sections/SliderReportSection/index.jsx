@@ -27,7 +27,7 @@ const swiperBreakpoints = {
   },
 }
 
-const SliderReportSection = ({title = '', cards = [], textList = [], titleCardsText = ''}) => {
+const SliderReportSection = ({title = '', cards = [], textList = [], titleCardsText = '', id}) => {
   const [isEnd, setEnd] = useState(false)
   const [swiper, setSwiper] = useState(null)
   const [isBeginning, setBeginning] = useState(true)
@@ -44,7 +44,7 @@ const SliderReportSection = ({title = '', cards = [], textList = [], titleCardsT
   )
 
   return (
-    <section className="slection bg-gallery">
+    <section className="slection bg-gallery" id={id}>
       <div
         className="py-[48px]
         sm:py-[60px]
@@ -86,7 +86,8 @@ const SliderReportSection = ({title = '', cards = [], textList = [], titleCardsT
               <Swiper
                 id="HomeSlider"
                 spaceBetween={24}
-                slidesPerView={2.5}
+                slidesPerView={1}
+                autoHeight
                 onSwiper={setSwiper}
                 onSlideChange={(swiper) => {
                   swiper.isBeginning ? setBeginning(true) : setBeginning(false)
@@ -118,11 +119,10 @@ const SliderReportSection = ({title = '', cards = [], textList = [], titleCardsT
                                     priority={true}
                                   />
                                 </div>
-                                {alt.length && (
-                                  <div className="flex justify-center mt-4">
-                                    <p className="body-m text-secondary text-[#6F879A]">{alt}</p>
-                                  </div>
-                                )}
+
+                                <div className="flex justify-center mt-4">
+                                  <p className="body-m text-secondary text-[#6F879A]">{alt}</p>
+                                </div>
                               </div>
                             )
                           })}

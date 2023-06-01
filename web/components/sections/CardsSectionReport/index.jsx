@@ -60,10 +60,13 @@ const CardsSectionReport = ({panelTitle, cards1, cards2, cards3}) => {
                   </ol>
                 </div>
               </div>
-              <div className="rounded-[30px] bg-white grid grid-cols-2 gap-10 p-[70px]">
+              <div className="rounded-[30px] bg-white grid grid-cols-1 md:grid-cols-2 gap-10  p-10 lg:p-[70px]">
                 {cards3.map(({_key, image, title, text, link}) => {
                   return (
-                    <div key={_key} className="grid grid-cols-[0.2fr_1fr] gap-6">
+                    <div
+                      key={_key}
+                      className="grid  grid-cols-1 grid-rows-[60px_1fr] md:grid-rows-1 md:grid-cols-[0.2fr_1fr] gap-6"
+                    >
                       <div className="carection__icon mb-6 h-[70px] w-[65px] lg:mb-8">
                         <Image
                           src={urlForImage(image).width(65).height(70).fit('crop').url()}
@@ -78,21 +81,22 @@ const CardsSectionReport = ({panelTitle, cards1, cards2, cards3}) => {
                         <h3 className="card__title heading-3 mb-4">{title}</h3>
 
                         <p
-                          className="card__text body-m mb-[30px] text-secondary
-                      sm:mb-[34px]
-                      md:mb-[38px]
-                      lg:mb-[40px]"
+                          className="card__text body-m mb-[16px] text-secondary
+
+                      lg:mb-[24px]"
                         >
                           {text}
                         </p>
 
                         {link.internal ? (
                           <Link href={link.url} passHref>
-                            <a className="card__link cta-btn-black">{link.text}</a>
+                            <a className="mx-auto inline-flex w-fit items-center gap-2 font-poppins text-[14px] font-semibold leading-[150%] text-smart lg:mx-0">
+                              {link.text}
+                            </a>
                           </Link>
                         ) : (
                           <a
-                            className="card__link cta-btn-black"
+                            className="mx-auto inline-flex w-fit items-center gap-2 font-poppins text-[14px] font-semibold leading-[150%] text-smart lg:mx-0"
                             href={link.url}
                             target="_blank"
                             rel="noopener noreferrer"
