@@ -10,8 +10,8 @@ const TableImage = ({imageTable, imageData, text, title, imageTableMobile}) => {
 
   return (
     <section
-      className="contection overflow-hidden rounded-t-[30px] bg-gallery pt-[48px] pb-[100px]
-      lg:rounded-t-[48px] lg:pt-[100px] lg:pb-[140px]"
+      className="contection overflow-hidden rounded-t-[30px] bg-gallery pt-[48px]
+      lg:rounded-t-[48px] lg:pt-[100px] "
     >
       <div className="container px-2 sm:px-4 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-16 mb-12">
