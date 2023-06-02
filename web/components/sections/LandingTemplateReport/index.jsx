@@ -1,4 +1,9 @@
-import RenderSections from '../../RenderSections'
+// import RenderSections from '../../RenderSections'
+import dynamic from 'next/dynamic'
+
+const RenderSections = dynamic(() => import('../../RenderSections'), {
+  ssr: false,
+})
 
 const LandingTemplateReport = ({sections}) => {
   const sectionsArr = []
