@@ -14,7 +14,7 @@ export const MenuReport = ({menuItems}) => {
         <div
           onMouseEnter={() => setMenuIsOpen(true)}
           onClick={() => toogleMenu()}
-          className={`subtitle-s text-black z-20 flex items-center gap-2 text-center cursor-pointer`}
+          className={`subtitle-s text-black font-semibold z-20 flex items-center gap-2 text-center cursor-pointer`}
         >
           Contents
           <ChevronIcon
