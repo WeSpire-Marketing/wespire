@@ -76,20 +76,34 @@ const SliderReportSection = ({
               </h2>
             </div>
           </div>
-          <div className="flex flex-col items-center mb-10 lg:mb-16">
-            <p className="heading-4 mx-auto mb-4 lg:mb-10">{titleCardsText}</p>
-            <div className={`grid grid-cols-1 lg:grid-cols-${textList.length} gap-4 lg:gap-10`}>
-              {!showText.includes(
-                String(Boolean(swiper?.activeIndex) ? swiper.activeIndex + 1 : '231312312312')
-              ) &&
-                textList.map((text, i) => {
+          <div className="flex flex-col items-center ">
+            <p
+              className={`heading-4 mx-auto ${
+                !showText.includes(
+                  String(Boolean(swiper?.activeIndex) ? swiper.activeIndex + 1 : '')
+                )
+                  ? 'mb-4 lg:mb-10'
+                  : 'mb-0'
+              }`}
+            >
+              {titleCardsText}
+            </p>
+
+            {!showText.includes(
+              String(Boolean(swiper?.activeIndex) ? swiper.activeIndex + 1 : '')
+            ) && (
+              <div
+                className={`grid grid-cols-1 mb-10 lg:mb-16  lg:grid-cols-${textList.length} gap-4 lg:gap-10`}
+              >
+                {textList.map((text, i) => {
                   return (
                     <div className="slection__text  body-m text-secondary" key={i}>
                       {text}
                     </div>
                   )
                 })}
-            </div>
+              </div>
+            )}
           </div>
           <div className="slection__slider relative w-full">
             <div className="px-0 mb-10">
