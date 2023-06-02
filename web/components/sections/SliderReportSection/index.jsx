@@ -1,10 +1,10 @@
 import {useMemo, useState} from 'react'
 import {Swiper, SwiperSlide} from 'swiper/react'
-import Image from 'next/image'
+
 import Icon from '../../icons/AnimatedRound'
 import SliderNav from './components/SliderNav'
 import {injectIconToSpanStr} from '../../../utils'
-import {urlForImage} from '../../../client'
+
 import useSanityBlurDataUrl from '../../../utils/hooks/useSanityBlurDataUrl'
 import Img from '../../Img'
 
@@ -120,17 +120,15 @@ const SliderReportSection = ({
 
                             return (
                               <div className="flex flex-col w-full" key={alt}>
-                                <div className="relative w-full">
-                                  <Img
-                                    className="rounded-[1rem] overflow-hidden"
-                                    value={image}
-                                    blurDataUrl={blurDataUrl}
-                                    alt={alt}
-                                    priority={true}
-                                  />
-                                </div>
+                                <Img
+                                  className="rounded-[1rem] overflow-hidden"
+                                  value={image}
+                                  blurDataUrl={blurDataUrl}
+                                  alt={alt}
+                                  priority={true}
+                                />
 
-                                <div className="flex justify-center mt-4">
+                                <div className="flex justify-center">
                                   <p className="body-m text-secondary text-[#6F879A]">{alt}</p>
                                 </div>
                               </div>

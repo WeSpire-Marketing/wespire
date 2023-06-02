@@ -28,7 +28,7 @@ export default function TabsWithNav({tabs}) {
 
   return (
     <>
-      <nav className="mb-[48px] overflow-hidden lg:mb-[100px]">
+      <nav className="mb-[48px] overflow-hidden">
         <div className="overflow-x-auto">
           <ul
             className="tabsection-tabs relative mx-4 flex min-w-full w-fit
@@ -91,8 +91,8 @@ export default function TabsWithNav({tabs}) {
                 </div>
 
                 <div
-                  className="tab-content__right mb-8 w-full max-w-[580px]
-                  lg:mb-0 lg:w-1/2"
+                  className="tab-content__right mx-auto mb-8 w-full max-w-[630px]
+                  lg:mb-0"
                 >
                   <Img value={image} />
                 </div>

@@ -268,11 +268,6 @@ export default {
                           type: 'string',
                           title: 'Image description (alt)',
                           validation: Rule => Rule.required()
-                        },
-                        {
-                          name: 'text',
-                          type: 'text',
-                          title: 'Text under the image, optional'
                         }
                       ],
                       validation: Rule => Rule.required()
