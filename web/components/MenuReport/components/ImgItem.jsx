@@ -29,7 +29,7 @@ export default function ImgItem({image, title, text, id, toogleMenu}) {
       <div className="menu-item__text">
         <a
           onClick={toogleMenu}
-          className="menu-item__text__title subtitle-m mb-2 text-[16px]"
+          className="menu-item__text__title subtitle-m mb-2 text-[16px] hover:text-[#1771DC]"
           href={`#${id}`}
         >
           {title}

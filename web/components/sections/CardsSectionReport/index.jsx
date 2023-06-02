@@ -66,9 +66,9 @@ const CardsSectionReport = ({panelTitle, cards1, cards2, cards3}) => {
                   return (
                     <div
                       key={_key}
-                      className="grid  grid-cols-1 grid-rows-[60px_1fr] md:grid-rows-1 md:grid-cols-[0.2fr_1fr] gap-6"
+                      className="grid  grid-cols-1 md:grid-rows-1 md:grid-cols-[0.2fr_1fr] gap-6"
                     >
-                      <div className="carection__icon mb-6 lg:mb-8">
+                      <div className="w-1/4 md:w-full">
                         <Img value={image} />
                       </div>
                       <div>
