@@ -4,10 +4,7 @@ import {useTabs, TabPanel} from 'react-headless-tabs'
 import {motion, useAnimationControls} from 'framer-motion'
 
 import Tab from './Tab'
-// import Img from '../../../Img'
-import Image from 'next/image'
-import {urlForImage} from '../../../../client'
-// import useSanityBlurDataUrl from '../../../../utils/hooks/useSanityBlurDataUrl'
+import Img from '../../../Img'
 
 const variants = {
   sleep: {
@@ -51,9 +48,6 @@ export default function TabsWithNav({tabs}) {
 
       <div className="mx-auto max-w-[1128px]">
         {tabs.map(({_key, image, link, name, text, title}) => {
-          {
-            /* const blurDataUrl = useSanityBlurDataUrl(image) */
-          }
           return (
             <TabPanel key={_key} hidden={selectedTab !== name}>
               <motion.div
@@ -97,17 +91,14 @@ export default function TabsWithNav({tabs}) {
                 </div>
 
                 <div
-                  className="tab-content__right relative mx-auto mb-8 w-full block aspect-[0.9] max-w-[630px]
+                  className="tab-content__right  mx-auto mb-8 w-full  max-w-[630px]
                   lg:mb-0"
                 >
-                  {/* <Img value={image} /> */}
-                  <Image
-                    className="absolute w-full h-full"
-                    layout="fill"
-                    alt={'image'}
-                    src={urlForImage(image).url()}
-                    objectFit="contain"
-                    quality={100}
+                  <Img
+                    value={image}
+                    layoutImg="fill"
+                    className="relative w-full aspect-[0.9]"
+                    objectFitImg="contain"
                   />
                 </div>
               </motion.div>
