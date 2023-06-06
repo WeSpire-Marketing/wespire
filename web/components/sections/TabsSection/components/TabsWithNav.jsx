@@ -5,6 +5,8 @@ import {motion, useAnimationControls} from 'framer-motion'
 
 import Tab from './Tab'
 import Img from '../../../Img'
+import Image from 'next/image'
+import {urlForImage} from '../../../../client'
 
 const variants = {
   sleep: {
@@ -91,10 +93,17 @@ export default function TabsWithNav({tabs}) {
                 </div>
 
                 <div
-                  className="tab-content__right mx-auto mb-8 w-full max-w-[630px]
+                  className="tab-content__right relative mx-auto mb-8 w-full block aspect-[0.9] max-w-[630px]
                   lg:mb-0"
                 >
-                  <Img value={image} />
+                  {/* <Img value={image} /> */}
+                  <Image
+                    className="absolute top-0 left-0 right-0 bottom-0"
+                    layout="fill"
+                    src={urlForImage(image).fit('scale').url()}
+                    objectFit="contain"
+                    quality={75}
+                  />
                 </div>
               </motion.div>
             </TabPanel>

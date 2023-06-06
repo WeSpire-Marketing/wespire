@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react'
+import React, {Fragment, useState, useRef, useEffect} from 'react'
 import {injectIconToSpanStr} from '../../../utils'
 import Icon from '../../icons/AnimatedIcon'
 import Img from '../../Img'
@@ -6,8 +6,16 @@ import {motion, AnimatePresence} from 'framer-motion'
 
 const TabsVerticalSection = ({tabsList, title, id}) => {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const tabRef = useRef([])
   const handleSlide = (index) => {
     setCurrentIndex(index)
+    if (tabRef.current.length) {
+      tabRef.current[currentIndex].scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest',
+      })
+    }
   }
 
   return (
@@ -97,6 +105,7 @@ const TabsVerticalSection = ({tabsList, title, id}) => {
                           currentIndex !== idx && idx !== tabsList.length - 1 && 'mb-10'
                         }`}
                         onClick={() => handleSlide(idx)}
+                        ref={(el) => (tabRef.current[idx] = el)}
                       >
                         {item.title}
                       </h2>{' '}
