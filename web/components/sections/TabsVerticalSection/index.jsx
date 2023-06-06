@@ -1,4 +1,4 @@
-import React, {Fragment, useState, useRef, useEffect} from 'react'
+import React, {Fragment, useState, useEffect, useRef} from 'react'
 import {injectIconToSpanStr} from '../../../utils'
 import Icon from '../../icons/AnimatedIcon'
 import Img from '../../Img'
@@ -6,17 +6,17 @@ import {motion, AnimatePresence} from 'framer-motion'
 
 const TabsVerticalSection = ({tabsList, title, id}) => {
   const [currentIndex, setCurrentIndex] = useState(0)
-  const tabRef = useRef([])
+  const ref = useRef(null)
   const handleSlide = (index) => {
     setCurrentIndex(index)
-    if (tabRef.current.length) {
-      tabRef.current[currentIndex].scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'nearest',
-      })
-    }
   }
+
+  useEffect(() => {
+    if (currentIndex !== 0 && currentIndex === tabsList.length - 1) {
+      console.dir(ref.current)
+      ref.current.scrollIntoView({block: 'start', behavior: 'smooth'})
+    }
+  }, [currentIndex])
 
   return (
     <section className="pt-[48px] pb-[64px]  lg:pt-[120px] lg:pb-[140px]" id={id}>
@@ -101,11 +101,11 @@ const TabsVerticalSection = ({tabsList, title, id}) => {
                     </div>
                     <div className="flex flex-col gap-4 lg:gap-8">
                       <h2
+                        ref={ref}
                         className={`heading-4 cursor-pointer hover:text-[#1771DC] ${
                           currentIndex !== idx && idx !== tabsList.length - 1 && 'mb-10'
                         }`}
-                        onClick={() => handleSlide(idx)}
-                        ref={(el) => (tabRef.current[idx] = el)}
+                        onClick={({target}) => handleSlide(idx, target)}
                       >
                         {item.title}
                       </h2>{' '}

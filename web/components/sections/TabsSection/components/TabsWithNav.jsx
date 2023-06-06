@@ -100,7 +100,7 @@ export default function TabsWithNav({tabs}) {
                   <Image
                     className="absolute top-0 left-0 right-0 bottom-0"
                     layout="fill"
-                    src={urlForImage(image).fit('scale').url()}
+                    src={urlForImage(image).fit('max').url()}
                     objectFit="contain"
                     quality={75}
                   />
