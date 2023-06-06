@@ -4,7 +4,7 @@ import {useTabs, TabPanel} from 'react-headless-tabs'
 import {motion, useAnimationControls} from 'framer-motion'
 
 import Tab from './Tab'
-import Img from '../../../Img'
+// import Img from '../../../Img'
 import Image from 'next/image'
 import {urlForImage} from '../../../../client'
 import useSanityBlurDataUrl from '../../../../utils/hooks/useSanityBlurDataUrl'
@@ -102,9 +102,10 @@ export default function TabsWithNav({tabs}) {
                   <Image
                     className="absolute top-0 left-0 right-0 bottom-0"
                     layout="fill"
+                    sizes="100vw"
                     alt={'image'}
                     placeholder="blur"
-                    src={urlForImage(image).width(630).height(700).url()}
+                    src={urlForImage(image).url()}
                     objectFit="contain"
                     blurDataURL={blurDataUrl}
                     quality={100}
