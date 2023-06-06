@@ -7,6 +7,7 @@ import Tab from './Tab'
 import Img from '../../../Img'
 import Image from 'next/image'
 import {urlForImage} from '../../../../client'
+import useSanityBlurDataUrl from '../../../../utils/hooks/useSanityBlurDataUrl'
 
 const variants = {
   sleep: {
@@ -50,6 +51,7 @@ export default function TabsWithNav({tabs}) {
 
       <div className="mx-auto max-w-[1128px]">
         {tabs.map(({_key, image, link, name, text, title}) => {
+          const blurDataUrl = useSanityBlurDataUrl(image)
           return (
             <TabPanel key={_key} hidden={selectedTab !== name}>
               <motion.div
@@ -100,8 +102,11 @@ export default function TabsWithNav({tabs}) {
                   <Image
                     className="absolute top-0 left-0 right-0 bottom-0"
                     layout="fill"
-                    src={urlForImage(image).fit('max').url()}
+                    alt={'image'}
+                    placeholder="blur"
+                    src={urlForImage(image).width(630).height(700).url()}
                     objectFit="contain"
+                    blurDataURL={blurDataUrl}
                     quality={100}
                   />
                 </div>
