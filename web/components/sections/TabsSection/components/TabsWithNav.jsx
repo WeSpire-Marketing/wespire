@@ -102,7 +102,7 @@ export default function TabsWithNav({tabs}) {
                     layout="fill"
                     src={urlForImage(image).fit('max').url()}
                     objectFit="contain"
-                    quality={75}
+                    quality={100}
                   />
                 </div>
               </motion.div>
