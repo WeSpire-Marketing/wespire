@@ -77,7 +77,6 @@ export default function CtaSection({title = '', link}) {
         <Image
           src={width < 1024 ? ImageBgMobile : ImageBg}
           objectFit="contain"
-          priority
           alt="Picture of the author"
         />
       </div>
