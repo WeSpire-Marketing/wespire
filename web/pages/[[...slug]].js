@@ -4,8 +4,6 @@ import {NextSeo} from 'next-seo'
 import PropTypes from 'prop-types'
 import imageUrlBuilder from '@sanity/image-url'
 import dynamic from 'next/dynamic'
-
-import dynamic from 'next/dynamic'
 import Layout from '../components/layouts/MainLayout'
 // import RenderSections from '../components/RenderSections'
 const RenderSectionsDynamic = dynamic(() => import('../components/RenderSections'), {
