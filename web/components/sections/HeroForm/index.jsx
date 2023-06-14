@@ -13,10 +13,7 @@ import {getRGBAndOpacity} from '../../../utils/colors'
 import Head from 'next/head'
 import {createSeoScript} from '../../../utils/seo'
 
-const DynamicImage = dynamic(() => import('../../Img'), {
-  ssr: false,
-  loading: () => <p>Loading...</p>,
-})
+const DynamicImage = dynamic(() => import('../../Img'))
 
 export default function HeroForm({
   link,
@@ -132,6 +129,7 @@ export default function HeroForm({
               md:max-w-[580px]
               lg:ml-auto lg:mr-0"
                 value={image}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </motion.div>
           </div>
