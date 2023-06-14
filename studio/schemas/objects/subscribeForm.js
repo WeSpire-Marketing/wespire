@@ -7,7 +7,7 @@ export default {
       name: 'formId',
       type: 'string',
       title: 'Form ID',
-      description: 'Hubspot Subscribe form id: 2c551e2c-55f8-4611-9fb9-fb04236d21b6',
+      description: 'Hubspot Subscribe form id: b54c00a6-2321-48a9-bd48-a5084fe37c35',
       validation: Rule => Rule.required()
     },
     {
@@ -38,7 +38,7 @@ export default {
     }
   ],
   initialValue: {
-    formId: '2c551e2c-55f8-4611-9fb9-fb04236d21b6',
+    formId: 'b54c00a6-2321-48a9-bd48-a5084fe37c35',
     title: 'Subscribe to our newsletter',
     subtitle: 'CSR, Engagement & Purpose tips directly in your inbox!'
   }
