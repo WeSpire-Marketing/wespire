@@ -6,9 +6,7 @@ import imageUrlBuilder from '@sanity/image-url'
 import dynamic from 'next/dynamic'
 import Layout from '../components/layouts/MainLayout'
 // import RenderSections from '../components/RenderSections'
-const RenderSectionsDynamic = dynamic(() => import('../components/RenderSections'), {
-  ssr: false,
-})
+const RenderSectionsDynamic = dynamic(() => import('../components/RenderSections'))
 import client from '../client'
 import {linkTags, metaTags} from '../utils/seo'
 import {getSlugVariations, slugParamToPath} from '../utils/urls'
