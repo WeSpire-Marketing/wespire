@@ -3,9 +3,9 @@ import Icon from '../../icons/AnimatedSparkle'
 
 import {injectIconToSpanStr} from '../../../utils'
 
-export default function TabsSection({title, tabs}) {
+export default function TabsSection({title, tabs, id = ''}) {
   return (
-    <section className="tabsection bg-gallery">
+    <section className="tabsection bg-gallery" id={id}>
       <div
         className="tabsection__outer rounded-t-[30px] bg-pampas pt-[48px] pb-[64px]
         lg:rounded-t-[60px] lg:pt-[120px] lg:pb-[140px]"

@@ -101,7 +101,11 @@ import requestDemoTemplate from './templates/requestDemoTemplate'
 import landingVideoTemplate from './templates/landingVideoTemplate'
 import privacyPolicyTemplate from './templates/privacyPolicyTemplate'
 import solutionsOverviewTemplate from './templates/solutionsOverviewTemplate'
+import landingTemplateReport from './templates/landingTemplateReport'
 import blank from './templates/blank'
+import sliderSectionReport from './sections/sliderSectionReport'
+import tableImageSection from './sections/tableImageSection'
+import cardsSectionReport from './sections/cardsSectionReport'
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   name: 'default',
@@ -130,6 +134,7 @@ export default createSchema({
     landingTemplateSocialProof,
     leadershipTemplate,
     landingTemplateCompetitor,
+    landingTemplateReport,
     // sections
     hero,
     heroForm,
@@ -160,6 +165,9 @@ export default createSchema({
     longSection,
     cardsSection,
     sliderSection,
+    sliderSectionReport,
+    tableImageSection,
+    cardsSectionReport,
     contentSection,
     sectionsBuilder,
     heroImageAndForm,

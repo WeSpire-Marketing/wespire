@@ -28,7 +28,8 @@ export default {
         { name: 'requestDemoTemplate', type: 'requestDemoTemplate' },
         { name: 'solutionsOverviewTemplate', type: 'solutionsOverviewTemplate' },
         { name: 'whyWespireTemplate', type: 'whyWespireTemplate' },
-        { name: 'wespireLiveTemplate', type: 'wespireLiveTemplate' }
+        { name: 'wespireLiveTemplate', type: 'wespireLiveTemplate' },
+        { name: 'landingTemplateReport', type: 'landingTemplateReport' }
         // sections schemas
         // { name: 'heroVideo', type: 'heroVideo' },
         // { name: 'heroSection', type: 'heroSection' },
