@@ -33,12 +33,15 @@ a {
   text-decoration: none;
 }
 
-a[aria-disabled="true"] {
+a[aria-disabled='true'] {
   pointer-events: none;
 }
 
 .select__input {
   color: transparent !important;
+}
+p {
+  white-space: break-spaces;
 }
 
 @supports not (aspect-ratio: 3 / 3.35) {
