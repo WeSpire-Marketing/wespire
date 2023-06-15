@@ -69,7 +69,7 @@ export default function MobileMenuReport({menuItems, link}) {
               justify-between border-b-[1px] border-[rgba(202,205,212,0.8)]"
             >
               <Link href="/" passHref>
-                <a>
+                <a aria-label="Link icon to home page">
                   <LogoStatic
                     className="h-[40px] w-[125px]"
                     isMenuOpen={isMenuOpen}
