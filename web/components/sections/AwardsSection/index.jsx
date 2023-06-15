@@ -50,7 +50,12 @@ export default function AwardsSection({image, title, text, awards, type = ''}) {
                       viewport={{once: true}}
                       transition={{duration: 1, delay: 0.25 * (idx + 1)}}
                     >
-                      <Img className="awection__images__img" value={award} layout="fill" />
+                      <Img
+                        className="awection__images__img"
+                        value={award}
+                        layout="fill"
+                        loading={'lazy'}
+                      />
                     </motion.li>
                   ))}
                 </ul>
@@ -66,7 +71,12 @@ export default function AwardsSection({image, title, text, awards, type = ''}) {
                       viewport={{once: true}}
                       transition={{duration: 1, delay: 0.25 * (idx + 1)}}
                     >
-                      <Img className="awection__images__img" value={award} layout="fill" />
+                      <Img
+                        className="awection__images__img"
+                        value={award}
+                        layout="fill"
+                        loading={'lazy'}
+                      />
                     </motion.li>
                   ))}
                 </ul>

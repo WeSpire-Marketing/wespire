@@ -9,7 +9,9 @@ export default function Img({
   quality = 75,
   layoutImg = 'responsive',
   objectFitImg = 'cover',
-  sizes = '',
+  sizes = null,
+  priority = false,
+  loading = undefined,
   ...props
 }) {
   const imageProps = useNextSanityImage(client, value)
@@ -23,6 +25,8 @@ export default function Img({
         objectFit={objectFitImg}
         quality={quality}
         sizes={sizes}
+        priority={priority}
+        loading={loading}
       />
     </div>
   )
