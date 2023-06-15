@@ -30,7 +30,7 @@ export default function TabsWithNav({tabs}) {
     <>
       <nav className="mb-[48px] overflow-hidden">
         <div className="overflow-x-auto">
-          <ul
+          <div
             className="tabsection-tabs relative mx-4 flex min-w-full w-fit
             items-center justify-around overflow-hidden translate-y-[-2px]
             after:absolute after:bottom-[3px] after:z-[-1] after:block
@@ -42,7 +42,7 @@ export default function TabsWithNav({tabs}) {
                 {name}
               </Tab>
             ))}
-          </ul>
+          </div>
         </div>
       </nav>
 

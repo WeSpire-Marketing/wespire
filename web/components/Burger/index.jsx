@@ -32,7 +32,7 @@ export default function Burger({isMenuOpen, toggleMenu, color = '#121212'}) {
   // }, [isMenuOpen, router.pathname])
 
   return (
-    <button className="flex flex-col gap-[6px]" onClick={toggleMenu}>
+    <button className="flex flex-col gap-[6px]" aria-label="Menu button" onClick={toggleMenu}>
       <motion.span
         className="h-[3px] w-[38px] rounded-[2px]"
         initial={{opacity: 0}}
