@@ -134,7 +134,7 @@ export default function HeroForm({
               md:max-w-[580px]
               lg:ml-auto lg:mr-0"
                 value={image}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority={true}
               />
             </motion.div>
           </div>

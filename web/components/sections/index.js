@@ -28,7 +28,9 @@ export {default as CareersHeroSection} from './CareersHeroSection'
 export {default as OpeningsSection} from './OpeningsSection'
 export {default as LeadershipSection} from './LeadershipSection'
 export {default as ArticlesPressSection} from './ArticlesPressSection'
-export {default as AwardsSection} from './AwardsSection'
+export const AwardsSection = dynamic(() => import('./AwardsSection'), {
+  ssr: false,
+})
 export {default as MeasureSection} from './MeasureSection'
 export {default as OurCustomersSection} from './OurCustomersSection'
 export {default as TabsSection} from './TabsSection'
