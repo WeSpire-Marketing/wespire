@@ -2,16 +2,20 @@ import Link from 'next/link'
 import {motion} from 'framer-motion'
 import dynamic from 'next/dynamic'
 
-import Img from '../../Img'
+// import Img from '../../Img'
 import Icon from '../../icons/AnimatedIcon'
 import LogoStatic from '../../icons/LogoStatic'
 import SponsorsBlock from '../../SponsorsBlock'
-import SignMeUpWithNamesForm from '../../forms/SignMeUpWithNamesForm'
+
+const SignMeUpWithNamesForm = dynamic(() => import('../../forms/SignMeUpWithNamesForm'), {
+  ssr: false,
+})
 
 import {injectIconToSpanStr} from '../../../utils'
 import {getRGBAndOpacity} from '../../../utils/colors'
 import Head from 'next/head'
 import {createSeoScript} from '../../../utils/seo'
+import {Suspense} from 'react'
 
 const DynamicImage = dynamic(() => import('../../Img'))
 
@@ -106,10 +110,11 @@ export default function HeroForm({
               >
                 {subtitle}
               </p>
-
-              <div className="px-4 md:px-0">
-                <SignMeUpWithNamesForm formId={formId} />
-              </div>
+              <Suspense fallback={() => <p>Loading ...</p>}>
+                <div className="px-4 md:px-0">
+                  <SignMeUpWithNamesForm formId={formId} />
+                </div>
+              </Suspense>
             </div>
 
             <motion.div
