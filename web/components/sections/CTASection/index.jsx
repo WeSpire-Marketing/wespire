@@ -1,6 +1,9 @@
 import Link from 'next/link'
 import {motion} from 'framer-motion'
-
+import ImageBg from '../../../assets/images/ctaBg.webp'
+import ImageBgMobile from '../../../assets/images/girl.webp'
+import Image from 'next/image'
+import useWindowSize from '../../../utils/hooks/useWindowSize'
 // Word wrapper
 const Wrapper = (props) => {
   // We'll do this to prevent wrapping of words using CSS
@@ -20,6 +23,8 @@ const Wrapper = (props) => {
 }
 
 export default function CtaSection({title = '', link}) {
+  const {width} = useWindowSize()
+
   const item = {
     hidden: {
       y: '200%',
@@ -64,12 +69,20 @@ export default function CtaSection({title = '', link}) {
 
   return (
     <section
-      className="ctasection bg-thriving bg-ctaMobileBg bg-[length:131px_108px]
+      className="relative ctasection bg-thriving bg-[length:131px_108px]
       bg-[center_top_40px] bg-no-repeat pt-[164px] pb-[64px] text-center
-      lg:bg-cta lg:bg-contain lg:bg-center lg:pt-[148px] lg:pb-[156px]"
+      lg:bg-none lg:bg-contain lg:bg-center lg:pt-[148px] lg:pb-[156px]"
     >
+      <div className="absolute mx-auto mt-8 lg:mt-0 top-0 left-0 right-0 bottom-0 w-[131px] lg:w-full h-full">
+        <Image
+          src={width < 1024 ? ImageBgMobile : ImageBg}
+          objectFit="contain"
+          alt="Picture of the author"
+        />
+      </div>
+
       <motion.h2
-        className="ctasection__title heading-2 mx-auto mb-[40px] max-w-[612px] 
+        className="ctasection__title heading-2 mx-auto mb-[40px] max-w-[612px]
         px-2 text-center text-white lg:mb-[56px]"
         viewport={{once: true}}
         whileInView="visible"

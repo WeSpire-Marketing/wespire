@@ -66,8 +66,8 @@ module.exports = {
         160: '160%',
       },
       backgroundImage: {
-        cta: "url('../assets/images/ctaBg.png')",
-        ctaMobileBg: "url('../assets/images/girl.png')",
+        cta: "url('../assets/images/ctaBg.webp')",
+        ctaMobileBg: "url('../assets/images/girl.webp')",
         quotes: "url('../assets/images/quotesIcon.svg')",
         heroForm: "url('../assets/images/heroFormBg.svg')",
       },

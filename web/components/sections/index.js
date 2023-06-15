@@ -1,4 +1,6 @@
-export {default as HeroVideo} from './HeroVideo'
+import dynamic from 'next/dynamic'
+
+export const HeroVideo = dynamic(() => import('./HeroVideo'))
 export {default as HeroQuote} from './HeroQuote'
 export {default as CtaSection} from './CTASection'
 export {default as HeroSection} from './HeroSection'
@@ -31,8 +33,11 @@ export {default as MeasureSection} from './MeasureSection'
 export {default as OurCustomersSection} from './OurCustomersSection'
 export {default as TabsSection} from './TabsSection'
 export {default as LandingpageFooter} from './LandingpageFooter'
-export {default as LandingCardsSection} from './LandingCardsSection'
-export {default as HeroForm} from './HeroForm'
+export const LandingCardsSection = dynamic(() => import('./LandingCardsSection'), {
+  ssr: false,
+})
+export const HeroForm = dynamic(() => import('./HeroForm'))
+
 export {default as HeroFormVideo} from './HeroFormVideo'
 export {default as HeroCTASection} from './HeroCTASection'
 export {default as UpcomingEventSection} from './UpcomingEventSection'

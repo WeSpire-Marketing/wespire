@@ -1,15 +1,12 @@
 import groq from 'groq'
-import React, {useEffect} from 'react'
+import React, {Suspense, useEffect} from 'react'
 import {NextSeo} from 'next-seo'
 import PropTypes from 'prop-types'
 import imageUrlBuilder from '@sanity/image-url'
-
 import dynamic from 'next/dynamic'
 import Layout from '../components/layouts/MainLayout'
 // import RenderSections from '../components/RenderSections'
-const RenderSections = dynamic(() => import('../components/RenderSections'), {
-  ssr: false,
-})
+const RenderSectionsDynamic = dynamic(() => import('../components/RenderSections'))
 import client from '../client'
 import {linkTags, metaTags} from '../utils/seo'
 import {getSlugVariations, slugParamToPath} from '../utils/urls'
@@ -565,7 +562,9 @@ const LandingPage = (props) => {
         }}
         noindex={disallowRobots}
       />
-      {content?.sections && <RenderSections sections={content?.sections} />}
+      <Suspense>
+        {content?.sections && <RenderSectionsDynamic sections={content?.sections} />}
+      </Suspense>
     </Layout>
   )
 }
