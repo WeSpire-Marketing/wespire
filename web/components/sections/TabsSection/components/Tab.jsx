@@ -1,10 +1,10 @@
-import { motion } from 'framer-motion'
+import {motion} from 'framer-motion'
 
-export default function Tab({ isActive, children, onClick }) {
+export default function Tab({isActive, children, onClick}) {
   return (
     <button
       className={`group relative inline-flex w-full flex-1 shrink-0 cursor-pointer
-        items-center justify-center whitespace-nowrap py-[18px] px-[26px] 
+        items-center justify-center whitespace-nowrap py-[18px] px-[26px]
         font-poppins text-[18px] font-medium uppercase leading-[100%] tracking-[-0.01em]
         lg:px-[46px] lg:py-[23px]
         ${
@@ -13,6 +13,7 @@ export default function Tab({ isActive, children, onClick }) {
             : 'border-transparent text-[#96ABC9] focus:text-[#96ABC9]'
         }`}
       onClick={onClick}
+      aria-label={`Tab name:${children}`}
     >
       {children}
 
