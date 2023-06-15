@@ -9,7 +9,7 @@ export default function Img({
   quality = 75,
   layoutImg = 'responsive',
   objectFitImg = 'cover',
-  sizes = null,
+  sizes = undefined,
   priority = false,
   loading = undefined,
   ...props
@@ -21,6 +21,8 @@ export default function Img({
       <Image
         {...imageProps}
         alt={value.alt}
+        width={layoutImg === 'fill' ? null : imageProps.width}
+        height={layoutImg === 'fill' ? null : imageProps.height}
         layout={layoutImg}
         objectFit={objectFitImg}
         quality={quality}
