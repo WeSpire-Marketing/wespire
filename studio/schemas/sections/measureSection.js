@@ -91,7 +91,7 @@ export default {
           ]
         }
       ],
-      validation: Rule => Rule.required().max(4)
+      validation: Rule => Rule.max(4)
     }
   ]
 }
