@@ -2,22 +2,24 @@ import Img from '../../../Img'
 import {motion} from 'framer-motion'
 import QuotesIcon from '../../../icons/QuotesIcon'
 
-export default function CustomerQuote({className = '', image, name, job, text}) {
+export default function CustomerQuote({className = '', image, name, job, text, isLandingAndMobil}) {
   return (
     <figure
       className={`flex flex-col items-start gap-8 rounded-[16px] bg-neverPreachy
       p-6 pb-[40px]
       md:flex-row lg:gap-[80px] lg:rounded-[60px] lg:py-[56px] lg:px-[69px] ${className}`}
     >
-      <motion.div
-        className="relative w-full max-w-[338px] shrink-0"
-        initial={{opacity: 0}}
-        viewport={{once: true}}
-        whileInView={{opacity: 1}}
-        transition={{duration: 1, delay: 0.25}}
-      >
-        <Img value={image} />
-      </motion.div>
+      {!isLandingAndMobil && (
+        <motion.div
+          className="relative w-full max-w-[338px] shrink-0"
+          initial={{opacity: 0}}
+          viewport={{once: true}}
+          whileInView={{opacity: 1}}
+          transition={{duration: 1, delay: 0.25}}
+        >
+          <Img value={image} />
+        </motion.div>
+      )}
 
       <div>
         <motion.div

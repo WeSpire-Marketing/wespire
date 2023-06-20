@@ -1,11 +1,14 @@
 import {motion} from 'framer-motion'
 import dynamic from 'next/dynamic'
 
+import useWindowSize from '../../../utils/hooks/useWindowSize'
 const Img = dynamic(() => import('../../Img'), {
   ssr: false,
 })
 
 export default function AwardsSection({image, title, text, awards, type = ''}) {
+  const {width} = useWindowSize()
+  const isLandingAndMobil = Boolean(type === 'LandingTemplateCompetitor') && Boolean(width <= 768)
   return (
     <section
       className={`awection bg-gallery ${
@@ -18,15 +21,17 @@ export default function AwardsSection({image, title, text, awards, type = ''}) {
           md:flex-row
           lg:gap-6"
         >
-          <motion.div
-            className="awection__left w-full lg:w-1/2"
-            initial={{opacity: 0}}
-            whileInView={{opacity: 1}}
-            viewport={{once: true}}
-            transition={{duration: 1, delay: 0.15}}
-          >
-            <Img className="awection__left__img max-w-[580px] lg:mr-[115px]" value={image} />
-          </motion.div>
+          {!isLandingAndMobil && (
+            <motion.div
+              className="awection__left w-full lg:w-1/2"
+              initial={{opacity: 0}}
+              whileInView={{opacity: 1}}
+              viewport={{once: true}}
+              transition={{duration: 1, delay: 0.15}}
+            >
+              <Img className="awection__left__img max-w-[580px] lg:mr-[115px]" value={image} />
+            </motion.div>
+          )}
 
           <div className="awection__right w-full px-2 lg:w-1/2 lg:px-0">
             <h2 className="awection__title heading-2 mb-4 max-w-[452px]">{title}</h2>

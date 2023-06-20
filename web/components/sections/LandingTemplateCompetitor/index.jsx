@@ -7,7 +7,7 @@ const LandingTemplateCompetitor = ({sections}) => {
   }
   sectionsArr.push({...sections.heroForm, type: 'LandingTemplateCompetitor'})
   sectionsArr.push({...sections.cardsSection, _type: 'landingCardsSection'})
-  sectionsArr.push(sections.ourCustomersSection)
+  sectionsArr.push({...sections.ourCustomersSection, type: 'LandingTemplateCompetitor'})
   sectionsArr.push(sections.tabsSection)
   sectionsArr.push({...sections.awardsSection, type: 'LandingTemplateCompetitor'})
   if (Boolean(sections?.googleFAQSection?.showFAQ)) {

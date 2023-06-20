@@ -1,10 +1,14 @@
 import CustomerCard from './components/CustomerCard'
 import CustomerQuote from './components/CustomerQuote'
 import Icon from '../../icons/AnimatedHighlights'
+import useWindowSize from '../../../utils/hooks/useWindowSize'
 
 import {injectIconToSpanStr} from '../../../utils'
+import React from 'react'
 
-export default function OurCustomersSection({page = '', title, quote, cards}) {
+export default function OurCustomersSection({page = '', title, quote, cards, type = ''}) {
+  const {width} = useWindowSize()
+  const isLandingAndMobil = Boolean(type === 'LandingTemplateCompetitor') && Boolean(width <= 768)
   if (page === 'landingTemplateSocialProof') {
     return (
       <section
@@ -55,7 +59,11 @@ export default function OurCustomersSection({page = '', title, quote, cards}) {
             ))}
           </h2>
 
-          <CustomerQuote className="mb-[64px] lg:mb-[80px]" {...quote} />
+          <CustomerQuote
+            className="mb-[64px] lg:mb-[80px]"
+            {...quote}
+            isLandingAndMobil={isLandingAndMobil}
+          />
 
           <div className="ourcusection-cards flex flex-col gap-6 lg:flex-row">
             {(cards ?? []).map((card) => (

@@ -2,7 +2,6 @@ import Link from 'next/link'
 import {motion} from 'framer-motion'
 import dynamic from 'next/dynamic'
 
-// import Img from '../../Img'
 import Icon from '../../icons/AnimatedIcon'
 import LogoStatic from '../../icons/LogoStatic'
 import SponsorsBlock from '../../SponsorsBlock'
@@ -15,7 +14,8 @@ import {injectIconToSpanStr} from '../../../utils'
 import {getRGBAndOpacity} from '../../../utils/colors'
 import Head from 'next/head'
 import {createSeoScript} from '../../../utils/seo'
-import {Suspense} from 'react'
+import React from 'react'
+import useWindowSize from '../../../utils/hooks/useWindowSize'
 
 const DynamicImage = dynamic(() => import('../../Img'))
 
@@ -31,6 +31,8 @@ export default function HeroForm({
   type = '',
 }) {
   const colorTextCss = getRGBAndOpacity('h1SmallTitleLanding-colorText', titleSmall?.colorText)
+  const {width} = useWindowSize()
+  const isLandingAndMobil = Boolean(type === 'LandingTemplateCompetitor') && Boolean(width <= 768)
   return (
     <>
       <Head>
@@ -110,33 +112,33 @@ export default function HeroForm({
               >
                 {subtitle}
               </p>
-              <Suspense fallback={() => <p>Loading ...</p>}>
-                <div className="px-4 md:px-0">
-                  <SignMeUpWithNamesForm formId={formId} />
-                </div>
-              </Suspense>
-            </div>
 
-            <motion.div
-              className={`hero-form__body-right w-full
+              <div className="px-4 md:px-0">
+                <SignMeUpWithNamesForm formId={formId} />
+              </div>
+            </div>
+            {!isLandingAndMobil && (
+              <motion.div
+                className={`hero-form__body-right w-full
             lg:w-1/2 self-start ${
               Boolean(type?.length) &&
               'lg:bg-heroForm lg:bg-no-repeat lg:bg-contain lg:bg-right-top'
             }`}
-              initial={{opacity: 0, y: -100}}
-              whileInView={{opacity: 1, y: 0}}
-              viewport={{once: true}}
-              transition={{duration: 1, delay: 0.5}}
-            >
-              <DynamicImage
-                className="hero-form__body-right max-w-[456px] mx-auto
+                initial={{opacity: 0, y: -100}}
+                whileInView={{opacity: 1, y: 0}}
+                viewport={{once: true}}
+                transition={{duration: 1, delay: 0.5}}
+              >
+                <DynamicImage
+                  className="hero-form__body-right max-w-[456px] mx-auto
               sm:max-w-[540px]
               md:max-w-[580px]
               lg:ml-auto lg:mr-0"
-                value={image}
-                priority={true}
-              />
-            </motion.div>
+                  value={image}
+                  priority={true}
+                />
+              </motion.div>
+            )}
           </div>
         </div>
 
