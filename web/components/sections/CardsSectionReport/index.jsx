@@ -9,7 +9,6 @@ import {injectIconToSpanStr} from '../../../utils'
 import Img from '../../Img'
 
 const CardsSectionReport = ({panelTitle, cards1, cards2, cards3}) => {
-  console.log(cards3)
   return (
     <section
       className="carection overflow-hidden bg-gallery py-[100px]
