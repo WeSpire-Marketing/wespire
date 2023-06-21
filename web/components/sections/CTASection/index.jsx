@@ -73,7 +73,7 @@ export default function CtaSection({title = '', link}) {
       bg-[center_top_40px] bg-no-repeat pt-[164px] pb-[64px] text-center
       lg:bg-none lg:bg-contain lg:bg-center lg:pt-[148px] lg:pb-[156px]"
     >
-      <div className="absolute mx-auto mt-8 lg:mt-0 top-0 left-0 right-0 bottom-0 w-[131px] lg:w-full h-full">
+      <div className="absolute z-0 mx-auto mt-8 lg:mt-0 top-0 left-0 right-0 bottom-0 w-[131px] lg:w-full h-full">
         <Image
           src={width < 1024 ? ImageBgMobile : ImageBg}
           objectFit="contain"
@@ -113,7 +113,7 @@ export default function CtaSection({title = '', link}) {
         })}
       </motion.h2>
 
-      <div className="inline-block sm:px-0">
+      <div className="inline-block relative z-1 sm:px-0">
         {link?.isScrollToForm ? (
           <a
             className="ctasection__link cta-btn w-full py-[15px] px-10"

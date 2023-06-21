@@ -46,7 +46,7 @@ export default {
           title: 'Cards Section',
           type: 'sustainCardsSection'
         },
-        { name: 'measureSection', type: 'measureSection' },
+        { name: 'imageTextSection', type: 'imageTextSection' },
         { name: 'tabsSection', title: 'Tabs section', type: 'tabsSection' },
         {
           name: 'ourCustomersSection',

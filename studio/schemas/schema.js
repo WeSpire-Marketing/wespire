@@ -79,7 +79,7 @@ import ourCustomersSection from './sections/ourCustomersSection'
 import heroCTASection from './sections/heroCTASection'
 import upcomingEventSection from './sections/upcomingEventSection'
 import blogCardsSection from './sections/blogCardsSection'
-
+import imageTextSection from './sections/imageTextSection'
 // templates
 import blogTemplate from './templates/blogTemplate'
 import homeTemplate from './templates/homeTemplate'
@@ -179,6 +179,7 @@ export default createSchema({
     upcomingEventSection,
     blogCardsSection,
     sustainCardsSection,
+    imageTextSection,
 
     // other types
     video,

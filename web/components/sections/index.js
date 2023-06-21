@@ -7,6 +7,7 @@ export {default as HeroSection} from './HeroSection'
 export {default as LongSection} from './LongSection'
 export {default as CardsSection} from './CardsSection'
 export {default as ImageSection} from './ImageSection'
+export const ImageTextSection = dynamic(() => import('./ImageTextSection'), {ssr: false})
 export {default as QuoteSection} from './QuoteSection'
 export {default as ValuesSection} from './ValuesSection'
 export {default as SliderSection} from './SliderSection'
@@ -39,7 +40,14 @@ export const LandingCardsSection = dynamic(() => import('./LandingCardsSection')
   ssr: false,
 })
 export const HeroForm = dynamic(() => import('./HeroForm'))
-
+export const HeroFormSustainability = dynamic(() => import('./HeroFormSustainability'))
+export const LandingTemplateSustainability = dynamic(
+  () => import('./LandingTemplateSustainability'),
+  {
+    ssr: false,
+  }
+)
+export const SustainCardsSection = dynamic(() => import('./SustainCardsSection'), {ssr: false})
 export {default as HeroFormVideo} from './HeroFormVideo'
 export {default as HeroCTASection} from './HeroCTASection'
 export {default as UpcomingEventSection} from './UpcomingEventSection'
