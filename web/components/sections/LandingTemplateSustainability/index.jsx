@@ -6,7 +6,7 @@ const LandingTemplateSustainability = ({sections}) => {
   sectionsArr.push(sections.sustainCardsSection)
   sectionsArr.push(sections.imageTextSection)
   sectionsArr.push(sections.tabsSection)
-  sectionsArr.push(sections.ourCustomersSection)
+  sectionsArr.push({...sections.ourCustomersSection, type: 'landingTemplateSustainability'})
   sectionsArr.push(sections.ctaSection)
   sectionsArr.push({...sections.footer, _type: 'landingpageFooter'})
   sectionsArr.map((s) => (s._key = s._type))

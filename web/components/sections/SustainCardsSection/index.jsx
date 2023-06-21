@@ -3,7 +3,6 @@ import {injectIconToSpanStr} from '../../../utils'
 import Icon from '../../icons/AnimatedIcon'
 import Image from 'next/image'
 import {urlForImage} from '../../../client'
-import useSanityBlurDataUrl from '../../../utils/hooks/useSanityBlurDataUrl'
 import {useWindowWidth} from '@react-hook/window-size'
 import {Swiper, SwiperSlide} from 'swiper/react'
 import SliderNav from '../SliderSection/components/SliderNav'
@@ -115,7 +114,7 @@ const SustainCardsSection = ({title, cards = []}) => {
                 // Responsive breakpoints
                 breakpoints={swiperBreakpoints}
               >
-                {cards.slice(0, 7).map(({_key, image, title, text, active, cardsUser = []}, i) => {
+                {cards.slice(0, 6).map(({_key, image, title, text, active, cardsUser = []}, i) => {
                   return (
                     <SwiperSlide key={_key}>
                       {cardItem(image, title, text, active, cardsUser)}
