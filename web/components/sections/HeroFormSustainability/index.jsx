@@ -94,7 +94,7 @@ export default function HeroFormSustainability({
               lg:mb-6 lg:text-left"
                   >
                     {injectIconToSpanStr(title, () => (
-                      <Icon color="#FFCC7B" />
+                      <Icon color="#DF6F30" />
                     ))}
                   </h2>
                 </>
@@ -104,7 +104,7 @@ export default function HeroFormSustainability({
               lg:mb-6 lg:text-left"
                 >
                   {injectIconToSpanStr(title, () => (
-                    <Icon color="#FFCC7B" />
+                    <Icon color="#DF6F30" />
                   ))}
                 </h1>
               )}

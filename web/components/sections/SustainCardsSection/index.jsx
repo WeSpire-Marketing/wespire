@@ -27,6 +27,7 @@ const swiperBreakpoints = {
 }
 const cardItem = (image, title, text, active, cardsUser = []) => (
   <div
+    key={`${title}`}
     className="border-[rgba(202_205_212_0.8)] flex flex-1 flex-col
           rounded-2xl border bg-white duration-300 ease-in-out"
   >
@@ -52,7 +53,10 @@ const cardItem = (image, title, text, active, cardsUser = []) => (
         <div className="flex mb-4 -space-x-4">
           {cardsUser.length &&
             cardsUser.map((image) => (
-              <div className="relative w-14 h-14 border-1 border-white rounded-full">
+              <div
+                key={`${image._key}`}
+                className="relative w-14 h-14 border-1 border-white rounded-full"
+              >
                 <Image
                   className="absolute w-full h-full"
                   src={urlForImage(image).width(300).height(300).fit('max').url()}
