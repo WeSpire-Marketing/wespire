@@ -119,7 +119,7 @@ export default function HeroForm({
 
             <motion.div
               className={`hero-form__body-right w-full
-            lg:w-1/2 self-start ${
+            lg:w-1/2  ${
               Boolean(type?.length) &&
               'lg:bg-heroForm lg:bg-no-repeat lg:bg-contain lg:bg-right-top'
             }`}
