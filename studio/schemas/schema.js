@@ -79,7 +79,7 @@ import ourCustomersSection from './sections/ourCustomersSection'
 import heroCTASection from './sections/heroCTASection'
 import upcomingEventSection from './sections/upcomingEventSection'
 import blogCardsSection from './sections/blogCardsSection'
-
+import imageTextSection from './sections/imageTextSection'
 // templates
 import blogTemplate from './templates/blogTemplate'
 import homeTemplate from './templates/homeTemplate'
@@ -106,6 +106,9 @@ import blank from './templates/blank'
 import sliderSectionReport from './sections/sliderSectionReport'
 import tableImageSection from './sections/tableImageSection'
 import cardsSectionReport from './sections/cardsSectionReport'
+import heroFormSustainability from './sections/heroFormSustainability'
+import sustainCardsSection from './sections/sustainCardsSection'
+import landingTemplateSustainability from './templates/landingTemplateSustainability'
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   name: 'default',
@@ -135,6 +138,7 @@ export default createSchema({
     leadershipTemplate,
     landingTemplateCompetitor,
     landingTemplateReport,
+    landingTemplateSustainability,
     // sections
     hero,
     heroForm,
@@ -174,6 +178,8 @@ export default createSchema({
     heroVideoAndForm,
     upcomingEventSection,
     blogCardsSection,
+    sustainCardsSection,
+    imageTextSection,
 
     // other types
     video,
@@ -205,6 +211,7 @@ export default createSchema({
     eventForm,
     subscribeForm,
     authorsQuoteForm,
+    heroFormSustainability,
 
     // top menu components
     namedChildrens,

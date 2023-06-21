@@ -29,7 +29,8 @@ export default {
         { name: 'solutionsOverviewTemplate', type: 'solutionsOverviewTemplate' },
         { name: 'whyWespireTemplate', type: 'whyWespireTemplate' },
         { name: 'wespireLiveTemplate', type: 'wespireLiveTemplate' },
-        { name: 'landingTemplateReport', type: 'landingTemplateReport' }
+        { name: 'landingTemplateReport', type: 'landingTemplateReport' },
+        { name: 'landingTemplateSustainability', type: 'landingTemplateSustainability' }
         // sections schemas
         // { name: 'heroVideo', type: 'heroVideo' },
         // { name: 'heroSection', type: 'heroSection' },

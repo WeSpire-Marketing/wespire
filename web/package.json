@@ -13,6 +13,7 @@
   "dependencies": {
     "@etchteam/next-pagination": "^3.5.4",
     "@portabletext/react": "^1.0.6",
+    "@react-hook/window-size": "^3.1.1",
     "@sanity/client": "^3.0.3",
     "@sanity/image-url": "^1.0.1",
     "@tailwindcss/line-clamp": "^0.4.2",

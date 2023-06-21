@@ -1,10 +1,14 @@
 import CustomerCard from './components/CustomerCard'
 import CustomerQuote from './components/CustomerQuote'
 import Icon from '../../icons/AnimatedHighlights'
+import {useWindowWidth} from '@react-hook/window-size'
 
 import {injectIconToSpanStr} from '../../../utils'
 
-export default function OurCustomersSection({page = '', title, quote, cards}) {
+export default function OurCustomersSection({page = '', title, quote, cards = [], type = ''}) {
+  const width = useWindowWidth()
+  const only1CustomerCard = Boolean(width <= 768) && type === 'landingTemplateSustainability'
+
   if (page === 'landingTemplateSocialProof') {
     return (
       <section
@@ -58,9 +62,11 @@ export default function OurCustomersSection({page = '', title, quote, cards}) {
           <CustomerQuote className="mb-[64px] lg:mb-[80px]" {...quote} />
 
           <div className="ourcusection-cards flex flex-col gap-6 lg:flex-row">
-            {(cards ?? []).map((card) => (
-              <CustomerCard key={card._key} {...card} />
-            ))}
+            {only1CustomerCard ? (
+              <CustomerCard key={cards[0]._key} {...cards[0]} />
+            ) : (
+              cards.map((card) => <CustomerCard key={card._key} {...card} />)
+            )}
           </div>
         </div>
       </div>

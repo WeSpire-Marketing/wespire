@@ -1,7 +1,7 @@
 export default {
-  name: 'measureSection',
+  name: 'imageTextSection',
   type: 'object',
-  title: 'Measure section',
+  title: 'Image Text Section',
   fields: [
     {
       name: 'image',
@@ -64,34 +64,6 @@ export default {
         internal: false
       },
       validation: Rule => Rule.required()
-    },
-    {
-      name: 'cols',
-      type: 'array',
-      title: 'Text columns under image',
-      of: [
-        {
-          name: 'col',
-          type: 'object',
-          title: 'Text column',
-          validation: Rule => Rule.required(),
-          fields: [
-            {
-              name: 'title',
-              type: 'string',
-              title: 'Column title',
-              validation: Rule => Rule.required()
-            },
-            {
-              name: 'text',
-              type: 'text',
-              title: 'Column text',
-              validation: Rule => Rule.required()
-            }
-          ]
-        }
-      ],
-      validation: Rule => Rule.max(4)
     }
   ]
 }
