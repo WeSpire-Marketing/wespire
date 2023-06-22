@@ -24,6 +24,7 @@ import localDataURL from '../../assets/images/blur-placeholder.jpg'
 import HubspotForm from '../../components/forms/HubspotForm'
 import {createSeoScript} from '../../utils/seo'
 import GoogleFAQSection from '../../components/sections/GoogleFAQSection'
+import Link from 'next/link'
 
 const constFormId = Object.freeze({
   'Saturday Spark': 'b54c00a6-2321-48a9-bd48-a5084fe37c35',
@@ -76,7 +77,6 @@ export async function getServerSideProps({params}) {
       notFound: true,
     }
   }
-
   return {
     props: {
       data,
@@ -111,6 +111,7 @@ export default function Index({
   useCustomScrollBehavior()
   const [formattedDate, setFormattedDate] = useState(null)
   const imageProps = useNextSanityImage(client, imageData.image)
+  const showBlurb = Boolean(categories[0].title === 'Saturday Spark')
 
   useEffect(() => setFormattedDate(formatTimestamp(publishedAt)), [])
 
@@ -175,11 +176,26 @@ export default function Index({
                   </div>
 
                   {constFormId[categories?.[0]?.title] && (
-                    <div className="mb-[32px] mt-[32px] lg:mb-[32px] lg:mt-[88px] px-4 lg:px-0">
+                    <div
+                      className={`${
+                        showBlurb ? 'mb-4' : 'mb-8'
+                      } mt-[32px] lg:mt-[88px] px-4 lg:px-0`}
+                    >
                       <HubspotForm page="article" formId={constFormId[categories?.[0]?.title]} />
                     </div>
                   )}
-
+                  {showBlurb && (
+                    <div
+                      class="w-full max-w-[540px] mx-4 md:mx-auto lg:mx-0 px-4 py-[10px] mb-4 lg:mb-10 rounded-lg bg-[#FFCC7B] font-medium font-poppins  text-secondary text-[14px]"
+                      role="alert"
+                    >
+                      We are no longer taking subscriptions to Saturday Spark, but please join us
+                      for our other weekly newsletter,{' '}
+                      <Link href={'/blog'} passHref>
+                        <a className="text-[14px] text-smart">WeSpire Weekly!</a>
+                      </Link>
+                    </div>
+                  )}
                   <div
                     className={`article__author inline-flex items-center gap-4 px-4 lg:px-0 ${
                       !constFormId[categories?.[0]?.title] ? 'mt-[32px] lg:mt-[88px]' : ''
