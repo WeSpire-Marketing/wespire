@@ -192,7 +192,7 @@ export default function Index({
                       We are no longer taking subscriptions to Saturday Spark, but please join us
                       for our other weekly newsletter,{' '}
                       <Link href={'/blog'} passHref>
-                        <a className="text-[14px] text-smart">WeSpire Weekly!</a>
+                        <a className="text-[14px] text-smart font-bold">WeSpire Weekly!</a>
                       </Link>
                     </div>
                   )}
