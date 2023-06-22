@@ -18,7 +18,7 @@ const variants = {
   },
 }
 
-export default function TabsWithNav({tabs}) {
+export default function TabsWithNav({tabs, id}) {
   const controls = useAnimationControls()
   const [selectedTab, setSelectedTab] = useTabs(tabs.map((tab) => tab.name))
 
@@ -89,18 +89,26 @@ export default function TabsWithNav({tabs}) {
                       </a>
                     ))}
                 </div>
-
-                <div
-                  className="tab-content__right  mx-auto mb-8 w-full  max-w-[630px]
+                {Boolean(id) ? (
+                  <div
+                    className="tab-content__right  mx-auto mb-8 w-full  max-w-[630px]
                   lg:mb-0"
-                >
-                  <Img
-                    value={image}
-                    layoutImg="fill"
-                    className="relative w-full aspect-[0.9]"
-                    objectFitImg="contain"
-                  />
-                </div>
+                  >
+                    <Img
+                      value={image}
+                      layoutImg="fill"
+                      className="relative w-full aspect-[0.9]"
+                      objectFitImg="contain"
+                    />
+                  </div>
+                ) : (
+                  <div
+                    className="tab-content__right mb-8 w-full max-w-[580px]
+                  lg:mb-0 lg:w-1/2"
+                  >
+                    <Img value={image} />
+                  </div>
+                )}
               </motion.div>
             </TabPanel>
           )

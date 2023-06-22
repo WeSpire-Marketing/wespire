@@ -7,11 +7,7 @@ const Img = dynamic(() => import('../../Img'), {
 
 export default function AwardsSection({image, title, text, awards, type = ''}) {
   return (
-    <section
-      className={`awection bg-gallery ${
-        Boolean(type?.length) ? 'py-[100px] lg:py-[140px]' : 'pb-[100px] lg:pb-[140px]'
-      }`}
-    >
+    <section className={`awection bg-gallery py-[100px] lg:py-[140px]`}>
       <div className="container px-2 lg:px-8">
         <div
           className="awection__inner flex flex-col items-center gap-8
@@ -38,27 +34,28 @@ export default function AwardsSection({image, title, text, awards, type = ''}) {
               {text}
             </p>
 
-            {Boolean(type.length) ? (
-              <ul className="awection__images flex flex-wrap items-center gap-7">
-                {(awards ?? []).map((award, idx) => (
-                  <motion.li
-                    className="awection__images-item relative h-[90px] w-[164px] lg:h-[126px] lg:w-[232px]"
-                    key={award._key}
-                    initial={{opacity: 0}}
-                    whileInView={{opacity: 1}}
-                    viewport={{once: true}}
-                    transition={{duration: 1, delay: 0.25 * (idx + 1)}}
-                  >
-                    <Img
-                      className="awection__images__img"
-                      value={award}
-                      layoutImg="fill"
-                      loading={'lazy'}
-                    />
-                  </motion.li>
-                ))}
-              </ul>
-            ) : (
+            {/* {Boolean(type.length) ? ( */}
+            <ul className="awection__images flex flex-wrap items-center gap-7">
+              {(awards ?? []).map((award, idx) => (
+                <motion.li
+                  className="awection__images-item relative h-[90px] w-[164px] lg:h-[126px] lg:w-[232px]"
+                  key={award._key}
+                  initial={{opacity: 0}}
+                  whileInView={{opacity: 1}}
+                  viewport={{once: true}}
+                  transition={{duration: 1, delay: 0.25 * (idx + 1)}}
+                >
+                  <Img
+                    className="awection__images__img"
+                    value={award}
+                    layoutImg="fill"
+                    loading={'lazy'}
+                    objectFitImg="contain"
+                  />
+                </motion.li>
+              ))}
+            </ul>
+            {/* ) : (
               <ul className="awection__images flex items-center gap-6">
                 {(awards ?? []).map((award, idx) => (
                   <motion.li
@@ -79,7 +76,7 @@ export default function AwardsSection({image, title, text, awards, type = ''}) {
                   </motion.li>
                 ))}
               </ul>
-            )}
+            )} */}
           </div>
         </div>
       </div>
