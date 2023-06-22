@@ -189,7 +189,7 @@ export default function Index({
                       class="w-full max-w-[540px] mx-4 md:mx-auto lg:mx-0 px-4 py-[10px] mb-4 lg:mb-10 rounded-lg bg-[#FFCC7B] font-medium font-poppins  text-secondary text-[14px]"
                       role="alert"
                     >
-                      We are no longer taking subscriptions to Saturday Spark, but please join us
+                      We are no longer accepting subscriptions to Saturday Spark, but please join us
                       for our other weekly newsletter,{' '}
                       <Link href={'/blog'} passHref>
                         <a className="text-[14px] text-smart font-bold">WeSpire Weekly!</a>
