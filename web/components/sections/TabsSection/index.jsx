@@ -25,7 +25,7 @@ export default function TabsSection({title, tabs, id = ''}) {
               ))}
             </h2>
 
-            <TabsWithNav tabs={tabs} />
+            <TabsWithNav tabs={tabs} id={id} />
           </div>
         </div>
       </div>
