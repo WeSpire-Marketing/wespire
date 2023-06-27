@@ -1,4 +1,4 @@
-import React, {Fragment, useState, useEffect, useRef} from 'react'
+import React, {Fragment, useState, useRef} from 'react'
 import {injectIconToSpanStr} from '../../../utils'
 import Icon from '../../icons/AnimatedIcon'
 import Img from '../../Img'
@@ -11,12 +11,11 @@ const TabsVerticalSection = ({tabsList, title, id}) => {
     setCurrentIndex(index)
   }
 
-  useEffect(() => {
-    if (currentIndex !== 0 && currentIndex === tabsList.length - 1) {
-      console.dir(ref.current)
-      ref.current.scrollIntoView({block: 'start', behavior: 'smooth'})
-    }
-  }, [currentIndex])
+  // useEffect(() => {
+  //   if (currentIndex !== 0 && currentIndex === tabsList.length - 1) {
+  //     ref.current.scrollIntoView({block: 'start', behavior: 'smooth'})
+  //   }
+  // }, [currentIndex])
 
   return (
     <section className="pt-[48px] pb-[64px]  lg:pt-[120px] lg:pb-[140px]" id={id}>
@@ -33,22 +32,19 @@ const TabsVerticalSection = ({tabsList, title, id}) => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2">
-            {/* {tabsList.map((item, idx) => {
+            {tabsList.map((item, idx) => {
               return (
                 currentIndex === idx && (
                   <motion.div
                     key={`-${idx ** Math.random()}`}
-                    className={`hero-form__body-right w-full
-            self-start
-              lg:bg-heroForm lg:bg-no-repeat lg:bg-contain lg:bg-right-top
-            }`}
+                    className={`hidden lg:block w-full self-center`}
                     initial={{opacity: 0}}
                     animate={{opacity: 1}}
                     exit={{opacity: 0}}
                     transition={{ease: 'easeOut', duration: 2}}
                   >
                     <Img
-                      className="hero-form__body-right max-w-[456px] mx-auto
+                      className="my-auto max-w-[456px] mx-auto
               sm:max-w-[540px]
               md:max-w-[580px]
               lg:ml-auto lg:mr-0"
@@ -58,13 +54,13 @@ const TabsVerticalSection = ({tabsList, title, id}) => {
                   </motion.div>
                 )
               )
-            })} */}
-
-            {tabsList.map((item, idx) => {
-              return (
-                <Fragment key={`${item.title}-${Math.random(idx)}`}>
-                  <div>
-                    {currentIndex === idx && (
+            })}
+            <div>
+              {tabsList.map((item, idx) => {
+                return (
+                  <Fragment key={`${item.title}-${Math.random(idx)}`}>
+                    <div>
+                      {/* {currentIndex === idx && (
                       <motion.div
                         key={`-${idx ** Math.random()}`}
                         className={` hidden w-full lg:block
@@ -83,73 +79,76 @@ const TabsVerticalSection = ({tabsList, title, id}) => {
                           value={item.image}
                         />
                       </motion.div>
-                    )}
-                  </div>
-                  <div className="flex gap-2 lg:gap-6">
-                    <div className="flex flex-col items-center">
-                      <div className="rounded-full border-2 border-[#1771DC] w-[31px] h-[31px] text-center py-0.5 text-[#1771DC]">
-                        <p className="font-poppins text-[16px] font-medium">{idx + 1}</p>
-                      </div>
-                      {idx !== tabsList.length - 1 && (
-                        <div
-                          className={`w-0.5 h-full`}
-                          style={{
-                            backgroundColor: `${'#1771DC'}`,
-                          }}
-                        ></div>
-                      )}
+                    )} */}
                     </div>
-                    <div className="flex flex-col gap-4 lg:gap-8">
-                      <h2
-                        ref={ref}
-                        className={`heading-4 cursor-pointer hover:text-[#1771DC] ${
-                          currentIndex !== idx && idx !== tabsList.length - 1 && 'mb-10'
-                        }`}
-                        onClick={({target}) => handleSlide(idx, target)}
-                      >
-                        {item.title}
-                      </h2>{' '}
-                      {currentIndex === idx && (
-                        <motion.div
-                          key={`-${idx ** Math.random()}`}
-                          className={` lg:hidden w-full block
+                    <div className="flex gap-2 lg:gap-6">
+                      <div className="flex flex-col items-center">
+                        <div className="rounded-full border-2 border-[#1771DC] w-[31px] h-[31px] text-center py-0.5 text-[#1771DC]">
+                          <p className="font-poppins text-[16px] font-medium">{idx + 1}</p>
+                        </div>
+                        {idx !== tabsList.length - 1 && (
+                          <div
+                            className={`w-0.5 h-full`}
+                            style={{
+                              backgroundColor: `${'#1771DC'}`,
+                            }}
+                          ></div>
+                        )}
+                      </div>
+                      <div className="flex flex-col gap-4 lg:gap-8">
+                        <h2
+                          ref={ref}
+                          className={`heading-4 cursor-pointer hover:text-[#1771DC] ${
+                            currentIndex !== idx && idx !== tabsList.length - 1 && 'mb-10'
+                          }`}
+                          onClick={({target}) => handleSlide(idx, target)}
+                        >
+                          {item.title}
+                        </h2>{' '}
+                        {currentIndex === idx && (
+                          <motion.div
+                            key={`-${idx ** Math.random()}`}
+                            className={` lg:hidden w-full block
             lg:self-start
               lg:bg-heroForm lg:bg-no-repeat lg:bg-contain lg:bg-right-top
             }`}
-                          initial={{opacity: 0}}
-                          animate={{opacity: 1}}
-                          exit={{opacity: 0}}
-                          transition={{ease: 'easeOut', duration: 2}}
-                        >
-                          <Img
-                            className="hero-form__body-right  mx-auto
+                            initial={{opacity: 0}}
+                            animate={{opacity: 1}}
+                            exit={{opacity: 0}}
+                            transition={{ease: 'easeOut', duration: 2}}
+                          >
+                            <Img
+                              className="hero-form__body-right  mx-auto
               lg:ml-auto lg:mr-0"
-                            priority="true"
-                            value={item.image}
-                          />
-                        </motion.div>
-                      )}
-                      {currentIndex === idx && (
-                        <motion.section
-                          initial="collapsed"
-                          animate="open"
-                          exit="collapsed"
-                          variants={{
-                            open: {opacity: 1, height: 'auto'},
-                            collapsed: {opacity: 0, height: 0},
-                          }}
-                          transition={{duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98]}}
-                        >
-                          <div>
-                            <p className="body-m mb-6 text-secondary lg:mb-[100px]">{item.text}</p>
-                          </div>
-                        </motion.section>
-                      )}
+                              priority="true"
+                              value={item.image}
+                            />
+                          </motion.div>
+                        )}
+                        {currentIndex === idx && (
+                          <motion.section
+                            initial="collapsed"
+                            animate="open"
+                            exit="collapsed"
+                            variants={{
+                              open: {opacity: 1, height: 'auto'},
+                              collapsed: {opacity: 0, height: 0},
+                            }}
+                            transition={{duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98]}}
+                          >
+                            <div>
+                              <p className="body-m mb-6 text-secondary lg:mb-[100px]">
+                                {item.text}
+                              </p>
+                            </div>
+                          </motion.section>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                </Fragment>
-              )
-            })}
+                  </Fragment>
+                )
+              })}
+            </div>
           </div>
         </AnimatePresence>
       </div>
