@@ -4,6 +4,7 @@ import {useRouter} from 'next/router'
 import {useForm} from 'react-hook-form'
 import {useEffect, useRef, useState} from 'react'
 
+import {useWindowWidth} from '@react-hook/window-size'
 import CardBase from '../CardBase'
 
 import {urlForImage} from '../../client'
@@ -25,6 +26,7 @@ export default function SubscribeForm({className = '', formId, title, subtitle, 
   const [message, setMessage] = useState(DEFAULT_MESSAGE)
   const pageUri = `${process.env.NEXT_PUBLIC_DOMAIN ?? 'https://wespire.com'}${router.asPath}`
   const pageNameRef = useRef(pageUri)
+  const onlyWidth = useWindowWidth()
 
   useEffect(() => {
     if (document && document?.title) {
@@ -119,19 +121,21 @@ export default function SubscribeForm({className = '', formId, title, subtitle, 
           text-center text-white"
         >
           {title}
-          <span
-            className="absolute top-[-90px] right-[-30px]
+          {onlyWidth > 1024 && (
+            <span
+              className="absolute top-[-90px] right-[-30px]
             lg:top-[-10px] lg:right-[-100px]"
-          >
-            <span className="relative inline-block h-[80px] w-[80px]">
-              <Image
-                src={urlForImage(image).width(80).height(80).url()}
-                objectFit="cover"
-                alt={image.alt}
-                layout="fill"
-              />
+            >
+              <span className="relative inline-block h-[80px] w-[80px]">
+                <Image
+                  src={urlForImage(image).width(80).height(80).url()}
+                  objectFit="cover"
+                  alt={image.alt}
+                  layout="fill"
+                />
+              </span>
             </span>
-          </span>
+          )}
         </h2>
 
         <p
