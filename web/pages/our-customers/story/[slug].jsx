@@ -1,12 +1,13 @@
 import groq from 'groq'
 import {motion} from 'framer-motion'
 import {PortableText} from '@portabletext/react'
+import {dynamicImport} from '../../../utils'
 
-import PageMeta from '../../../components/PageMeta'
-import Icon from '../../../components/icons/AnimatedBigArrow'
-import MainLayout from '../../../components/layouts/MainLayout'
-import CTASection from '../../../components/sections/CTASection'
-import SliderSection from '../../../components/sections/SliderSection'
+const PageMeta = dynamicImport('../../components/PageMeta')
+const Icon = dynamicImport('../../../components/icons/AnimatedBigArrow.jsx')
+const MainLayout = dynamicImport('../../../components/layouts/MainLayout')
+const CTASection = dynamicImport('../../../components/sections/CTASection', false)
+const SliderSection = dynamicImport('../../../components/sections/SliderSection', false)
 
 import client from '../../../client'
 import {slugParamToPath} from '../../../utils/urls'

@@ -4,16 +4,11 @@ import {motion} from 'framer-motion'
 import {useEffect, useState} from 'react'
 import {PortableText} from '@portabletext/react'
 import {useNextSanityImage} from 'next-sanity-image'
-
-import PageMeta from '../../components/PageMeta'
-import BackToBlog from '../../components/BackToBlog'
-import BlogSidebar from '../../components/BlogSidebar'
-import RelatedBlock from '../../components/RelatedBlock'
-import CtaSection from '../../components/sections/CTASection'
-import MainLayout from '../../components/layouts/MainLayout'
+import Link from 'next/link'
+import dynamic from 'next/dynamic'
 
 import {GetForm} from '../../utils/forms'
-import {formatTimestamp} from '../../utils'
+import {dynamicImport, formatTimestamp} from '../../utils'
 import {slugParamToPath} from '../../utils/urls'
 import myPortableTextComponents from '../../utils/myPortableComponents'
 import useCustomScrollBehavior from '../../utils/hooks/useCustomScrollBehavior'
@@ -21,10 +16,16 @@ import useCustomScrollBehavior from '../../utils/hooks/useCustomScrollBehavior'
 import client, {urlForImage} from '../../client'
 
 import localDataURL from '../../assets/images/blur-placeholder.jpg'
-import HubspotForm from '../../components/forms/HubspotForm'
 import {createSeoScript} from '../../utils/seo'
-import GoogleFAQSection from '../../components/sections/GoogleFAQSection'
-import Link from 'next/link'
+
+const PageMeta = dynamicImport('../../components/PageMeta')
+const BackToBlog = dynamicImport('../../components/BackToBlog', false)
+const BlogSidebar = dynamicImport('../../components/BlogSidebar', false)
+const RelatedBlock = dynamicImport('../../components/RelatedBlock', false)
+const CtaSection = dynamicImport('../../components/sections/CTASection', false)
+const MainLayout = dynamicImport('../../components/layouts/MainLayout')
+const HubspotForm = dynamicImport('../../components/forms/HubspotForm.jsx', false)
+const GoogleFAQSection = dynamicImport('../../components/sections/GoogleFAQSection', false)
 
 const constFormId = Object.freeze({
   'Saturday Spark': 'b54c00a6-2321-48a9-bd48-a5084fe37c35',
