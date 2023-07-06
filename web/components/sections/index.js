@@ -1,41 +1,45 @@
 import dynamic from 'next/dynamic'
 
 export const HeroVideo = dynamic(() => import('./HeroVideo'))
-export {default as HeroQuote} from './HeroQuote'
-export {default as CtaSection} from './CTASection'
-export {default as HeroSection} from './HeroSection'
-export {default as LongSection} from './LongSection'
-export {default as CardsSection} from './CardsSection'
-export {default as ImageSection} from './ImageSection'
+export const HeroQuote = dynamic(() => import('./HeroQuote'))
+export const CtaSection = dynamic(() => import('./CTASection'), {ssr: false})
+export const HeroSection = dynamic(() => import('./HeroSection'))
+export const LongSection = dynamic(() => import('./LongSection'), {ssr: false})
+export const CardsSection = dynamic(() => import('./CardsSection'), {ssr: false})
+export const ImageSection = dynamic(() => import('./ImageSection'), {ssr: false})
 export const ImageTextSection = dynamic(() => import('./ImageTextSection'), {ssr: false})
-export {default as QuoteSection} from './QuoteSection'
-export {default as ValuesSection} from './ValuesSection'
-export {default as SliderSection} from './SliderSection'
-export {default as ContentSection} from './ContentSection'
-export {default as SessionSection} from './SessionSection'
-export {default as HeroInfoSection} from './HeroInfoSection'
-export {default as HeroImageAndForm} from './HeroImageAndForm'
-export {default as HeroVideoAndForm} from './HeroVideoAndForm'
-export {default as CapabilitiesSection} from './CapabilitiesSection'
-export {default as OpeningsPressSection} from './OpeningsPressSection'
-export {default as CustomerStoriesSection} from './CustomerStoriesSection'
-export {default as CategoriesWithBlogsSection} from './CategoriesWithBlogsSection'
-export {default as HeroCTAForm} from './HeroCTAForm'
-export {default as HeroCTAFormSection} from './HeroCTAFormSection'
-export {default as HostsSection} from './HostsSection'
-export {default as MostPopularSection} from './MostPopularSection'
-export {default as ContactusSection} from './ContactusSection'
-export {default as CareersHeroSection} from './CareersHeroSection'
-export {default as OpeningsSection} from './OpeningsSection'
-export {default as LeadershipSection} from './LeadershipSection'
-export {default as ArticlesPressSection} from './ArticlesPressSection'
+export const QuoteSection = dynamic(() => import('./QuoteSection'), {ssr: false})
+export const ValuesSection = dynamic(() => import('./ValuesSection'), {ssr: false})
+export const SliderSection = dynamic(() => import('./SliderSection'), {ssr: false})
+export const ContentSection = dynamic(() => import('./ContentSection'), {ssr: false})
+export const SessionSection = dynamic(() => import('./SessionSection'), {ssr: false})
+export const HeroInfoSection = dynamic(() => import('./HeroInfoSection'))
+export const HeroImageAndForm = dynamic(() => import('./HeroImageAndForm'))
+export const HeroVideoAndForm = dynamic(() => import('./HeroVideoAndForm'))
+export const CapabilitiesSection = dynamic(() => import('./CapabilitiesSection'), {ssr: false})
+export const OpeningsPressSection = dynamic(() => import('./OpeningsPressSection'), {ssr: false})
+export const CustomerStoriesSection = dynamic(() => import('./CustomerStoriesSection'), {
+  ssr: false,
+})
+export const CategoriesWithBlogsSection = dynamic(() => import('./CategoriesWithBlogsSection'), {
+  ssr: false,
+})
+export const HeroCTAForm = dynamic(() => import('./HeroCTAForm'))
+export const HeroCTAFormSection = dynamic(() => import('./HeroCTAFormSection'))
+export const HostsSection = dynamic(() => import('./HostsSection'), {ssr: false})
+export const MostPopularSection = dynamic(() => import('./MostPopularSection'), {ssr: false})
+export const ContactusSection = dynamic(() => import('./ContactusSection'), {ssr: false})
+export const CareersHeroSection = dynamic(() => import('./CareersHeroSection'))
+export const OpeningsSection = dynamic(() => import('./OpeningsSection'), {ssr: false})
+export const LeadershipSection = dynamic(() => import('./LeadershipSection'), {ssr: false})
+export const ArticlesPressSection = dynamic(() => import('./ArticlesPressSection'), {ssr: false})
 export const AwardsSection = dynamic(() => import('./AwardsSection'), {
   ssr: false,
 })
-export {default as MeasureSection} from './MeasureSection'
-export {default as OurCustomersSection} from './OurCustomersSection'
-export {default as TabsSection} from './TabsSection'
-export {default as LandingpageFooter} from './LandingpageFooter'
+export const MeasureSection = dynamic(() => import('./MeasureSection'), {ssr: false})
+export const OurCustomersSection = dynamic(() => import('./OurCustomersSection'), {ssr: false})
+export const TabsSection = dynamic(() => import('./TabsSection'), {ssr: false})
+export const LandingpageFooter = dynamic(() => import('./LandingpageFooter'), {ssr: false})
 export const LandingCardsSection = dynamic(() => import('./LandingCardsSection'), {
   ssr: false,
 })
@@ -48,35 +52,34 @@ export const LandingTemplateSustainability = dynamic(
   }
 )
 export const SustainCardsSection = dynamic(() => import('./SustainCardsSection'), {ssr: false})
-export {default as HeroFormVideo} from './HeroFormVideo'
-export {default as HeroCTASection} from './HeroCTASection'
-export {default as UpcomingEventSection} from './UpcomingEventSection'
-export {default as GoogleFAQSection} from './GoogleFAQSection'
-export {default as BlogCardsSection} from './BlogCardsSection'
-export {default as HeroReport} from './HeroReport'
-export {default as TabsVerticalSection} from './TabsVerticalSection'
-export {default as SliderReportSection} from './SliderReportSection'
-export {default as TableImage} from './TableImage'
-export {default as CardsSectionReport} from './CardsSectionReport'
+export const HeroFormVideo = dynamic(() => import('./HeroFormVideo'))
+export const HeroCTASection = dynamic(() => import('./HeroCTASection'))
+export const UpcomingEventSection = dynamic(() => import('./UpcomingEventSection'), {ssr: false})
+export const GoogleFAQSection = dynamic(() => import('./GoogleFAQSection'), {ssr: false})
+export const BlogCardsSection = dynamic(() => import('./BlogCardsSection'), {ssr: false})
+export const HeroReport = dynamic(() => import('./HeroReport'))
+export const TabsVerticalSection = dynamic(() => import('./TabsVerticalSection'), {ssr: false})
+export const SliderReportSection = dynamic(() => import('./SliderReportSection'), {ssr: false})
+export const TableImage = dynamic(() => import('./TableImage'), {ssr: false})
+export const CardsSectionReport = dynamic(() => import('./CardsSectionReport'), {ssr: false})
 
-export {default as BlogTemplate} from './BlogTemplate'
-export {default as ProductTemplate} from './ProductTemplate'
-export {default as ProductVideoTemplate} from './ProductVideoTemplate'
-export {default as CareersTemplate} from './CareersTemplate'
-export {default as ContactusTemplate} from './ContactusTemplate'
-export {default as CustomersTemplate} from './CustomersTemplate'
-export {default as ResourcesTemplate} from './ResourcesTemplate'
-export {default as WhyWespireTemplate} from './WhyWespireTemplate'
-export {default as LeadershipTemplate} from './LeadershipTemplate'
-export {default as WespireLiveTemplate} from './WespireLiveTemplate'
-export {default as RequestDemoTemplate} from './RequestDemoTemplate'
-export {default as PrivacyPolicyTemplate} from './PrivacyPolicyTemplate'
-export {default as SolutionsOverviewTemplate} from './SolutionsOverviewTemplate'
-export {default as NewsRoomTemplate} from './NewsRoomTemplate'
-export {default as LandingTemplate} from './LandingTemplate'
-export {default as LandingTemplateCompetitor} from './LandingTemplateCompetitor'
-export {default as LandingTemplateSocialProof} from './LandingTemplateSocialProof'
-export {default as LandingVideoTemplate} from './LandingVideoTemplate'
-export {default as PersonaTemplate} from './PersonaTemplate'
-export {default as HomeTemplate} from './HomeTemplate'
-export {default as LandingTemplateReport} from './LandingTemplateReport'
+export const ProductTemplate = dynamic(() => import('./ProductTemplate'))
+export const ProductVideoTemplate = dynamic(() => import('./ProductVideoTemplate'))
+export const CareersTemplate = dynamic(() => import('./CareersTemplate'))
+export const ContactusTemplate = dynamic(() => import('./ContactusTemplate'))
+export const CustomersTemplate = dynamic(() => import('./CustomersTemplate'))
+export const ResourcesTemplate = dynamic(() => import('./ResourcesTemplate'))
+export const WhyWespireTemplate = dynamic(() => import('./WhyWespireTemplate'))
+export const LeadershipTemplate = dynamic(() => import('./LeadershipTemplate'))
+export const WespireLiveTemplate = dynamic(() => import('./WespireLiveTemplate'))
+export const RequestDemoTemplate = dynamic(() => import('./RequestDemoTemplate'))
+export const PrivacyPolicyTemplate = dynamic(() => import('./PrivacyPolicyTemplate'))
+export const SolutionsOverviewTemplate = dynamic(() => import('./SolutionsOverviewTemplate'))
+export const NewsRoomTemplate = dynamic(() => import('./NewsRoomTemplate'))
+export const LandingTemplate = dynamic(() => import('./LandingTemplate'))
+export const LandingTemplateCompetitor = dynamic(() => import('./LandingTemplateCompetitor'))
+export const LandingTemplateSocialProof = dynamic(() => import('./LandingTemplateSocialProof'))
+export const LandingVideoTemplate = dynamic(() => import('./LandingVideoTemplate'))
+export const PersonaTemplate = dynamic(() => import('./PersonaTemplate'))
+export const HomeTemplate = dynamic(() => import('./HomeTemplate'))
+export const LandingTemplateReport = dynamic(() => import('./LandingTemplateReport'))
