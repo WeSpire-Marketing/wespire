@@ -1,5 +1,3 @@
-import Script from 'next/script'
-
 export const metaTags = [
   {
     name: 'msapplication-TileColor',
@@ -63,9 +61,8 @@ export const createSeoScript = (listFAQ) => {
     mainEntity,
   }
   return (
-    <Script
-      strategy="afterInteractive"
-      async
+    <script
+      defer
       type="application/ld+json"
       dangerouslySetInnerHTML={{__html: JSON.stringify(faqData)}}
     />
