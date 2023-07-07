@@ -1,9 +1,10 @@
 import Img from '../../Img'
 import Icon from '../../icons/AnimatedIcon'
 import {injectIconToSpanStr} from '../../../utils'
-import loadable from '@loadable/component'
-const SponsorsBlock = loadable(() => import('../../SponsorsBlock'), {ssr: false})
-const HubspotForm = loadable(() => import('../../forms/HubspotForm'), {ssr: false})
+
+import dynamic from 'next/dynamic'
+const SponsorsBlock = dynamic(() => import('../../SponsorsBlock'), {ssr: false})
+const HubspotForm = dynamic(() => import('../../forms/HubspotForm'), {ssr: false})
 
 export default function HeroSection({title = '', subtitle = '', image, sponsors, formId = ''}) {
   return (
