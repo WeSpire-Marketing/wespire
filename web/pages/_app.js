@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Suspense} from 'react'
 import Script from 'next/script'
 import {AnimatePresence} from 'framer-motion'
 import '../styles/globals.css'
@@ -28,9 +28,11 @@ const MyApp = ({Component, pageProps}) => {
         </Script>
       )}
       {/* <!-- End Google Tag Manager --> */}
-      <AnimatePresence mode="wait">
-        <Component {...pageProps} />
-      </AnimatePresence>
+      <Suspense>
+        <AnimatePresence mode="wait">
+          <Component {...pageProps} />
+        </AnimatePresence>
+      </Suspense>
     </>
   )
 }

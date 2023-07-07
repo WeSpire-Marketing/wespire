@@ -62,8 +62,10 @@ const HubspotForm = (props) => {
   }, [loading])
 
   return (
-    <Suspense fallback={loading ? onLoading : null}>
-      <div id="hubspotform" page={`${page}`} />
+    <Suspense fallback={null}>
+      <div id="hubspotform" page={`${page}`}>
+        {loading ? onLoading : null}
+      </div>
     </Suspense>
   )
 }

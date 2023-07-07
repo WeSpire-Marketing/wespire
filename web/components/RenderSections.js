@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, {Fragment, memo} from 'react'
+import React, {Fragment, memo, useCallback} from 'react'
 
 import * as SectionComponents from './sections'
 import capitalizeString from '../utils/capitalizeString'
@@ -18,23 +18,20 @@ function resolveSections(section) {
 
 function RenderSections(props) {
   const {sections} = props
-
   if (!sections) {
     console.error('Missing section')
     return <div>Missing sections</div>
   }
-
-  return (
-    <Fragment>
-      {sections.map((section) => {
-        const SectionComponent = resolveSections(section)
-        if (!SectionComponent) {
-          return <div key={section._key}>Missing section {section._type}</div>
-        }
-        return <SectionComponent page={props?.page ?? ''} {...section} key={section._key} />
-      })}
-    </Fragment>
-  )
+  const renderSections = useCallback((sections) => {
+    return sections.map((section) => {
+      const SectionComponent = resolveSections(section)
+      if (!SectionComponent) {
+        return <div key={section._key}>Missing section {section._type}</div>
+      }
+      return <SectionComponent page={props?.page ?? ''} {...section} key={section._key} />
+    })
+  }, [])
+  return <Fragment>{renderSections(sections)}</Fragment>
 }
 
 RenderSections.propTypes = {
