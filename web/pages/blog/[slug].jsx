@@ -8,7 +8,7 @@ import Link from 'next/link'
 import dynamic from 'next/dynamic'
 
 import {GetForm} from '../../utils/forms'
-import {dynamicImport, formatTimestamp} from '../../utils'
+import {formatTimestamp} from '../../utils'
 import {slugParamToPath} from '../../utils/urls'
 import myPortableTextComponents from '../../utils/myPortableComponents'
 import useCustomScrollBehavior from '../../utils/hooks/useCustomScrollBehavior'
@@ -18,14 +18,17 @@ import client, {urlForImage} from '../../client'
 import localDataURL from '../../assets/images/blur-placeholder.jpg'
 import {createSeoScript} from '../../utils/seo'
 
-const PageMeta = dynamicImport('../../components/PageMeta')
-const BackToBlog = dynamicImport('../../components/BackToBlog', false)
-const BlogSidebar = dynamicImport('../../components/BlogSidebar', false)
-const RelatedBlock = dynamicImport('../../components/RelatedBlock', false)
-const CtaSection = dynamicImport('../../components/sections/CTASection', false)
-const MainLayout = dynamicImport('../../components/layouts/MainLayout')
-const HubspotForm = dynamicImport('../../components/forms/HubspotForm.jsx', false)
-const GoogleFAQSection = dynamicImport('../../components/sections/GoogleFAQSection', false)
+const PageMeta = dynamic(() => import('../../components/PageMeta'))
+const MainLayout = dynamic(() => import('../../components/layouts/MainLayout'))
+const BackToBlog = dynamic(() => import('../../components/BackToBlog'), {ssr: false})
+const BlogSidebar = dynamic(() => import('../../components/BlogSidebar'), {ssr: false})
+const RelatedBlock = dynamic(() => import('../../components/RelatedBlock'), {ssr: false})
+
+const CtaSection = dynamic(() => import('../../components/sections/CTASection'), {ssr: false})
+const HubspotForm = dynamic(() => import('../../components/forms/HubspotForm'), {ssr: false})
+const GoogleFAQSection = dynamic(() => import('../../components/sections/GoogleFAQSection'), {
+  ssr: false,
+})
 
 const constFormId = Object.freeze({
   'Saturday Spark': 'b54c00a6-2321-48a9-bd48-a5084fe37c35',

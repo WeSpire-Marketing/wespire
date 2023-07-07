@@ -1,19 +1,21 @@
 import groq from 'groq'
 import {motion} from 'framer-motion'
 import {PortableText} from '@portabletext/react'
-import {dynamicImport} from '../../../utils'
-
-const PageMeta = dynamicImport('../../components/PageMeta')
-const Icon = dynamicImport('../../../components/icons/AnimatedBigArrow.jsx')
-const MainLayout = dynamicImport('../../../components/layouts/MainLayout')
-const CTASection = dynamicImport('../../../components/sections/CTASection', false)
-const SliderSection = dynamicImport('../../../components/sections/SliderSection', false)
+import dynamic from 'next/dynamic'
 
 import client from '../../../client'
 import {slugParamToPath} from '../../../utils/urls'
 import myPortableTextComponents from '../../../utils/myPortableComponents'
 import useCustomScrollBehavior from '../../../utils/hooks/useCustomScrollBehavior'
 import {useEffect} from 'react'
+
+const PageMeta = dynamic(() => import('../../../components/PageMeta'))
+const Icon = dynamic(() => import('../../../components/icons/AnimatedBigArrow.jsx'))
+const MainLayout = dynamic(() => import('../../../components/layouts/MainLayout'))
+const CTASection = dynamic(() => import('../../../components/sections/CTASection'), {ssr: false})
+const SliderSection = dynamic(() => import('../../../components/sections/SliderSection'), {
+  ssr: false,
+})
 
 export async function getServerSideProps({params}) {
   const slug = slugParamToPath(params?.slug)
