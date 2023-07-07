@@ -11,8 +11,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@builder.io/partytown": "^0.8.0",
     "@etchteam/next-pagination": "^3.5.4",
-    "@loadable/component": "^5.15.3",
     "@portabletext/react": "^1.0.6",
     "@react-hook/window-size": "^3.1.1",
     "@sanity/client": "^3.0.3",

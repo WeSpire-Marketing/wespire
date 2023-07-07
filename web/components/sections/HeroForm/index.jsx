@@ -2,7 +2,6 @@ import Link from 'next/link'
 import {motion} from 'framer-motion'
 import dynamic from 'next/dynamic'
 
-// import Img from '../../Img'
 import Icon from '../../icons/AnimatedIcon'
 import LogoStatic from '../../icons/LogoStatic'
 import SponsorsBlock from '../../SponsorsBlock'
@@ -16,7 +15,6 @@ import {getRGBAndOpacity} from '../../../utils/colors'
 import Head from 'next/head'
 import {createSeoScript} from '../../../utils/seo'
 import {Suspense} from 'react'
-
 const DynamicImage = dynamic(() => import('../../Img'))
 
 export default function HeroForm({
@@ -31,6 +29,7 @@ export default function HeroForm({
   type = '',
 }) {
   const colorTextCss = getRGBAndOpacity('h1SmallTitleLanding-colorText', titleSmall?.colorText)
+
   return (
     <>
       <Head>

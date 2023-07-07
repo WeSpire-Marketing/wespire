@@ -62,6 +62,7 @@ export const createSeoScript = (listFAQ) => {
   }
   return (
     <script
+      defer
       type="application/ld+json"
       dangerouslySetInnerHTML={{__html: JSON.stringify(faqData)}}
     />

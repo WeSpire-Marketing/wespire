@@ -2,12 +2,12 @@ import groq from 'groq'
 import React, {Suspense, useEffect} from 'react'
 import {NextSeo} from 'next-seo'
 import PropTypes from 'prop-types'
-import loadable from '@loadable/component'
+import dynamic from 'next/dynamic'
 import {useRouter} from 'next/router'
 
 import imageUrlBuilder from '@sanity/image-url'
-const Layout = loadable(() => import('../components/layouts/MainLayout'))
-const RenderSectionsDynamic = loadable(() => import('../components/RenderSections'))
+const Layout = dynamic(() => import('../components/layouts/MainLayout'))
+const RenderSectionsDynamic = dynamic(() => import('../components/RenderSections'))
 
 import client from '../client'
 import {linkTags, metaTags} from '../utils/seo'
