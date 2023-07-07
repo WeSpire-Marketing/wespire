@@ -1,8 +1,4 @@
 import {motion} from 'framer-motion'
-import dynamic from 'next/dynamic'
-
-export const dynamicImport = (componentPath, ssr = true) =>
-  dynamic(() => import(componentPath), {ssr: ssr})
 
 export const injectIconToSpanStr = (str, Icon) => {
   if (str.includes('<span>') && str.includes('</span>')) {
