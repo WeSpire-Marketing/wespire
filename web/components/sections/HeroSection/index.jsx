@@ -3,10 +3,11 @@ import Icon from '../../icons/AnimatedIcon'
 import {injectIconToSpanStr} from '../../../utils'
 
 import dynamic from 'next/dynamic'
+import {Suspense, memo} from 'react'
 const SponsorsBlock = dynamic(() => import('../../SponsorsBlock'), {ssr: false})
 const HubspotForm = dynamic(() => import('../../forms/HubspotForm'), {ssr: false})
 
-export default function HeroSection({title = '', subtitle = '', image, sponsors, formId = ''}) {
+const HeroSection = ({title = '', subtitle = '', image, sponsors, formId = ''}) => {
   return (
     <section
       className="hero relative bg-pampas pt-[170px] pb-[105px]
@@ -32,17 +33,20 @@ export default function HeroSection({title = '', subtitle = '', image, sponsors,
             {subtitle}
           </p>
 
-          {formId?.trim() && (
-            <div className="flex flex-col items-center mx-auto gap-4 px-4 md:px-0 relative mb-[45px] lg:flex-row lg:gap-[8px] md:max-w-[475px] lg:max-w-[475px] lg:mb-[56px]">
-              <HubspotForm formId={formId} page="home-page" />
-            </div>
-          )}
+          <Suspense>
+            {formId?.trim() && (
+              <div className="flex flex-col items-center mx-auto gap-4 px-4 md:px-0 relative mb-[45px] lg:flex-row lg:gap-[8px] md:max-w-[475px] lg:max-w-[475px] lg:mb-[56px]">
+                <HubspotForm formId={formId} page="home-page" />
+              </div>
+            )}
+          </Suspense>
         </div>
       </div>
 
       <Img
         className="hero__image relative z-20 mx-auto w-full max-w-[1288px] px-[7px] lg:static"
         value={image}
+        priority
       />
 
       <div className="absolute bottom-0 z-10 w-full">
@@ -62,3 +66,4 @@ export default function HeroSection({title = '', subtitle = '', image, sponsors,
     </section>
   )
 }
+export default memo(HeroSection)
