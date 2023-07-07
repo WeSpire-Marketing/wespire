@@ -29,11 +29,12 @@ export default function ImageCard({color = '#FFCC7B', className = '', image, ...
             src={urlForImage(image.image).fit('max').url()}
             blurDataURL={blurDataUrl ?? localDataURL.blurDataURL}
             layout="responsive"
-            placeholder='blur'
+            placeholder="blur"
             alt={image.alt}
             quality={100}
             height={375}
             width={600}
+            loading="lazy"
           />
         </motion.div>
       </CardBase>
