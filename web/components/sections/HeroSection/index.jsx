@@ -1,9 +1,9 @@
 import Img from '../../Img'
 import Icon from '../../icons/AnimatedIcon'
-import SponsorsBlock from '../../SponsorsBlock'
-
 import {injectIconToSpanStr} from '../../../utils'
-import {HubspotForm} from '../../forms'
+import loadable from '@loadable/component'
+const SponsorsBlock = loadable(() => import('../../SponsorsBlock'), {ssr: false})
+const HubspotForm = loadable(() => import('../../forms/HubspotForm'), {ssr: false})
 
 export default function HeroSection({title = '', subtitle = '', image, sponsors, formId = ''}) {
   return (

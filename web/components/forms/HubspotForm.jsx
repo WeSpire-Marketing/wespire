@@ -1,10 +1,10 @@
-import {useEffect, useState} from 'react'
+import {Suspense, memo, useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 import {useRouter} from 'next/router'
 
 const DefaultLoading = () => <div>Loading Form...</div>
 
-export default function HubspotForm(props) {
+const HubspotForm = (props) => {
   const {
     page = '',
     region = 'na1',
@@ -62,9 +62,9 @@ export default function HubspotForm(props) {
   }, [loading])
 
   return (
-    <div id="hubspotform" page={`${page}`}>
-      {loading ? onLoading : null}
-    </div>
+    <Suspense fallback={loading ? onLoading : null}>
+      <div id="hubspotform" page={`${page}`} />
+    </Suspense>
   )
 }
 
@@ -81,3 +81,5 @@ HubspotForm.defaultProps = {
   portalId: '8353230',
   scriptSrc: '//js.hsforms.net/forms/embed/v2.js',
 }
+
+export default memo(HubspotForm)
