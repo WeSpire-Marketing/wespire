@@ -11,6 +11,7 @@ import {useRef} from 'react'
 export default function LongSection({title = '', rows}) {
   const ref = useRef(null)
   const inView = useInView(ref, {once: true})
+
   return (
     <section
       className="longsection relative overflow-hidden bg-gallery pt-[70px] pb-[100px]

@@ -16,7 +16,6 @@ const MyApp = ({Component, pageProps}) => {
         src="https://scripts.cddie.co/rep/wespire-lookup.min.js"
         type="text/javascript"
         async
-        strategy="worker"
       />
       {/* <!-- Google Tag Manager --> */}
       {!loadGTA && (
