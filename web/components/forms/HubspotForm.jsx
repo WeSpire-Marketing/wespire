@@ -2,7 +2,7 @@ import {Suspense, memo, useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 import {useRouter} from 'next/router'
 
-const DefaultLoading = () => <div>Loading Form...</div>
+const DefaultLoading = () => <div className="text-center">Loading Form...</div>
 
 const HubspotForm = (props) => {
   const {
@@ -19,23 +19,30 @@ const HubspotForm = (props) => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const script = document.createElement('script')
-    script.src = scriptSrc
+    let script
+    const timeOutId = setTimeout(() => {
+      script = document.createElement('script')
+      script.src = scriptSrc
+      script.setAttribute('async', true)
+      script.setAttribute('defer', '')
 
-    document.body.appendChild(script)
-    const addListener = () => {
-      window.hbspt.forms.create({
-        region,
-        portalId,
-        formId,
-        target: '#hubspotform',
-      })
-      if (window.hbspt?.forms) setLoading(false)
+      document.body.appendChild(script)
+      const addListener = () => {
+        window.hbspt.forms.create({
+          region,
+          portalId,
+          formId,
+          target: '#hubspotform',
+        })
+        if (window.hbspt?.forms) setLoading(false)
+      }
+      script.addEventListener('load', addListener)
+    }, 1000)
+
+    return () => {
+      // script.removeEventListener('load', addListener)
+      clearTimeout(timeOutId)
     }
-
-    script.addEventListener('load', addListener)
-
-    return () => script.removeEventListener('load', addListener)
   }, [portalId, formId, scriptSrc])
 
   useEffect(() => {
