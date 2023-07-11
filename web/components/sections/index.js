@@ -63,6 +63,7 @@ export const SliderReportSection = dynamic(() => import('./SliderReportSection')
 export const TableImage = dynamic(() => import('./TableImage'), {ssr: false})
 export const CardsSectionReport = dynamic(() => import('./CardsSectionReport'), {ssr: false})
 
+export const BlogTemplate = dynamic(() => import('./BlogTemplate'))
 export const ProductTemplate = dynamic(() => import('./ProductTemplate'))
 export const ProductVideoTemplate = dynamic(() => import('./ProductVideoTemplate'))
 export const CareersTemplate = dynamic(() => import('./CareersTemplate'))
