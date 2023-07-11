@@ -11,6 +11,10 @@ export const metaTags = [
     name: 'theme-color',
     content: '#ffffff',
   },
+  {
+    name: 'google-site-verification',
+    content: 'FsKWNledc3vUaggBFxK1-wWFrkpPqvzSeJcnVCg4ElM',
+  },
 ]
 
 export const linkTags = [
