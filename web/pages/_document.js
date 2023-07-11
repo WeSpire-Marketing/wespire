@@ -5,7 +5,12 @@ import {Html, Head, Main, NextScript} from 'next/document'
 export default function MyDocument() {
   return (
     <Html lang={'en'}>
-      <Head />
+      <Head>
+        <meta
+          name="google-site-verification"
+          content="FsKWNledc3vUaggBFxK1-wWFrkpPqvzSeJcnVCg4ElM"
+        />
+      </Head>
       <body>
         {/* <!-- Google Tag Manager (noscript) --> */}
         {/* <noscript>
