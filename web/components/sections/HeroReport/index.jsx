@@ -87,7 +87,7 @@ const HeroReport = (props) => {
                     className="hero-form__body__subtitle body-m w-full mx-auto max-w-[616px]
               text-center [&>span>svg]:right-10"
                   >
-                    {injectStarsToStr(`${text}$`, () => (
+                    {injectStarsToStr(`${text} $`, () => (
                       <IconStars color="#DF6F30" />
                     ))}
                   </p>
