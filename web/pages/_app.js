@@ -21,7 +21,7 @@ const MyApp = ({Component, pageProps}) => {
         {`window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', ${tag});`}
+          gtag('config', '${tag}');`}
       </Script>
       {/* <!-- End Google Tag Manager --> */}
       <Suspense>
