@@ -23,7 +23,7 @@ export default function FormImageSection({title, subtitle, formId, image}) {
             className="hero-form__body-left w-full max-w-[456px]
             sm:max-w-[540px]
             md:max-w-[600px]
-            lg:w-1/2"
+            lg:max-w-[539px]"
           >
             <h1
               className="hero-form__body__title heading-1 mb-4 text-center
