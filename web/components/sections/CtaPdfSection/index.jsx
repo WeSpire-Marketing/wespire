@@ -1,5 +1,5 @@
 import {motion} from 'framer-motion'
-import ImageBg from '../../../assets/images/ctaBgv2.webp'
+import ImageBg from '../../../assets/images/CTA-Bg.webp'
 import ImageBgMobile from '../../../assets/images/girl.webp'
 import Image from 'next/image'
 import useWindowSize from '../../../utils/hooks/useWindowSize'
@@ -63,14 +63,16 @@ export default function CtaPdfSection({title = '', file}) {
     <section
       className="relative ctasection bg-orange bg-[length:131px_108px]
       bg-[center_top_40px] bg-no-repeat text-center
-      lg:bg-none lg:bg-contain lg:bg-center pt-[164px] pb-[64px] lg:pt-[82px] lg:pb-[90px] 2xl:py-[180px]"
+      lg:bg-none lg:bg-contain lg:bg-center pt-[164px] pb-[64px] lg:pt-[82px] lg:pb-[90px] overflow-hidden"
     >
-      <div className="absolute z-0 mx-auto mt-8 lg:mt-0 top-0 left-0 right-0 bottom-0 w-[131px] lg:w-full h-full lg:pt-[50px] lg:pb-[90px] lg:px-[3%]">
-        <Image
-          src={width < 1024 ? ImageBgMobile : ImageBg}
-          objectFit="contain"
-          alt="Picture of the author"
-        />
+      <div className="absolute z-0 mx-auto mt-8 lg:mt-0 top-0 left-0 right-0 bottom-0 w-[131px] lg:w-full h-full">
+        <div className="w-full h-full lg:flex lg:justify-center">
+          <Image
+            src={width < 1024 ? ImageBgMobile : ImageBg}
+            objectFit="contain"
+            alt="Picture of the author"
+          />
+        </div>
       </div>
 
       <motion.h2
