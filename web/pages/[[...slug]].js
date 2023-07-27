@@ -86,6 +86,19 @@ content {
         }
       },
     },
+    _type == 'landingTemplateReport' =>{
+      ...,
+      "sections": sections{
+        ...,
+        "ctaPdfSection": ctaPdfSection{
+          ...,
+          "file" : file{
+            ...,
+            "downloadUrl": asset->url
+          }
+        }
+      }
+    },
       _type == 'landingTemplateCompetitor' => {
       ...,
       "sections": sections{

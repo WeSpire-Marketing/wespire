@@ -93,14 +93,15 @@ const AccordionItem = ({question, answer}) => {
   )
 }
 
-export default function GoogleFAQSection({title, listFAQ}) {
+export default function GoogleFAQSection({title, listFAQ, type}) {
   return (
     <section
-      className="google_faq_section pb-[100px]
+      className={`google_faq_section pb-[100px]
       sm:pb-[115px]
       md:pb-[130px]
       lg:pb-[140px]
-      bg-gallery"
+      ${Boolean(type === 'microsite') && 'pt-[100px] lg:pt-[140px]'}
+      bg-gallery`}
     >
       <div className="container px-2 sm:px-4 lg:px-8">
         <h2 className="google_faq_title heading-1 mb-10 lg:heading-2 lg:mb-14 text-center lg:text-left">

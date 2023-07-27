@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic'
 export const HeroVideo = dynamic(() => import('./HeroVideo'))
 export const HeroQuote = dynamic(() => import('./HeroQuote'))
 export const CtaSection = dynamic(() => import('./CTASection'), {ssr: false})
+export const CtaPdfSection = dynamic(() => import('./CtaPdfSection'), {ssr: false})
 export const HeroSection = dynamic(() => import('./HeroSection'))
 export const LongSection = dynamic(() => import('./LongSection'), {ssr: false})
 export const CardsSection = dynamic(() => import('./CardsSection'), {ssr: false})
@@ -51,6 +52,7 @@ export const LandingTemplateSustainability = dynamic(
     ssr: false,
   }
 )
+export const FormImageSection = dynamic(() => import('./FormImageSection'), {ssr: false})
 export const SustainCardsSection = dynamic(() => import('./SustainCardsSection'), {ssr: false})
 export const HeroFormVideo = dynamic(() => import('./HeroFormVideo'))
 export const HeroCTASection = dynamic(() => import('./HeroCTASection'))
