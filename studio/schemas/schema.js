@@ -80,6 +80,7 @@ import heroCTASection from './sections/heroCTASection'
 import upcomingEventSection from './sections/upcomingEventSection'
 import blogCardsSection from './sections/blogCardsSection'
 import imageTextSection from './sections/imageTextSection'
+
 // templates
 import blogTemplate from './templates/blogTemplate'
 import homeTemplate from './templates/homeTemplate'
@@ -109,6 +110,8 @@ import cardsSectionReport from './sections/cardsSectionReport'
 import heroFormSustainability from './sections/heroFormSustainability'
 import sustainCardsSection from './sections/sustainCardsSection'
 import landingTemplateSustainability from './templates/landingTemplateSustainability'
+import formImageSection from './sections/formImageSection'
+import ctaPdfSection from './sections/ctaPdfSection'
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   name: 'default',
@@ -180,7 +183,8 @@ export default createSchema({
     blogCardsSection,
     sustainCardsSection,
     imageTextSection,
-
+    formImageSection,
+    ctaPdfSection,
     // other types
     video,
     stories,

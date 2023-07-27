@@ -314,13 +314,14 @@ export default {
           type: 'sliderReportSection',
           group: 'slider'
         },
+        // Hero Form
+        { name: 'formImageSection', type: 'formImageSection', group: 'hero' },
         // FAQ SECTION 9
         { name: 'googleFAQSection', type: 'googleFAQSection', group: 'faq' },
         // CTA SECTION 10
         {
-          name: 'ctaSection',
-          title: 'CTA section',
-          type: 'ctaSection',
+          name: 'ctaPdfSection',
+          type: 'ctaPdfSection',
           group: 'cta'
         },
         {

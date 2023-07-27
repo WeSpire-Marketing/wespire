@@ -56,6 +56,7 @@ module.exports = {
         thriving: '#3C8F73',
         neverPreachy: '#FFCC7B',
         practical: '#6F879A',
+        orange: '#DF6F30',
       },
       fontFamily: {
         nunito: ['Nunito', ...defaultTheme.fontFamily.sans],

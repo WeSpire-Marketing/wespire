@@ -43,10 +43,11 @@ const LandingTemplateReport = ({sections}) => {
     _type: 'sliderReportSection',
     id: sections.sliderReportSection2.idSection,
   })
+  sectionsArr.push(sections.formImageSection)
   if (Boolean(sections?.googleFAQSection?.showFAQ)) {
-    sectionsArr.push(sections.googleFAQSection)
+    sectionsArr.push({...sections.googleFAQSection, type: 'microsite'})
   }
-  sectionsArr.push(sections.ctaSection)
+  sectionsArr.push(sections.ctaPdfSection)
   sectionsArr.push({...sections.footer, _type: 'landingpageFooter'})
   sectionsArr.map((s) => (s._key = s._type))
   return sectionsArr?.length > 0 && <RenderSections sections={sectionsArr} />
