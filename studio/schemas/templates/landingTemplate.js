@@ -44,6 +44,7 @@ export default {
           type: 'awardsSection'
         },
         { name: 'googleFAQSection', type: 'googleFAQSection' },
+        { name: 'bulletSection', type: 'bulletSection' },
         {
           name: 'ctaSection',
           title: 'CTA section',
