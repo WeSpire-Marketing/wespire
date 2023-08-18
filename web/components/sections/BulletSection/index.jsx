@@ -44,7 +44,7 @@ const BulletSection = ({title, cardTitle, image, listItem}) => {
                 listItem.map((item, idx) => {
                   let color = DOTS_COLORS[idx % DOTS_COLORS.length]
                   return (
-                    <div key={`${item}`} className="flex justify-center items-center gap-3">
+                    <div key={`${item}`} className="flex items-center gap-3">
                       <div className={`${color} text-4xl`}>•</div>
                       <p className="body-m">{item}</p>
                     </div>
