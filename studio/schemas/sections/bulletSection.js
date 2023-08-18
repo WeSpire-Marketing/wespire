@@ -33,7 +33,6 @@ export default {
       name: 'cardTitle',
       type: 'string',
       title: 'Card title',
-      description: 'Title under icon for first card.',
       validation: Rule => Rule.required(),
       hidden: ({ parent }) => Boolean(!parent?.showSection)
     },
@@ -41,7 +40,7 @@ export default {
       name: 'listItem',
       type: 'array',
       title: 'Bullet list',
-      description: 'If 26 symbols its been in 1 line if more 2 line, max length 56.',
+      description: '26 or less symbols are recommended, 56 are maximum.',
       of: [
         {
           name: 'item',
