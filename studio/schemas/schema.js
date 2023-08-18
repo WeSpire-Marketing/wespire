@@ -112,6 +112,7 @@ import sustainCardsSection from './sections/sustainCardsSection'
 import landingTemplateSustainability from './templates/landingTemplateSustainability'
 import formImageSection from './sections/formImageSection'
 import ctaPdfSection from './sections/ctaPdfSection'
+import bulletSection from './sections/bulletSection'
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   name: 'default',
@@ -216,6 +217,7 @@ export default createSchema({
     subscribeForm,
     authorsQuoteForm,
     heroFormSustainability,
+    bulletSection,
 
     // top menu components
     namedChildrens,

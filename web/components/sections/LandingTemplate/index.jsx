@@ -19,6 +19,9 @@ const LandingTemplate = ({sections}) => {
   ) {
     sectionsArr.push(sections.blogCardsSection)
   }
+  if (Boolean(sections?.bulletSection?.showSection)) {
+    sectionsArr.push(sections.bulletSection)
+  }
   sectionsArr.push(sections.ctaSection)
   sectionsArr.push({...sections.footer, _type: 'landingpageFooter'})
   sectionsArr.map((s) => (s._key = s._type))
