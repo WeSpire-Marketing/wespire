@@ -16,7 +16,7 @@ const MyApp = ({Component, pageProps}) => {
         async
       />
       {/* <!-- Google Tag Manager --> */}
-      <Script async src={`https://www.googletagmanager.com/gtag/js?id=${tag}`} />
+      <Script src={`https://www.googletagmanager.com/gtag/js?id=${tag}`} />
       <Script id="google-analytics">
         {`window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
