@@ -36,6 +36,18 @@ export default function MyDocument() {
           }}
         />
         <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-TKRVVCS"
+            height="0"
+            width="0"
+            style={{display: 'none', visibility: 'hidden'}}
+          ></iframe>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=AW-322062090"
+            height="0"
+            width="0"
+            style={{display: 'none', visibility: 'hidden'}}
+          ></iframe>
           <img
             height="1"
             width="1"

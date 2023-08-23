@@ -16,12 +16,20 @@ const MyApp = ({Component, pageProps}) => {
         async
       />
       {/* <!-- Google Tag Manager --> */}
-      <Script src={`https://www.googletagmanager.com/gtag/js?id=${tag}`} />
+      <Script async src={`https://www.googletagmanager.com/gtag/js?id=${tag}`} />
       <Script id="google-analytics">
         {`window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', '${tag}');`}
+      </Script>
+
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=AW-322062090" />
+      <Script>
+        {`window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-322062090');`}
       </Script>
       {/* <!-- End Google Tag Manager --> */}
 
