@@ -32,24 +32,24 @@ export default {
       // validation: Rule => Rule.required()
     },
     {
-      type: 'heroEventRegistrationSection',
-      name: 'heroEventRegistrationSection'
-    },
-    {
-      type: 'eventSection',
-      name: 'eventSection'
-    },
-    {
-      name: 'ctaSection',
-      title: 'CTA section',
-      type: 'ctaSection'
-    },
-    {
       name: 'sections',
       type: 'object',
       title: 'Page sections',
       collapsible: true,
       fields: [
+        {
+          type: 'heroEventRegistrationSection',
+          name: 'heroEventRegistrationSection'
+        },
+        {
+          type: 'eventSection',
+          name: 'eventSection'
+        },
+        {
+          name: 'ctaSection',
+          title: 'CTA section',
+          type: 'ctaSection'
+        },
         {
           name: 'footer',
           type: 'object',

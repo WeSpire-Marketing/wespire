@@ -68,7 +68,6 @@ export default {
                   name: 'isScrollToForm',
                   title: 'Scroll to Section Form?',
                   type: 'boolean',
-
                   hidden: ({ parent }) => Boolean(!parent?.showBtn),
                   initialValue: () => false
                 },

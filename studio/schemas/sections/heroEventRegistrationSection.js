@@ -4,6 +4,55 @@ export default {
   title: 'Hero Event Registration Section',
   fields: [
     {
+      name: 'link',
+      type: 'object',
+      title: 'Section link',
+      fields: [
+        {
+          name: 'visibility',
+          title: 'Show button?',
+          type: 'boolean',
+          initialValue: () => true
+        },
+        {
+          name: 'text',
+          type: 'string',
+          title: 'Link text',
+          validation: Rule =>
+            Rule.custom((field, context) =>
+              context.parent.visibility && !field ? 'This field must not be empty.' : true
+            ),
+          hidden: ({ parent }) => Boolean(!parent?.visibility)
+        },
+        {
+          name: 'url',
+          type: 'string',
+          title: 'Link url',
+          validation: Rule =>
+            Rule.custom((field, context) =>
+              context.parent.visibility && !field ? 'This field must not be empty.' : true
+            ),
+          hidden: ({ parent }) => Boolean(!parent?.visibility)
+        },
+        {
+          name: 'internal',
+          type: 'boolean',
+          title: 'External/internal link',
+          description: 'By default all links are external and opens in new tab',
+          validation: Rule =>
+            Rule.custom((field, context) =>
+              context.parent.visibility && !field ? 'This field must not be empty.' : true
+            ),
+          hidden: ({ parent }) => Boolean(!parent?.visibility)
+        }
+      ],
+      initialValue: {
+        internal: false,
+        visibility: true
+      },
+      validation: Rule => Rule.required()
+    },
+    {
       name: 'title',
       type: 'string',
       title: 'Section title',
