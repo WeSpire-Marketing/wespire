@@ -12,11 +12,18 @@ import Logo from '../../icons/Logo'
 import ArrowIcon from '../../icons/ArrowIcon'
 const Img = dynamic(() => import('../../Img'))
 
-export default function HeroEventRegistrationSection({link, title, subtitle, formId, image}) {
+export default function HeroEventRegistrationSection({
+  link,
+  title,
+  titleForm,
+  text,
+  formId,
+  image,
+}) {
   return (
     <div className="demopage bg-pampas">
       <header
-        className="demo-header absolute top-[35px] left-0 right-0 z-10
+        className="demo-header hidden lg:flex absolute top-[35px] left-0 right-0 z-10
         lg:top-[20px]"
       >
         <div
@@ -28,8 +35,7 @@ export default function HeroEventRegistrationSection({link, title, subtitle, for
               <Logo />
             </a>
           </Link>
-
-          {link.internal ? (
+          {/* {link.internal ? (
             <Link href={link.url} passHref>
               <a
                 className="group flex items-center gap-2 font-poppins text-base
@@ -60,7 +66,22 @@ export default function HeroEventRegistrationSection({link, title, subtitle, for
                 <ArrowIcon className="max-w-[14px]" />
               </span>
             </a>
-          )}
+          )} */}{' '}
+          {link?.visibility &&
+            (link.internal ? (
+              <Link href={link.url} passHref>
+                <a className="hero-form__head__link cta-btn-black">{link.text}</a>
+              </Link>
+            ) : (
+              <a
+                className="hero-form__head__link cta-btn-black"
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {link.text}
+              </a>
+            ))}
         </div>
       </header>
 
@@ -84,29 +105,31 @@ export default function HeroEventRegistrationSection({link, title, subtitle, for
               >
                 {injectIconToSpanStr(title, Icon)}
               </h1>
-
-              <p
-                className="body-left__title body-m mb-8 max-w-[500px] text-secondary
+              {text && (
+                <p
+                  className="body-left__title body-m mb-8 max-w-[500px] text-secondary
                 lg:mb-[56px] lg:pl-[10px]"
-              >
-                {subtitle}
-              </p>
+                >
+                  {text}
+                </p>
+              )}
 
               <div className="body-left__image">
                 <Img
                   // layoutImg="fill"
-                  className="lg:w-[120%] lg:translate-x-[-60px] lg:translate-y-[-25px]"
+                  className="lg:w-full"
                   value={image.image}
                 />
               </div>
             </div>
 
-            <div className="body-right w-full max-w-[568px]">
+            <div className="body-right w-full max-w-[568px] lg:p-10">
+              {titleForm && <h3 className="heading-3 mb-4">{titleForm}</h3>}
               <DemoForm formId={formId} className="mb-[32px]" />
 
-              <p className="body-s mx-auto max-w-[438px] text-center text-secondary">
+              {/* <p className="body-s mx-auto max-w-[438px] text-center text-secondary">
                 By submitting this form I agree to receive marketing communications from WeSpire.
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
