@@ -113,6 +113,10 @@ import landingTemplateSustainability from './templates/landingTemplateSustainabi
 import formImageSection from './sections/formImageSection'
 import ctaPdfSection from './sections/ctaPdfSection'
 import bulletSection from './sections/bulletSection'
+import landingTemplateEventRegistration from './templates/landingTemplateEventRegistration'
+import heroEventRegistrationSection from './sections/heroEventRegistrationSection'
+import eventSection from './sections/eventSection'
+
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   name: 'default',
@@ -143,6 +147,8 @@ export default createSchema({
     landingTemplateCompetitor,
     landingTemplateReport,
     landingTemplateSustainability,
+    landingTemplateEventRegistration,
+    heroEventRegistrationSection,
     // sections
     hero,
     heroForm,
@@ -186,6 +192,7 @@ export default createSchema({
     imageTextSection,
     formImageSection,
     ctaPdfSection,
+    eventSection,
     // other types
     video,
     stories,

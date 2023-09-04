@@ -17,6 +17,7 @@ export const SessionSection = dynamic(() => import('./SessionSection'), {ssr: fa
 export const HeroInfoSection = dynamic(() => import('./HeroInfoSection'))
 export const HeroImageAndForm = dynamic(() => import('./HeroImageAndForm'))
 export const HeroVideoAndForm = dynamic(() => import('./HeroVideoAndForm'))
+export const HeroEventRegistrationSection = dynamic(() => import('./HeroEventRegistrationSection'))
 export const CapabilitiesSection = dynamic(() => import('./CapabilitiesSection'), {ssr: false})
 export const OpeningsPressSection = dynamic(() => import('./OpeningsPressSection'), {ssr: false})
 export const CustomerStoriesSection = dynamic(() => import('./CustomerStoriesSection'), {
@@ -52,6 +53,12 @@ export const LandingTemplateSustainability = dynamic(
     ssr: false,
   }
 )
+export const LandingTemplateEventRegistration = dynamic(
+  () => import('./LandingTemplateEventRegistration'),
+  {
+    ssr: false,
+  }
+)
 export const FormImageSection = dynamic(() => import('./FormImageSection'), {ssr: false})
 export const SustainCardsSection = dynamic(() => import('./SustainCardsSection'), {ssr: false})
 export const HeroFormVideo = dynamic(() => import('./HeroFormVideo'))
@@ -65,7 +72,8 @@ export const SliderReportSection = dynamic(() => import('./SliderReportSection')
 export const TableImage = dynamic(() => import('./TableImage'), {ssr: false})
 export const CardsSectionReport = dynamic(() => import('./CardsSectionReport'), {ssr: false})
 export const BulletSection = dynamic(() => import('./BulletSection'), {ssr: false})
-
+export const EventSection = dynamic(() => import('./EventSection'), {ssr: false})
+//Template
 export const BlogTemplate = dynamic(() => import('./BlogTemplate'))
 export const ProductTemplate = dynamic(() => import('./ProductTemplate'))
 export const ProductVideoTemplate = dynamic(() => import('./ProductVideoTemplate'))

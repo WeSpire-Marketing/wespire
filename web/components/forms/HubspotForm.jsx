@@ -33,6 +33,7 @@ const HubspotForm = (props) => {
           portalId,
           formId,
           target: '#hubspotform',
+          css: '#hubspotform',
         })
         if (window.hbspt?.forms) setLoading(false)
       }

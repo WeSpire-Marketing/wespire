@@ -30,7 +30,8 @@ export default {
         { name: 'whyWespireTemplate', type: 'whyWespireTemplate' },
         { name: 'wespireLiveTemplate', type: 'wespireLiveTemplate' },
         { name: 'landingTemplateReport', type: 'landingTemplateReport' },
-        { name: 'landingTemplateSustainability', type: 'landingTemplateSustainability' }
+        { name: 'landingTemplateSustainability', type: 'landingTemplateSustainability' },
+        { name: 'landingTemplateEventRegistration', type: 'landingTemplateEventRegistration' }
         // sections schemas
         // { name: 'heroVideo', type: 'heroVideo' },
         // { name: 'heroSection', type: 'heroSection' },
