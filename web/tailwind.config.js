@@ -72,6 +72,7 @@ module.exports = {
         quotes: "url('../assets/images/quotesIcon.svg')",
         heroForm: "url('../assets/images/heroFormBg.svg')",
         snakeLine: "url('../assets/images/bg-snake-line.svg')",
+        snakeLineDark: "url('../assets/images/bg-snake-line-dark.svg')",
       },
       textColor: {
         skin: {

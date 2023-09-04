@@ -86,28 +86,29 @@ export default function HeroEventRegistrationSection({
       </header>
 
       <motion.section
-        className="body pt-[170px] pb-[90px] lg:pt-[205px] lg:pb-[200px]"
+        className="relative body pt-[170px] pb-[30px] lg:pt-[205px] lg:pb-[200px] lg:overflow-hidden"
         variants={pageTransitionVariants}
         initial="hidden"
         animate="visible"
         exit="exit"
       >
-        <div className="container">
+        <div className="absolute w-full h-full bg-snakeLineDark bg-no-repeat bg-[-4rem_top] lg:bg-[-12rem_top] " />
+        <div className="container  ">
           <div
             className="body-inner flex flex-col items-start gap-[48px]
             sm:flex-row
             lg:gap-[98px]"
           >
-            <div className="body-left w-full">
+            <div className="body-left w-full mb-[24px] lg:mb-0">
               <h1
-                className="body-left__title heading-2 mb-4 text-[34px] lg:mb-[19px]
-                lg:pl-[10px] lg:text-[46px]"
+                className="body-left__title text-center lg:text-left heading-1 mb-4 text-[34px] lg:mb-[19px]
+                lg:pl-[10px] lg:text-[56px]"
               >
                 {injectIconToSpanStr(title, Icon)}
               </h1>
               {text && (
                 <p
-                  className="body-left__title body-m mb-8 max-w-[500px] text-secondary
+                  className="body-left__title text-center lg:text-left body-m mb-[55px] max-w-[500px] text-secondary
                 lg:mb-[56px] lg:pl-[10px]"
                 >
                   {text}
@@ -124,7 +125,11 @@ export default function HeroEventRegistrationSection({
             </div>
 
             <div className="body-right w-full max-w-[568px] lg:p-10">
-              {titleForm && <h3 className="heading-3 mb-4">{titleForm}</h3>}
+              {titleForm && (
+                <h3 className="heading-2 lg:heading-3 text-center lg:text-left mb-8">
+                  {titleForm}
+                </h3>
+              )}
               <DemoForm formId={formId} className="mb-[32px]" />
 
               {/* <p className="body-s mx-auto max-w-[438px] text-center text-secondary">

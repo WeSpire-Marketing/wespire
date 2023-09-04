@@ -18,10 +18,10 @@ export default function EventSection({title, titleSecond, text, eventList}) {
     anchor.scrollIntoView({behavior: 'smooth', block: 'center'})
   }
   return (
-    <section className="bg-pampas">
+    <section className="bg-pampas ">
       <div
         className="rounded-t-[30px] bg-gallery pt-12 pb-[132px]
-        lg:rounded-t-[60px] lg:pt-[100px] lg:pb-[148px]"
+        lg:rounded-t-[60px] lg:pt-[100px] lg:pb-[148px] "
       >
         <div className="container px-4 sm:px-4 md:px-6 lg:px-8">
           {(text || titleSecond) && (
@@ -52,7 +52,7 @@ export default function EventSection({title, titleSecond, text, eventList}) {
               ))}
             </h2>
             {Boolean(eventList?.length) && (
-              <ul className="flex flex-col md:flex-row gap-6 justify-center items-center">
+              <ul className="flex flex-col md:flex-row gap-6 justify-center items-center lg:items-start">
                 {eventList.map(({image, title, _key, text, link}) => {
                   return (
                     <li
