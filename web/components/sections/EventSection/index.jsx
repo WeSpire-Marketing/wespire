@@ -1,7 +1,4 @@
 import Link from 'next/link'
-import Img from '../../Img'
-
-import {motion} from 'framer-motion'
 import {injectIconToSpanStr} from '../../../utils'
 import Icon1 from '../../icons/AnimatedStars2'
 import Icon from '../../icons/AnimatedLines'
@@ -46,18 +43,18 @@ export default function EventSection({title, titleSecond, text, eventList}) {
             <h2 className="carection__title heading-2 mb-16 text-center mx-auto  lg:mb-20 w-full max-w-[690px]">
               {injectIconToSpanStr(title, () => (
                 <Icon
-                  className="absolute top-[-30px] right-[-15px] h-[24px] w-[40px]
-                  lg:top-[-30px] lg:right-[-35px] lg:h-[30px] lg:w-full"
+                  className="absolute hidden lg:block
+                  lg:top-[-20px] lg:right-[-70px] lg:h-[30px] lg:w-full"
                 />
               ))}
             </h2>
             {Boolean(eventList?.length) && (
-              <ul className="flex flex-col md:flex-row gap-6 justify-center items-center lg:items-start">
+              <ul className="grid grid-cols-1 lg:grid-cols-3 gap-6 justify-center items-center lg:items-start">
                 {eventList.map(({image, title, _key, text, link}) => {
                   return (
                     <li
                       key={`${_key}`}
-                      className="flex flex-col gap-4 w-full max-w-xs items-center"
+                      className="flex flex-col gap-4 w-full h-full items-center text-center"
                     >
                       <div className="relative w-20 h-20 mb-2">
                         <Image
@@ -69,7 +66,7 @@ export default function EventSection({title, titleSecond, text, eventList}) {
                           alt="icon"
                         />
                       </div>
-                      <h3 className="heading-4 text-[#000]">{title}</h3>
+                      <h3 className="heading-4 text-[#000] text-center">{title}</h3>
                       <p className="text-base w-full max-w-[200px] text-center">{text}</p>
                       {Boolean(link?.showBtn) && (
                         <Fragment>
@@ -87,10 +84,10 @@ export default function EventSection({title, titleSecond, text, eventList}) {
                               />
                             </a>
                           ) : link.internal ? (
-                            <Link href={link.url} passHref scroll={false}>
+                            <Link href={link.url} passHref scroll={false} className="mt-auto">
                               <a
                                 className="group inline-flex w-fit items-center gap-[10px]
-            font-poppins text-[16px] font-semibold leading-[150%] text-smart mt-auto"
+            font-poppins text-[16px] font-semibold leading-[150%] text-smart"
                               >
                                 {link.text}
                                 <ArrowIcon

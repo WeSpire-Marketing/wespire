@@ -53,6 +53,23 @@ export default {
       validation: Rule => Rule.required()
     },
     {
+      name: 'titleSmall',
+      type: 'object',
+      title: 'Section title H1 Small',
+      fields: [
+        {
+          name: 'title',
+          type: 'string',
+          title: 'Title H1'
+        },
+        {
+          name: 'colorText',
+          title: 'Text color',
+          type: 'color'
+        }
+      ]
+    },
+    {
       name: 'title',
       type: 'string',
       title: 'Section title',
