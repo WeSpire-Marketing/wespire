@@ -8,12 +8,15 @@ import ArrowIcon from '../../icons/ArrowIcon'
 import {Fragment} from 'react'
 
 export default function EventSection({title, titleSecond, text, eventList}) {
+  const showSecondLinkEventList = eventList.some((item) => item.linkSecond.showSecondBtn)
+
   const scrollTo = (e) => {
     e.preventDefault()
 
     const anchor = document.querySelector('#hubspotform')
     anchor.scrollIntoView({behavior: 'smooth', block: 'center'})
   }
+
   return (
     <section className="bg-pampas ">
       <div
@@ -50,7 +53,7 @@ export default function EventSection({title, titleSecond, text, eventList}) {
             </h2>
             {Boolean(eventList?.length) && (
               <ul className="grid grid-cols-1 lg:grid-cols-3 gap-6 justify-center items-center lg:items-start">
-                {eventList.map(({image, title, _key, text, link}) => {
+                {eventList.map(({image, title, _key, text, link, linkSecond}) => {
                   return (
                     <li
                       key={`${_key}`}
@@ -68,26 +71,19 @@ export default function EventSection({title, titleSecond, text, eventList}) {
                       </div>
                       <h3 className="heading-4 text-[#000] text-center">{title}</h3>
                       <p className="text-base w-full max-w-[200px] text-center">{text}</p>
-                      {Boolean(link?.showBtn) && (
-                        <Fragment>
-                          {link?.isScrollToForm ? (
-                            <a
-                              className="group inline-flex w-fit items-center gap-[10px]
-            font-poppins text-[16px] font-semibold leading-[150%] text-smart mt-auto"
-                              href={''}
-                              onClick={scrollTo}
-                            >
-                              {link.text}
-                              <ArrowIcon
-                                className="w-[16px] transition-all duration-200 ease-in-out
-              group-hover:translate-x-2"
-                              />
-                            </a>
-                          ) : link.internal ? (
-                            <Link href={link.url} passHref scroll={false} className="mt-auto">
+                      <div
+                        className={`flex flex-col mt-auto gap-3 w-full items-center ${
+                          showSecondLinkEventList ? 'h-[60px]' : ''
+                        }`}
+                      >
+                        {Boolean(link?.showBtn) && (
+                          <Fragment>
+                            {link?.isScrollToForm ? (
                               <a
                                 className="group inline-flex w-fit items-center gap-[10px]
             font-poppins text-[16px] font-semibold leading-[150%] text-smart"
+                                href={''}
+                                onClick={scrollTo}
                               >
                                 {link.text}
                                 <ArrowIcon
@@ -95,24 +91,82 @@ export default function EventSection({title, titleSecond, text, eventList}) {
               group-hover:translate-x-2"
                                 />
                               </a>
-                            </Link>
-                          ) : (
-                            <a
-                              className="group inline-flex w-fit items-center gap-[10px]
-            font-poppins text-[16px] font-semibold leading-[150%] text-smart mt-auto"
-                              href={link.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              {link.text}
-                              <ArrowIcon
-                                className="w-[16px] transition-all duration-200 ease-in-out
+                            ) : link.internal ? (
+                              <Link href={link.url} passHref scroll={false}>
+                                <a
+                                  className="group inline-flex w-fit items-center gap-[10px]
+            font-poppins text-[16px] font-semibold leading-[150%] text-smart"
+                                >
+                                  {link.text}
+                                  <ArrowIcon
+                                    className="w-[16px] transition-all duration-200 ease-in-out
               group-hover:translate-x-2"
-                              />
-                            </a>
-                          )}
-                        </Fragment>
-                      )}
+                                  />
+                                </a>
+                              </Link>
+                            ) : (
+                              <a
+                                className="group inline-flex w-fit items-center gap-[10px]
+            font-poppins text-[16px] font-semibold leading-[150%] text-smart"
+                                href={link.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                {link.text}
+                                <ArrowIcon
+                                  className="w-[16px] transition-all duration-200 ease-in-out
+              group-hover:translate-x-2"
+                                />
+                              </a>
+                            )}
+                          </Fragment>
+                        )}
+                        {Boolean(linkSecond?.showSecondBtn) && (
+                          <Fragment>
+                            {linkSecond?.isScrollToForm ? (
+                              <a
+                                className="group inline-flex w-fit items-center gap-[10px]
+            font-poppins text-[16px] font-semibold leading-[150%] text-smart"
+                                href={''}
+                                onClick={scrollTo}
+                              >
+                                {linkSecond.textSecond}
+                                <ArrowIcon
+                                  className="w-[16px] transition-all duration-200 ease-in-out
+              group-hover:translate-x-2"
+                                />
+                              </a>
+                            ) : linkSecond.internalSecond ? (
+                              <Link href={linkSecond.urlSecond} passHref scroll={false}>
+                                <a
+                                  className="group inline-flex w-fit items-center gap-[10px]
+            font-poppins text-[16px] font-semibold leading-[150%] text-smart"
+                                >
+                                  {linkSecond.textSecond}
+                                  <ArrowIcon
+                                    className="w-[16px] transition-all duration-200 ease-in-out
+              group-hover:translate-x-2"
+                                  />
+                                </a>
+                              </Link>
+                            ) : (
+                              <a
+                                className="group inline-flex w-fit items-center gap-[10px]
+            font-poppins text-[16px] font-semibold leading-[150%] text-smart"
+                                href={linkSecond.urlSecond}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                {linkSecond.textSecond}
+                                <ArrowIcon
+                                  className="w-[16px] transition-all duration-200 ease-in-out
+              group-hover:translate-x-2"
+                                />
+                              </a>
+                            )}
+                          </Fragment>
+                        )}
+                      </div>
                     </li>
                   )
                 })}
