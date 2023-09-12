@@ -105,6 +105,63 @@ export default {
                 showBtn: true
               },
               validation: Rule => Rule.required()
+            },
+            {
+              name: 'linkSecond',
+              type: 'object',
+              title: 'Second Card link',
+              description: 'Optional.',
+              fields: [
+                {
+                  name: 'showSecondBtn',
+                  title: 'Show second link?',
+                  type: 'boolean',
+                  initialValue: () => true
+                },
+                {
+                  name: 'isSecondScrollToForm',
+                  title: 'Scroll to Section Form?',
+                  type: 'boolean',
+                  hidden: ({ parent }) => Boolean(!parent?.showSecondBtn),
+                  initialValue: () => false
+                },
+                {
+                  name: 'textSecond',
+                  type: 'string',
+                  title: 'Link text',
+                  hidden: ({ parent }) => Boolean(!parent?.showSecondBtn),
+                  validation: Rule =>
+                    Rule.custom((field, context) =>
+                      context.parent.showSecondBtn && !field
+                        ? 'This field must not be empty.'
+                        : true
+                    )
+                },
+                {
+                  name: 'urlSecond',
+                  type: 'string',
+                  title: 'Link url',
+                  hidden: ({ parent }) => Boolean(!parent?.showSecondBtn),
+                  validation: Rule =>
+                    Rule.custom((field, context) =>
+                      context.parent.showSecondBtn && !field
+                        ? 'This field must not be empty.'
+                        : true
+                    )
+                },
+                {
+                  name: 'internalSecond',
+                  type: 'boolean',
+                  title: 'Internal link',
+                  description: 'By default all links are external and opens in new tab',
+                  hidden: ({ parent }) => Boolean(!parent?.showSecondBtn),
+                  validation: Rule => Rule.required()
+                }
+              ],
+              initialValue: {
+                internalSecond: false,
+                showSecondBtn: false
+              }
             }
           ],
           validation: Rule => Rule.required()
