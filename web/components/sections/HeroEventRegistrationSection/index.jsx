@@ -65,14 +65,14 @@ export default function HeroEventRegistrationSection({
         </header>
 
         <motion.section
-          className="relative body pt-[170px] pb-[30px] lg:pt-[205px] lg:pb-[200px] lg:overflow-hidden"
+          className="relative body pt-[170px] pb-[30px] lg:pt-[205px] lg:pb-[200px] md:overflow-hidden"
           variants={pageTransitionVariants}
           initial="hidden"
           animate="visible"
           exit="exit"
         >
-          <div className="absolute w-full h-full bg-snakeLineDark bg-no-repeat bg-[-4rem_top] lg:bg-[-12rem_top] " />
-          <div className="container  ">
+          <div className="absolute w-full md:w-1/2 h-2/3 md:h-full bg-snakeLineDark bg-no-repeat bg-[-4rem_top] lg:bg-[-12rem_top] " />
+          <div className="container   ">
             <div
               className="body-inner flex flex-col items-start gap-[48px]
             sm:flex-row
