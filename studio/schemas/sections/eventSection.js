@@ -18,10 +18,46 @@ export default {
         'Optional title. Wrap the word with <span> to show animation. Example: <span>Easy</span>'
     },
     {
-      name: 'text',
-      type: 'text',
+      name: 'content',
       title: 'Text under the title',
-      description: 'Optional field'
+      description: 'Optional field',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+          styles: [
+            { title: 'H2', value: 'h2' },
+            { title: 'H3', value: 'h3' },
+            { title: 'H4', value: 'h4' },
+            { title: 'Quote', value: 'blockquote' },
+            { title: 'Normal', value: 'normal' }
+          ],
+          marks: {
+            annotations: [
+              {
+                name: 'link',
+                type: 'object',
+                title: 'URL',
+                fields: [
+                  {
+                    title: 'URL',
+                    name: 'href',
+                    type: 'url'
+                  },
+                  {
+                    title: 'Open in new tab',
+                    name: 'blank',
+                    type: 'boolean'
+                  }
+                ],
+                initialValue: {
+                  blank: false
+                }
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       name: 'eventList',
