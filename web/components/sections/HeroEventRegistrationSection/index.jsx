@@ -81,7 +81,7 @@ export default function HeroEventRegistrationSection({
               <div className="body-left w-full mb-[24px] lg:mb-0">
                 {titleSmall?.title ? (
                   <Fragment>
-                    <h1 className="body-m mb-2 text-[22px] font-bold text-center lg:text-left text-skin-h1SmallTitleLanding-colorText">
+                    <h1 className="body-m mb-2 text-[22px] lg:pl-[10px] font-bold text-center lg:text-left text-skin-h1SmallTitleLanding-colorText">
                       {titleSmall?.title}
                     </h1>
                     <h2

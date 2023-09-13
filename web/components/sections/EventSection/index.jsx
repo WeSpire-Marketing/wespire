@@ -6,8 +6,10 @@ import Image from 'next/image'
 import {urlForImage} from '../../../client'
 import ArrowIcon from '../../icons/ArrowIcon'
 import {Fragment} from 'react'
+import {PortableText} from '@portabletext/react'
+import myPortableTextComponents from '../../../utils/myPortableComponents'
 
-export default function EventSection({title, titleSecond, text, eventList}) {
+export default function EventSection({title, titleSecond, eventList, content}) {
   const showSecondLinkEventList = eventList.some((item) => item.linkSecond.showSecondBtn)
 
   const scrollTo = (e) => {
@@ -24,7 +26,7 @@ export default function EventSection({title, titleSecond, text, eventList}) {
         lg:rounded-t-[60px] lg:pt-[100px] lg:pb-[148px] "
       >
         <div className="container px-4 sm:px-4 md:px-6 lg:px-8">
-          {(text || titleSecond) && (
+          {(content?.length || titleSecond) && (
             <div className="mb-[100px] lg:mb-[120px] ">
               {titleSecond && (
                 <h2 className="carection__title heading-2 mb-4 text-center  lg:mb-8">
@@ -37,8 +39,14 @@ export default function EventSection({title, titleSecond, text, eventList}) {
                   ))}
                 </h2>
               )}
-              {text && (
-                <p className="body-m md:mx-auto text-center text-lg w-full max-w-[808px]">{text}</p>
+              {Boolean(content.length) && (
+                <div className="content prose md:mx-auto text-center w-full max-w-[808px]">
+                  <PortableText
+                    components={myPortableTextComponents}
+                    value={content}
+                    onMissingComponent={false}
+                  />
+                </div>
               )}
             </div>
           )}
