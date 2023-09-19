@@ -26,7 +26,7 @@ export default function Footer({
     >
       <div className="container">
         <div className="footer__body">
-          <div className="footer__left flex w-[100%] max-w-[204px] flex-col gap-8 lg:gap-12">
+          <div className="footer__left flex w-[100%] max-w-[240px] flex-col gap-8 lg:gap-12">
             <div className="footer__logo relative block h-[45px] w-[125px] lg:h-[60px] lg:w-[162px]">
               <Image
                 // width={162}
