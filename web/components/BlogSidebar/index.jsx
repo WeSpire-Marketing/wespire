@@ -32,12 +32,13 @@ export default function BlogSidebar({items = [], slug, showAuthorBio, author}) {
     }
   }, [items])
 
-  const shareFacebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-    `${process.env.NEXT_PUBLIC_DOMAIN}/blog/${slug}`
-  )}`
-  const shareTwitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-    `${process.env.NEXT_PUBLIC_DOMAIN}/blog/${slug}`
-  )}`
+  // TODO: Hide social icons by switcher in Sanity
+  // const shareFacebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+  //   `${process.env.NEXT_PUBLIC_DOMAIN}/blog/${slug}`
+  // )}`
+  // const shareTwitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+  //   `${process.env.NEXT_PUBLIC_DOMAIN}/blog/${slug}`
+  // )}`
   const shareLinkedInUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
     `${process.env.NEXT_PUBLIC_DOMAIN}/blog/${slug}`
   )}`
@@ -138,7 +139,7 @@ export default function BlogSidebar({items = [], slug, showAuthorBio, author}) {
         </p>
 
         <ul className="flex gap-[20px]">
-          <li>
+          {/* <li>
             <Link href={shareTwitterUrl} passHref>
               <a
                 className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-full
@@ -149,7 +150,7 @@ export default function BlogSidebar({items = [], slug, showAuthorBio, author}) {
                 <TwitterIcon className="w-[24px]" />
               </a>
             </Link>
-          </li>
+          </li> */}
 
           <li>
             <Link href={shareLinkedInUrl} passHref>
@@ -164,7 +165,7 @@ export default function BlogSidebar({items = [], slug, showAuthorBio, author}) {
             </Link>
           </li>
 
-          <li>
+          {/* <li>
             <Link href={shareFacebookUrl} passHref>
               <a
                 className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-full
@@ -175,7 +176,7 @@ export default function BlogSidebar({items = [], slug, showAuthorBio, author}) {
                 <FacebookIcon className="w-[24px]" />
               </a>
             </Link>
-          </li>
+          </li> */}
         </ul>
       </div>
     </aside>
