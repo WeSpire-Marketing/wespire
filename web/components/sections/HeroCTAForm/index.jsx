@@ -2,8 +2,18 @@ import Img from '../../Img'
 import SignMeUpForm from '../../forms/SignMeUpForm'
 
 import {injectIconToSpanStr} from '../../../utils'
+import Blurb from '../../Blurb'
 
-export default function HeroCTAForm({className = '', title, text, formId, image, Icon}) {
+export default function HeroCTAForm({
+  className = '',
+  title,
+  text,
+  formId,
+  image,
+  Icon,
+  showHeroForm = true,
+  showBlurb = false,
+}) {
   return (
     <section className={className + ' herocta overflow-hidden bg-pampas'}>
       <div className="container px-2 lg:px-8">
@@ -31,17 +41,19 @@ export default function HeroCTAForm({className = '', title, text, formId, image,
               >
                 {text}
               </p>
-
-              <SignMeUpForm
-                formId={formId}
-                buttonText="Sign me up"
-                placeholder="Enter your business email"
-                buttonClasses="w-full primary-btn bg-smart shrink-0 py-[11px]
+              {showHeroForm && (
+                <SignMeUpForm
+                  formId={formId}
+                  buttonText="Sign me up"
+                  placeholder="Enter your business email"
+                  buttonClasses="w-full primary-btn bg-smart shrink-0 py-[11px]
                 lg:w-auto"
-                formClasses="flex flex-col gap-4 items-center mx-auto max-w-[350px] lg:max-w-[475px] relative
+                  formClasses="flex flex-col gap-4 items-center mx-auto max-w-[350px] lg:max-w-[475px] relative
                 lg:flex-row lg:gap-2"
-                errorClasses="absolute top-[-21px] h-fit lg:top-[unset]"
-              />
+                  errorClasses="absolute top-[-21px] h-fit lg:top-[unset]"
+                />
+              )}
+              {showBlurb && <Blurb />}
             </div>
           </div>
 

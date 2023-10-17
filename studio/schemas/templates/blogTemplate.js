@@ -2,6 +2,10 @@ export default {
   name: 'blogTemplate',
   title: 'Blog template',
   type: 'object',
+  initialValue: {
+    showHeroForm: true,
+    showBlurb: false
+  },
   fields: [
     // {
     //   name: 'pageMeta',
@@ -22,11 +26,31 @@ export default {
       validation: Rule => Rule.required()
     },
     {
+      name: 'showHeroForm',
+      type: 'boolean',
+      title: 'Show Hubspot Form?',
+      initialValue: 'true'
+    },
+    {
       name: 'formId',
       type: 'string',
       title: 'Form ID',
       description: 'Use only Hubspot form id',
-      validation: Rule => Rule.required()
+      validation: Rule =>
+        Rule.custom((doc, { parent }) => {
+          if (doc === undefined && parent.showHeroForm) {
+            return 'Form ID required'
+          } else {
+            return true
+          }
+        }),
+      hidden: ({ parent: { showHeroForm } }) => !showHeroForm
+    },
+    {
+      name: 'showBlurb',
+      type: 'boolean',
+      title: 'Show blurb notification?',
+      initialValue: 'false'
     },
     {
       name: 'form1',

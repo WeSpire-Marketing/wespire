@@ -1,14 +1,15 @@
 import {useRouter} from 'next/router'
-import {useRef, useState, useEffect} from 'react'
+import {useEffect, useRef, useState} from 'react'
 
 import BlogCard from '../../BlogCard'
+import CategoriesList from '../../CategoriesList'
 import Pagination from '../../Pagination'
 import SearchPanel from '../../SearchPanel'
-import Icon from '../../icons/AnimatedHighlight'
-import CategoriesList from '../../CategoriesList'
 import SignMeUpForm from '../../forms/SignMeUpForm'
+import Icon from '../../icons/AnimatedHighlight'
 
 import {GetForm} from '../../../utils/forms'
+import Blurb from '../../Blurb'
 
 const BlogTemplate = ({
   categories,
@@ -20,6 +21,8 @@ const BlogTemplate = ({
   blogs,
   totalBlogs,
   defaultCategory,
+  showHeroForm = true,
+  showBlurb = false,
 }) => {
   const router = useRouter()
   const scrollToRef = useRef(null)
@@ -140,13 +143,15 @@ const BlogTemplate = ({
             >
               {subtitle}
             </p>
-
-            <div
-              className="flex flex-col items-center mx-auto gap-4 px-4 md:px-0 relative
+            {showHeroForm && (
+              <div
+                className="flex flex-col items-center mx-auto gap-4 px-4 md:px-0 relative
               lg:flex-row lg:gap-[8px] md:max-w-[475px] lg:max-w-[475px]"
-            >
-              <SignMeUpForm formId={formId} />
-            </div>
+              >
+                <SignMeUpForm formId={formId} />
+              </div>
+            )}
+            {showBlurb && <Blurb />}
           </div>
 
           {form1.isForm && <GetForm className="mb-[100px] lg:mb-[140px]" {...form1.form[0]} />}
