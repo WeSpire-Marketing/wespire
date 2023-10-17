@@ -1,21 +1,21 @@
-import groq from 'groq'
-import Image from 'next/image'
-import {motion} from 'framer-motion'
-import {useEffect, useState} from 'react'
 import {PortableText} from '@portabletext/react'
+import {motion} from 'framer-motion'
+import groq from 'groq'
 import {useNextSanityImage} from 'next-sanity-image'
-import Link from 'next/link'
 import dynamic from 'next/dynamic'
+import Image from 'next/image'
+import {useEffect, useState} from 'react'
 
-import {GetForm} from '../../utils/forms'
 import {formatTimestamp} from '../../utils'
-import {slugParamToPath} from '../../utils/urls'
-import myPortableTextComponents from '../../utils/myPortableComponents'
+import {GetForm} from '../../utils/forms'
 import useCustomScrollBehavior from '../../utils/hooks/useCustomScrollBehavior'
+import myPortableTextComponents from '../../utils/myPortableComponents'
+import {slugParamToPath} from '../../utils/urls'
 
 import client, {urlForImage} from '../../client'
 
 import localDataURL from '../../assets/images/blur-placeholder.jpg'
+import Blurb from '../../components/Blurb'
 import {createSeoScript} from '../../utils/seo'
 
 const PageMeta = dynamic(() => import('../../components/PageMeta'))
@@ -25,7 +25,7 @@ const BlogSidebar = dynamic(() => import('../../components/BlogSidebar'), {ssr: 
 const RelatedBlock = dynamic(() => import('../../components/RelatedBlock'), {ssr: false})
 
 const CtaSection = dynamic(() => import('../../components/sections/CTASection'), {ssr: false})
-const HubspotForm = dynamic(() => import('../../components/forms/HubspotForm'), {ssr: false})
+// const HubspotForm = dynamic(() => import('../../components/forms/HubspotForm'), {ssr: false})
 const GoogleFAQSection = dynamic(() => import('../../components/sections/GoogleFAQSection'), {
   ssr: false,
 })
@@ -115,7 +115,6 @@ export default function Index({
   useCustomScrollBehavior()
   const [formattedDate, setFormattedDate] = useState(null)
   const imageProps = useNextSanityImage(client, imageData.image)
-  const showBlurb = Boolean(categories[0].title === 'Saturday Spark')
 
   useEffect(() => setFormattedDate(formatTimestamp(publishedAt)), [])
 
@@ -179,7 +178,7 @@ export default function Index({
                     />
                   </div>
 
-                  {constFormId[categories?.[0]?.title] && (
+                  {/* {constFormId[categories?.[0]?.title] && (
                     <div
                       className={`${
                         showBlurb ? 'mb-4' : 'mb-8'
@@ -187,19 +186,8 @@ export default function Index({
                     >
                       <HubspotForm page="article" formId={constFormId[categories?.[0]?.title]} />
                     </div>
-                  )}
-                  {showBlurb && (
-                    <div
-                      class="w-full max-w-[540px] mx-4 md:mx-auto lg:mx-0 px-4 py-[10px] mb-4 lg:mb-10 rounded-lg bg-[#FFCC7B] font-medium font-poppins  text-secondary text-[14px]"
-                      role="alert"
-                    >
-                      We are no longer accepting subscriptions to Saturday Spark, but please join us
-                      for our other weekly newsletter,{' '}
-                      <Link href={'/blog'} passHref>
-                        <a className="text-[14px] text-smart font-bold">WeSpire Weekly!</a>
-                      </Link>
-                    </div>
-                  )}
+                  )} */}
+                  <Blurb />
                   <div
                     className={`article__author inline-flex items-center gap-4 px-4 lg:px-0 ${
                       !constFormId[categories?.[0]?.title] ? 'mt-[32px] lg:mt-[88px]' : ''
