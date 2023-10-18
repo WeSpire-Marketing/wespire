@@ -187,7 +187,7 @@ export default function Index({
                       <HubspotForm page="article" formId={constFormId[categories?.[0]?.title]} />
                     </div>
                   )} */}
-                  <Blurb />
+                  {/* <Blurb /> */}
                   <div
                     className={`article__author inline-flex items-center gap-4 px-4 lg:px-0 ${
                       !constFormId[categories?.[0]?.title] ? 'mt-[32px] lg:mt-[88px]' : ''
